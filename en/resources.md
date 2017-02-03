@@ -5,9 +5,22 @@ Plugins, like Craft, are supposed to be installed above the web root, which ensu
 
 There’s one case where it would be nice if HTTP requests *could* access Craft/plugin files directly though: front-end resources, such as CSS and JS files.
 
-Thankfully, Yii has a mechanism that helps with this, called “[asset bundles](http://www.yiiframework.com/doc-2.0/guide-structure-assets.html)”. In a nutshell, an asset bundle is a class that can publish an inaccessible directory some place below the web root, making it available for front-end pages to consume via HTTP requests.
+Between Craft and Yii, there are a couple ways you can address this.
 
-## Setting it Up
+- [Asset Bundles](#asset-bundles)
+  - [Setting it Up](#setting-it-up)
+  - [Registering the Asset Bundle](#registering-the-asset-bundle)
+  - [Getting Published File URLs](#getting-published-file-urls)
+- [Dynamic Resources](#dynamic-resources)
+
+## Asset Bundles
+
+[Asset bundles](http://www.yiiframework.com/doc-2.0/guide-structure-assets.html) do two things:
+
+- They publish an inaccessible directory into a directory below the web root, making it available for front-end pages to consume via HTTP requests.
+- They can register specific CSS and JS files within the directory as `<link>` and `<script>` tags in the currently-rendered page.
+
+### Setting it Up
 
 First establish where you want your web-publishable files to live within your plugin. Give them a directory that’s just for them. This will be the asset bundle’s **source directory**. For this example, we’ll go with `resources/`.
 
@@ -61,7 +74,7 @@ class MyPluginAsset extends AssetBundle
 }
 ```
 
-## Registering the Asset Bundle
+### Registering the Asset Bundle
 
 With that in place, all that is left is to register the asset bundle wherever its JS/CSS files are needed.
 
@@ -84,7 +97,7 @@ public function actionFoo()
 }
 ```
 
-## Getting Published File URLs
+### Getting Published File URLs
 
 If you have a one-off file that you need to get the published URL for, but it doesn’t need to be registered as a CSS or JS file on the current page, you can use `craft\web\AssetManager::getPublishedUrl()`:
 
@@ -99,3 +112,32 @@ If the file lives within an asset bundle’s source directory, then only pass th
 ```php
 $url = Craft::$app->assetManager->getPublishedUrl('@ns/prefix/resources', true).'/path/to/file.svg';
 ```
+
+## Dynamic Resources
+
+Asset bundles are great for static files. If you need to make dynamically-generated files available on the front-end, Craft has the concept of “resource requests”.
+
+Resource requests have URIs that begin with `admin/resources/` in the Control Panel, or the `resourceTrigger` config setting value for front-end request. They get routed to the Resources service (`craft\services\Resources::sendResource()`), which will attempt to map the URI to a file path, and send the file back to the client.
+
+The Resources service has a number of URI checks it will run through. If each of those checks fail, it will fire a `resolveResourcePath` event, giving plugins an opportunity to do their own URI-file path matching.
+
+Here’s how your plugin can listen to that event from its `init()` method:
+
+```php
+use craft\events\ResolveResourcePathEvent;
+use craft\services\Resources;
+use yii\base\Event;
+
+public function init()
+{
+    Event::on(Resources::class, Resources::EVENT_RESOLVE_RESOURCE_PATH, function(ResolveResourcePathEvent $event) {
+        if ($event->uri === 'foo/bar') {
+            $event->path = \Craft::getAlias('@ns/prefix/path/to/foo/bar.ext');
+            
+            // Prevent other event listeners from getting invoked
+            $event->handled = true;
+        }
+    });
+}
+```
+
