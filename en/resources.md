@@ -12,6 +12,7 @@ Between Craft and Yii, there are a couple ways you can address this.
   - [Registering the Asset Bundle](#registering-the-asset-bundle)
   - [Getting Published File URLs](#getting-published-file-urls)
 - [Dynamic Resources](#dynamic-resources)
+  - [Linking to Dynamic Resources](#linking-to-dynamic-resources)
 
 ## Asset Bundles
 
@@ -141,3 +142,26 @@ public function init()
 }
 ```
 
+### Linking to Dynamic Resources
+
+To link to a dynamic resource, use `craft\helpers\UrlHelper::resourceUrl()`:
+
+#### PHP
+
+```php
+use craft\helpers\UrlHelper;
+
+$url = UrlHelper::resourceUrl('foo/bar'); 
+```
+
+#### Twig
+
+```twig
+{% set url = resourceUrl('foo/bar') %}
+```
+
+#### Control Panel JavaScript
+
+```js
+var url = Craft.getResourceUrl('foo/bar');
+```
