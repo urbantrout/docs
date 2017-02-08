@@ -99,7 +99,7 @@ Here’s a full list of the properties that can go in that `extra` object:
 - `schemaVersion` – The plugin schema version.
 - `description` – The plugin description. If not set, the main `description` property will be used.
 - `developer` – The developer name. If not set, the first author’s `name` will be used (via the `authors` property).
-- `developerUrl` – The developer URL. If not set, the `homepage` property will be used, or toe first author’s `homepage` (via the `authors` property).
+- `developerUrl` – The developer URL. If not set, the `homepage` property will be used, or the first author’s `homepage` (via the `authors` property).
 - `documentationUrl` – The plugin’s documentation URL. If not set, the `support.docs` property will be used.
 - `changelogUrl` – The plugin’s changelog URL (used to show pending plugin updates and their release notes).
 - `downloadUrl` – The plugin’s download URL (used to update manual installations of the plugin).
