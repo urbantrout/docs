@@ -2,7 +2,7 @@ Asset Query Params
 ==================
 
 Param               | Accepts                           | Description
-------------------- | --------------------------------- | ------------------------------------------------------------------------------
+------------------- | --------------------------------- | ---------------------------------------------------------------------------------
 `addOrderBy`        | `string|array|Expression`         | Adds additional ORDER BY columns to the query
 `addSelect`         | `string|array|Expression`         | Add more columns to the SELECT part of the query
 `ancestorDist`      | `int|null`                        | The maximum number of levels that results may be separated from `ancestorOf`
@@ -28,9 +28,9 @@ Param               | Accepts                           | Description
 `indexBy`           | `string|callable`                 | The name of the column by which the query results should be indexed by
 `kind`              | `string|string[]|null`            | The file kind(s) that the resulting assets must be
 `level`             | `int|null`                        | The element’s level within the structure
-`limit`             | `integer`                         | Maximum number of records to be returned
+`limit`             | `int`                             | Maximum number of records to be returned
 `nextSiblingOf`     | `int|ElementInterface|null`       | The element (or its ID) that the result must be the next sibling of
-`offset`            | `integer`                         | Zero-based offset from where the records are to be returned
+`offset`            | `int`                             | Zero-based offset from where the records are to be returned
 `orWhere`           | `string|array`                    | Adds an additional WHERE condition to the existing one
 `orderBy`           | `array`                           | How to sort the query results
 `positionedAfter`   | `int|ElementInterface|null`       | The element (or its ID) that the results must be positioned after
@@ -57,4 +57,5 @@ Param               | Accepts                           | Description
 `where`             | `string|array`                    | Query condition
 `width`             | `int|null`                        | The width (in pixels) that the resulting assets must have
 `with`              | `string|array|null`               | The eager-loading declaration
+`withStructure`     | `bool|null`                       | Whether element structure data should automatically be left-joined into the query
 `withTransforms`    | `array|null`                      | The asset transform indexes that should be eager-loaded, if they exist

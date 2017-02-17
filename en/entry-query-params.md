@@ -29,9 +29,9 @@ Param              | Accepts                           | Description
 `id`               | `int|int[]|false|null`            | The element ID(s)
 `indexBy`          | `string|callable`                 | The name of the column by which the query results should be indexed by
 `level`            | `int|null`                        | The element’s level within the structure
-`limit`            | `integer`                         | Maximum number of records to be returned
+`limit`            | `int`                             | Maximum number of records to be returned
 `nextSiblingOf`    | `int|ElementInterface|null`       | The element (or its ID) that the result must be the next sibling of
-`offset`           | `integer`                         | Zero-based offset from where the records are to be returned
+`offset`           | `int`                             | Zero-based offset from where the records are to be returned
 `orWhere`          | `string|array`                    | Adds an additional WHERE condition to the existing one
 `orderBy`          | `array`                           | How to sort the query results
 `positionedAfter`  | `int|ElementInterface|null`       | The element (or its ID) that the results must be positioned after
@@ -57,3 +57,4 @@ Param              | Accepts                           | Description
 `uri`              | `string|string[]|null`            | The URI that the resulting element must have
 `where`            | `string|array`                    | Query condition
 `with`             | `string|array|null`               | The eager-loading declaration
+`withStructure`    | `bool|null`                       | Whether element structure data should automatically be left-joined into the query
