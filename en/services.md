@@ -46,7 +46,7 @@ public function init()
     parent::init();
 
     $this->setComponents([
-        'bacon' => \vendor\pluginhandle\services\Bacon::class),
+        'bacon' => \vendor\pluginhandle\services\Bacon::class,
     ]);
 
     // ...
