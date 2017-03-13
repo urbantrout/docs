@@ -211,7 +211,7 @@ class Product
 {
     public static function find(): ElementQueryInterface
     {
-        return new ProductQuery(get_called_class());
+        return new ProductQuery(static::class);
     }
 
     // ...
