@@ -204,7 +204,7 @@ Category       | Description
 `app`          | Craft’s translation messages
 `yii`          | Yii’s translation messages
 `site`         | custom site-specific translation messages
-`pluginHandle` | Plugins’ translation messages
+`pluginhandle` | Plugins’ translation messages
 
 In Craft 3, your `translations/` folder might look something like this:
 
