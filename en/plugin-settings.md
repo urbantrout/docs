@@ -52,7 +52,7 @@ class Plugin extends \craft\base\Plugin
 }
 ```
 
-Now your plugin has global settings. You can access your settings model from within your main plugin class via `$this->getSettings()` or `$this->settings`, or from other PHP classes via `YourPluginClass::getInstance()->getSettings()` or `YourPluginClass::getInstance()->setting`.
+Now your plugin has global settings. You can access your settings model from within your main plugin class via `$this->getSettings()` or `$this->settings`, or from other PHP classes via `YourPluginClass::getInstance()->getSettings()` or `YourPluginClass::getInstance()->settings`.
 
 ## Overriding Setting Values
 
