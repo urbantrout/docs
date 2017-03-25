@@ -283,6 +283,8 @@ public function getEditorHtml(): string
 
 ### Custom Fields
 
+#### Managing Field Layouts
+
 If you want your element type to support custom fields, you will also need to create a page somewhere within the Control Panel for managing your element type’s field layout. Craft provides a template include that will output a Field Layout Designer for you:
 
 ```twig
@@ -298,9 +300,6 @@ use ns\prefix\elements\Product;
 
 // ...
 
-// delete the previous product field layout
-\Craft::$app->getFields()->deleteLayoutsByType(Product::class);
-
 // assemble the new one from the post data, and save it
 $fieldLayout = \Craft::$app->getFields()->assembleLayoutFromPost();
 $fieldLayout->type = Product::class;
@@ -309,14 +308,26 @@ $fieldLayout->type = Product::class;
 
 Rather than only having one field layout for your entire element type, you can also manage multiple field layouts, if needed. For example, entry field layouts are defined for each entry type; asset field layouts are defined for each asset volume, etc.
 
-You can set that up however you want. When saving field layouts, make sure to delete the old one by its ID rather than by your element type (`craft\services\Fields::deleteLayoutById()`), and store new field layouts’ IDs in the database somewhere.
+You can set that up however you want. Just remember to store new field layouts’ IDs in the database somewhere. (You can access the field layout’s ID after calling `saveLayout()` via `$fieldLayout->id`.)
 
-As far as your element class is concerned, you will need to override the `getFieldLayout()` method, so elements know which field layout they should be associated with:
+#### Associating Elements to their Field Layouts
+
+Elements’ `getFieldLayout()` method is responsible for returning the field layout that is associated with the current element (if there is one). By default, it will check a `$fieldLayoutId` property on the element. If set, it will return the field layout with the same ID. Therefore it’s recommended that you set the `$fieldLayoutId` property on your elements when saving them.
+
+```php
+// ...
+$product->fieldLayoutId = $productType->fieldLayoutId;
+\Craft::$app->elements->saveElement($product);
+```
+
+If the `$fieldLayoutId`  property is set, `craft\services\Elements::saveElement()` will store it in the `elements.fieldLayoutId` column in the database, and your elements will be re-populated with the values when they are fetched down the road.
+
+Alternatively, you can override the `getFieldLayout()` method, and fetch/return the field layout yourself. This might be preferrable if your element type only has a single field layout (like user accounts).
 
 ```php
 public function getFieldLayout()
 {
-    return $this->getType()->getFieldLayout();
+    return \Craft::$app->fields->getLayoutByType(Product::class);
 }
 ```
 
