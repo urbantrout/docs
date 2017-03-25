@@ -41,8 +41,6 @@ namespace ns\prefix;
 
 class Plugin extends \craft\base\Plugin
 {
-    public $hasSettings = true;
-
     protected function createSettingsModel()
     {
         return new \ns\prefix\models\Settings();
@@ -119,7 +117,7 @@ namespace ns\prefix;
 
 class Plugin extends \craft\base\Plugin
 {
-    public $hasSettings = true;
+    public $hasCpSettings = true;
 
     protected function createSettingsModel()
     {
