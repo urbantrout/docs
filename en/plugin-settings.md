@@ -1,58 +1,16 @@
 Plugin Settings
 ===============
 
-There are two ways to give your plugin its own config settings: via a config file that users can optionally save in `config/`, or via a new settings page within the Control Panel.
+- [Settings Model](#settings-model)
+- [Overriding Setting Values](#overriding-setting-values)
+- [Settings Pages](#settings-pages)
+  - [Advanced Settings Pages](#advanced-settings-pages)
 
-Both ways have their advantages:
+## Settings Model
 
-#### Config Files
+Plugins that have global settings need to define a “settings model”, which is responsible for storing the setting values, and validating them.
 
-* Values can be set on a per-environment basis
-* Values can be set dynamically with some PHP code
-* Changes can be recorded with version control (Git)
-
-#### Settings Pages
-
-* Provides a significantly better administrative UX
-* Values can be validated
-* Plugins can execute additional code when the values change
-
-These are not mutually exclusive options – your plugin can implement both config file-based settings as well as have its own settings page. So keep these differences in mind whenever implementing a new setting, and choose the approach that makes the most sense.
-
-## Config File
-
-To give your plugin support for its own config file, first you must define what the default config values should be. You do that by creating a new `config.php` file at the root of your plugin’s source folder, which returns the array of defaults:
-
-```php
-<?php
-
-return [
-    'foo' => 'defaultFooValue',
-    'bar' => 'defaultBarValue',
-];
-```
-
-You can then grab the config value throughout your plugin code using `craft\services\Config::get()`, passing your plugin handle as the second argument:
-
-```php
-$configSettingValue = Craft::$app->config->get('foo', 'pluginHandle');
-```
-
-Users will then be able to create a new file in their `config/` folder named after your plugin’s handle (lowercased), which returns an array that overrides whichever settings they want:
-
-```php
-<?php
-
-return [
-    'foo' => 'fooValueOverride',
-];
-```
-
-## Settings Page
-
-To give your plugin its own settings page within the Control Panel, first you will need to define a new [model](http://www.yiiframework.com/doc-2.0/guide-structure-models.html) class that will be used to hold the setting values, and validate them.
-
-Create a `models/` directory within your plugin’s source directory, and create a `Settings.php` file within it:
+Settings models are just like any other [model](http://www.yiiframework.com/doc-2.0/guide-structure-models.html). To create it, create a `models/` directory within your plugin’s source directory, and create a `Settings.php` file within it:
 
 ```php
 <?php
@@ -74,7 +32,66 @@ class Settings extends \craft\base\Model
 }
 ```
 
-Then create a `templates/` directory within your plugin’s source directory, and create a `settings.html` file within it:
+Next up, add a `createSettingsModel()` method on your main plugin class, which returns a new instance of your settings model:
+
+```php
+<?php
+
+namespace ns\prefix;
+
+class Plugin extends \craft\base\Plugin
+{
+    public $hasSettings = true;
+
+    protected function createSettingsModel()
+    {
+        return new \ns\prefix\models\Settings();
+    }
+
+    // ...
+}
+```
+
+Now your plugin has global settings. You can access your settings model from within your main plugin class via `$this->getSettings()` or `$this->settings`, or from other PHP classes via `YourPluginClass::getInstance()->getSettings()` or `YourPluginClass::getInstance()->setting`.
+
+## Overriding Setting Values
+
+Your setting values can be overridden on a per-project basis from a PHP file within the project’s `config/` folder, named after your plugin handle (all-lowercase). For example, if your plugin handle is `fooBar`, its settings can be overridden from a `config/foobar.php` file.
+
+The file just needs to return an array with the overridden values:
+
+```php
+<?php
+
+return [
+    'foo' => 'overriddenFooValue',
+    'bar' => 'overriddenBarValue',
+];
+```
+
+It can also be a multi-environment config:
+
+
+```php
+<?php
+
+return [
+    '*' => [ 
+        'foo' => 'defaultValue',
+    ],
+    '.dev' => [
+        'foo' => 'devValue',
+    ],
+];
+```
+
+> {note} The config file cannot contain any keys that are not defined in the plugin’s settings model. 
+
+## Settings Pages
+
+Plugins can also provide a settings page in the Control Panel, which may make it easier for admins to manage settings values, depending on the plugin.
+
+To give your plugin a settings page, create a `templates/` directory within your plugin’s source directory, and create a `settings.html` file within it:
 
 ```twig
 {% import "_includes/forms" as forms %}
@@ -93,11 +110,7 @@ Then create a `templates/` directory within your plugin’s source directory, an
 }) }}
 ```
 
-Finally, tie everything together from your Plugin class. Its responsibilities are to:
-
-- Tell Craft that it has settings via its `$hasSettings` property
-- Instantiate the `Settings` model via its `createSettingsModel()` method
-- Render the `settings.html` template via its `settingsHtml()` method
+Then, within your main plugin class, set the `$hasCpSettings` property to `true`, and define a `settingsHtml()` method that returns your new rendered template:
 
 ```php
 <?php
