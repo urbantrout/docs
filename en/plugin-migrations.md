@@ -65,7 +65,9 @@ Plugins can have a special “Install” migration which handles the installatio
 <?php
 namespace ns\prefix\migrations;
 
-class Install extends \craft\db\Migration
+use craft\db\Migration;
+
+class Install extends Migration
 {
     public function safeUp()
     {

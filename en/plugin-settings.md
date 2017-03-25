@@ -18,7 +18,9 @@ Settings models are just like any other [model](http://www.yiiframework.com/doc-
 
 namespace ns\prefix\models;
 
-class Settings extends \craft\base\Model
+use craft\base\Model;
+
+class Settings extends Model
 {
     public $foo = 'defaultFooValue';
     public $bar = 'defaultBarValue';
@@ -37,7 +39,6 @@ Next up, add a `createSettingsModel()` method on your main plugin class, which r
 
 ```php
 <?php
-
 namespace ns\prefix;
 
 class Plugin extends \craft\base\Plugin

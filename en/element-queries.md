@@ -7,14 +7,14 @@ Element queries are [query builders](http://www.yiiframework.com/doc-2.0/guide-d
 
 You can create element queries in both PHP and Twig code. Here’s how:
 
-Element Type  | PHP                                  | Twig
-------------- | ------------------------------------ | ----------------------
-Assets        | `craft\elements\Asset::find()`       | `craft.assets()`
-Categories    | `craft\elements\Category::find()`    | `craft.categories()`
-Entries       | `craft\elements\Entry::find()`       | `craft.entries()`
-Matrix blocks | `craft\elements\MatrixBlock::find()` | `craft.matrixBlocks()`
-Tags          | `craft\elements\Tag::find()`         | `craft.tags()`
-Users         | `craft\elements\User::find()`        | `craft.users()`
+Element Type  | PHP                                   | Twig
+------------- | ------------------------------------- | ----------------------
+Assets        | `\craft\elements\Asset::find()`       | `craft.assets()`
+Categories    | `\craft\elements\Category::find()`    | `craft.categories()`
+Entries       | `\craft\elements\Entry::find()`       | `craft.entries()`
+Matrix blocks | `\craft\elements\MatrixBlock::find()` | `craft.matrixBlocks()`
+Tags          | `\craft\elements\Tag::find()`         | `craft.tags()`
+Users         | `\craft\elements\User::find()`        | `craft.users()`
 
 ## Setting Parameters
 
@@ -59,7 +59,7 @@ You can also batch-set parameters like so:
 use craft\elements\Entry;
 
 $query = Entry::find();
-Craft::configure($query, [
+\Craft::configure($query, [
     'section' => 'news',
     'limit' => 10
 ]);

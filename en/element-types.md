@@ -111,7 +111,7 @@ You will also need to add an `afterSave()` method to your element class, which i
 public function afterSave(bool $isNew)
 {
     if ($isNew) {
-        Craft::$app->db->createCommand()
+        \Craft::$app->db->createCommand()
             ->insert('{{%products}}', [
                 'id' => $this->id,
                 'price' => $this->price,
@@ -119,7 +119,7 @@ public function afterSave(bool $isNew)
             ])
             ->execute();
     } else {
-        Craft::$app->db->createCommand()
+        \Craft::$app->db->createCommand()
             ->update('{{%products}}', [
                 'price' => $this->price,
                 'currency' => $this->currency,
@@ -259,9 +259,9 @@ Note that [Element Editor HUDs](#editor-huds) do not automatically show a Title 
 ```php
 public function getEditorHtml(): string
 {
-    $html = Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textField', [
+    $html = \Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textField', [
         [
-            'label' => Craft::t('app', 'Title'),
+            'label' => \Craft::t('app', 'Title'),
             'siteId' => $this->siteId,
             'id' => 'title',
             'name' => 'title',
@@ -299,12 +299,12 @@ use ns\prefix\elements\Product;
 // ...
 
 // delete the previous product field layout
-Craft::$app->getFields()->deleteLayoutsByType(Product::class);
+\Craft::$app->getFields()->deleteLayoutsByType(Product::class);
 
 // assemble the new one from the post data, and save it
-$fieldLayout = Craft::$app->getFields()->assembleLayoutFromPost();
+$fieldLayout = \Craft::$app->getFields()->assembleLayoutFromPost();
 $fieldLayout->type = Product::class;
-Craft::$app->getFields()->saveLayout($fieldLayout);
+\Craft::$app->getFields()->saveLayout($fieldLayout);
 ```
 
 Rather than only having one field layout for your entire element type, you can also manage multiple field layouts, if needed. For example, entry field layouts are defined for each entry type; asset field layouts are defined for each asset volume, etc.
@@ -363,8 +363,8 @@ Then, if they can have any statuses besides `enabled` and `disabled`, add a stat
 public static function statuses(): array
 {
     return [
-        'foo' => Craft::t('pluginHandle', 'Foo'),
-        'bar' => Craft::t('pluginHandle', 'Bar'),
+        'foo' => \Craft::t('pluginHandle', 'Foo'),
+        'bar' => \Craft::t('pluginHandle', 'Bar'),
     ];
 }
 ```
@@ -438,8 +438,8 @@ You can define the sort options for your element indexes by adding a protected s
 protected static function defineSortOptions(): array
 {
     return [
-        'title' => Craft::t('app', 'Price'),
-        'price' => Craft::t('pluginHandle', 'Price'),
+        'title' => \Craft::t('app', 'Price'),
+        'price' => \Craft::t('pluginHandle', 'Price'),
     ];
 }
 ```
@@ -454,9 +454,9 @@ You can customize which columns should be available to your element indexes’ T
 protected static function defineTableAttributes(): array
 {
     return [
-        'title' => Craft::t('app', 'Title'),
-        'price' => Craft::t('pluginHandle', 'Price'),
-        'currency' => Craft::t('pluginHandle', 'Currency'),
+        'title' => \Craft::t('app', 'Title'),
+        'price' => \Craft::t('pluginHandle', 'Price'),
+        'currency' => \Craft::t('pluginHandle', 'Currency'),
     ];
 }
 ```
@@ -479,7 +479,7 @@ protected function tableAttributeHtml(string $attribute): string
 {
     switch ($attribute) {
         case 'price':
-            return Craft::$app->formatter->asCurrency($this->price, $this->currency);
+            return \Craft::$app->formatter->asCurrency($this->price, $this->currency);
 
         case 'currency':
             return strtoupper($this->currency);
@@ -578,7 +578,7 @@ To make your elements editable via Element Editor HUDs when double-clicked on wi
 ```php
 public function getIsEditable(): bool
 {
-    return Craft::$app->user->checkPermission('edit-product:'.$this->getType()->id);
+    return \Craft::$app->user->checkPermission('edit-product:'.$this->getType()->id);
 }
 ```
 
@@ -587,9 +587,9 @@ By default the element editor HUD will only include custom fields. To include a 
 ```php
 public function getEditorHtml(): string
 {
-    $html = Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textField', [
+    $html = \Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textField', [
         [
-            'label' => Craft::t('app', 'Title'),
+            'label' => \Craft::t('app', 'Title'),
             'siteId' => $this->siteId,
             'id' => 'title',
             'name' => 'title',

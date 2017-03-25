@@ -26,10 +26,8 @@ Open the file in your text editor and use this template as its starting point:
 
 ```php
 <?php
-
 namespace ns\prefix\services;
 
-use Craft;
 use yii\base\Component;
 
 class Bacon extends Component
@@ -46,7 +44,7 @@ public function init()
     parent::init();
 
     $this->setComponents([
-        'bacon' => \vendor\pluginhandle\services\Bacon::class,
+        'bacon' => \ns\prefix\services\Bacon::class,
     ]);
 
     // ...
@@ -130,7 +128,7 @@ Here’s a complete code example of what that looks like:
 public function saveRecipe(Recipe $recipe, $runValidation = true)
 {
     if ($runValidation && !$recipe->validate()) {
-        Craft::info('Recipe not saved due to validation error.', __METHOD__);
+        \Craft::info('Recipe not saved due to validation error.', __METHOD__);
 
         return false;
     }
@@ -230,7 +228,7 @@ public function saveIngredient(IngredientInterface $ingredient, $runValidation =
     /** @var Ingredient $ingredient */
 
     if ($runValidation && !$ingredient->validate()) {
-        Craft::info('Ingredient not saved due to validation error.', __METHOD__);
+        \Craft::info('Ingredient not saved due to validation error.', __METHOD__);
 
         return false;
     }
@@ -243,7 +241,7 @@ public function saveIngredient(IngredientInterface $ingredient, $runValidation =
         'isNew' => $isNewIngredient,
     ]));
 
-    $transaction = Craft::$app->getDb()->beginTransaction();
+    $transaction = \Craft::$app->getDb()->beginTransaction();
 
     try {
         if (!$ingredient->beforeSave()) {

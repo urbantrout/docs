@@ -89,14 +89,14 @@ Old             | New
 - a plugin handle for plugin-specific translation messages
 
 ```php
-Craft::t('app', 'Entries')
+\Craft::t('app', 'Entries')
 ```
 
 In addition to front-end translation messages, the `site` category should be used for admin-defined labels in the Control Panel:
 
 ```php
-Craft::t('app', 'Post a new {section} entry', [
-    'section' => Craft::t('site', $section->name)
+\Craft::t('app', 'Post a new {section} entry', [
+    'section' => \Craft::t('site', $section->name)
 ])
 ```
 
@@ -134,7 +134,7 @@ Operational queries can be built from the helper methods on `craft\db\Command` (
 One notable difference is that the helper methods no longer automatically execute the query, so you must chain a call to `execute()`.
 
 ```php
-$result = Craft::$app->db->createCommand()
+$result = \Craft::$app->db->createCommand()
     ->insert('{{%tablename}}', $rowData)
     ->execute();
 ```
@@ -217,7 +217,7 @@ use yii\base\Event;
 
 Event::on(RichText::class, RichText::EVENT_REGISTER_LINK_OPTIONS, function(RegisterRichTextLinkOptionsEvent $event) {
     $event->linkOptions[] = [
-        'optionTitle' => Craft::t('commerce', 'Link to a product'),
+        'optionTitle' => \Craft::t('commerce', 'Link to a product'),
         'elementType' => Product::class,
     ];
 });
@@ -234,7 +234,7 @@ public function addTwigExtension()
 }
 
 // New:
-Craft::$app->view->twig->addExtension(new MyExtension);
+\Craft::$app->view->twig->addExtension(new MyExtension);
 ```
 
 #### `addUserAdministrationOptions`
@@ -261,7 +261,7 @@ use yii\base\Event;
 Event::on(UsersController::class, UsersController::EVENT_REGISTER_USER_ACTIONS, function(RegisterUserActionsEvent $event) {
     if ($event->user->isCurrent) {
         $event->miscActions[] = [
-            'label' => Craft::t('baconater', 'Send Bacon'),
+            'label' => \Craft::t('baconater', 'Send Bacon'),
             'action' => 'baconater/send-bacon'
         ];
     }
@@ -286,7 +286,7 @@ use yii\base\Event;
 
 Event::on(Resources::class, Resources::EVENT_RESOLVE_RESOURCE_PATH, function(ResolveResourcePathEvent $event) {
     if (strpos($event->uri, 'myplugin/') === 0) {
-        $event->path = Craft::$app->path->getStoragePath().'/myplugin/'.substr($event->uri, 9);
+        $event->path = \Craft::$app->path->getStoragePath().'/myplugin/'.substr($event->uri, 9);
 
         // Prevent other event listeners from getting invoked
         $event->handled = true;
@@ -314,9 +314,9 @@ use craft\web\twig\variables\Cp;
 use yii\base\Event;
 
 Event::on(Cp::class, Cp::EVENT_REGISTER_CP_NAV_ITEMS, function(RegisterCpNavItemsEvent $event) {
-    if (Craft::$app->user->identity->admin) {
+    if (\Craft::$app->user->identity->admin) {
         $event->navItems['foo'] = [
-            'label' => Craft::t('myplugin', 'Utils'),
+            'label' => \Craft::t('myplugin', 'Utils'),
             'url' => 'utils'
         ];
     }
@@ -342,8 +342,8 @@ use yii\base\Event;
 Event::on(ClearCaches::class, ClearCaches::EVENT_REGISTER_CACHE_OPTIONS, function(RegisterCacheOptionsEvent $event) {
     $event->options[] = [
         'key' => 'drink-images',
-        'label' => Craft::t('drinks', 'Drink images'),
-        'action' => Craft::$app->path->getStoragePath().'/drinks'
+        'label' => \Craft::t('drinks', 'Drink images'),
+        'action' => \Craft::$app->path->getStoragePath().'/drinks'
     ];
 });
 ```
@@ -389,9 +389,9 @@ use craft\services\UserPermissions;
 use yii\base\Event;
 
 Event::on(UserPermissions::class, UserPermissions::EVENT_REGISTER_PERMISSIONS, function(RegisterUserPermissionsEvent $event) {
-    $event->permissions[Craft::t('vices', 'Vices')] = [
-        'drinkAlcohol' => ['label' => Craft::t('vices', 'Drink alcohol')],
-        'stayUpLate' => ['label' => Craft::t('vices', 'Stay up late')],
+    $event->permissions[\Craft::t('vices', 'Vices')] = [
+        'drinkAlcohol' => ['label' => \Craft::t('vices', 'Drink alcohol')],
+        'stayUpLate' => ['label' => \Craft::t('vices', 'Stay up late')],
     ];
 });
 ```
@@ -413,8 +413,8 @@ use craft\helpers\Cp;
 use yii\base\Event;
 
 Event::on(Cp::class, Cp::EVENT_REGISTER_ALERTS, function(RegisterCpAlertsEvent $event) {
-    if (Craft::$app->config->get('devMode')) {
-        $event->alerts[] = Craft::t('myplugin', 'Dev Mode is enabled!');
+    if (\Craft::$app->config->get('devMode')) {
+        $event->alerts[] = \Craft::t('myplugin', 'Dev Mode is enabled!');
     }
 });
 ```
@@ -563,7 +563,7 @@ use craft\events\RegisterElementSortOptionsEvent;
 use yii\base\Event;
 
 Event::on(Entry::class, Element::EVENT_REGISTER_SORT_OPTIONS, function(RegisterElementSortOptionsEvent $event) {
-    $event->sortOptions['id'] = Craft::t('app', 'ID');
+    $event->sortOptions['id'] = \Craft::t('app', 'ID');
 });
 ```
 
@@ -597,7 +597,7 @@ use yii\base\Event;
 Event::on(Entry::class, Element::EVENT_REGISTER_SOURCES, function(RegisterElementSourcesEvent $event) {
     if ($event->context === 'index') {
         $sources[] = [
-            'heading' => Craft::t('myplugin', 'Statuses'),
+            'heading' => \Craft::t('myplugin', 'Statuses'),
         ];
 
         foreach (Entry::statuses() as $status => $label) {
@@ -629,8 +629,8 @@ use craft\events\RegisterElementTableAttributesEvent;
 use yii\base\Event;
 
 Event::on(Entry::class, Element::EVENT_REGISTER_TABLE_ATTRIBUTES, function(RegisterElementTableAttributesEvent $event) {
-    $event->tableAttributes['foo'] = ['label' => Craft::t('myplugin', 'Foo')];
-    $event->tableAttributes['bar'] = ['label' => Craft::t('myplugin', 'Bar')];
+    $event->tableAttributes['foo'] = ['label' => \Craft::t('myplugin', 'Foo')];
+    $event->tableAttributes['bar'] = ['label' => \Craft::t('myplugin', 'Bar')];
 });
 ```
 
@@ -687,7 +687,7 @@ The TemplatesService has been replaced with a View component.
 craft()->templates->render('pluginHandle/path/to/template', $variables);
 
 // New:
-Craft::$app->view->renderTemplate('pluginHandle/path/to/template', $variables);
+\Craft::$app->view->renderTemplate('pluginHandle/path/to/template', $variables);
 ```
 
 ### Controller Action Templates
@@ -717,10 +717,13 @@ craft()->templates->setTemplatesPath($oldPath);
 // New:
 use craft\web\View;
 
-$oldMode = Craft::$app->view->getTemplateMode();
-Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_CP);
-$html = Craft::$app->view->renderTemplate('pluginHandle/path/to/template');
-Craft::$app->view->setTemplateMode($oldMode);
+$oldMode = \Craft::$app->view->getTemplateMode();
+\Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_CP);
+$html =
+ \\\Craft::$app->view->renderTemplate('pluginHandle/path/to/template');
+ 
+ 
+\Craft::$app->view->setTemplateMode($oldMode);
 ```
 
 ## Resource Requests

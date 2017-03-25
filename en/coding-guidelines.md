@@ -151,13 +151,13 @@ Use PHP 7.0-supported [return type declarations](http://php.net/manual/en/functi
 ```php
 // Bad:
 /**
- * @param Element $element
- * @param ElementInterface|Element $element
+ * @param \craft\base\Element $element
+ * @param \craft\base\ElementInterface|\craft\base\Element $element
  */
 
 // Better:
 /**
- * @param ElementInterface $element
+ * @param \craft\base\ElementInterface $element
  */
 ```
 
@@ -165,11 +165,11 @@ Inline `@var` tags should reference implementation classes, not their interfaces
 
 ```php
 // Bad:
-/** @var ElementInterface $element */
-/** @var ElementInterface|Element $element */
+/** @var \craft\base\ElementInterface $element */
+/** @var \craft\base\ElementInterface|\craft\base\Element $element */
 
 // Better:
-/** @var Element $element */
+/** @var \craft\base\Element $element */
 ```
 
 ## Control Flow
@@ -240,12 +240,12 @@ Controller actions that have the option of returning JSON should do so if the re
 
 ```php
 // Bad:
-if (Craft::$app->getRequest()->getIsAjax()) {
+if (\Craft::$app->getRequest()->getIsAjax()) {
     return $this->asJson([...]);
 }
 
 // Better:
-if (Craft::$app->getRequest()->getAcceptsJson()) {
+if (\Craft::$app->getRequest()->getAcceptsJson()) {
     return $this->asJson([...]);
 }
 ```
@@ -341,21 +341,21 @@ And you should use those instead of their magic properties:
 
 ```php
 // Bad:
-Craft::$app->entries->saveEntry($entry);
+\Craft::$app->entries->saveEntry($entry);
 
 // Better:
-Craft::$app->getEntries()->saveEntry($entry);
+\Craft::$app->getEntries()->saveEntry($entry);
 ```
 
 If you will be referencing the same app component multiple times within the same method, save a local reference to it.
 
 ```php
 // Bad:
-Craft::$app->getEntries()->saveEntry($entry1);
-Craft::$app->getEntries()->saveEntry($entry2);
+\Craft::$app->getEntries()->saveEntry($entry1);
+\Craft::$app->getEntries()->saveEntry($entry2);
 
 // Better:
-$entriesService = Craft::$app->getEntries();
+$entriesService = \Craft::$app->getEntries();
 $entriesService->saveEntry($entry1);
 $entriesService->saveEntry($entry2);
 ```

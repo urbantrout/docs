@@ -126,6 +126,8 @@ You can customize Craft’s entire [application configuration](http://www.yiifra
 To override the `mailer` component config (which is responsible for sending emails), do this in `config/app.php`:
 
 ```php
+<?php
+
 return [
     'components' => [
         'mailer' => function() {
@@ -141,7 +143,7 @@ return [
                 'apiKey' => 'key-xxxxxxxxxx',
             ];
 
-            return MailerHelper::createMailer($settings);
+            return craft\helpers\MailerHelper::createMailer($settings);
         },
 
         // ...

@@ -103,7 +103,7 @@ public function actionFoo()
 If you have a one-off file that you need to get the published URL for, but it doesn’t need to be registered as a CSS or JS file on the current page, you can use `craft\web\AssetManager::getPublishedUrl()`:
 
 ```php
-$url = Craft::$app->assetManager->getPublishedUrl('@ns/prefix/path/to/file.svg', true);
+$url = \Craft::$app->assetManager->getPublishedUrl('@ns/prefix/path/to/file.svg', true);
 ```
 
 Craft will automatically publish the file for you (if it’s not published already), and return its URL.
@@ -111,7 +111,7 @@ Craft will automatically publish the file for you (if it’s not published alrea
 If the file lives within an asset bundle’s source directory, then only pass the source directory’s path into `getPublishedUrl()` and append the relative path after it. That way Craft won’t have to publish the file twice – (here, in addition to being published along with the rest of the asset bundle).
 
 ```php
-$url = Craft::$app->assetManager->getPublishedUrl('@ns/prefix/resources', true).'/path/to/file.svg';
+$url = \Craft::$app->assetManager->getPublishedUrl('@ns/prefix/resources', true).'/path/to/file.svg';
 ```
 
 ## Dynamic Resources

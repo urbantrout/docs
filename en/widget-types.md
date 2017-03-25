@@ -17,6 +17,7 @@ namespace ns\prefix;
 
 use craft\events\RegisterComponentTypesEvent;
 use craft\services\Dashboard;
+use yii\base\Event;
 
 class Plugin extends \craft\base\Plugin
 {
