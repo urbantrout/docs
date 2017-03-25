@@ -2,6 +2,7 @@ Plugin Settings
 ===============
 
 - [Settings Model](#settings-model)
+- [Accessing Settings](#accessing-settings)
 - [Overriding Setting Values](#overriding-setting-values)
 - [Settings Pages](#settings-pages)
   - [Advanced Settings Pages](#advanced-settings-pages)
@@ -50,7 +51,9 @@ class Plugin extends \craft\base\Plugin
 }
 ```
 
-Now your plugin has global settings. You can access your settings model via a `getSettings()` method on your main plugin class:
+## Accessing Settings
+
+With your settings model and `createSettingsModel()` method in place, you can now access your settings model, populated with any custom values set for the current project, via a `getSettings()` method on your main plugin class:
 
 ```php
 // From your main plugin class:
