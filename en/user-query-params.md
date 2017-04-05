@@ -30,7 +30,7 @@ Param              | Accepts                           | Description
 `indexBy`          | `string|callable`                 | The name of the column by which the query results should be indexed by
 `lastLoginDate`    | `mixed`                           | The date that the resulting entries must have last logged in
 `lastName`         | `string|string[]|null`            | The last name that the resulting users must have
-`level`            | `int|null`                        | The element’s level within the structure
+`level`            | `mixed`                           | The element’s level within the structure
 `limit`            | `int`                             | Maximum number of records to be returned
 `nextSiblingOf`    | `int|ElementInterface|null`       | The element (or its ID) that the result must be the next sibling of
 `offset`           | `int`                             | Zero-based offset from where the records are to be returned
@@ -55,5 +55,4 @@ Param              | Accepts                           | Description
 `username`         | `string|string[]|null`            | The username that the resulting users must have
 `where`            | `string|array`                    | Query condition
 `with`             | `string|array|null`               | The eager-loading declaration
-`withPassword`     | `bool`                            | Whether the users' passwords should be fetched
 `withStructure`    | `bool|null`                       | Whether element structure data should automatically be left-joined into the query
