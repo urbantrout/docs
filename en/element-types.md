@@ -450,7 +450,7 @@ protected static function defineSortOptions(): array
 {
     return [
         'title' => \Craft::t('app', 'Price'),
-        'price' => \Craft::t('pluginHandle', 'Price'),
+        'price' => \Craft::t('pluginhandle', 'Price'),
     ];
 }
 ```
@@ -466,8 +466,8 @@ protected static function defineTableAttributes(): array
 {
     return [
         'title' => \Craft::t('app', 'Title'),
-        'price' => \Craft::t('pluginHandle', 'Price'),
-        'currency' => \Craft::t('pluginHandle', 'Currency'),
+        'price' => \Craft::t('pluginhandle', 'Price'),
+        'currency' => \Craft::t('pluginhandle', 'Currency'),
     ];
 }
 ```
@@ -670,7 +670,7 @@ class Products extends BaseRelationField
 {
     public static function displayName(): string
     {
-        return \Craft::t('pluginHandle', 'Products');
+        return \Craft::t('pluginhandle', 'Products');
     }
 
     protected static function elementType(): string
@@ -680,7 +680,7 @@ class Products extends BaseRelationField
 
     public static function defaultSelectionLabel(): string
     {
-        return \Craft::t('pluginHandle', 'Add a product');
+        return \Craft::t('pluginhandle', 'Add a product');
     }
 }
 ```
