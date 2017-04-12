@@ -328,8 +328,8 @@ Old                                                     | New
 `craft.categoryGroups.getTotalGroups()`                 | `craft.app.categories.totalGroups`
 `craft.categoryGroups.getGroupById(id)`                 | `craft.app.categories.getGroupById(id)`
 `craft.categoryGroups.getGroupByHandle(handle)`         | `craft.app.categories.getGroupByHandle(handle)`
-`craft.config.[setting]` *(magic getter)*               | `craft.app.config.get('setting')`
-`craft.config.get(setting)`                             | `craft.app.config.get(setting)`
+`craft.config.[setting]` *(magic getter)*               | `craft.app.config.general.[setting]`
+`craft.config.get(setting)`                             | `craft.app.config.general.[setting]`
 `craft.config.usePathInfo()`                            | `craft.app.config.usePathInfo`
 `craft.config.omitScriptNameInUrls()`                   | `craft.app.config.omitScriptNameInUrls`
 `craft.config.getResourceTrigger()`                     | `craft.app.config.resourceTrigger`
