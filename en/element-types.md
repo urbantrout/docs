@@ -374,8 +374,8 @@ Then, if they can have any statuses besides `enabled` and `disabled`, add a stat
 public static function statuses(): array
 {
     return [
-        'foo' => \Craft::t('pluginHandle', 'Foo'),
-        'bar' => \Craft::t('pluginHandle', 'Bar'),
+        'foo' => \Craft::t('pluginhandle', 'Foo'),
+        'bar' => \Craft::t('pluginhandle', 'Bar'),
     ];
 }
 ```
