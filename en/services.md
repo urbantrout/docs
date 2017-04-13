@@ -3,6 +3,7 @@ Services
 
 - [What are Services](#what-are-services)
 - [Creating a Service](#creating-a-service)
+- [Calling Service Methods](#calling-service-methods)
 - [Model Operation Methods](#model-operation-methods)
   - [Class-Oriented Methods](#class-oriented-methods)
   - [Interface-Oriented Methods](#interface-oriented-methods)
@@ -20,7 +21,7 @@ For example, Craft’s field management code is located in `craft\services\Field
 
 ## Creating a Service
 
-To create a service class for your plugin, create a `services/` subdirectory within your plugin’s `src/` directory, and create a file within it named after the class name you want to give your service. If you want to name your service class `Bacon` then name the file `Bacon.php`.
+To create a service class for your plugin, create a `services/` subdirectory within your plugin’s `src/` directory, and create a file within it named after the class name you want to give your service. If you want to name your service class `Foo` then name the file `Foo.php`.
 
 Open the file in your text editor and use this template as its starting point:
 
@@ -30,7 +31,7 @@ namespace ns\prefix\services;
 
 use yii\base\Component;
 
-class Bacon extends Component
+class Foo extends Component
 {
     // ...
 }
@@ -44,14 +45,26 @@ public function init()
     parent::init();
 
     $this->setComponents([
-        'bacon' => \ns\prefix\services\Bacon::class,
+        'foo' => \ns\prefix\services\Foo::class,
     ]);
 
     // ...
 }
 ```
 
-With that in place, you will now be able to access your service via `MyPlugin::getInstance()->bacon`.
+## Calling Service Methods
+
+With your service class in place, you can access it from anywhere in the codebase using `MyPlugin::getInstance()->serviceName`. So if your service name is `foo` and it has a method named `bar()`, you could call `Foo::bar()` like this:
+
+```php
+MyPlugin::getInstance()->foo->bar()
+```
+
+If you need to call a service method directly from your primary Plugin class, you can skip `MyPlugin::getInstance()` and just use `$this`:
+
+```php
+$this->foo->bar()
+```
 
 ## Model Operation Methods
 
