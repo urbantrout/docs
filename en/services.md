@@ -54,7 +54,7 @@ public function init()
 
 ## Calling Service Methods
 
-With your service class in place, you can access it from anywhere in the codebase using `MyPlugin::getInstance()->serviceName`. So if your service name is `foo` and it has a method named `bar()`, you could call `Foo::bar()` like this:
+You can access your service from anywhere in the codebase using `MyPlugin::getInstance()->serviceName`. So if your service name is `foo` and it has a method named `bar()`, you could call it like this:
 
 ```php
 MyPlugin::getInstance()->foo->bar()
