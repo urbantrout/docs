@@ -40,7 +40,7 @@ Once everything’s in order, follow these steps to update Craft:
 
     ```json
     {
-      "minimum-stability": "dev",
+      "minimum-stability": "beta",
       "repositories": [
         {
           "type": "composer",
