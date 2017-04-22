@@ -54,12 +54,10 @@ You can customize the config settings Guzzle uses when sending these requests by
 <?php
 
 return [
-    'defaults' => [
-        'headers' => ['Foo' => 'Bar'],
-        'query'   => ['testing' => '123'],
-        'auth'    => ['username', 'password'],
-        'proxy'   => 'tcp://localhost:80'
-    ]
+    'headers' => ['Foo' => 'Bar'],
+    'query'   => ['testing' => '123'],
+    'auth'    => ['username', 'password'],
+    'proxy'   => 'tcp://localhost:80',
 ];
 ```
 
