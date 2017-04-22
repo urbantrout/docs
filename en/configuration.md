@@ -10,7 +10,7 @@ Configuration
 - [URL Rules](#url-rules)
 - [Redactor Configs](#redactor-configs)
 - [Application Config](#application-config)
-  - [Mailer Component](#mailer-config)
+  - [Mailer Component](#mailer-component)
 
 ## PHP Constants
 
