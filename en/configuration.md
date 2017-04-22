@@ -9,6 +9,7 @@ Configuration
 - [Overriding Volume Settings](#overriding-volume-settings)
 - [URL Rules](#url-rules)
 - [Redactor Configs](#redactor-configs)
+- [HTML Purifier](#html-purifier-configs)
 - [Application Config](#application-config)
   - [Mailer Component](#mailer-component)
 
@@ -112,6 +113,16 @@ These `.json` files must contain **valid JSON**. That means:
 // Good:
 {
   "buttons": ["bold", "italic"]
+}
+```
+
+## HTML Purifier Configs
+
+You can customize the HTML Purifier configurations that are available to Rich Text fields by saving them as `.json` files within your `config/htmlpurifier/` directory. The available config settings are listed in [HTML Purifier’s documentation](http://htmlpurifier.org/live/configdoc/plain.html).
+
+```json
+{
+  "HTML.AllowedCommentsRegexp": "p, div"
 }
 ```
 
