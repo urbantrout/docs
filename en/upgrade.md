@@ -60,11 +60,15 @@ Once everything’s in order, follow these steps to update Craft:
 
     > {tip} If Composer complains that your system doesn’t have PHP 7 installed, but you know it’s not an issue because Craft will run with a different PHP install (e.g. through MAMP or Vagrant), use the `--ignore-platform-reqs` flag.
 
-4. Then run the following command to install the Craft plugin installer for Composer:
+4. If you expect you’ll be installing any plugins, run the following command:
 
         composer require craftcms/plugin-installer
 
-5. Once all the files are in place, replace the contents of your `public/index.php` file (or `public_htm/index.php`, etc.) with this code: (Be sure to preserve any PHP constants and other custom code you may have.)
+5. Then run the following command to install the Craft plugin installer for Composer:
+
+        composer require craftcms/plugin-installer
+
+6. Once all the files are in place, replace the contents of your `public/index.php` file (or `public_htm/index.php`, etc.) with this code: (Be sure to preserve any PHP constants and other custom code you may have.)
 
     ```php
     <?php
@@ -79,9 +83,9 @@ Once everything’s in order, follow these steps to update Craft:
     $app->run();
     ```
 
-6. Point your browser to your Control Panel URL (e.g. `http://example.dev/admin`). If you see the update prompt, you did everything right! Go ahead and click “Finish up” to update your database.
+7. Point your browser to your Control Panel URL (e.g. `http://example.dev/admin`). If you see the update prompt, you did everything right! Go ahead and click “Finish up” to update your database.
 
-7. Delete your old `craft/app/` folder. It’s no longer needed; Craft 3 is located in `vendor/craftcms/cms/` now.
+8. Delete your old `craft/app/` folder. It’s no longer needed; Craft 3 is located in `vendor/craftcms/cms/` now.
 
 ## Configuration
 
