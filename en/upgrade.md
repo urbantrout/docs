@@ -53,7 +53,7 @@ Once everything’s in order, follow these steps to update Craft:
 
 2. Open your terminal and go to the `craft/` folder of your Craft project:
 
-        cd /path/to/project
+        cd /path/to/project/craft
 
 3. Then run the following command to load Craft 3 (this will take a few minutes):
 
