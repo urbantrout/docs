@@ -51,7 +51,7 @@ Once everything’s in order, follow these steps to update Craft:
     }
     ```
 
-2. Open your terminal and go to your Craft project:
+2. Open your terminal and go to the `craft/` folder of your Craft project:
 
         cd /path/to/project
 
@@ -65,24 +65,31 @@ Once everything’s in order, follow these steps to update Craft:
 
         composer require craftcms/plugin-installer
 
-5. Once all the files are in place, replace the contents of your `public/index.php` file (or `public_htm/index.php`, etc.) with this code: (Be sure to preserve any PHP constants and other custom code you may have.)
+5. Once all the files are in place, open your `public/index.php` file, find this line:
 
     ```php
-    <?php
+    // Do not edit below this line
+    ```
+    
+    …and replace everything below it with: 
 
-    // Project root path
-    $root = dirname(__DIR__);
-
-    // Load and run Craft
-    define('CRAFT_BASE_PATH', $root.'/craft');
-    require_once $root.'/vendor/autoload.php';
-    $app = require $root.'/vendor/craftcms/cms/bootstrap/web.php';
+    ```php
+    defined('CRAFT_BASE_PATH') || define('CRAFT_BASE_PATH', realpath($craftPath));
+    
+    if (!is_dir(CRAFT_BASE_PATH.'/vendor')) {
+      exit('Could not find your vendor/ folder. Please ensure that <strong><code>$craftPath</code></strong> is set correctly in '.__FILE__);
+    }
+    
+    require_once CRAFT_BASE_PATH.'/vendor/autoload.php';
+    $app = require CRAFT_BASE_PATH.'/vendor/craftcms/cms/bootstrap/web.php';
     $app->run();
     ```
 
 6. Point your browser to your Control Panel URL (e.g. `http://example.dev/admin`). If you see the update prompt, you did everything right! Go ahead and click “Finish up” to update your database.
 
 7. Delete your old `craft/app/` folder. It’s no longer needed; Craft 3 is located in `vendor/craftcms/cms/` now.
+
+> {note} If your `craft/` folder lives in a public folder on your server (e.g. within `public_htm/`), you will need to make sure the new `craft/vendor/` folder is protected from web traffic. If your server is running Apache, you can do this by creating a `.htaccess` file within it, with the contents `Deny from all`.
 
 ## Configuration
 
