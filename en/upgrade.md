@@ -37,7 +37,7 @@ Before you begin, make sure that:
 
 Once everything’s in order, follow these steps to update Craft:
 
-1. Create a `composer.json` file at the root of your Craft project (if you don’t have one already), and add the following properties:
+1. Create a `composer.json` file within your project’s `craft/` folder, and add the following properties:
 
     ```json
     {
@@ -51,7 +51,7 @@ Once everything’s in order, follow these steps to update Craft:
     }
     ```
 
-2. Open your terminal and go to the `craft/` folder of your Craft project:
+2. Open your terminal and go to the `craft/` folder:
 
         cd /path/to/project/craft
 
