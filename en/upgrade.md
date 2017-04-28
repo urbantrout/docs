@@ -398,8 +398,8 @@ Old                                                     | New
 `craft.request.getUrl()`                                | `url(craft.app.request.pathInfo)`
 `craft.request.getSegments()`                           | `craft.app.request.segments`
 `craft.request.getSegment(num)`                         | `craft.app.request.getSegment(num)`
-`craft.request.getFirstSegment()`                       | `craft.app.request.segments|first`
-`craft.request.getLastSegment()`                        | `craft.app.request.segments|last`
+`craft.request.getFirstSegment()`                       | `craft.app.request.segments\|first`
+`craft.request.getLastSegment()`                        | `craft.app.request.segments\|last`
 `craft.request.getParam(name)`                          | `craft.app.request.getParam(name)`
 `craft.request.getQuery(name)`                          | `craft.app.request.getQueryParam(name)`
 `craft.request.getPost(name)`                           | `craft.app.request.getBodyParam(name)`
@@ -455,27 +455,27 @@ Craft’s extended DateTime class has been removed in Craft 3. Here’s a list o
 
 Old                               | New
 --------------------------------- | ----------------------------------
-`{{ d }}` *(treated as a string)* | `{{ d|date('Y-m-d') }}`
-`{{ d.day() }}`                   | `{{ d|date('j') }}`
-`{{ d.month() }}`                 | `{{ d|date('n') }}`
-`{{ d.year() }}`                  | `{{ d|date('Y') }}`
-`{{ d.atom() }}`                  | `{{ d|atom }}`
-`{{ d.rss() }}`                   | `{{ d|rss }}`
-`{{ d.localeDate() }}`            | `{{ d|date('short') }}`
-`{{ d.localeTime() }}`            | `{{ d|time('short') }}`
-`{{ d.nice() }}`                  | `{{ d|datetime('short') }}`
-`{{ d.uiTimestamp() }}`           | `{{ d|timestamp('short') }}`
-`{{ d.cookie() }}`                | `{{ d|date('l, d-M-y H:i:s T')}}`
-`{{ d.iso8601() }}`               | `{{ d|date('Y-m-d\\TH:i:sO') }}`
-`{{ d.rfc822() }}`                | `{{ d|date('D, d M y H:i:s O') }}`
-`{{ d.rfc850() }}`                | `{{ d|date('l, d-M-y H:i:s T') }}`
-`{{ d.rfc1036() }}`               | `{{ d|date('D, d M y H:i:s O') }}`
-`{{ d.rfc1123() }}`               | `{{ d|date('D, d M Y H:i:s O') }}`
-`{{ d.rfc2822() }}`               | `{{ d|date('D, d M Y H:i:s O') }}`
-`{{ d.rfc3339() }}`               | `{{ d|date('Y-m-d\\TH:i:sP') }}`
-`{{ d.w3c() }}`                   | `{{ d|date('Y-m-d\\TH:i:sP') }}`
-`{{ d.w3cDate() }}`               | `{{ d|date('Y-m-d') }}`
-`{{ d.mySqlDateTime() }}`         | `{{ d|date('Y-m-d H:i:s') }}`
+`{{ d }}` *(treated as a string)* | `{{ d\|date('Y-m-d') }}`
+`{{ d.day() }}`                   | `{{ d\|date('j') }}`
+`{{ d.month() }}`                 | `{{ d\|date('n') }}`
+`{{ d.year() }}`                  | `{{ d\|date('Y') }}`
+`{{ d.atom() }}`                  | `{{ d\|atom }}`
+`{{ d.rss() }}`                   | `{{ d\|rss }}`
+`{{ d.localeDate() }}`            | `{{ d\|date('short') }}`
+`{{ d.localeTime() }}`            | `{{ d\|time('short') }}`
+`{{ d.nice() }}`                  | `{{ d\|datetime('short') }}`
+`{{ d.uiTimestamp() }}`           | `{{ d\|timestamp('short') }}`
+`{{ d.cookie() }}`                | `{{ d\|date('l, d-M-y H:i:s T')}}`
+`{{ d.iso8601() }}`               | `{{ d\|date('Y-m-d\\TH:i:sO') }}`
+`{{ d.rfc822() }}`                | `{{ d\|date('D, d M y H:i:s O') }}`
+`{{ d.rfc850() }}`                | `{{ d\|date('l, d-M-y H:i:s T') }}`
+`{{ d.rfc1036() }}`               | `{{ d\|date('D, d M y H:i:s O') }}`
+`{{ d.rfc1123() }}`               | `{{ d\|date('D, d M Y H:i:s O') }}`
+`{{ d.rfc2822() }}`               | `{{ d\|date('D, d M Y H:i:s O') }}`
+`{{ d.rfc3339() }}`               | `{{ d\|date('Y-m-d\\TH:i:sP') }}`
+`{{ d.w3c() }}`                   | `{{ d\|date('Y-m-d\\TH:i:sP') }}`
+`{{ d.w3cDate() }}`               | `{{ d\|date('Y-m-d') }}`
+`{{ d.mySqlDateTime() }}`         | `{{ d\|date('Y-m-d H:i:s') }}`
 
 ## Element Queries
 
