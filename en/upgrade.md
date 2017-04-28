@@ -456,26 +456,26 @@ Craft’s extended DateTime class has been removed in Craft 3. Here’s a list o
 Old                               | New
 --------------------------------- | ----------------------------------
 `{{ d }}` *(treated as a string)* | `{{ d\|date('Y-m-d') }}`
-`{{ d.day() }}`                   | `{{ d\|date('j') }}`
-`{{ d.month() }}`                 | `{{ d\|date('n') }}`
-`{{ d.year() }}`                  | `{{ d\|date('Y') }}`
 `{{ d.atom() }}`                  | `{{ d\|atom }}`
-`{{ d.rss() }}`                   | `{{ d\|rss }}`
+`{{ d.cookie() }}`                | `{{ d\|date('l, d-M-y H:i:s T')}}`
+`{{ d.day() }}`                   | `{{ d\|date('j') }}`
+`{{ d.iso8601() }}`               | `{{ d\|date('Y-m-d\\TH:i:sO') }}`
 `{{ d.localeDate() }}`            | `{{ d\|date('short') }}`
 `{{ d.localeTime() }}`            | `{{ d\|time('short') }}`
+`{{ d.month() }}`                 | `{{ d\|date('n') }}`
+`{{ d.mySqlDateTime() }}`         | `{{ d\|date('Y-m-d H:i:s') }}`
 `{{ d.nice() }}`                  | `{{ d\|datetime('short') }}`
-`{{ d.uiTimestamp() }}`           | `{{ d\|timestamp('short') }}`
-`{{ d.cookie() }}`                | `{{ d\|date('l, d-M-y H:i:s T')}}`
-`{{ d.iso8601() }}`               | `{{ d\|date('Y-m-d\\TH:i:sO') }}`
-`{{ d.rfc822() }}`                | `{{ d\|date('D, d M y H:i:s O') }}`
-`{{ d.rfc850() }}`                | `{{ d\|date('l, d-M-y H:i:s T') }}`
 `{{ d.rfc1036() }}`               | `{{ d\|date('D, d M y H:i:s O') }}`
 `{{ d.rfc1123() }}`               | `{{ d\|date('D, d M Y H:i:s O') }}`
 `{{ d.rfc2822() }}`               | `{{ d\|date('D, d M Y H:i:s O') }}`
 `{{ d.rfc3339() }}`               | `{{ d\|date('Y-m-d\\TH:i:sP') }}`
+`{{ d.rfc822() }}`                | `{{ d\|date('D, d M y H:i:s O') }}`
+`{{ d.rfc850() }}`                | `{{ d\|date('l, d-M-y H:i:s T') }}`
+`{{ d.rss() }}`                   | `{{ d\|rss }}`
+`{{ d.uiTimestamp() }}`           | `{{ d\|timestamp('short') }}`
 `{{ d.w3c() }}`                   | `{{ d\|date('Y-m-d\\TH:i:sP') }}`
 `{{ d.w3cDate() }}`               | `{{ d\|date('Y-m-d') }}`
-`{{ d.mySqlDateTime() }}`         | `{{ d\|date('Y-m-d H:i:s') }}`
+`{{ d.year() }}`                  | `{{ d\|date('Y') }}`
 
 ## Element Queries
 
