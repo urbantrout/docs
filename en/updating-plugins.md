@@ -483,7 +483,7 @@ use craft\events\RegisterUrlRulesEvent;
 use craft\web\UrlManager;
 use yii\base\Event;
 
-Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_SITE_URL_RULES, RegisterUrlRulesEvent $event) {
+Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_SITE_URL_RULES, function(RegisterUrlRulesEvent $event) {
     $event->rules['cocktails/new'] = ['template' => 'cocktails/_edit'];
     $event->rules['cocktails/<widgetId:\d+>'] = 'cocktails/edit-cocktail';
 });
