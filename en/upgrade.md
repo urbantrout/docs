@@ -235,7 +235,7 @@ Support for Amazon S3, Rackspace Cloud Files, and Google Cloud Storage have been
 
 - [Amazon S3](https://github.com/craftcms/aws-s3)
 - [Rackspace Cloud Files](https://github.com/craftcms/rackspace)
-- *Google Cloud Storage coming soon*
+- [Google Cloud Storage](https://github.com/craftcms/google-cloud)
 
 ## User Photos
 
