@@ -344,9 +344,9 @@ Old                                                     | New
 `craft.categoryGroups.getGroupByHandle(handle)`         | `craft.app.categories.getGroupByHandle(handle)`
 `craft.config.[setting]` *(magic getter)*               | `craft.app.config.general.[setting]`
 `craft.config.get(setting)`                             | `craft.app.config.general.[setting]`
-`craft.config.usePathInfo()`                            | `craft.app.config.usePathInfo`
-`craft.config.omitScriptNameInUrls()`                   | `craft.app.config.omitScriptNameInUrls`
-`craft.config.getResourceTrigger()`                     | `craft.app.config.resourceTrigger`
+`craft.config.usePathInfo()`                            | `craft.app.config.general.usePathInfo`
+`craft.config.omitScriptNameInUrls()`                   | `craft.app.config.general.omitScriptNameInUrls`
+`craft.config.getResourceTrigger()`                     | `craft.app.config.general.resourceTrigger`
 `craft.locale()`                                        | `craft.app.language`
 `craft.isLocalized()`                                   | `craft.app.isMultiSite`
 `craft.deprecator.getTotalLogs()`                       | `craft.app.deprecator.totalLogs`
@@ -405,7 +405,7 @@ Old                                                     | New
 `craft.request.getPost(name)`                           | `craft.app.request.getBodyParam(name)`
 `craft.request.getCookie(name)`                         | `craft.app.request.cookies.get(name)`
 `craft.request.getServerName()`                         | `craft.app.request.serverName`
-`craft.request.getUrlFormat()`                          | `craft.app.config.usePathInfo`
+`craft.request.getUrlFormat()`                          | `craft.app.config.general.usePathInfo`
 `craft.request.isMobileBrowser()`                       | `craft.app.request.isMobileBrowser()`
 `craft.request.getPageNum()`                            | `craft.app.request.pageNum`
 `craft.request.getHostInfo()`                           | `craft.app.request.hostInfo`
@@ -618,7 +618,7 @@ Controller Action               | Old Token     | New Token
 CSRF protection is enabled by default in Craft 3. If you didn’t already have it enabled (via the `enableCsrfProtection` config setting), each of your front-end `<form>`s and JS scripts that submit to a controller action will need to be updated with a new CSRF token param, named after your `csrfTokenName` config setting value (set to `'CRAFT_CSRF_TOKEN'` by default).
 
 ```twig
-{% set csrfTokenName = craft.app.config.get('csrfTokenName') %}
+{% set csrfTokenName = craft.app.config.general.csrfTokenName %}
 {% set csrfToken = craft.app.request.csrfToken %}
 <input type="hidden" name="{{ csrfTokenName }}" value="{{ csrfToken }}">
 ```
