@@ -30,11 +30,11 @@ Your `web/index.php` file can specify a few PHP constants, which Craft’s boots
 
 ## General Config
 
-Craft supports several general configuration settings. You can see a list of them all in `vendor/craftcms/cms/src/config/defaults/general.php`, and you can override the values in your `config/general.php` file.
+Craft supports several general configuration settings. You can see a list of them all in `vendor/craftcms/cms/src/config/GeneralConfig.php`, and you can override the values in your `config/general.php` file.
 
 ## Database Config
 
-Craft supports several database configuration settings. You can see a list of them all in `vendor/craftcms/cms/src/config/defaults/db.php`, and you can override the values in your `config/db.php` file.
+Craft supports several database configuration settings. You can see a list of them all in `vendor/craftcms/cms/src/config/DbConfig.php`, and you can override the values in your `config/db.php` file.
 
 ## Data Caching Config
 
