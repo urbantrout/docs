@@ -719,10 +719,7 @@ use craft\web\View;
 
 $oldMode = \Craft::$app->view->getTemplateMode();
 \Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_CP);
-$html =
- \\\Craft::$app->view->renderTemplate('pluginHandle/path/to/template');
- 
- 
+$html = \Craft::$app->view->renderTemplate('pluginHandle/path/to/template');
 \Craft::$app->view->setTemplateMode($oldMode);
 ```
 

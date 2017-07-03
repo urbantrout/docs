@@ -86,7 +86,7 @@ Do your best to follow these guidelines when writing code for Craft and Craft pl
 - Follow the [PSR-4](http://www.php-fig.org/psr/psr-4/) specification, where a class’s file location can be inferred by its fully qualified name, given a known base namespace mapped to a base path.
 - Namespaces should be all-lowercase.
 - Class names should be `StudlyCase`.
-- Only first party code should use the `craft\` and `pixelandtonic\` namespace roots. Third party plugins should use a namespace root that refers to the vendor name and plugin name (e.g. `acme\pluginhandle\`).
+- Only first party code should use the `craft\` and `pixelandtonic\` namespace roots. Third party plugins should use a namespace root that refers to the vendor name and plugin name (e.g. `acme\myplugin\`).
 
 ## Method Names
 

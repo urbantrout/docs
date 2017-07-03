@@ -449,7 +449,7 @@ You can define the sort options for your element indexes by adding a protected s
 protected static function defineSortOptions(): array
 {
     return [
-        'title' => \Craft::t('app', 'Price'),
+        'title' => \Craft::t('app', 'Title'),
         'price' => \Craft::t('pluginhandle', 'Price'),
     ];
 }
