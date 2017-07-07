@@ -94,7 +94,7 @@ public function actionFoo()
 {
     $this->view->registerAssetBundle(FooBundle::class);
 
-    return $this->renderTemplate('pluginHandle/foo');
+    return $this->renderTemplate('plugin-handle/foo');
 }
 ```
 

@@ -213,12 +213,12 @@ Craft 3 still supports [static translations](https://craftcms.com/support/static
 
 The acceptable translation categories are:
 
-Category       | Description
--------------- | -----------------------------------------
-`app`          | Craft’s translation messages
-`yii`          | Yii’s translation messages
-`site`         | custom site-specific translation messages
-`pluginhandle` | Plugins’ translation messages
+Category        | Description
+--------------- | -----------------------------------------
+`app`           | Craft’s translation messages
+`yii`           | Yii’s translation messages
+`site`          | custom site-specific translation messages
+`plugin-handle` | Plugins’ translation messages
 
 In Craft 3, your `translations/` folder might look something like this:
 

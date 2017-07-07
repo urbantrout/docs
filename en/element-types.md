@@ -374,8 +374,8 @@ Then, if they can have any statuses besides `enabled` and `disabled`, add a stat
 public static function statuses(): array
 {
     return [
-        'foo' => \Craft::t('pluginhandle', 'Foo'),
-        'bar' => \Craft::t('pluginhandle', 'Bar'),
+        'foo' => \Craft::t('plugin-handle', 'Foo'),
+        'bar' => \Craft::t('plugin-handle', 'Bar'),
     ];
 }
 ```
@@ -450,7 +450,7 @@ protected static function defineSortOptions(): array
 {
     return [
         'title' => \Craft::t('app', 'Title'),
-        'price' => \Craft::t('pluginhandle', 'Price'),
+        'price' => \Craft::t('plugin-handle', 'Price'),
     ];
 }
 ```
@@ -466,8 +466,8 @@ protected static function defineTableAttributes(): array
 {
     return [
         'title' => \Craft::t('app', 'Title'),
-        'price' => \Craft::t('pluginhandle', 'Price'),
-        'currency' => \Craft::t('pluginhandle', 'Currency'),
+        'price' => \Craft::t('plugin-handle', 'Price'),
+        'currency' => \Craft::t('plugin-handle', 'Currency'),
     ];
 }
 ```
@@ -670,7 +670,7 @@ class Products extends BaseRelationField
 {
     public static function displayName(): string
     {
-        return \Craft::t('pluginhandle', 'Products');
+        return \Craft::t('plugin-handle', 'Products');
     }
 
     protected static function elementType(): string
@@ -680,7 +680,7 @@ class Products extends BaseRelationField
 
     public static function defaultSelectionLabel(): string
     {
-        return \Craft::t('pluginhandle', 'Add a product');
+        return \Craft::t('plugin-handle', 'Add a product');
     }
 }
 ```

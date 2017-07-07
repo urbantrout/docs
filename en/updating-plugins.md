@@ -687,7 +687,7 @@ The TemplatesService has been replaced with a View component.
 craft()->templates->render('pluginHandle/path/to/template', $variables);
 
 // New:
-\Craft::$app->view->renderTemplate('pluginHandle/path/to/template', $variables);
+\Craft::$app->view->renderTemplate('plugin-handle/path/to/template', $variables);
 ```
 
 ### Controller Action Templates
@@ -699,7 +699,7 @@ Controllers’ `renderTemplate()` method hasn’t changed much. The only differe
 $this->renderTemplate('pluginHandle/path/to/template', $variables);
 
 // New:
-return $this->renderTemplate('pluginHandle/path/to/template', $variables);
+return $this->renderTemplate('plugin-handle/path/to/template', $variables);
 ```
 
 ### Rendering Plugin Templates on Front End Requests
@@ -719,7 +719,7 @@ use craft\web\View;
 
 $oldMode = \Craft::$app->view->getTemplateMode();
 \Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_CP);
-$html = \Craft::$app->view->renderTemplate('pluginHandle/path/to/template');
+$html = \Craft::$app->view->renderTemplate('plugin-handle/path/to/template');
 \Craft::$app->view->setTemplateMode($oldMode);
 ```
 
@@ -751,7 +751,7 @@ If your plugin has a Craft 2 counterpart and there’s a chance people will be u
 
 ### Setting it up
 
-First, establish whether Craft will consider your plugin to be an **update** or a **new installation**. Craft will consider it to be an **update** if your plugin handle is equal to its former class name, minus the `Plugin` suffix. (Casing changes are OK here, so if your Craft 2 version’s class name was `FooBarPlugin`, and the Craft 3 version’s handle is `fooBar`, those would be considered equal.)
+First, establish whether Craft will consider your plugin to be an **update** or a **new installation**. Craft will consider it to be an **update** if your plugin handle is equal to its former class name, minus the `Plugin` suffix and converted to `kebab-case`. (For example, if your plugin’s former class name as `FooBarPlugin` and its new handle is `foo-bar`, Craft would consider it an update.)
 
 #### In Case of Update
 
@@ -770,7 +770,7 @@ public function safeUp()
     $row = (new \craft\db\Query())
         ->select(['id', 'settings'])
         ->from(['{{%plugins}}'])
-        ->where(['handle' => 'oldclass'])
+        ->where(['in', 'handle', ['old-class', 'oldclass']])
         ->one();
 
     if ($row !== false)) {
@@ -779,7 +779,7 @@ public function safeUp()
         // Update this one's settings to old values
         $this->update('{{%plugins}}', [
             'settings' => $row['settings']
-        ], ['handle' => 'newhandle']);
+        ], ['handle' => 'new-handle']);
 
         // Delete the old row
         $this->delete('{{%plugins}}', ['id' => $row['id']]);
@@ -788,8 +788,6 @@ public function safeUp()
     }
 }
 ```
-
-> {note} Plugin handles are always lowercased in the `plugins` table.
 
 Your upgrade migration code will go where that `// Upgrade code...` comment is.
 

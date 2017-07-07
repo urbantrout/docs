@@ -76,7 +76,7 @@ $foo = \ns\prefix\Plugin::getInstance()->settings->foo;
 
 ## Overriding Setting Values
 
-Your setting values can be overridden on a per-project basis from a PHP file within the project’s `config/` folder, named after your plugin handle (all-lowercase). For example, if your plugin handle is `fooBar`, its settings can be overridden from a `config/foobar.php` file.
+Your setting values can be overridden on a per-project basis from a PHP file within the project’s `config/` folder, named after your plugin handle. For example, if your plugin handle is `foo-bar`, its settings can be overridden from a `config/foo-bar.php` file.
 
 The file just needs to return an array with the overridden values:
 
@@ -148,7 +148,7 @@ class Plugin extends \craft\base\Plugin
 
     protected function settingsHtml()
     {
-        return \Craft::$app->getView()->renderTemplate('pluginHandle/settings', [
+        return \Craft::$app->getView()->renderTemplate('plugin-handle/settings', [
             'settings' => $this->getSettings()
         ]);
     }
@@ -158,8 +158,6 @@ class Plugin extends \craft\base\Plugin
 ```
 
 With all that in place, your plugin will now get its own icon on the Settings page, and a cog icon in its row on the Settings → Plugins page, which will link to `/admin/settings/plugin-handle`.
-
-> {tip} That `plugin-handle` segment is your plugin handle, converted from `camelCase` to `kebab-case`.
 
 ### Advanced Settings Pages
 
@@ -172,7 +170,7 @@ It can choose to render its own template, rather than being confined to Craft’
 ```php
 public function getSettingsResponse()
 {
-    return \Craft::$app->controller->renderTemplate('pluginHandle/settings/template');
+    return \Craft::$app->controller->renderTemplate('plugin-handle/settings/template');
 }
 ```
 

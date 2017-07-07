@@ -14,9 +14,9 @@ To create a new migration, open up your terminal and go to a Craft project that 
 
     cd /path/to/project
 
-Then run the following command to generate a new migration file for your plugin (replacing `MIGRATION_NAME` and `PLUGIN_HANDLE` with your migration name and plugin handle, respectively):
+Then run the following command to generate a new migration file for your plugin (replacing `<migration_name>` and `<plugin-handle>` with your migration name and plugin handle, respectively):
 
-    ./craft migrate/create MIGRATION_NAME --plugin=PLUGIN_HANDLE
+    ./craft migrate/create <migration_name> --plugin=<plugin-handle>
 
 > {tip} If your Craft install is running from a Vagrant box, you will need to SSH into the box to run this command.
 
@@ -55,7 +55,7 @@ With that in place, go to your Control Panel, and Craft will prompt you to run a
 
 Alternatively, you can run pending migrations from your terminal with the `migrate/up` command:
 
-    ./craft migrate/up --plugin=PLUGIN_HANDLE
+    ./craft migrate/up --plugin=<plugin-handle>
 
 ## Install Migrations
 
@@ -83,7 +83,7 @@ class Install extends Migration
 
 You can give your plugin an install migration with the `migrate/create` command if you pass the migration name “`install`”:
 
-    ./craft migrate/create install --plugin=PLUGIN_HANDLE
+    ./craft migrate/create install --plugin=<plugin-handle>
 
 When a plugin has an Install migration, its `safeUp()` method will be called when the plugin is installed, and its `safeDown()` method will be called when the plugin is uninstalled (invoked by `craft\base\Plugin::install()` and `uninstall()`).
 

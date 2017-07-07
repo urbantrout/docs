@@ -19,9 +19,8 @@ Technically, plugins are a superset of [Yii Modules], which means they can have 
 
 The main benefits of Craft Plugins over Yii Modules are:
 
-- Plugins can be installed, updated, and uninstalled.
-- Plugins can have their own migrations, managed separately from Craft and content migrations.
-- Plugins can have a global template variable, accessed from `craft.pluginHandle`.
+- Plugins can be installed and uninstalled.
+- Plugins can have their own migration track.
 - Plugins can have their own section in the Control Panel.
 
 ## Getting Started
@@ -34,7 +33,7 @@ Before you begin working on a plugin, you need to decide on a few things:
 
 - **Package name** – Used to name your Composer package. It’s required even if you don’t want to distribute your plugin via Composer. (See Composer’s [documentation][package name] for details.)
 - **Namespace prefix** – Your plugin’s class namespaces will begin with this. (See the [PSR-4] autoloading specification for details.) Note that this should *not* begin with `craft\`; use something that identifies you, the developer.
-- **Plugin handle** – Something that uniquely identifies your plugin within the Craft ecosystem. (Plugin handles must begin with a letter and contain only letters, numbers, and underscores. They should be `camelCased`.)
+- **Plugin handle** – Something that uniquely identifies your plugin within the Craft ecosystem. (Plugin handles must begin with a letter and contain only lowercase letters, numbers, and dashes. They should be `kebab-cased`.)
 - **Plugin name** – What your plugin will be called within the Control Panel.
 
 Naming things is one of the [two hardest things] in computer science, so if you can make a decision on those things, the rest of the plugin should practically write itself.
@@ -71,8 +70,11 @@ Use this template as a starting point for your `composer.json` file:
       "ns\\prefix\\": "src/"
     }
   },
+  "support": {
+    "email": "you@example.com"
+  },
   "extra": {
-    "handle": "pluginHandle",
+    "handle": "plugin-handle",
     "name": "Plugin Name",
     "developer": "Developer Name",
     "developerUrl": "https://developer-url.com"
@@ -84,7 +86,8 @@ Replace:
 
 - `package/name` with your package name.
 - `ns\\prefix\\` with your namespace prefix. (Use double-backslashes because JSON, and note this must end with `\\`.)
-- `pluginHandle` with your plugin handle.
+- `you@example.com` with your support email.
+- `plugin-handle` with your plugin handle.
 - `Plugin Name` with your plugin name.
 - `Developer Name` with your name, or the organization name that the plugin should be attributed to.
 - `https://developer-url.com` with the URL to the website the developer name should link to in the Control Panel.
@@ -100,6 +103,7 @@ Here’s a full list of the properties that can go in that `extra` object:
 - `description` – The plugin description. If not set, the main `description` property will be used.
 - `developer` – The developer name. If not set, the first author’s `name` will be used (via the `authors` property).
 - `developerUrl` – The developer URL. If not set, the `homepage` property will be used, or the first author’s `homepage` (via the `authors` property).
+- `developerEmail` – The support email. If not set, the `support.email` property will be used.
 - `documentationUrl` – The plugin’s documentation URL. If not set, the `support.docs` property will be used.
 - `changelogUrl` – The plugin’s changelog URL (used to show pending plugin updates and their release notes).
 - `downloadUrl` – The plugin’s download URL (used to update manual installations of the plugin).
@@ -135,29 +139,15 @@ class Plugin extends \craft\base\Plugin
 
 Replace `ns\prefix` with your plugin’s namespace prefix.
 
-### Loading your plugin into Craft
+### Loading your plugin into a Craft project
 
-There are two ways to make your plugin visible to Craft:
+To get Craft to see your plugin, you will need to install it as a Composer dependency of your Craft project. There are multiple ways to do that:
 
-1. Move/symlink the plugin into your `plugins/` folder
-2. Set your plugin up as a Composer dependency
+#### Path Repository
 
-#### Move/symlink the plugin into your `plugins/` folder
+During development, the easiest way to work on your plugin is with a [`path` repository][path], which will tell Composer to symlink your plugin into the `vendor/` folder right alongside other dependencies.
 
-This route is simpler, but it’s only practical if your plugin isn’t going to have any of its own Composer dependencies (besides Craft itself).
-
-In your terminal, go to your Craft project’s `plugins/` folder and create a symlink to your plugin’s root directory. The symlink should be named identically to your plugin’s handle, except **all-lowercase**.
-
-```
-> cd ~/dev/my-craft-project/plugins
-> ln -s ~/dev/my-plugin pluginhandle
-```
-
-#### Set your plugin up as a Composer dependency
-
-Composer supports a [`path` repository type][path], which can be used to symlink your plugin into the `vendor/` folder right alongside your project’s other dependencies (like Craft itself). This is the best way to go if your plugin has any of its own dependencies, as Composer will still load those into the `vendor` folder like normal.
-
-To set this up, open your Craft project’s `composer.json` file and add a new `path` repository record, pointed at your plugin’s root directory.
+To set it up, open your Craft project’s `composer.json` file and add a new `path` repository record, pointed at your plugin’s root directory.
 
 ```json
 {
@@ -177,7 +167,22 @@ In your terminal, go to your Craft project and tell Composer to require your plu
 > composer require package/name
 ```
 
-> {note} One caveat of `path` Composer repositories is that Composer is not too smart about keeping their dependencies updated when calling `composer update`. You may need to remove and re-require your plugin in your Craft project each time its dependencies change.
+Composer’s installation log should indicate that the package was installed via a symlink:
+
+```
+  - Installing package/name (X.Y.Z): Symlinking from ../my-plugin
+```
+
+> {note} One caveat of `path` Composer repositories is that Composer is not too smart about keeping their dependencies updated when calling `composer update`. You may need to `remove` and re-`require` your plugin in your Craft project each time its dependencies change.
+
+#### Packagist
+
+If you’re ready to publicly release your plugin, register it as a new Composer package on [Packagist](https://packagist.org/). Then you can install it like any other package, by just passing its package name to Composer’s `require` command. 
+
+```
+> cd ~/dev/my-craft-project
+> composer require package/name
+```
 
 ## Plugin Icons
 
