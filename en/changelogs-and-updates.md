@@ -18,10 +18,12 @@ Version headings in your changelog must follow the general format:
 
 The following deviations are supported as well:
 
+- Other text can come before the version number, like the plugin’s name.
 - A 4th version number is allowed (e.g. `1.2.3.4`).
 - Pre-release versions are allowed (e.g. `1.0.0-alpha.1`).
 - The version can start with `v` (e.g. `v1.2.3`).
 - The version can be hyperlinked (e.g. `[1.2.3]`).
+- Dates can use dots as separators, rather than hyphens (e.g. `2017.01.21`).
 
 If an update should be marked as critical, you can append a `[CRITICAL]` flag to the end of the version heading:
 
@@ -39,10 +41,12 @@ All content that follows a version heading (up to the next H2) is considered the
 
 While you should generally follow the release note format suggested by [keepachangelog.com], all forms of [GitHub Flavored Markdown] are allowed. The only thing that is *not* allowed is actual HTML code, which will be escaped.
 
-You can also define **notes** and **tips**, using this syntax:
+You can also define **notes**, **warnings**, and **tips** using this syntax:
 
 ```markdown
-> {note} A word of warning.
+> {note} A serious note.
+
+> {warning} A word of warning.
 
 > {tip} A helpful tip.
 ```
