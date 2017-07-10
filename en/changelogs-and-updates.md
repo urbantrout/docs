@@ -13,7 +13,7 @@ Within the changelog, releases must be listed in descending order (newest on top
 Version headings in your changelog must follow the general format:
 
 ```markdown
-## X.Y.Z - YYYY-DD-MM
+## X.Y.Z - YYYY-MM-DD
 ```
 
 The following deviations are supported as well:
