@@ -7,7 +7,7 @@ Intro to Plugin Dev
   - [Setting up the basic file structure](#setting-up-the-basic-file-structure)
   - [composer.json](#composerjson)
   - [Primary Plugin Class](#primary-plugin-class)
-  - [Loading your plugin into Craft](#loading-your-plugin-into-craft)
+  - [Loading your plugin into a Craft project](#loading-your-plugin-into-a-craft-project)
 - [Plugin Icons](#plugin-icons)
 - [Plugin Changelogs](#plugin-changelogs)
 
