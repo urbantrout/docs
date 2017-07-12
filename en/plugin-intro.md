@@ -9,7 +9,6 @@ Intro to Plugin Dev
   - [Primary Plugin Class](#primary-plugin-class)
   - [Loading your plugin into a Craft project](#loading-your-plugin-into-a-craft-project)
 - [Plugin Icons](#plugin-icons)
-- [Plugin Changelogs](#plugin-changelogs)
 
 ## What are Plugins?
 
