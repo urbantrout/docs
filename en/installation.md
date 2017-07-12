@@ -23,11 +23,11 @@ You can find out if Composer is already installed by opening your terminal and e
 
 - **macOS/Linux/Unix**
 
-        which composer
+      which composer
 
 - **Windows**
 
-        where composer
+      where composer
 
 If that outputs a file path(s), Composer is installed. Otherwise you will need to follow Composer’s installation instructions:
 
