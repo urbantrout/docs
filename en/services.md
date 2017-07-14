@@ -90,6 +90,11 @@ Here’s a control flow diagram for class-oriented methods:
 ╚════════════════════════════╝
                │
                ▼
+  ┌────────────────────────┐
+  │ beforeSaveRecipe event │
+  └────────────────────────┘
+               │
+               ▼
                Λ
               ╱ ╲
              ╱   ╲              ┏━━━━━━━━━━━━━━┓
@@ -99,11 +104,6 @@ Here’s a control flow diagram for class-oriented methods:
                V
                │
               yes
-               │
-               ▼
-  ┌────────────────────────┐
-  │ beforeSaveRecipe event │
-  └────────────────────────┘
                │
                ▼
      ┌───────────────────┐
@@ -140,19 +140,18 @@ Here’s a complete code example of what that looks like:
 ```php
 public function saveRecipe(Recipe $recipe, $runValidation = true)
 {
-    if ($runValidation && !$recipe->validate()) {
-        \Craft::info('Recipe not saved due to validation error.', __METHOD__);
-
-        return false;
-    }
-
-    $isNewRecipe = !$recipe->id;
-
     // Fire a 'beforeSaveRecipe' event
     $this->trigger(self::EVENT_BEFORE_SAVE_RECIPE, new RecipeEvent([
         'recipe' => $recipe,
         'isNew' => $isNewRecipe,
     ]));
+
+    if ($runValidation && !$recipe->validate()) {
+        \Craft::info('Recipe not saved due to validation error.', __METHOD__);
+        return false;
+    }
+
+    $isNewRecipe = !$recipe->id;
 
     // ... Save the recipe here ...
 
@@ -176,6 +175,22 @@ Here’s a control flow diagram for interface-oriented methods:
 ╚═════════════════════════════════════════════════╝
                          │
                          ▼
+          ┌────────────────────────────┐
+          │ beforeSaveIngredient event │
+          └────────────────────────────┘
+                         │
+                         ▼
+                         Λ
+                        ╱ ╲
+                       ╱   ╲                        ┏━━━━━━━━━━━━━━┓
+             $ingredient->beforeSave() ── false ───▶┃ return false ┃
+                       ╲   ╱                        ┗━━━━━━━━━━━━━━┛
+                        ╲ ╱
+                         V
+                         │
+                        true
+                         │
+                         ▼
                          Λ
                         ╱ ╲
                        ╱   ╲              ┏━━━━━━━━━━━━━━┓
@@ -187,26 +202,10 @@ Here’s a control flow diagram for interface-oriented methods:
                         yes
                          │
                          ▼
-          ┌────────────────────────────┐
-          │ beforeSaveIngredient event │
-          └────────────────────────────┘
-                         │
-                         ▼
                ┌───────────────────┐
                │ begin transaction │
                └───────────────────┘
                          │
-                         ▼
-                         Λ
-                        ╱ ╲
-                       ╱   ╲                        ┌──────────────────────┐
-             $ingredient->beforeSave() ── false ───▶│ rollback transaction │
-                       ╲   ╱                        └──────────────────────┘
-                        ╲ ╱                                     │
-                         V                                      ▼
-                         │                              ┏━━━━━━━━━━━━━━┓
-                        true                            ┃ return false ┃
-                         │                              ┗━━━━━━━━━━━━━━┛
                          ▼
               ┌─────────────────────┐
               │ save the ingredient │
@@ -240,29 +239,25 @@ public function saveIngredient(IngredientInterface $ingredient, $runValidation =
 {
     /** @var Ingredient $ingredient */
 
-    if ($runValidation && !$ingredient->validate()) {
-        \Craft::info('Ingredient not saved due to validation error.', __METHOD__);
-
-        return false;
-    }
-
-    $isNewIngredient = !$ingredient->id;
-
     // Fire a 'beforeSaveIngredient' event
     $this->trigger(self::EVENT_BEFORE_SAVE_INGREDIENT, new IngredientEvent([
         'ingredient' => $ingredient,
         'isNew' => $isNewIngredient,
     ]));
 
+    if (!$ingredient->beforeSave()) {
+        return false;
+    }
+
+    if ($runValidation && !$ingredient->validate()) {
+        \Craft::info('Ingredient not saved due to validation error.', __METHOD__);
+        return false;
+    }
+
+    $isNewIngredient = !$ingredient->id;
+
     $transaction = \Craft::$app->getDb()->beginTransaction();
-
     try {
-        if (!$ingredient->beforeSave()) {
-            $transaction->rollback();
-
-            return false;
-        }
-
         // ... Save the ingredient here ...
 
         $ingredient->afterSave();
@@ -270,7 +265,6 @@ public function saveIngredient(IngredientInterface $ingredient, $runValidation =
         $transaction->commit();
     } catch (\Exception $e) {
         $transaction->rollBack();
-
         throw $e;
     }
 
