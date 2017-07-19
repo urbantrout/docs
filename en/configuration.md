@@ -19,6 +19,7 @@ Your `web/index.php` file can specify a few PHP constants, which Craft’s boots
 
 - `CRAFT_VENDOR_PATH` – The path to the `vendor/` directory. (It is assumed to live 4 directories up from the bootstrap script by default.)
 - `CRAFT_BASE_PATH` – The path to the **base directory** that Craft will look for `config/`, `templates/`, and other directories within by default. (It is assumed to be the parent of the `vendor/` directory by default.)
+- `CRAFT_COMPOSER_PATH` – The path to `composer.json`. (It is assumed to live within the base directory by default.)
 - `CRAFT_CONFIG_PATH` – The path to the `config/` directory. (It is assumed to live within the base directory by default.)
 - `CRAFT_CONTENT_MIGRATIONS_PATH` – The path to the `migrations/` directory used to store content migrations. (It is assumed to live within the base directory by default.)
 - `CRAFT_PLUGINS_PATH` – The path to the `plugins/` directory used to store manually-installed plugins. (It is assumed to live within the base directory by default.)
