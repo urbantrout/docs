@@ -27,6 +27,7 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
   - [General Hooks](#general-hooks)
   - [Routing Hooks](#routing-hooks)
   - [Element Hooks](#element-hooks)
+- [Template Variables](#template-variables)
 - [Rendering Templates](#rendering-templates)
   - [Controller Action Templates](#controller-action-templates)
   - [Rendering Plugin Templates on Front End Requests](#rendering-plugin-templates-on-front-end-requests)
@@ -677,6 +678,23 @@ public function getTableAttributesForSource($elementType, $sourceKey)
 ```
 
 > {note} There is no direct Craft 3 equivalent for this hook, which allowed plugins to completely change the table attributes for an element type right before the element index view was rendered. The closest thing in Craft 3 is the `craft\base\Element::EVENT_REGISTER_TABLE_ATTRIBUTES` event, which can be used to change the available table attributes for an element type when an admin is customizing the element index sources.
+
+## Template Variables
+
+Template variables are no longer a thing in Craft 3, however plugins can still register custom services on the global `craft` variable by listening to its `init` event:
+
+```php
+use craft\web\twig\variables\CraftVariable;
+use yii\base\Event;
+
+Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, function(Event $event) {
+    /** @var CraftVariable $variable */
+    $variable = $event->sender;
+    $variable->set('componentName', YourVariableClass::class);
+});
+```
+
+(Replace `componentName` with whatever you want your variable’s name to be off of the `craft` object. For backwards-compatibility, you might want to go with your old `camelCased` plugin handle.)
 
 ## Rendering Templates
 
