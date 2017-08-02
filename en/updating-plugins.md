@@ -218,7 +218,7 @@ use yii\base\Event;
 
 Event::on(RichText::class, RichText::EVENT_REGISTER_LINK_OPTIONS, function(RegisterRichTextLinkOptionsEvent $event) {
     $event->linkOptions[] = [
-        'optionTitle' => \Craft::t('commerce', 'Link to a product'),
+        'optionTitle' => \Craft::t('plugin-handle', 'Link to a product'),
         'elementType' => Product::class,
     ];
 });
@@ -262,7 +262,7 @@ use yii\base\Event;
 Event::on(UsersController::class, UsersController::EVENT_REGISTER_USER_ACTIONS, function(RegisterUserActionsEvent $event) {
     if ($event->user->isCurrent) {
         $event->miscActions[] = [
-            'label' => \Craft::t('baconater', 'Send Bacon'),
+            'label' => \Craft::t('plugin-handle', 'Send Bacon'),
             'action' => 'baconater/send-bacon'
         ];
     }
@@ -317,7 +317,7 @@ use yii\base\Event;
 Event::on(Cp::class, Cp::EVENT_REGISTER_CP_NAV_ITEMS, function(RegisterCpNavItemsEvent $event) {
     if (\Craft::$app->user->identity->admin) {
         $event->navItems['foo'] = [
-            'label' => \Craft::t('myplugin', 'Utils'),
+            'label' => \Craft::t('plugin-handle', 'Utils'),
             'url' => 'utils'
         ];
     }
@@ -343,7 +343,7 @@ use yii\base\Event;
 Event::on(ClearCaches::class, ClearCaches::EVENT_REGISTER_CACHE_OPTIONS, function(RegisterCacheOptionsEvent $event) {
     $event->options[] = [
         'key' => 'drink-images',
-        'label' => \Craft::t('drinks', 'Drink images'),
+        'label' => \Craft::t('plugin-handle', 'Drink images'),
         'action' => \Craft::$app->path->getStoragePath().'/drinks'
     ];
 });
@@ -390,9 +390,9 @@ use craft\services\UserPermissions;
 use yii\base\Event;
 
 Event::on(UserPermissions::class, UserPermissions::EVENT_REGISTER_PERMISSIONS, function(RegisterUserPermissionsEvent $event) {
-    $event->permissions[\Craft::t('vices', 'Vices')] = [
-        'drinkAlcohol' => ['label' => \Craft::t('vices', 'Drink alcohol')],
-        'stayUpLate' => ['label' => \Craft::t('vices', 'Stay up late')],
+    $event->permissions[\Craft::t('plugin-handle', 'Vices')] = [
+        'drinkAlcohol' => ['label' => \Craft::t('plugin-handle', 'Drink alcohol')],
+        'stayUpLate' => ['label' => \Craft::t('plugin-handle', 'Stay up late')],
     ];
 });
 ```
@@ -415,7 +415,7 @@ use yii\base\Event;
 
 Event::on(Cp::class, Cp::EVENT_REGISTER_ALERTS, function(RegisterCpAlertsEvent $event) {
     if (\Craft::$app->config->get('devMode')) {
-        $event->alerts[] = \Craft::t('myplugin', 'Dev Mode is enabled!');
+        $event->alerts[] = \Craft::t('plugin-handle', 'Dev Mode is enabled!');
     }
 });
 ```
@@ -598,7 +598,7 @@ use yii\base\Event;
 Event::on(Entry::class, Element::EVENT_REGISTER_SOURCES, function(RegisterElementSourcesEvent $event) {
     if ($event->context === 'index') {
         $sources[] = [
-            'heading' => \Craft::t('myplugin', 'Statuses'),
+            'heading' => \Craft::t('plugin-handle', 'Statuses'),
         ];
 
         foreach (Entry::statuses() as $status => $label) {
@@ -630,8 +630,8 @@ use craft\events\RegisterElementTableAttributesEvent;
 use yii\base\Event;
 
 Event::on(Entry::class, Element::EVENT_REGISTER_TABLE_ATTRIBUTES, function(RegisterElementTableAttributesEvent $event) {
-    $event->tableAttributes['foo'] = ['label' => \Craft::t('myplugin', 'Foo')];
-    $event->tableAttributes['bar'] = ['label' => \Craft::t('myplugin', 'Bar')];
+    $event->tableAttributes['foo'] = ['label' => \Craft::t('plugin-handle', 'Foo')];
+    $event->tableAttributes['bar'] = ['label' => \Craft::t('plugin-handle', 'Bar')];
 });
 ```
 
