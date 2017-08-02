@@ -355,22 +355,25 @@ Event::on(ClearCaches::class, ClearCaches::EVENT_REGISTER_CACHE_OPTIONS, functio
 // Old:
 public function registerEmailMessages()
 {
-    return ['custom_message_key'];
+    return ['my_message_key'];
 }
 
 // New:
 use craft\events\RegisterEmailMessagesEvent;
-use craft\services\EmailMessages;
+use craft\services\SystemMessages;
 use yii\base\Event;
 
-Event::on(EmailMessages::class, EmailMessages::EVENT_REGISTER_MESSAGES, function(RegisterEmailMessagesEvent $event) {
+Event::on(SystemMessages::class, SystemMessages::EVENT_REGISTER_MESSAGES, function(RegisterEmailMessagesEvent $event) {
     $event->messages[] = [
-        'key' => 'custom_message_key',
-        'category' => 'myplugin',
-        'sourceLanguage' => 'en-US'
+        'key' => 'my_message_key',
+        'heading' => Craft::t('plugin-handle', 'Email Heading'),
+        'subject' => Craft::t('plugin-handle', 'Email Subject'),
+        'body' => Craft::t('plugin-handle', 'The plain text email body...'),
     ];
 });
 ```
+
+> {tip} Rather than defining the full message heading/subject/body right within the `Craft::t()` call, you can pass placeholder strings (e.g. `'email_heading'`) and define the actual string in your plugin’s translation file.
 
 #### `registerUserPermissions`
 
