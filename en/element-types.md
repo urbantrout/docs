@@ -540,7 +540,7 @@ public function getThumbUrl(int $size)
 
 When an element is saved, Craft’s Search service will index its “searchable attributes” as search keywords on the element. By default, the list of searchable attributes will only include the element’s title and slug, plus any custom field values.
 
-If your element type has additional attributes you want to make searchable, add a protected static `defineSearchableAttributes(0)` method on your element and list them:
+If your element type has additional attributes you want to make searchable, add a protected static `defineSearchableAttributes()` method on your element and list them:
 
 ```php
 protected static function defineSearchableAttributes(): array
