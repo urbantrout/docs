@@ -4,7 +4,7 @@ Upgrading from Craft 2
 - [Updating Craft CMS](#updating-craft-cms)
 - [Configuration](#configuration)
   - [Config Settings](#config-settings)
-  - [`omitScriptNameInUrls` and `usePathInfo`](#omitScriptNameInUrls-and-usePathInfo)
+  - [`omitScriptNameInUrls` and `usePathInfo`](#omitscriptnameinurls-and-usepathinfo)
   - [Environment Variables](#environment-variables)
   - [Redactor Configs](#redactor-configs)
 - [URL Rules](#url-rules)
