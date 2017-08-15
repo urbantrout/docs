@@ -33,6 +33,7 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
   - [Rendering Plugin Templates on Front End Requests](#rendering-plugin-templates-on-front-end-requests)
 - [Resource Requests](#resource-requests)
 - [Registering Arbitrary HTML](#registering-arbitrary-html)
+- [Background Tasks](#background-tasks)
 - [Writing an Upgrade Migration](#writing-an-upgrade-migration)
   - [Setting it up](#setting-it-up)
   - [Component Class Names](#component-class-names)
@@ -764,6 +765,70 @@ Event::on(View::class, View::EVENT_END_BODY, function(Event $event) {
     // $html = ...
     echo $html;
 });
+```
+
+## Background Tasks
+
+Craft’s Tasks service has been replaced with a job queue, powered by the [Yii 2 Queue Extension](https://github.com/yiisoft/yii2-queue).
+
+If your plugin provides any custom task types, they will need to be converted to jobs:
+
+```php
+// Old:
+class MyTask extends BaseTask
+{
+    public function getDescription()
+    {
+        return 'Default description';
+    }
+    
+    public function getTotalSteps()
+    {
+        return 5;
+    }
+    
+    public function runStep($step)
+    {
+        // do something...
+        return true;
+    }
+}
+
+// New:
+use craft\queue\BaseJob;
+
+class MyJob extends BaseJob
+{
+    public function execute($queue)
+    {
+        $totalSteps = 5;
+        for ($step = 0; $step < $steps; $step++)
+        {
+            $this->>setProgress($queue, $step / $totalSteps); 
+            // do something...
+        } 
+    }
+    
+    protected function defaultDescription()
+    {
+        return 'Default description';
+    }
+}
+```
+
+Adding jobs to the queue is a little different as well:
+
+```php
+// Old:
+craft()->tasks->createTask('MyTask', 'Custom description', array(
+    'mySetting' => 'value', 
+));
+
+// New:
+Craft::$app->queue->push(new MyJob([
+    'description' => 'Custom description',
+    'mySetting' => 'value',
+]));
 ```
 
 ## Writing an Upgrade Migration

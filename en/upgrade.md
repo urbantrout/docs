@@ -321,6 +321,13 @@ Old                                         | New
 `craft.entryRevisions.getVersionByOffset()` | *(n/a)*
 `craft.fields.getFieldType(type)`           | `craft.app.fields.createField(type)`
 `craft.fields.populateFieldType()`          | *(n/a)*
+`craft.tasks.areTasksPending()`             | `craft.app.queue.getHasWaitingJobs()`<sup>1</sup>
+`craft.tasks.getRunningTask()`              | *(n/a)*
+`craft.tasks.getTotalTasks()`               | *(n/a)*
+`craft.tasks.haveTasksFailed()`             | *(n/a)*
+`craft.tasks.isTaskRunning()`               | `craft.app.queue.getHasReservedJobs()`<sup>1</sup>
+
+*<sup>1</sup> Only available if the `queue` component implements `craft\queue\QueueInterface`.*
 
 The following template functions have been deprecated, and will be removed in Craft 4:
 
@@ -426,11 +433,6 @@ Old                                                     | New
 `craft.sections.getSectionById(id)`                     | `craft.app.sections.getSectionById(id)`
 `craft.sections.getSectionByHandle(handle)`             | `craft.app.sections.getSectionByHandle(handle)`
 `craft.systemSettings.[category]` *(magic getter)*      | `craft.app.systemSettings.getSettings('category')`
-`craft.tasks.getRunningTask()`                          | `craft.app.tasks.runningTask`
-`craft.tasks.isTaskRunning()`                           | `craft.app.tasks.isTaskRunning`
-`craft.tasks.areTasksPending()`                         | `craft.app.tasks.areTasksPending()`
-`craft.tasks.haveTasksFailed()`                         | `craft.app.tasks.haveTasksFailed`
-`craft.tasks.getTotalTasks()`                           | `craft.app.tasks.totalTasks`
 `craft.userGroups.getAllGroups()`                       | `craft.app.userGroups.allGroups`
 `craft.userGroups.getGroupById(id)`                     | `craft.app.userGroups.getGroupById(id)`
 `craft.userGroups.getGroupByHandle(handle)`             | `craft.app.userGroups.getGroupByHandle(handle)`
