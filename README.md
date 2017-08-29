@@ -11,23 +11,25 @@ Craft 3 Documentation
 
 - [Server Requirements](en/requirements.md)
 - [Installation](en/installation.md)
-- [Configuration](en/configuration.md)
+- [The Pieces of Craft](en/pieces-of-craft.md)
+- [Planning Your Craft Site]()
 - [Directory Structure](en/directory-structure.md)
+- [Configuration](en/configuration.md)
 
 ## Core Concepts
 
-- Users
 - Sections and Entries
-- Globals
-- Assets
-- Categories
-- Tags
 - Fields
+- Templates
+- Categories
+- Assets
+- Users
+- Globals
+- Tags
 - Relations
 - Routing
 - Searching
 - Sites and Localization
-- Templates
 - [Element Queries](en/element-queries.md)
 - [Content Migrations](en/content-migrations.md)
 
