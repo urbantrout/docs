@@ -18,7 +18,7 @@ Craft 3 Documentation
 
 ## Core Concepts
 
-- Sections and Entries
+- [Sections and Entries](en/sections-entries.md)
 - Fields
 - Templates
 - Categories
