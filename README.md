@@ -18,9 +18,10 @@ Craft 3 Documentation
 
 ## Core Concepts
 
-- [Sections and Entries](en/sections-entries.md)
-- Fields
-- Templates
+- [Sections and Entries](en/sections-and-entries.md)
+- [Fields](en/fields.md)
+- [Templates](en/templates.md)
+  - [Twig Primer](en/twig-primer.md)
 - Categories
 - Assets
 - Users

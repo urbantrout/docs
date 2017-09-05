@@ -22,15 +22,27 @@ If that setting is checked, the field’s values will be stored on a per-locale 
 
 The final setting that all fields have is the “Field Type” setting. This determines what type of field it is – what its input UI is going to look like, what type of data it can store, and how you’ll be able to interact with that data from your templates.
 
-`{% set children = entry.getChildren() %}`
+Craft comes with the following built-in field types:
 
-Craft comes with `{{ children|length }}` built-in field types:
+* [Assets](en/assets-field.md)
+* [Categories](en/categories-field.md)
+* [Checkboxes](en/checkboxes-field.md)
+* [Color](en/color-field.md)
+* [Date/Time](en/date-time-field.md)
+* [Dropdown](en/dropdown-field.md)
+* [Entries](en/entries-field.md)
+* [Lightswitch](en/lightswitch-field.md)
+* [Matrix](en/matrix-field.md)
+* [Multi-select](en/multi-select-field.md)
+* [Number](en/number-field.md)
+* [Plain Text](en/plain-text-field.md)
+* [Position Select](en/position-select-field.md)
+* [Radio Buttons](en/radio-buttons-field.md)
+* [Rich Text](en/rich-text-field/md)
+* [Table](en/table-field.md)
+* [Tags](en/tags-field.md)
+* [Users](en/users-field.md)
 
-```{% for child in children %}
-{% set title = (child.title|slice(child.title|length - 7, 7) == ' Fields') ? child.title|slice(0, child.title|length-7) : child.title %}
-* [{{ title }}]({{ child.getUrl() }})
-{% endfor %}
-```
 
 ## Field Layouts
 
