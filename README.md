@@ -5,12 +5,20 @@ Craft 3 Documentation
 
 - [About Craft CMS](en/introduction.md)
 - [Code of Conduct](en/coc.md)
-- [Upgrading from Craft 2](en/upgrade.md)
+- [How to use the Documentation](en/how-to-use-docs.md)
 
-## Getting Started
+## Installing Craft
 
 - [Server Requirements](en/requirements.md)
 - [Installation](en/installation.md)
+
+## Updating & Upgrading Craft
+
+- [Upgrading from Craft 2](en/upgrade.md)
+- [Updating Craft 3](en/updating.md)
+
+## Getting Started
+
 - [The Pieces of Craft](en/pieces-of-craft.md)
 - [Planning Your Craft Site]()
 - [Directory Structure](en/directory-structure.md)
