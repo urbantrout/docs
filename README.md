@@ -20,7 +20,7 @@ Craft 3 Documentation
 ## Getting Started
 
 - [The Pieces of Craft](en/pieces-of-craft.md)
-- [Planning Your Craft Site]()
+- [Planning Your Craft Site](en/planning-your-craft-site.md)
 - [Directory Structure](en/directory-structure.md)
 - [Configuration](en/configuration.md)
 

@@ -1,6 +1,12 @@
 Server Requirements
 ===================
 
+## Checking Your Server
+
+Before you install Craft, it's important that you check that your server will meet the requirements. Review the requirements below or use the [Craft Server Check](https://github.com/craftcms/server-check) script to quickly check whether you meet the requirements.
+
+_Not in charge of the server? Send a link to this page to your server administrator._
+
 ## Server Requirements
 
 Craft requires the following:
@@ -33,9 +39,7 @@ Craft requires the following PHP extensions to be enabled:
 * [iconv](http://us1.php.net/manual/en/book.iconv.php) – Adds support for more character encodings than PHP’s built-in [mb_convert_encoding()](http://php.net/manual/en/function.mb-convert-encoding.php) function, which Craft will take advantage of when converting strings to UTF-8.
 * [Intl](http://php.net/manual/en/book.intl.php) – Adds rich internationalization support.
 * [DOM](http://php.net/manual/en/book.dom.php) - Required for parsing XML feeds as well as `yii\web\XmlResponseFormatter`.
-* 
 
-> {tip} If you are unsure if your server meets the requirements, you can upload the [Craft Server Check](https://github.com/craftcms/server-check) script to quickly find out.
 
 ## Required Database User Privileges
 
