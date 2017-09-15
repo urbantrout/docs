@@ -19,20 +19,18 @@ Craft’s Composer support is made up of three parts:
 
 ## 1. Install Composer
 
-You can find out if Composer is already installed by opening your terminal and entering one of the following commands:
+You should be running at Composer 1.3.0 or later. You can find out which version of Composer you have installed (if any) by opening your terminal running the following command:
 
-- **macOS/Linux/Unix**
+    composer -V
 
-      which composer
-
-- **Windows**
-
-      where composer
-
-If that outputs a file path(s), Composer is installed. Otherwise you will need to follow Composer’s installation instructions:
+If that outputs an error saying `composer` is “not found” or “not recognized”, then Composer isn’t installed. Follow Composer’s instructions to install it:
 
   - [macOS/Linux/Unix instructions] *(install it globally)*
   - [Windows instructions]
+
+If it outputs a version number, but it’s less than `1.3.0`, run the following command to update it:
+
+    composer self-update
 
 ## 2. Create a New Craft Project
 
