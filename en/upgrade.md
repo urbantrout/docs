@@ -307,8 +307,8 @@ Old                             | New
 `{% includejs %}`               | `{% js %}`
 `{% includecssfile url %}`      | `{% do view.registerCssFile(url) %}`
 `{% includejsfile url %}`       | `{% do view.registerJsFile(url) %}`
-`{% includecssresource path %}` | See [Front-End Resources](resources.md)
-`{% includejsresource path %}`  | See [Front-End Resources](resources.md)
+`{% includecssresource path %}` | See [Asset Bundles](asset-bundles.md)
+`{% includejsresource path %}`  | See [Asset Bundles](asset-bundles.md)
 
 ## Template Functions
 

@@ -280,21 +280,9 @@ public function getResourcePath($path)
         return craft()->path->getStoragePath().'myplugin/'.substr($path, 9);
     }
 }
-
-// New:
-use craft\events\ResolveResourcePathEvent;
-use craft\services\Resources;
-use yii\base\Event;
-
-Event::on(Resources::class, Resources::EVENT_RESOLVE_RESOURCE_PATH, function(ResolveResourcePathEvent $event) {
-    if (strpos($event->uri, 'myplugin/') === 0) {
-        $event->path = \Craft::$app->path->getStoragePath().'/myplugin/'.substr($event->uri, 9);
-
-        // Prevent other event listeners from getting invoked
-        $event->handled = true;
-    }
-});
 ```
+
+> {note} There is no direct Craft 3 equivalent for this hook, which allowed plugins to handle resource requests, because the concept of resource requests has been removed in Craft 3. See [Asset Bundels](asset-bundles.md) to learn how plugins can serve resources in Craft 3.  
 
 #### `modifyCpNav`
 
@@ -747,7 +735,7 @@ $html = \Craft::$app->view->renderTemplate('plugin-handle/path/to/template');
 
 ## Resource Requests
 
-Resource requests (requests to URLs created by `UrlHelper::resourceUrl()`) no longer serve files within Craft’s or plugins’ `resources/` directories. See [Front End Resources](resources.md) for information about working with front end resources.
+Craft 3 doesn’t have the concept of resource requests. See [Asset Bundles](asset-bundles.md) for information about working with front end resources.
 
 ## Registering Arbitrary HTML
 
