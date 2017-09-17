@@ -21,6 +21,7 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
   - [Table Names](#table-names)
   - [Select Queries](#select-queries)
   - [Operational Queries](#operational-queries)
+- [Craft Config Settings](#craft-config-settings)
 - [Files](#files)
 - [Events](#events)
 - [Plugin Hooks](#plugin-hooks)
@@ -139,6 +140,20 @@ One notable difference is that the helper methods no longer automatically execut
 $result = \Craft::$app->db->createCommand()
     ->insert('{{%tablename}}', $rowData)
     ->execute();
+```
+
+## Craft Config Settings
+
+All of Craft’s config settings have been moved to actual properties on a few config classes, located in `vendor/craftcms/cms/src/config/`. The new Config service (`craft\services\Config`) provides getter methods/properties that will return those classes:
+
+```php
+// Old:
+$devMode = craft()->config->get('devMode');
+$tablePrefix = craft()->config->get('tablePrefix', ConfigFile::Db);
+
+// New:
+$devMode = Craft::$app->config->general->devMode;
+$tablePrefix = Craft::$app->config->db->tablePrefix;
 ```
 
 ## Files
