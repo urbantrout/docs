@@ -406,7 +406,7 @@ use craft\helpers\Cp;
 use yii\base\Event;
 
 Event::on(Cp::class, Cp::EVENT_REGISTER_ALERTS, function(RegisterCpAlertsEvent $event) {
-    if (\Craft::$app->config->get('devMode')) {
+    if (\Craft::$app->config->general->devMode) {
         $event->alerts[] = \Craft::t('plugin-handle', 'Dev Mode is enabled!');
     }
 });
