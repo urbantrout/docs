@@ -150,8 +150,6 @@ $entries = Entry::find()
     .all() %}
 ```
 
-> {tip} If you loop through an element query as if it were an array, `all()` will be called automatically for you, and you will actually be looping through its results.
-
 ### `one()`
 
 Returns the first matching element, or `null` if there isn’t one.
