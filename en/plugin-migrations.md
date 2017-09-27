@@ -6,7 +6,7 @@ If your schema changes over the life of your plugin, you can write a [migration]
 - [Creating Migrations](#creating-migrations)
   - [Logging](#logging)
 - [Executing Migrations](#executing-migrations)
-- [Install Migrations](#installation-migrations)
+- [Install Migrations](#install-migrations)
 
 ## Creating Migrations
 
