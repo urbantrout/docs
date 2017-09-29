@@ -116,7 +116,6 @@ File          | Setting
 `db.php`      | `collation`
 `db.php`      | `initSQLs`
 `general.php` | `appId`
-`general.php` | `siteName`
 
 ### `omitScriptNameInUrls` and `usePathInfo`
 
