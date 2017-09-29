@@ -45,3 +45,26 @@ public function init()
     });
 }
 ```
+
+## Giving Your Plugin Section a Subnav
+
+If your CP section needs a sub-navigation in the global sidebar, you can do that by overriding your plugin’s `getCpNavItem()` method:
+
+```php
+public function getCpNavItem()
+{
+    $item = parent::getCpNavItem();
+    $item['subnav'] => [
+        'foo' => ['label' => 'Foo', 'url' => 'plugin-handle/foo'],
+        'bar' => ['label' => 'Bar', 'url' => 'plugin-handle/bar'],
+        'baz' => ['label' => 'Baz', 'url' => 'plugin-handle/baz'],
+    ];
+    return $item;
+}
+```
+
+The CP templates that these subnav items resolve to can tell Craft’s `_layouts/cp.html` template which subnav item should be selected by setting the `selectedSubnavItem` variable:
+
+```twig
+{% set selectedSubnavItem = 'bar' %}
+```
