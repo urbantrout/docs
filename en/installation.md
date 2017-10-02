@@ -74,7 +74,7 @@ If you’re given a choice, we recommend the following database settings in most
 - **PostgreSQL**
   - Character Set: `UTF8`
 
-Once the database is created, you’ll need to configure Craft with its connection settings. Open the `.env` file at the root of your Craft project and fill in your database connection settings.
+Once the database is created, you’ll need to configure your `.env` file with with its connection settings. You can either edit the file manually, or run the `./craft setup` command from the root project directory in your terminal.
 
 > {tip} That `.env` file will be processed via [PHP dotenv], which the `craftcms/craft` project comes with preinstalled. The advantage of using PHP dotenv is that it offers a place to store sensitive information (like database connection settings) in a file that doesn’t get committed to your Git repository.
 
