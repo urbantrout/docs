@@ -1,7 +1,7 @@
 Assets
 ======
 
-Assets are files managed by Craft. They live in “asset sources”, which represent physical folders on your server. And with Craft Pro, you can also set up Asset Sources that live on Amazon S3, Rackspace Cloud, and Google Cloud.
+Assets are files managed by Craft. They live in “asset sources”, which represent physical folders on your server. The default installation of Craft only support local sources (directories on your server) but you can also set up remote Asset Sources that live on Amazon S3, Rackspace Cloud, and Google Cloud using one of the first-party plugins.
 
 You can set up your asset sources from Settings → Assets. Local sources have two important settings:
 
