@@ -12,7 +12,7 @@ Craft 3 Documentation
 - [Server Requirements](en/requirements.md)
 - [Installation](en/installation.md)
 
-## Updating & Upgrading Craft
+## Upgrading & Updating Craft
 
 - [Upgrading from Craft 2](en/upgrade.md)
 - [Updating Craft 3](en/updating.md)

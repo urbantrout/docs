@@ -109,7 +109,30 @@ The other files in public/ are all optional. Here’s what they do:
 
 * **htaccess** – This file configures Apache servers to direct all traffic hitting your site to that index.php file, without actually needing to include “index.php” in the URLs. Note that it must be renamed to **.**htaccess for it to actually work. (See “{entry:supportArticles/remove-index.php:link}” for more info.)
 * **web.config** – This is our IIS equivelant of the .htaccess file, for those of you that are into that sort of thing.
-* **robots.txt** – If you couldn’t upload the craft/ folder above your web root, you can use this file to prevent Google from indexing it. 
+* **robots.txt** – If you couldn’t upload the craft/ folder above your web root, you can use this file to prevent Google from indexing it.
+
+### Step 2: Set the permissions
+
+At a minimum, Craft needs to be able to write to 3 folders on your server:
+
+* craft/app/
+* craft/config/
+* craft/storage/
+
+Additionally, if you define any [Local Asset sources](https://craftcms.com/docs/assets) in your public HTML folder, Craft will need to be able to write to them as well.
+
+In order for Craft to be able to do that, it’s counting on you to set the needed permissions on those folders (and each of their subfolders).
+
+The exact permissions you should be setting depends on the relationship between the system user that PHP is running as, and who owns the actual folders/files.
+
+Here are some recommended permissions depending on that relationship:
+
+* If they are the same user, use 744.
+* If they're in the same group, then use 774.
+* If they’re neither the same user nor in the same group, or if you just prefer to live life on the edge, you can use 777, just please do not do that in a production environment.
+
+**IIS fans:** Make sure the account your site’s AppPool is running as has write permissions to this folder.
+
 
 ## Set up the Database
 
@@ -137,7 +160,9 @@ If you’re not using MAMP, you will probably need to update your `hosts` file, 
 - **macOS/Linux/Unix:** `/etc/hosts`
 - **Windows:** `\Windows\System32\drivers\etc\hosts`
 
-You can test whether everything is set up correctly by pointing your web browser to `http://HOSTNAME/index.php?p=admin` (substituting `HOSTNAME` with your new web server’s host name). You should get the Craft installation wizard, which will take you through a couple setup screens, and then perform the actual installation.
+## Run the installer!
+
+Now that everything’s set up, point your browser to <http://example.com/admin>. You should get the Craft installation wizard, which will take you through a couple setup screens, and then perform the actual installation.
 
 
 [Composer]: https://getcomposer.org/
