@@ -151,11 +151,11 @@ To set it up, open your Craft project’s `composer.json` file and add a new `pa
 ```json
 {
   "repositories": [
-      {
-        "type": "path",
-        "url": "../my-plugin"
-      }
-    ]
+    {
+      "type": "path",
+      "url": "../my-plugin"
+    }
+  ]
 }
 ```
 
