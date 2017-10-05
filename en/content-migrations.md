@@ -33,6 +33,21 @@ echo "    > some note\n";
 
 If the migration is being run from a console request, this will ensure the message is seen by whoever is executing the migration, as the message will be output into the terminal. If it’s a web request, Craft will capture it and log it to `storage/logs/` just as if you had used `Craft::info()`.
 
+### Manipulating Database Data
+
+Craft 3 adds a parameter to the `insert()` and `batchInsert()` migration commands that determines whether to include data for audit columns (dateCreated, dateUpdated, uid), as seen by the function definitions here:
+
+```php
+public function insert($table, $columns, $includeAuditColumns = true)
+```
+
+```php
+public function batchInsert($table, $columns, $rows, $includeAuditColumns = true)
+```
+
+If the table you are inserting into does not have all three of these columns, you must pass false as the last argument or the migration will fail when attempting to insert data.
+
+
 ## Executing Migrations
 
 There are two ways to execute content migrations: from the terminal, and from the Migrations utility in the Control Panel.
