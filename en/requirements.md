@@ -1,5 +1,4 @@
-Server Requirements
-===================
+# Server Requirements
 
 ## Server Requirements
 

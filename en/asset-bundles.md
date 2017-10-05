@@ -1,5 +1,4 @@
-Asset Bundles
-=============
+# Asset Bundles
 
 Plugins, like Craft, are supposed to be installed above the web root, which ensures that their files can’t be accessed directly via HTTP requests. Generally that’s a Very Good Thing, because it protects Craft sites from a whole host of security vulnerabilities.
 

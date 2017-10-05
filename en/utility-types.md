@@ -1,5 +1,4 @@
-Utility Types
-=============
+# Utility Types
 
 Plugins can provide custom utility types for the Utilities section by creating a class that implements `craft\base\UtilityInterface`.
 

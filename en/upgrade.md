@@ -1,5 +1,4 @@
-Upgrading from Craft 2
-======================
+# Upgrading from Craft 2
 
 - [Updating Craft CMS](#updating-craft-cms)
 - [Configuration](#configuration)

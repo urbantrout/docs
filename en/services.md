@@ -1,5 +1,4 @@
-Services
-========
+# Services
 
 - [What are Services](#what-are-services)
 - [Creating a Service](#creating-a-service)

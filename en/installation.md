@@ -1,5 +1,4 @@
-Installation Instructions
-=========================
+# Installation Instructions
 
 - [0. Introduction](#0-introduction)
 - [1. Install Composer](#1-install-composer)

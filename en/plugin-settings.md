@@ -1,5 +1,4 @@
-Plugin Settings
-===============
+# Plugin Settings
 
 - [Settings Model](#settings-model)
 - [Accessing Settings](#accessing-settings)

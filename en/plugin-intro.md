@@ -1,5 +1,4 @@
-Intro to Plugin Dev
-===================
+# Intro to Plugin Dev
 
 - [What are Plugins?](#what-are-plugins)
 - [Getting Started](#getting-started)

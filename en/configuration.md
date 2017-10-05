@@ -1,5 +1,4 @@
-Configuration
-=============
+# Configuration
 
 - [PHP Constants](#php-constants)
 - [General Config](#general-config)

@@ -1,5 +1,4 @@
-Updating Plugins for Craft 3
-============================
+# Updating Plugins for Craft 3
 
 Craft 3 is a complete rewrite of the CMS, built on Yii 2. Due to the scope of changes in Yii 2, there was no feasible way to port Craft to it without breaking every plugin in the process. So we took it as an [opportunity](http://www.urbandictionary.com/define.php?term=double%20transgression%20theory) to refactor several major areas of the system.
 
