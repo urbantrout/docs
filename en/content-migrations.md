@@ -41,4 +41,6 @@ To execute migrations from the terminal, go to your Craft project and run this c
 
     ./craft migrate/up
 
+> {tip} If your Craft install is running from a Vagrant box, you will need to SSH into the box to run this command.
+
 To execute migrations from the Migrations utility, go to Utilities → Migrations in the Control Panel and click the “Apply new migrations” button.
