@@ -1,5 +1,4 @@
-Content Migrations
-==================
+# Content Migrations
 
 If your Craft project is being developed by multiple people, or has been deployed in multiple environments, managing structural changes can become a little cumbersome, as you try to keep all environments in sync with each other.
 

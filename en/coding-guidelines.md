@@ -1,5 +1,4 @@
-Coding Guidelines
-=================
+# Coding Guidelines
 
 Do your best to follow these guidelines when writing code for Craft and Craft plugins.
 

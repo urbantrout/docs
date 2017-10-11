@@ -1,5 +1,4 @@
-Directory Structure
-===================
+# Directory Structure
 
 When a Craft project is initiated using the [`craftcms/craft`](https://github.com/craftcms/craft) Composer project, it will have the following files and directories:
 
