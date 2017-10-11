@@ -15,6 +15,8 @@ Then run the following command to generate a new content migration file (replaci
 
     ./craft migrate/create MIGRATION_NAME
 
+> {tip} If your Craft install is running from a Vagrant box, you will need to SSH into the box to run this command.
+
 > {note} Migration names must be valid PHP class names, though we recommend sticking with `snake_case` rather than `StudlyCase` as a convention.
 
 Enter `yes` at the prompt, and a new migration file will be created in a `migrations/` folder in your project root.
