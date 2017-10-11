@@ -35,18 +35,7 @@ If the migration is being run from a console request, this will ensure the messa
 
 ### Manipulating Database Data
 
-Craft 3 adds a parameter to the `insert()` and `batchInsert()` migration commands that determines whether to include data for audit columns (dateCreated, dateUpdated, uid), as seen by the function definitions here:
-
-```php
-public function insert($table, $columns, $includeAuditColumns = true)
-```
-
-```php
-public function batchInsert($table, $columns, $rows, $includeAuditColumns = true)
-```
-
-If the table you are inserting into does not have all three of these columns, you must pass false as the last argument or the migration will fail when attempting to insert data.
-
+Craft 3 adds a `$includeAuditColumns` argument to the [`batchInsert()`], [`insert()`], and [`update()`] migration methods (set to `true` by default) that determines whether to insert/update data in the “audit” columns (`dateCreated`, `dateUpdated`, `uid`). If the table you are inserting into does not have all three of these columns, you must pass `false` to that argument so you don’t get a SQL error.
 
 ## Executing Migrations
 
@@ -57,3 +46,7 @@ To execute migrations from the terminal, go to your Craft project and run this c
     ./craft migrate/up
 
 To execute migrations from the Migrations utility, go to Utilities → Migrations in the Control Panel and click the “Apply new migrations” button.
+
+[`batchInsert()`]: http://www.yiiframework.com/doc-2.0/yii-db-migration.html#batchInsert()-detail
+[`insert()`]: http://www.yiiframework.com/doc-2.0/yii-db-migration.html#insert()-detail
+[`update()`]: http://www.yiiframework.com/doc-2.0/yii-db-migration.html#update()-detail
