@@ -1,5 +1,4 @@
-About Craft CMS
-===============
+# About Craft CMS
 
 Craft is a content-first CMS that aims to make life enjoyable for developers and content managers alike. It does so by offering developers a high level of flexibility, both in terms of content modeling and the front-end views, while giving content managers a remarkably intuitive authoring experience.
 

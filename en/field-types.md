@@ -1,5 +1,4 @@
-Field Types
-===========
+# Field Types
 
 Plugins can provide custom field types by creating a class that implements `craft\base\FieldInterface` and `craft\base\FieldTrait`. The class will serve both as a way to communicate various things about your field type (with static methods), and as a model that fields of its type will be instantiated with.
 

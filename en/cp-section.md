@@ -1,5 +1,4 @@
-Control Panel Section
-=====================
+# Control Panel Section
 
 Plugins can provide their own section in the Control Panel by adding a `hasCpSection` property to their plugin:
 
