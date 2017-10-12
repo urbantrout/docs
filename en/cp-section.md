@@ -54,7 +54,7 @@ If your CP section needs a sub-navigation in the global sidebar, you can do that
 public function getCpNavItem()
 {
     $item = parent::getCpNavItem();
-    $item['subnav'] => [
+    $item['subnav'] = [
         'foo' => ['label' => 'Foo', 'url' => 'plugin-handle/foo'],
         'bar' => ['label' => 'Bar', 'url' => 'plugin-handle/bar'],
         'baz' => ['label' => 'Baz', 'url' => 'plugin-handle/baz'],
