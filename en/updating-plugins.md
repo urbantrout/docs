@@ -893,7 +893,7 @@ class Install extends Migration
 }
 ```
 
-Replace `old-handle` and `oldhandle` with your plugin’s previous handle (in `kebab-case` and `onewordalllowercase`), and put any additional upgrade code at the end of the `_upgradeFromCraft2()` method (before the `return` statement). Your normal install migration code (for fresh installations of your plugins) should go at the end of `safeUp()`.
+Replace `old-handle` and `oldhandle` with your plugin’s previous handle (in `kebab-case` and `onewordalllowercase`), and put any additional upgrade code at the end of the `_upgradeFromCraft2()` method (before the `return` statement). Your normal install migration code (for fresh installations of your plugin) should go at the end of `safeUp()`.
 
 ### Component Class Names
 
