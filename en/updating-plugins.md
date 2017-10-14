@@ -35,7 +35,6 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
 - [Registering Arbitrary HTML](#registering-arbitrary-html)
 - [Background Tasks](#background-tasks)
 - [Writing an Upgrade Migration](#writing-an-upgrade-migration)
-  - [Setting it up](#setting-it-up)
   - [Component Class Names](#component-class-names)
   - [Locale FKs](#locale-fks)
 
