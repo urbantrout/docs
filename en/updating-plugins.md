@@ -835,34 +835,44 @@ Craft::$app->queue->push(new MyJob([
 
 ## Writing an Upgrade Migration
 
-If your plugin has a Craft 2 counterpart and there’s a chance people will be upgrading their Craft 2 installations with your plugin to Craft 3, you’ll probably need to give your plugin an upgrade migration that eases the transition.
+You may need to give your plugin a migration path for Craft 2 installations, so they don’t get stranded.
 
-### Setting it up
+First you must determine whether Craft is going to consider your plugin to be an **update** or a **new installation**. If you plugin handle hasn’t changed (besides going from `UpperCamelCase` to `kebab-case`), Craft will see your new version as an **update**. But if your handle did change in a more significant way, Craft isn’t going to recognize it, and will consider it a completely new plugin.
 
-First, establish whether Craft will consider your plugin to be an **update** or a **new installation**. Craft will consider it to be an **update** if your plugin handle is equal to its former class name, minus the `Plugin` suffix and converted to `kebab-case`. (For example, if your plugin’s former class name was `FooBarPlugin` and its new handle is `foo-bar`, Craft would consider it an update.)
 
-#### In Case of Update
+If the handle (basically) stayed the same, create a new [migration](plugin-migrations.md) named something like “`craft3_upgrade`”. Your upgrade code will go in its `safeUp()` method just like any other migration.
 
-If Craft will consider your plugin to be at **update** of its previous version, create a new [migration](plugin-migrations.md) named something like “`craft3_upgrade`”.
-
-Your upgrade code will go directly in its `safeUp()` method.
-
-#### In Case of New Installation
-
-If Craft will consider your plugin to be a **new installation**, create an [Install migration](plugin-migrations.md#install-migrations) with the following code in the `safeUp()` method:
+If the handle has changed, you’ll need to put your upgrade code in your [Install migration](plugin-migrations.md#install-migrations) instead. Use this as a starting point:
 
 ```php
-public function safeUp()
-{
-    // Fetch the old plugin row, if it was installed
-    $row = (new \craft\db\Query())
-        ->select(['id', 'settings'])
-        ->from(['{{%plugins}}'])
-        ->where(['in', 'handle', ['old-class', 'oldclass']])
-        ->one();
+<?php
+namespace ns\prefix\migrations;
 
-    if ($row !== false)) {
-        // The plugin was installed
+use craft\db\Migration;
+
+class Install extends Migration
+{
+    public function safeUp()
+    {
+        if ($this->_upgradeFromCraft2()) {
+            return;
+        }
+        
+        // Fresh install code goes here...
+    }
+
+    private function _upgradeFromCraft2()
+    {
+        // Fetch the old plugin row, if it was installed
+        $row = (new \craft\db\Query())
+            ->select(['id', 'settings'])
+            ->from(['{{%plugins}}'])
+            ->where(['in', 'handle', ['old-handle', 'oldhandle']])
+            ->one();
+        
+        if (!$row) {
+            return false;
+        }
 
         // Update this one's settings to old values
         $this->update('{{%plugins}}', [
@@ -872,12 +882,17 @@ public function safeUp()
         // Delete the old row
         $this->delete('{{%plugins}}', ['id' => $row['id']]);
 
-        // Upgrade code...
+        // Any additional upgrade code goes here...
+    }
+
+    public function safeDown()
+    {
+        // ...
     }
 }
 ```
 
-Your upgrade migration code will go where that `// Upgrade code...` comment is.
+Replace `old-handle` and `oldhandle` with your plugin’s previous handle (in `kebab-case` and `onewordalllowercase`), and put any additional upgrade code at the end of the `_upgradeFromCraft2()` method. Your normal install migration code (for fresh installations of your plugins) should go at the end of `safeUp()`.
 
 ### Component Class Names
 
