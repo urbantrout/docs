@@ -839,7 +839,7 @@ If your plugin has a Craft 2 counterpart and there’s a chance people will be u
 
 ### Setting it up
 
-First, establish whether Craft will consider your plugin to be an **update** or a **new installation**. Craft will consider it to be an **update** if your plugin handle is equal to its former class name, minus the `Plugin` suffix and converted to `kebab-case`. (For example, if your plugin’s former class name as `FooBarPlugin` and its new handle is `foo-bar`, Craft would consider it an update.)
+First, establish whether Craft will consider your plugin to be an **update** or a **new installation**. Craft will consider it to be an **update** if your plugin handle is equal to its former class name, minus the `Plugin` suffix and converted to `kebab-case`. (For example, if your plugin’s former class name was `FooBarPlugin` and its new handle is `foo-bar`, Craft would consider it an update.)
 
 #### In Case of Update
 
