@@ -340,11 +340,11 @@ The following template functions have been deprecated, and will be removed in Cr
 
 Old                                                     | New
 ------------------------------------------------------- | ---------------------------------------------
-`round(num)`                                            | `num|round`
+`round(num)`                                            | `num\|round`
 `getCsrfInput()`                                        | `csrfInput()`
 `getHeadHtml()`                                         | `head()`
 `getFootHtml()`                                         | `endBody()`
-`getTranslations()`                                     | `view.getTranslations()|json_encode|raw`
+`getTranslations()`                                     | `view.getTranslations()\|json_encode\|raw`
 `craft.categoryGroups.getAllGroupIds()`                 | `craft.app.categoryGroups.allGroupIds`
 `craft.categoryGroups.getEditableGroupIds()`            | `craft.app.categories.editableGroupIds`
 `craft.categoryGroups.getAllGroups()`                   | `craft.app.categoryGroups.allGroups`
