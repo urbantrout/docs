@@ -1,26 +1,32 @@
 # Sections and Entries
 =========================
 
-Entries generally hold the content that you want to display on your web pages. Each entry has an Author, a Post Date, an Expiration Date (if desired), a status (enabled or disabled), and of course, content. You can also create drafts of entries that live alongside the current live version of the entry, and you’ll also be able to view and revert to past versions of the entry.
+Introduction here
 
-Generally each entry will have a stake in its own primary URL on your site, though any entry can be fetched from anywhere if your template needs it.
+## Entries
+
+Entries hold the content that you want to display on your web pages. Each entry has an Author, a Post Date, an Expiration Date (if desired), a status (enabled or disabled), and of course, content. 
+
+You can also create drafts of entries that live alongside the current live version of the entry.
+
+Typically each entry will have a stake in its own primary URL on your site, though any entry can be fetched from anywhere if your template needs it.
 
 ## Sections
 
-Before you can create entries, you must create “sections” to contain them. Each section lets you define the following:
+Before you can create entries, you must create Sections to contain them. Each Section lets you define the following:
 
 * Whether entries in the section have URLs
 * What the entries’ URLs should look like
 * Which template should get loaded if an entry’s URL is requested
-* Which locales entries in the section should target (if you’re using Craft Pro with more than one site locale)
-* Which locales should be enabled by default for new entries (if you’re using Craft Pro with more than one site locale)
+* Which sites entries in the section should target (if you’re using Craft with more than one site)
+* Which sites should be enabled by default for new entries (if you’re using Craft with more than one site)
 * What types of entries should be available in the section, and which fields each of those entry types should have
 
 To create a new section, go to Settings → Sections and click the “New Section” button.
 
 ### Section Types
 
-Not all sections are created equal. Craft actually has three different types of sections:
+Not all sections are created equal. Craft has three different types of sections:
 
 #### Singles
 
@@ -44,7 +50,7 @@ Channels are used for streams of similar content, such as:
 
 Structures are good for times when you need to store multiple similar entries, and they need to be sorted into a specific order. They can also be hierarchical. Examples include:
 
-* Documentation _(these very docs are a Structure section!)_
+* Documentation
 * a Services section, where the order of services matters
 * a company organization chart
 
@@ -72,7 +78,9 @@ The entry will be passed to this template as a variable named `object`. You can 
 * `{{ object.property }}` _(normal Twig syntax)_
 * `{property}` _(shortcut syntax)_
 
-Note that the shortcut syntax only has one set of curly braces. If Craft finds any of these in your Title Format, it will replace the `{` with `{{object.` and the `}` with `}}`, before passing the template off to Twig to be parsed.
+_Note that the shortcut syntax only has one set of curly braces_. 
+
+If Craft finds any of these in your Title Format, it will replace the `{` with `{{object.` and the `}` with `}}`, before passing the template off to Twig to be parsed.
 
 You can use Twig filters in both syntaxes:
 
