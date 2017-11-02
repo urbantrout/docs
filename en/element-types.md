@@ -1,5 +1,4 @@
-Element Types
-=============
+# Element Types
 
 Element types define the different types of content that can be managed in Craft.
 

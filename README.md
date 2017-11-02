@@ -50,7 +50,7 @@ Craft 3 Documentation
 - [Changelogs and Updates](en/changelogs-and-updates.md)
 - [Plugin Settings](en/plugin-settings.md)
 - [Control Panel Section](en/cp-section.md)
-- [Front-End Resources](en/resources.md)
+- [Asset Bundles](en/asset-bundles.md)
 - [Services](en/services.md)
 - [Widget Types](en/widget-types.md)
 - [Field Types](en/field-types.md)

@@ -1,5 +1,4 @@
-Content Migrations
-==================
+# Content Migrations
 
 If your Craft project is being developed by multiple people, or has been deployed in multiple environments, managing structural changes can become a little cumbersome, as you try to keep all environments in sync with each other.
 
@@ -33,6 +32,10 @@ echo "    > some note\n";
 
 If the migration is being run from a console request, this will ensure the message is seen by whoever is executing the migration, as the message will be output into the terminal. If it’s a web request, Craft will capture it and log it to `storage/logs/` just as if you had used `Craft::info()`.
 
+### Manipulating Database Data
+
+Craft 3 adds a `$includeAuditColumns` argument to the [`batchInsert()`], [`insert()`], and [`update()`] migration methods (set to `true` by default) that determines whether to insert/update data in the “audit” columns (`dateCreated`, `dateUpdated`, `uid`). If the table you are inserting into does not have all three of these columns, you must pass `false` to that argument so you don’t get a SQL error.
+
 ## Executing Migrations
 
 There are two ways to execute content migrations: from the terminal, and from the Migrations utility in the Control Panel.
@@ -41,4 +44,10 @@ To execute migrations from the terminal, go to your Craft project and run this c
 
     ./craft migrate/up
 
+> {tip} If your Craft install is running from a Vagrant box, you will need to SSH into the box to run this command.
+
 To execute migrations from the Migrations utility, go to Utilities → Migrations in the Control Panel and click the “Apply new migrations” button.
+
+[`batchInsert()`]: http://www.yiiframework.com/doc-2.0/yii-db-migration.html#batchInsert()-detail
+[`insert()`]: http://www.yiiframework.com/doc-2.0/yii-db-migration.html#insert()-detail
+[`update()`]: http://www.yiiframework.com/doc-2.0/yii-db-migration.html#update()-detail

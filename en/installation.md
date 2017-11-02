@@ -1,5 +1,4 @@
-Installation Instructions
-=========================
+# Installation Instructions
 
 - [Introduction](#0-introduction)
 - [Installing Craft with Composer]()
@@ -23,20 +22,18 @@ Craft’s Composer support is made up of three parts:
 
 ### 1. Install Composer
 
-You can find out if Composer is already installed by opening your terminal and entering one of the following commands:
+You should be running at Composer 1.3.0 or later. You can find out which version of Composer you have installed (if any) by opening your terminal running the following command:
 
-- **macOS/Linux/Unix**
+    composer -V
 
-      which composer
-
-- **Windows**
-
-      where composer
-
-If that outputs a file path(s), Composer is installed. Otherwise you will need to follow Composer’s installation instructions:
+If that outputs an error saying `composer` is “not found” or “not recognized”, then Composer isn’t installed. Follow Composer’s instructions to install it:
 
   - [macOS/Linux/Unix instructions] *(install it globally)*
   - [Windows instructions]
+
+If it outputs a version number, but it’s less than `1.3.0`, run the following command to update it:
+
+    composer self-update
 
 ### 2. Create a New Craft Project
 
@@ -147,7 +144,7 @@ If you’re given a choice, we recommend the following database settings in most
 - **PostgreSQL**
   - Character Set: `UTF8`
 
-Once the database is created, you’ll need to configure Craft with its connection settings. Open the `.env` file at the root of your Craft project and fill in your database connection settings.
+Once the database is created, you’ll need to configure your `.env` file with with its connection settings. You can either edit the file manually, or run the `./craft setup` command from the root project directory in your terminal.
 
 > {tip} That `.env` file will be processed via [PHP dotenv], which the `craftcms/craft` project comes with preinstalled. The advantage of using PHP dotenv is that it offers a place to store sensitive information (like database connection settings) in a file that doesn’t get committed to your Git repository.
 

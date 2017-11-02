@@ -1,12 +1,11 @@
-Plugin Migrations
-=================
+# Plugin Migrations
 
 If your schema changes over the life of your plugin, you can write a [migration](http://www.yiiframework.com/doc-2.0/guide-db-migrations.html) to keep existing installations updated with the latest schema. Craft automatically checks for new migrations whenever a plugin’s schema version number changes.
 
 - [Creating Migrations](#creating-migrations)
   - [Logging](#logging)
 - [Executing Migrations](#executing-migrations)
-- [Install Migrations](#installation-migrations)
+- [Install Migrations](#install-migrations)
 
 ## Creating Migrations
 

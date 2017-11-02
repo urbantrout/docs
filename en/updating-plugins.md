@@ -1,5 +1,4 @@
-Updating Plugins for Craft 3
-============================
+# Updating Plugins for Craft 3
 
 Craft 3 is a complete rewrite of the CMS, built on Yii 2. Due to the scope of changes in Yii 2, there was no feasible way to port Craft to it without breaking every plugin in the process. So we took it as an [opportunity](http://www.urbandictionary.com/define.php?term=double%20transgression%20theory) to refactor several major areas of the system.
 
@@ -21,6 +20,7 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
   - [Table Names](#table-names)
   - [Select Queries](#select-queries)
   - [Operational Queries](#operational-queries)
+- [Craft Config Settings](#craft-config-settings)
 - [Files](#files)
 - [Events](#events)
 - [Plugin Hooks](#plugin-hooks)
@@ -35,7 +35,6 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
 - [Registering Arbitrary HTML](#registering-arbitrary-html)
 - [Background Tasks](#background-tasks)
 - [Writing an Upgrade Migration](#writing-an-upgrade-migration)
-  - [Setting it up](#setting-it-up)
   - [Component Class Names](#component-class-names)
   - [Locale FKs](#locale-fks)
 
@@ -139,6 +138,20 @@ One notable difference is that the helper methods no longer automatically execut
 $result = \Craft::$app->db->createCommand()
     ->insert('{{%tablename}}', $rowData)
     ->execute();
+```
+
+## Craft Config Settings
+
+All of Craft’s config settings have been moved to actual properties on a few config classes, located in `vendor/craftcms/cms/src/config/`. The new Config service (`craft\services\Config`) provides getter methods/properties that will return those classes:
+
+```php
+// Old:
+$devMode = craft()->config->get('devMode');
+$tablePrefix = craft()->config->get('tablePrefix', ConfigFile::Db);
+
+// New:
+$devMode = Craft::$app->config->general->devMode;
+$tablePrefix = Craft::$app->config->db->tablePrefix;
 ```
 
 ## Files
@@ -280,21 +293,9 @@ public function getResourcePath($path)
         return craft()->path->getStoragePath().'myplugin/'.substr($path, 9);
     }
 }
-
-// New:
-use craft\events\ResolveResourcePathEvent;
-use craft\services\Resources;
-use yii\base\Event;
-
-Event::on(Resources::class, Resources::EVENT_RESOLVE_RESOURCE_PATH, function(ResolveResourcePathEvent $event) {
-    if (strpos($event->uri, 'myplugin/') === 0) {
-        $event->path = \Craft::$app->path->getStoragePath().'/myplugin/'.substr($event->uri, 9);
-
-        // Prevent other event listeners from getting invoked
-        $event->handled = true;
-    }
-});
 ```
+
+> {note} There is no direct Craft 3 equivalent for this hook, which allowed plugins to handle resource requests, because the concept of resource requests has been removed in Craft 3. See [Asset Bundels](asset-bundles.md) to learn how plugins can serve resources in Craft 3.  
 
 #### `modifyCpNav`
 
@@ -418,7 +419,7 @@ use craft\helpers\Cp;
 use yii\base\Event;
 
 Event::on(Cp::class, Cp::EVENT_REGISTER_ALERTS, function(RegisterCpAlertsEvent $event) {
-    if (\Craft::$app->config->get('devMode')) {
+    if (\Craft::$app->config->general->devMode) {
         $event->alerts[] = \Craft::t('plugin-handle', 'Dev Mode is enabled!');
     }
 });
@@ -747,7 +748,7 @@ $html = \Craft::$app->view->renderTemplate('plugin-handle/path/to/template');
 
 ## Resource Requests
 
-Resource requests (requests to URLs created by `UrlHelper::resourceUrl()`) no longer serve files within Craft’s or plugins’ `resources/` directories. See [Front End Resources](resources.md) for information about working with front end resources.
+Craft 3 doesn’t have the concept of resource requests. See [Asset Bundles](asset-bundles.md) for information about working with front end resources.
 
 ## Registering Arbitrary HTML
 
@@ -833,34 +834,44 @@ Craft::$app->queue->push(new MyJob([
 
 ## Writing an Upgrade Migration
 
-If your plugin has a Craft 2 counterpart and there’s a chance people will be upgrading their Craft 2 installations with your plugin to Craft 3, you’ll probably need to give your plugin an upgrade migration that eases the transition.
+You may need to give your plugin a migration path for Craft 2 installations, so they don’t get stranded.
 
-### Setting it up
+First you must determine whether Craft is going to consider your plugin to be an **update** or a **new installation**. If you plugin handle hasn’t changed (besides going from `UpperCamelCase` to `kebab-case`), Craft will see your new version as an **update**. But if your handle did change in a more significant way, Craft isn’t going to recognize it, and will consider it a completely new plugin.
 
-First, establish whether Craft will consider your plugin to be an **update** or a **new installation**. Craft will consider it to be an **update** if your plugin handle is equal to its former class name, minus the `Plugin` suffix and converted to `kebab-case`. (For example, if your plugin’s former class name as `FooBarPlugin` and its new handle is `foo-bar`, Craft would consider it an update.)
 
-#### In Case of Update
+If the handle (basically) stayed the same, create a new [migration](plugin-migrations.md) named something like “`craft3_upgrade`”. Your upgrade code will go in its `safeUp()` method just like any other migration.
 
-If Craft will consider your plugin to be at **update** of its previous version, create a new [migration](plugin-migrations.md) named something like “`craft3_upgrade`”.
-
-Your upgrade code will go directly in its `safeUp()` method.
-
-#### In Case of New Installation
-
-If Craft will consider your plugin to be a **new installation**, create an [Install migration](plugin-migrations.md#install-migrations) with the following code in the `safeUp()` method:
+If the handle has changed, you’ll need to put your upgrade code in your [Install migration](plugin-migrations.md#install-migrations) instead. Use this as a starting point:
 
 ```php
-public function safeUp()
-{
-    // Fetch the old plugin row, if it was installed
-    $row = (new \craft\db\Query())
-        ->select(['id', 'settings'])
-        ->from(['{{%plugins}}'])
-        ->where(['in', 'handle', ['old-class', 'oldclass']])
-        ->one();
+<?php
+namespace ns\prefix\migrations;
 
-    if ($row !== false)) {
-        // The plugin was installed
+use craft\db\Migration;
+
+class Install extends Migration
+{
+    public function safeUp()
+    {
+        if ($this->_upgradeFromCraft2()) {
+            return;
+        }
+        
+        // Fresh install code goes here...
+    }
+
+    private function _upgradeFromCraft2()
+    {
+        // Fetch the old plugin row, if it was installed
+        $row = (new \craft\db\Query())
+            ->select(['id', 'settings'])
+            ->from(['{{%plugins}}'])
+            ->where(['in', 'handle', ['old-handle', 'oldhandle']])
+            ->one();
+        
+        if (!$row) {
+            return false;
+        }
 
         // Update this one's settings to old values
         $this->update('{{%plugins}}', [
@@ -870,12 +881,19 @@ public function safeUp()
         // Delete the old row
         $this->delete('{{%plugins}}', ['id' => $row['id']]);
 
-        // Upgrade code...
+        // Any additional upgrade code goes here...
+
+        return true;
+    }
+
+    public function safeDown()
+    {
+        // ...
     }
 }
 ```
 
-Your upgrade migration code will go where that `// Upgrade code...` comment is.
+Replace `old-handle` and `oldhandle` with your plugin’s previous handle (in `kebab-case` and `onewordalllowercase`), and put any additional upgrade code at the end of the `_upgradeFromCraft2()` method (before the `return` statement). Your normal install migration code (for fresh installations of your plugin) should go at the end of `safeUp()`.
 
 ### Component Class Names
 

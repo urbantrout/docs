@@ -1,5 +1,4 @@
-Upgrading from Craft 2
-======================
+# Upgrading from Craft 2
 
 - [Updating Craft CMS](#updating-craft-cms)
 - [Configuration](#configuration)
@@ -35,7 +34,13 @@ Before you begin, make sure that:
 - you’ve got a fresh **database backup** in case everything goes horribly wrong
 - **Composer** is installed (see step 1 of the [installation instructions](installation.md))
 
-Once everything’s in order, follow these steps to update Craft:
+Once everything’s in order, there are two ways you can go about updating Craft, depending on whether you want to [keep your current directory structure](#if-you-want-to-keep-your-current-directory-structure), or [switch things up](#if-you-want-your-directory-structure-to-resemble-a-new-craft-3-project) to be more like a new Craft 3 installation.
+
+### If you want to keep your current directory structure…
+
+To update Craft without making any major changes to your site’s directory structure, follow these instructions.
+
+Note that at the end of this, your “project root” (as referenced in other areas of the documentation) will be your `craft/` folder, _not_ its parent folder.
 
 1. Create a `composer.json` file within your project’s `craft/` folder, and add the following properties:
 
@@ -85,29 +90,57 @@ Once everything’s in order, follow these steps to update Craft:
 
 6. Delete your old `craft/app/` folder. It’s no longer needed; Craft 3 is located in `vendor/craftcms/cms/` now.
 
-> {note} If your `craft/` folder lives in a public folder on your server (e.g. within `public_htm/`), you will need to make sure the new `craft/vendor/` folder is protected from web traffic. If your server is running Apache, you can do this by creating a `.htaccess` file within it, with the contents `Deny from all`.
+> {note} If your `craft/` folder lives in a public folder on your server (e.g. within `public_html/`), you will need to make sure the new `craft/vendor/` folder is protected from web traffic. If your server is running Apache, you can do this by creating a `.htaccess` file within it, with the contents `Deny from all`.
+
+### If you want your directory structure to resemble a new Craft 3 project…
+
+To set your site up with the same directory structure (including the [PHP dotenv](https://github.com/vlucas/phpdotenv)-based configuration) as a brand new Craft 3 project, follow these instructions:
+
+1. Follow steps 1 and 2 from the [Installation Instructions](installation.md). (Note that you should create your Craft 3 project in a new location; not in the same place your Craft 2 project is).
+
+2. Configure your `.env` file with with your database connection settings. You can either edit the file manually, or run the `./craft setup` command from your new root project directory in your terminal.
+
+3. Copy any settings from your old `craft/config/general.php` file into your new project’s `config/general.php` file.
+
+4. Copy your old templates from `craft/templates/` over to your new project’s `templates/` folder.
+
+5. If you had made any changes to your `public/index.php` file, copy them to your new project’s `web/index.php` file.
+
+6. Copy any other files in your old `public/` folder into your new project’s `web/` folder.
+
+7. Update your web server to point to your new project’s `web/` folder.
+
+8. Point your browser to your Control Panel URL (e.g. `http://example.dev/admin`). If you see the update prompt, you did everything right! Go ahead and click “Finish up” to update your database.
 
 ## Configuration
 
 ### Config Settings
 
-The following config settings have been renamed or removed:
+The following config settings have been deprecated, and will be removed in Craft 4:
 
 File          | Old Setting                  | New Setting
 ------------- | ---------------------------- | -----------------------------
-`general.php` | `appId`                      | *(n/a)*
-`general.php` | `defaultFilePermissions`     | `defaultFileMode`<sup>1</sup>
-`general.php` | `defaultFolderPermissions`   | `defaultDirMode`
-`general.php` | `useWriteFileLock`           | `useFileLocks`
-`general.php` | `backupDbOnUpdate`           | `backupOnUpdate`<sup>2</sup>
-`general.php` | `restoreDbOnUpdateFailure`   | `restoreOnUpdateFailure`
 `general.php` | `activateAccountFailurePath` | `invalidUserTokenPath`
-`db.php`      | `collation`                  | *(n/a)*
-`db.php`      | `initSQLs`                   | *(n/a)*
+`general.php` | `backupDbOnUpdate`           | `backupOnUpdate`<sup>1</sup>
+`general.php` | `defaultFilePermissions`     | `defaultFileMode`<sup>2</sup>
+`general.php` | `defaultFolderPermissions`   | `defaultDirMode`
+`general.php` | `restoreDbOnUpdateFailure`   | `restoreOnUpdateFailure`
+`general.php` | `useWriteFileLock`           | `useFileLocks`
+`general.php` | `validationKey`              | `securityKey`<sup>3</sup>
 
-*<sup>1</sup> `defaultFileMode` is now `null` by default, meaning it will be determined by the current environment.*
+*<sup>1</sup> Performance should no longer be a major factor when setting `backupOnUpdate` to `false`, since backups aren’t generated by PHP anymore.*
 
-*<sup>2</sup> Performance should no longer be a major factor when setting `backupOnUpdate` to `false`, since backups aren’t generated by PHP anymore.*
+*<sup>2</sup> `defaultFileMode` is now `null` by default, meaning it will be determined by the current environment.*
+
+*<sup>3</sup> `securityKey` is no longer optional. If you haven’t set it yet, set it to the value in `storage/runtime/validation.key` (if the file exists). The auto-generated `validation.key` file fallback will be removed in Craft 4.*
+
+The following config settings have been removed entirely:
+
+File          | Setting
+------------- | -----------
+`db.php`      | `collation`
+`db.php`      | `initSQLs`
+`general.php` | `appId`
 
 ### `omitScriptNameInUrls` and `usePathInfo`
 
@@ -307,8 +340,8 @@ Old                             | New
 `{% includejs %}`               | `{% js %}`
 `{% includecssfile url %}`      | `{% do view.registerCssFile(url) %}`
 `{% includejsfile url %}`       | `{% do view.registerJsFile(url) %}`
-`{% includecssresource path %}` | See [Front-End Resources](resources.md)
-`{% includejsresource path %}`  | See [Front-End Resources](resources.md)
+`{% includecssresource path %}` | See [Asset Bundles](asset-bundles.md)
+`{% includejsresource path %}`  | See [Asset Bundles](asset-bundles.md)
 
 ## Template Functions
 
@@ -333,11 +366,11 @@ The following template functions have been deprecated, and will be removed in Cr
 
 Old                                                     | New
 ------------------------------------------------------- | ---------------------------------------------
-`round(num)`                                            | `num|round`
+`round(num)`                                            | `num\|round`
 `getCsrfInput()`                                        | `csrfInput()`
 `getHeadHtml()`                                         | `head()`
 `getFootHtml()`                                         | `endBody()`
-`getTranslations()`                                     | `view.getTranslations()|json_encode|raw`
+`getTranslations()`                                     | `view.getTranslations()\|json_encode\|raw`
 `craft.categoryGroups.getAllGroupIds()`                 | `craft.app.categoryGroups.allGroupIds`
 `craft.categoryGroups.getEditableGroupIds()`            | `craft.app.categories.editableGroupIds`
 `craft.categoryGroups.getAllGroups()`                   | `craft.app.categoryGroups.allGroups`
@@ -520,10 +553,12 @@ The following methods are now deprecated, and will be removed in Craft 4:
 Old             | New
 --------------- | --------------------------------------------------------
 `ids(criteria)` | `ids()` (setting criteria params here is now deprecated)
-`find()`        | `all()`
+`find()`        | `all()`<sup>1</sup>
 `first()`       | `one()`
 `last()`        | `nth(query.count() - 1)`
 `total()`       | `count()`
+
+*<sup>1</sup> Looping through an element query as if it’s an array has been deprecated as well, so you will need to start explicitly calling `.all()`.*
 
 ## Elements
 

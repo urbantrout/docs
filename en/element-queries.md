@@ -1,5 +1,4 @@
-Element Queries
-===============
+# Element Queries
 
 Element queries are [query builders](http://www.yiiframework.com/doc-2.0/guide-db-query-builder.html) that are tuned for fetching elements in Craft. They have several custom parameters, and they abstract away all the complexities of the actual SQL query needed to fetch the elements. Rather than raw data, they return element models.
 
@@ -149,8 +148,6 @@ $entries = Entry::find()
     .limit(10)
     .all() %}
 ```
-
-> {tip} If you loop through an element query as if it were an array, `all()` will be called automatically for you, and you will actually be looping through its results.
 
 ### `one()`
 
