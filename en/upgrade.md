@@ -34,7 +34,7 @@ Before you begin, make sure that:
 - you’ve got a fresh **database backup** in case everything goes horribly wrong
 - **Composer** is installed (see step 1 of the [installation instructions](installation.md))
 
-Once everything’s in order, there are two ways you can go about updating Craft, depending on whether you want to [keep your current directory structure](#if-you-want-to-keep-your-current-directory-structure), or [switch things up](#If-you-want-your–directory-structure-to-resemble-a-new-Craft-3-project) to be more like a new Craft 3 installation.
+Once everything’s in order, there are two ways you can go about updating Craft, depending on whether you want to [keep your current directory structure](#if-you-want-to-keep-your-current-directory-structure), or [switch things up](#if-you-want-your-directory-structure-to-resemble-a-new-craft-3-project) to be more like a new Craft 3 installation.
 
 ### If you want to keep your current directory structure…
 
