@@ -3,20 +3,20 @@ Fields
 
 All of the content on your site will get entered into fields.
 
-Fields are defined globally from Settings → Fields. They are organized into “field groups”, but field groups have very little relevance anywhere else in the system.
+Fields are defined globally from Settings → Fields. They are organized into “field groups” for convenience, but field groups have very little relevance anywhere else in the system.
 
 All fields share a few common settings:
 
-* The field group it belongs to
-* Its name
-* Its template-facing handle
+* The field group to which it belongs
+* Name
+* Handle
 * Instruction text
 
 ## Translatable Fields
 
-If you’re running Craft Pro and you have more than one site locale, you will also have the option to mark the field as translatable.
+If you’re running a multi-language site with Craft you have the option to mark the field as translatable.
 
-If that setting is checked, the field’s values will be stored on a per-locale basis. Otherwise, the values will always be copied across all locales.
+If that setting is checked, the field’s values will be stored on a per-site basis. Otherwise, the values will always be copied across all sites.
 
 ## Field Types
 
@@ -30,6 +30,7 @@ Craft comes with the following built-in field types:
 * [Color](color-fields.md)
 * [Date/Time](date-time-fields.md)
 * [Dropdown](dropdown-fields.md)
+* [Email](email-fields.md)
 * [Entries](entries-fields.md)
 * [Lightswitch](lightswitch-fields.md)
 * [Matrix](matrix-fields.md)
@@ -41,6 +42,7 @@ Craft comes with the following built-in field types:
 * [Rich Text](rich-text-fields.md)
 * [Table](table-fields.md)
 * [Tags](tags-fields.md)
+* [URL](url-fields.md)
 * [Users](users-fields.md)
 
 
