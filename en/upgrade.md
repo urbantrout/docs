@@ -34,7 +34,13 @@ Before you begin, make sure that:
 - you’ve got a fresh **database backup** in case everything goes horribly wrong
 - **Composer** is installed (see step 1 of the [installation instructions](installation.md))
 
-Once everything’s in order, follow these steps to update Craft:
+Once everything’s in order, there are two ways you can go about updating Craft, depending on whether you want to [keep your current directory structure](#if-you-want-to-keep-your-current-directory-structure), or [switch things up](#If-you-want-your–directory-structure-to-resemble-a-new-Craft-3-project) to be more like a new Craft 3 installation.
+
+### If you want to keep your current directory structure…
+
+To update Craft without making any major changes to your site’s directory structure, follow these instructions.
+
+Note that at the end of this, your “project root” (as referenced in other areas of the documentation) will be your `craft/` folder, _not_ its parent folder.
 
 1. Create a `composer.json` file within your project’s `craft/` folder, and add the following properties:
 
@@ -85,6 +91,26 @@ Once everything’s in order, follow these steps to update Craft:
 6. Delete your old `craft/app/` folder. It’s no longer needed; Craft 3 is located in `vendor/craftcms/cms/` now.
 
 > {note} If your `craft/` folder lives in a public folder on your server (e.g. within `public_html/`), you will need to make sure the new `craft/vendor/` folder is protected from web traffic. If your server is running Apache, you can do this by creating a `.htaccess` file within it, with the contents `Deny from all`.
+
+### If you want your directory structure to resemble a new Craft 3 project…
+
+To set your site up with the same directory structure (including the [PHP dotenv](https://github.com/vlucas/phpdotenv)-based configuration) as a brand new Craft 3 project, follow these instructions:
+
+1. Follow steps 1 and 2 from the [Installation Instructions](installation.md). (Note that you should create your Craft 3 project in a new location; not in the same place your Craft 2 project is).
+
+2. Configure your `.env` file with with your database connection settings. You can either edit the file manually, or run the `./craft setup` command from your new root project directory in your terminal.
+
+3. Copy any settings from your old `craft/config/general.php` file into your new project’s `config/general.php` file.
+
+4. Copy your old templates from `craft/templates/` over to your new project’s `templates/` folder.
+
+5. If you had made any changes to your `public/index.php` file, copy them to your new project’s `web/index.php` file.
+
+6. Copy any other files in your old `public/` folder into your new project’s `web/` folder.
+
+7. Update your web server to point to your new project’s `web/` folder.
+
+8. Point your browser to your Control Panel URL (e.g. `http://example.dev/admin`). If you see the update prompt, you did everything right! Go ahead and click “Finish up” to update your database.
 
 ## Configuration
 
