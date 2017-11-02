@@ -84,7 +84,7 @@ Once everything’s in order, follow these steps to update Craft:
 
 6. Delete your old `craft/app/` folder. It’s no longer needed; Craft 3 is located in `vendor/craftcms/cms/` now.
 
-> {note} If your `craft/` folder lives in a public folder on your server (e.g. within `public_htm/`), you will need to make sure the new `craft/vendor/` folder is protected from web traffic. If your server is running Apache, you can do this by creating a `.htaccess` file within it, with the contents `Deny from all`.
+> {note} If your `craft/` folder lives in a public folder on your server (e.g. within `public_html/`), you will need to make sure the new `craft/vendor/` folder is protected from web traffic. If your server is running Apache, you can do this by creating a `.htaccess` file within it, with the contents `Deny from all`.
 
 ## Configuration
 
