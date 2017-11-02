@@ -69,6 +69,8 @@ The options defined here will be passed into new `GuzzleHttp\Client` instances. 
 
 If you would prefer to define volume settings with a config file, you can do that from `config/volumes.php`. The file should return an array whose keys map to your volume handles, and values are nested arrays that define the overridden setting values.
 
+> {note} You must create your volumes within the Control Panel before Craft will start checking `config/volumes.php` for overrides.
+
 ```php
 return [
     'siteAssets' => [
