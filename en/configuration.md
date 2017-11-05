@@ -39,7 +39,73 @@ Craft supports several database configuration settings. You can see a list of th
 
 ## Data Caching Config
 
-If you’re using APC, Database, File, or Memcache(d) data caching drivers (per the `cacheMethod` general config setting), you can set driver-specific settings. You can see a list of them in the corresponding file in `vendor/craftcms/cms/src/config/defaults/` (`apc.php`, `dbcache.php`, `filecache.php`, or `memcache.php`), and you can override the values by creating a file with the same name in your `config/` directory.
+By default, Craft will store data caches in the `storage/runtime/cache/` folder. You can configure Craft to use an alternative [cache storage](http://www.yiiframework.com/doc-2.0/guide-caching-data.html#supported-cache-storage) by overriding the `cache` application component from `config/app.php`.
+
+```php
+<?php
+return [
+    'components' => [
+        'cache' => [
+            'class' => yii\caching\ApcCache::class,
+            'useApcu' => true,
+        ],
+    ],
+];
+```
+
+### Examples
+
+Here are a couple common examples of cache storage configurations:
+
+#### Memcached
+
+```php
+<?php
+return [
+    'components' => [
+        'cache' => [
+            'class' => yii\caching\MemCache::class,
+            'useMemcached' => true,
+            'username' => getenv('MEMCACHED_USERNAME'),
+            'password' => getenv('MEMCACHED_PASSWORD'),
+            'defaultDuration' => 86400,
+            'servers' => [
+                [
+                    'host' => 'localhost',
+                    'persistent' => true,
+                    'port' => 11211,
+                    'retryInterval' => 15,
+                    'status' => true,
+                    'timeout' => 15,
+                    'weight' => 1,
+                ],
+            ],
+        ],
+    ],
+];
+```
+
+#### Redis
+
+To use Redis cache storage, you will first need to install the [yii2-redis](https://github.com/yiisoft/yii2-redis) library. Then configure Craft’s `cache` component to use it:
+
+```php
+<?php
+return [
+    'components' => [
+        'cache' => [
+            'class' => yii\redis\Cache::class,
+            'defaultDuration' => 86400,
+            'redis' => [
+                'hostname' => 'localhost',
+                'port' => 6379,
+                'password' => getenv('REDIS_PASSWORD'),
+                'database' => 0,
+            ],
+        ],
+    ],
+];
+``` 
 
 ## Guzzle Config
 
