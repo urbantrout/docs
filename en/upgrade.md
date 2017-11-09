@@ -9,6 +9,7 @@
 - [URL Rules](#url-rules)
 - [PHP Constants](#php-constants)
 - [Static Translation Files](#static-translation-files)
+- [Rich Text Fields](#rich-text-fields)
 - [Remote Volumes](#remote-volumes)
 - [User Photos](#user-photos)
 - [Twig 2](#twig-2)
@@ -257,6 +258,12 @@ translations/
     app.php
     site.php
 ```
+
+## Rich Text Fields
+
+The “Rich Text” field type has been removed from Craft 3, in favor of new [Redactor](https://github.com/craftcms/redactor) and [CKEditor](https://github.com/craftcms/ckeditor) plugins.
+
+If you have any existing Rich Text fields, they will be automatically converted to Redactor fields when you install the Redactor plugin.
 
 ## Remote Volumes
 
