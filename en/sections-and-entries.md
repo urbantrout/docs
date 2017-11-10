@@ -8,18 +8,21 @@ Entries hold the content that you want to display on your web pages. Each entry 
 
 You can also create drafts of entries that live alongside the current live version of the entry.
 
-Typically each entry will have a stake in its own primary URL on your site, though any entry can be fetched from anywhere if your template needs it.
+Typically each entry will have a stake in its own primary URL on your site, though Craft can fetch any entry from anywhere if your template needs it.
 
 ## Sections
 
-Before you can create entries, you must create Sections to contain them. Each Section lets you define the following:
+Before you can create entries, you must create Sections to contain them. In each Section you can define the following:
 
 * Whether entries in the section have URLs
 * What the entries’ URLs should look like
 * Which template should get loaded if an entry’s URL is requested
-* Which sites entries in the section should target (if you’re using Craft with more than one site)
-* Which sites should be enabled by default for new entries (if you’re using Craft with more than one site)
 * What types of entries should be available in the section, and which fields each of those entry types should have
+
+If you're using Craft with multiple sites then you can also define in your Section:
+
+* Which sites entries in the section should target
+* Which sites should are enabled by default for new entries
 
 To create a new section, go to Settings → Sections and click the “New Section” button.
 
@@ -47,7 +50,7 @@ Channels are used for streams of similar content, such as:
 
 #### Structures
 
-Structures are good for times when you need to store multiple similar entries, and they need to be sorted into a specific order. They can also be hierarchical. Examples include:
+Structures are good for times when you need to store multiple similar entries, and sort them into a specific order. They can also be hierarchical. Examples include:
 
 * Documentation
 * a Services section, where the order of services matters
@@ -55,16 +58,16 @@ Structures are good for times when you need to store multiple similar entries, a
 
 ## Entry Types
 
-Both Channel and Structure sections let you define multiple types of entries to be contained within them.
+Both Channel and Structure sections let you define multiple types of entries using Entry Types.
 
-You can manage your sections’ entry types by clicking the “Edit Entry Types” link beside the section’s name in Settings → Sections. That’ll take you to the section’s entry type index. Clicking on an entry type’s name takes you to its settings page:
+You can manage your sections’ Entry Types by clicking the “Edit Entry Types” link beside the section’s name in Settings → Sections. That’ll take you to the section’s entry type index. Clicking on an entry type’s name takes you to its settings page:
 
 Entry types have the following settings:
 
 * **Name** – The entry type’s name
 * **Handle** – The entry type’s template-facing handle
-* **Show the Title field?** – Whether a Title field should be displayed for entries of this type
-* **Title Field Label** – What the “Title” field should be labeled as.
+* **Show the Title field?** – Whether a Title field is displayed for entries of this type
+* **Title Field Label** – What the “Title” field label should be.
 
 ### Dynamic Entry Titles
 
@@ -72,14 +75,14 @@ If you want your entries to have auto-generated titles rather than requiring aut
 
 The Title Format is a full-blown Twig template, and it will get parsed whenever your entries are saved.
 
-The entry will be passed to this template as a variable named `object`. You can reference the entry’s [properties]({entry:templating/entrymodel}#properties) in two ways:
+The entry is passed to this template as a variable named `object`. You can reference the entry’s [properties]({entry:templating/entrymodel}#properties) in two ways:
 
 * `{{ object.property }}` _(normal Twig syntax)_
 * `{property}` _(shortcut syntax)_
 
 _Note that the shortcut syntax only has one set of curly braces_. 
 
-If Craft finds any of these in your Title Format, it will replace the `{` with `{{object.` and the `}` with `}}`, before passing the template off to Twig to be parsed.
+If Craft finds any of these in your Title Format, it will replace the `{` with `{{object.` and the `}` with `}}`, before passing the template off to Twig for parsing.
 
 You can use Twig filters in both syntaxes:
 
