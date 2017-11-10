@@ -3,11 +3,11 @@ Fields
 
 All of the content on your site will get entered into fields.
 
-Fields are defined globally from Settings → Fields. They are organized into “field groups” for convenience, but field groups have very little relevance anywhere else in the system.
+Fields are defined globally from Settings → Fields. They are organized into Field Groups for convenience, but Field Groups have very little relevance anywhere else in the system.
 
 All fields share a few common settings:
 
-* The field group to which it belongs
+* The Field Group to which it belongs
 * Name
 * Handle
 * Instruction text
@@ -16,7 +16,7 @@ All fields share a few common settings:
 
 If you’re running a multi-language site with Craft you have the option to mark the field as translatable.
 
-If that setting is checked, the field’s values will be stored on a per-site basis. Otherwise, the values will always be copied across all sites.
+If that setting is checked, the field’s values are stored on a per-site basis. Otherwise, the values are always copied across all sites.
 
 ## Field Types
 
@@ -68,4 +68,4 @@ Once a field is selected, a gear icon will appear beside it. Clicking on it will
 
 Clicking “Make required” will add an asterisk (`*`) beside the field’s name, indicating that it’s now required. Subsequent gear icon clicks will reveal a new “Make not required” option which does as you’d expect.
 
-Field layouts for entry types have another feature: they let you define the actual content tabs that contain the fields. You can create as many content tabs as you want, and use them to organize similar fields together. Each content tab will get its own gear icon allowing you to rename or delete it.
+Field layouts for entry types have another feature: they let you define the  content tabs that contain the fields. You can create as many content tabs as you want, and use them to organize similar fields together. Each content tab will get its own gear icon allowing you to rename or delete it.
