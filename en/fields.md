@@ -30,7 +30,7 @@ Craft comes with the following built-in field types:
 * [Color](color-fields.md)
 * [Date/Time](date-time-fields.md)
 * [Dropdown](dropdown-fields.md)
-* [Email](email-fields.md)
+* Email
 * [Entries](entries-fields.md)
 * [Lightswitch](lightswitch-fields.md)
 * [Matrix](matrix-fields.md)
@@ -42,7 +42,7 @@ Craft comes with the following built-in field types:
 * [Rich Text](rich-text-fields.md)
 * [Table](table-fields.md)
 * [Tags](tags-fields.md)
-* [URL](url-fields.md)
+* URL
 * [Users](users-fields.md)
 
 
