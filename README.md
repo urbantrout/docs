@@ -20,9 +20,8 @@ Craft 3 Documentation
 ## Getting Started
 
 - [The Pieces of Craft](en/the-pieces-of-craft.md)
-- [Planning Your Craft Site](en/planning-your-craft-site.md)
+- Planning Your Craft Site
 - [Directory Structure](en/directory-structure.md)
-- [Configuration](en/configuration.md)
 
 ## Core Concepts
 
@@ -41,6 +40,8 @@ Craft 3 Documentation
 - Sites and Localization
 - [Element Queries](en/element-queries.md)
 - [Content Migrations](en/content-migrations.md)
+- [Configuration](en/configuration.md)
+
 
 ## Plugin Development
 
