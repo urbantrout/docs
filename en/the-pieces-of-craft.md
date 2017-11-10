@@ -9,7 +9,7 @@ Sections are how we organize our content or data in Craft. Let's say you have a 
 
 There are three different Section Types in Craft: Channels, Structures, and Singles. Each of these types allows you to store your content with a slightly different set of features.
 
-To review the specifics of each type, check out the [Sections and Entries](en/sections-and-entries.md) page of this documentation.
+To review the specifics of each type, check out the [Sections and Entries](sections-and-entries.md) page of this documentation.
 
 ## Entries
 
