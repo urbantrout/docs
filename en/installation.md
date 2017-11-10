@@ -1,16 +1,14 @@
 # Installation Instructions
 
-- [Introduction](#0-introduction)
-- [Installing Craft with Composer]()
-- [Installing Craft Manually]()
-- [Setting up the Database](#3-set-up-the-database)
-- [Setting up the Web Server](#4-set-up-the-web-server)
+- [0. Introduction](#0-introduction)
+- [1. Install Composer](#1-install-composer)
+- [2. Create a New Craft Project](#2-create-a-new-craft-project)
+- [3. Set up the Database](#3-set-up-the-database)
+- [4. Set up the Web Server](#4-set-up-the-web-server)
 
-## Introduction
+## 0. Introduction
 
-Craft 3 is available as a [Composer] package and as a stand-alone download. We encourage you to use the Composer package for easier installation. If you’re unfamiliar with Composer, it’s a package manager for PHP, meaning it’s a tool that attempts to make installing and updating PHP libraries (like Craft) a simple terminal command away.
-
-Before you get started, be sure to review the [requirements for running Craft](requirements.md).
+Craft 3 is available as a [Composer] package, and for the duration of the Beta, Composer is the only way to install Craft 3. (We’ll introduce an alternate, non-Composer installation method once it’s out of Beta.) If you’re unfamiliar with Composer, it’s a package manager for PHP, meaning it’s a tool that attempts to make installing and updating PHP libraries (like Craft) a simple terminal command away.
 
 Craft’s Composer support is made up of three parts:
 
@@ -18,9 +16,7 @@ Craft’s Composer support is made up of three parts:
 2. **[`craftcms/plugin-installer`]** – Custom Composer *installer* that makes it possible to install Craft plugins with Composer.
 2. **[`craftcms/craft`]** – Composer *project* that can be installed as a starting point for new Craft projects, with the `cms` and `plugin-installer` dependencies already in place.
 
-## Installing Craft with Composer
-
-### 1. Install Composer
+## 1. Install Composer
 
 You should be running at Composer 1.3.0 or later. You can find out which version of Composer you have installed (if any) by opening your terminal running the following command:
 
@@ -35,7 +31,7 @@ If it outputs a version number, but it’s less than `1.3.0`, run the following 
 
     composer self-update
 
-### 2. Create a New Craft Project
+## 2. Create a New Craft Project
 
 To create a new Craft project, simply run this command (substituting `PATH` with the path the project should be created at):
 
@@ -64,74 +60,7 @@ README.md
 
 See [Directory Structure](directory-structure.md) for a rundown of what each of those directories and files are for.
 
-Move on to Step 3 to complete your Craft installation.
-
-## Installing Craft Manually
-
-### Pre-flight check
-
-Before installing Craft, make sure that you’ve got everything you need:
-
-* The latest version of Craft from [craftcms.com](https://craftcms.com).
-* A web host meets Craft’s [minimum requirements]({entry:docs/requirements:url}).
-* An FTP client (we recommend [Transmit](http://panic.com/transmit/)).
-* MySQL access, either via a web-based tool like phpMyAdmin, or a standalone app like [Sequel Pro](http://www.sequelpro.com/).
-* Your favorite text editor
-* Your good looks
-
-### Step 1: Upload the files
-
-Extract your Craft zip somewhere on your computer. You’ll notice that it contains two folders:
-
-* craft/
-* public/
-
-The **craft/** folder contains [all kinds of stuff]({entry:docs/folder-structure} "{entry:docs/folder-structure:title}"), from the actual application files to configuration files to your templates. This folder should be uploaded in its entirety to your server.
-
-We recommend that you upload the folder *above* your web root if possible, which will ensure that no one can access any of its files directly. (Your web root is the folder that your domain name points to.) That’s not a requirement, but do it if you can. For the children.
-
-The **public/** folder contains a few files that can go inside your web root. The only file that’s actually required here is **index.php**, which is the web’s official entry point into your Craft site.
-
-By default the index.php file assumes that you uploaded the craft/ folder one level above it. For example, on your server it might look like this:
-
-    craft/
-    public_html/
-        index.php
-
-If that’s not the case, you will need to open up your index.php file and change the `$craftPath` variable to point to the actual location of your craft/ folder. If the craft/ folder lives right next to your index.php file, you would change that line to this:
-
-    $craftPath = './craft';
-
-The other files in public/ are all optional. Here’s what they do:
-
-* **htaccess** – This file configures Apache servers to direct all traffic hitting your site to that index.php file, without actually needing to include “index.php” in the URLs. Note that it must be renamed to **.**htaccess for it to actually work. (See “{entry:supportArticles/remove-index.php:link}” for more info.)
-* **web.config** – This is our IIS equivelant of the .htaccess file, for those of you that are into that sort of thing.
-* **robots.txt** – If you couldn’t upload the craft/ folder above your web root, you can use this file to prevent Google from indexing it.
-
-### Step 2: Set the permissions
-
-At a minimum, Craft needs to be able to write to 3 folders on your server:
-
-* craft/app/
-* craft/config/
-* craft/storage/
-
-Additionally, if you define any [Local Asset sources](https://craftcms.com/docs/assets) in your public HTML folder, Craft will need to be able to write to them as well.
-
-In order for Craft to be able to do that, it’s counting on you to set the needed permissions on those folders (and each of their subfolders).
-
-The exact permissions you should be setting depends on the relationship between the system user that PHP is running as, and who owns the actual folders/files.
-
-Here are some recommended permissions depending on that relationship:
-
-* If they are the same user, use 744.
-* If they're in the same group, then use 774.
-* If they’re neither the same user nor in the same group, or if you just prefer to live life on the edge, you can use 777, just please do not do that in a production environment.
-
-**IIS fans:** Make sure the account your site’s AppPool is running as has write permissions to this folder.
-
-
-## Set up the Database
+## 3. Set up the Database
 
 Next up, you’ll need to create a database for your Craft project. Craft 3 supports both MySQL 5.5+ and PostgreSQL 9.5+.
 
@@ -148,7 +77,7 @@ Once the database is created, you’ll need to configure your `.env` file with w
 
 > {tip} That `.env` file will be processed via [PHP dotenv], which the `craftcms/craft` project comes with preinstalled. The advantage of using PHP dotenv is that it offers a place to store sensitive information (like database connection settings) in a file that doesn’t get committed to your Git repository.
 
-## Set up the Web Server
+## 4. Set up the Web Server
 
 Create a new web server to host your Craft project. Its document root should point to the `web/` folder.
 
@@ -157,9 +86,7 @@ If you’re not using MAMP, you will probably need to update your `hosts` file, 
 - **macOS/Linux/Unix:** `/etc/hosts`
 - **Windows:** `\Windows\System32\drivers\etc\hosts`
 
-## Run the installer!
-
-Now that everything’s set up, point your browser to <http://example.com/admin>. You should get the Craft installation wizard, which will take you through a couple setup screens, and then perform the actual installation.
+You can test whether everything is set up correctly by pointing your web browser to `http://HOSTNAME/index.php?p=admin` (substituting `HOSTNAME` with your new web server’s host name). You should get the Craft installation wizard, which will take you through a couple setup screens, and then perform the actual installation.
 
 
 [Composer]: https://getcomposer.org/
