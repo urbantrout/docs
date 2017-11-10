@@ -1,5 +1,4 @@
 # Sections and Entries
-=========================
 
 Introduction here
 
