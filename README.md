@@ -29,7 +29,7 @@ Craft 3 Documentation
 - [Fields](en/fields.md)
 - [Templates](en/templates.md)
   - [Twig Primer](en/twig-primer.md)
-- Categories
+- [Categories](en/categories.md)
 - Assets
 - Users
 - Globals
