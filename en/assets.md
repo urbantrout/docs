@@ -19,21 +19,21 @@ If you want to use a relative file system path, note that it should be relative 
 		index.php
 		images/
 
-…then the correct relative path to `images/`` would be `images/`.
+…then the correct relative path to `images/` would be `images/`.
 
-Note that Craft/PHP must be able to write to the folder you created. See [the installation guide]({entry:docs/installing:url}#step-2-set-the-permissions) for recommended permissions.
+Note that Craft/PHP must be able to write to the directory you created. See [the installation guide]({entry:docs/installing:url}#step-2-set-the-permissions) for recommended permissions.
 
-You can override the Volume settings using the `config/volumes.php` configuration file. This file is not present in the default Craft installation so you may have to create it. Learn more about what need to go in the `volumes.php` file in the [Overriding Volume Settings](configuration.md#overriding-volume-settings) section in the Configuration documentation.
+> {tip} You can override the Volume settings using the `config/volumes.php` configuration file. This file is not in the default Craft installation so you may have to create it. Learn more about what need to go in the `volumes.php` file in the [Overriding Volume Settings](configuration.md#overriding-volume-settings) section in the Configuration documentation.
 
 ## Asset Meta Fields
 
-Each of your asset volumes have its own field layout, where you can attach [fields]({entry:docs/fields}) that will be available to any assets within that volume. You can edit an asset volume’s field layout by clicking on the Field Layout tab when editing the volume.
+Each of your asset volumes has a field layout, where you can attach [fields]({entry:docs/fields}) that will be available to any assets within that volume. You can edit an asset volume’s field layout by clicking on the Field Layout tab when editing the volume.
 
 Once your asset volume has some fields associated with it, you can edit the fields’ content by double-clicking on your assets, either from within the Assets index, or within an [Assets field]({entry:docs/assets-fields}).
 
 ## Assets Index
 
-When you have at least one asset volume, Craft will add a new Assets item to the Control Panel's main navigation. Clicking on it will take you to the Assets Index, which lists all of your volumes in the left sidebar, and the selected volume’s files in the main content area.
+When you have at least one asset volume, Craft will add a new Assets item to the Control Panel's main navigation. Clicking on it will take you to the Assets Index with a list of all of your volumes in the left sidebar, and the selected volume’s files in the main content area.
 
 From this page, you can do the following:
 
