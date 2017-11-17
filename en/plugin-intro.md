@@ -164,6 +164,8 @@ To set it up, open your Craft project’s `composer.json` file and make the foll
 }
 ```
 
+> {note} Set the `url` value to the absolute or relative path to your plugin’s source directory. It should be located somewhere outside of your project. (The `../my-plugin` example value assumes that the plugin lives in a folder alongside the project’s folder.)
+
 In your terminal, go to your Craft project and tell Composer to require your plugin. (Use the same package name you gave your plugin in its `composer.json` file.)
 
 ```
