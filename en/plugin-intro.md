@@ -38,14 +38,18 @@ Naming things is one of the [two hardest things] in computer science, so if you 
 
 ### Setting up the basic file structure
 
-To create a plugin, create a new directory for it wherever you like to work on development projects (the name is not important, as far as Craft is concerned). Give it the following structure:
+To create a plugin, create a new directory for it somewhere on your computer. A common approach is to store them in a `~/dev/` folder alongside your Craft projects:
 
 ```
-base_dir/
-  composer.json
-  src/
-    Plugin.php
+~/dev/
+  my-craft-project.dev/
+  my-plugin/
+    composer.json
+    src/
+      Plugin.php
 ```
+
+> {note} The name of your plugin directory doesn’t matter. Just choose something that is easy to identify.
 
 ### composer.json
 
@@ -164,7 +168,7 @@ To set it up, open your Craft project’s `composer.json` file and make the foll
 }
 ```
 
-> {note} Set the `url` value to the absolute or relative path to your plugin’s source directory. It should be located somewhere outside of your project. (The `../my-plugin` example value assumes that the plugin lives in a folder alongside the project’s folder.)
+> {note} Set the `url` value to the absolute or relative path to your plugin’s source directory. (The `../my-plugin` example value assumes that the plugin lives in a folder alongside the project’s folder.)
 
 In your terminal, go to your Craft project and tell Composer to require your plugin. (Use the same package name you gave your plugin in its `composer.json` file.)
 
@@ -183,7 +187,7 @@ Composer’s installation log should indicate that the package was installed via
 
 #### Packagist
 
-If you’re ready to publicly release your plugin, register it as a new Composer package on [Packagist](https://packagist.org/). Then you can install it like any other package, by just passing its package name to Composer’s `require` command. 
+If you’re ready to publicly release your plugin, register it as a new Composer package on [Packagist](https://packagist.org/). Then you can install it like any other package, by just passing its package name to Composer’s `require` command.
 
 ```
 > cd ~/dev/my-craft-project
