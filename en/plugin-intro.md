@@ -38,13 +38,17 @@ Naming things is one of the [two hardest things] in computer science, so if you 
 
 ### Setting up the basic file structure
 
-To create a plugin, create a new directory for it wherever you like to work on development projects (the name is not important, as far as Craft is concerned). Give it the following structure:
+To create a plugin, create a new directory for it **outside** your craft project directory, wherever you like to work on development projects (the name is not important, as far as Craft is concerned). Give it the following structure:
 
 ```
-base_dir/
-  composer.json
-  src/
-    Plugin.php
+~/
+  dev/
+    my-craft-project.dev/
+        composer.json, ...
+    my-plugin/
+      composer.json
+      src/
+        Plugin.php
 ```
 
 ### composer.json
@@ -183,7 +187,7 @@ Composer’s installation log should indicate that the package was installed via
 
 #### Packagist
 
-If you’re ready to publicly release your plugin, register it as a new Composer package on [Packagist](https://packagist.org/). Then you can install it like any other package, by just passing its package name to Composer’s `require` command. 
+If you’re ready to publicly release your plugin, register it as a new Composer package on [Packagist](https://packagist.org/). Then you can install it like any other package, by just passing its package name to Composer’s `require` command.
 
 ```
 > cd ~/dev/my-craft-project
