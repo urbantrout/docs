@@ -31,6 +31,7 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
 - [Rendering Templates](#rendering-templates)
   - [Controller Action Templates](#controller-action-templates)
   - [Rendering Plugin Templates on Front End Requests](#rendering-plugin-templates-on-front-end-requests)
+- [Control Panel Templates](#control-panel-templates)
 - [Resource Requests](#resource-requests)
 - [Registering Arbitrary HTML](#registering-arbitrary-html)
 - [Background Tasks](#background-tasks)
@@ -744,6 +745,63 @@ $oldMode = \Craft::$app->view->getTemplateMode();
 \Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_CP);
 $html = \Craft::$app->view->renderTemplate('plugin-handle/path/to/template');
 \Craft::$app->view->setTemplateMode($oldMode);
+```
+
+## Control Panel Templates
+
+If your plugin has any templates that extend Craft’s `_layouts/cp.html` Control Panel layout template, there are a few things that might need to be updated.
+
+### `extraPageHeaderHtml`
+
+Support for the `extraPageHeaderHtml` variable has been removed. To create a primary action button in the page header, use the new `actionButton` block.
+
+```twig
+{# Old: #}
+{% set extraPageHeaderHtml %}
+    <a href="{{ url('recipes/new') }}" class="btn submit">{{ 'New recipe'|t('app') }}</a>
+{% endset %}
+
+{# New: #}
+{% block actionButton %}
+    <a href="{{ url('recipes/new') }}" class="btn submit">{{ 'New recipe'|t('app') }}</a>
+{% endblock %}
+```
+
+### Full-Page Grids
+
+If you had a template that overrode the `main` block, and defined a full-page grid inside it, you should divide the grid items’ contents into the new `content` and `details` blocks.
+
+Additionally, any `<div class="pane">`s you had should generally lose their `pane` classes.
+
+```twig
+{# Old: #}
+{% block main %}
+    <div class="grid first" data-max-cols="3">
+        <div class="item" data-position="left" data-colspan="2">
+            <div id="recipe-fields" class="pane">
+                <!-- Primary Content -->
+            </div>
+        </div>
+        <div class="item" data-position="right">
+            <div class="pane meta">
+                <!-- Secondary Content -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{# New: #}
+{% block content %}
+    <div id="recipe-fields">
+        <!-- Primary Content -->
+    </div>
+{% endblock %}
+
+{% block details %}
+    <div class="meta">
+        <!-- Secondary Content -->
+    </div>
+{% endblock %}
 ```
 
 ## Resource Requests
