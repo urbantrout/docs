@@ -104,7 +104,7 @@ if (!$this->db->tableExists('{{%products}}')) {
 
 Install the plugin now, so your database table will be created.
 
-You will also need to add an `afterSave()` method to your element class, which is responsible for keeping your element table updated when elements are saved.
+You will also need to add an `afterSave()` method to your element class, which is responsible for keeping your element table updated when elements are saved. The `afterSave()` method is a part of the standard element saving [control flow](services.md#interface-oriented-methods).
 
 ```php
 public function afterSave(bool $isNew)
