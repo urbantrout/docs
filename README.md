@@ -5,31 +5,43 @@ Craft 3 Documentation
 
 - [About Craft CMS](en/introduction.md)
 - [Code of Conduct](en/coc.md)
-- [Upgrading from Craft 2](en/upgrade.md)
+- How to Use the Documentation
 
-## Getting Started
+## Installing Craft
 
 - [Server Requirements](en/requirements.md)
 - [Installation](en/installation.md)
-- [Configuration](en/configuration.md)
+
+## Upgrading & Updating Craft
+
+- [Upgrading from Craft 2](en/upgrade.md)
+- [Updating Craft 3](en/updating.md)
+
+## Getting Started
+
+- [The Pieces of Craft](en/the-pieces-of-craft.md)
+- Planning Your Craft Site
 - [Directory Structure](en/directory-structure.md)
 
 ## Core Concepts
 
-- Users
-- Sections and Entries
-- Globals
-- Assets
+- [Sections and Entries](en/sections-and-entries.md)
+- [Fields](en/fields.md)
+- [Templates](en/templates.md)
+  - [Twig Primer](en/twig-primer.md)
 - Categories
+- Assets
+- Users
+- Globals
 - Tags
-- Fields
 - Relations
 - Routing
 - Searching
 - Sites and Localization
-- Templates
 - [Element Queries](en/element-queries.md)
 - [Content Migrations](en/content-migrations.md)
+- [Configuration](en/configuration.md)
+
 
 ## Plugin Development
 
