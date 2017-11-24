@@ -13,6 +13,7 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
 > {note} If you think something is missing, please [create an issue](https://github.com/craftcms/docs/issues/new).
 
 - [High Level Notes](#high-level-notes)
+- [Changelogs](#changelogs)
 - [Yii 2](#yii-2)
 - [Service Names](#service-names)
 - [Translations](#translations)
@@ -45,6 +46,17 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
 - Plugins must now have a `composer.json` file that defines some basic info about the plugin.
 - Plugins now get their own root namespace, rather than sharing a `Craft\` namespace with all of Craft and other plugins, and all Craft and plugin code must follow the [PSR-4](http://www.php-fig.org/psr/psr-4/) specification.
 - Plugins are now an extension of [Yii modules](http://www.yiiframework.com/doc-2.0/guide-structure-modules.html).
+
+## Changelogs
+
+Craft 3 plugins should include a changelog named `CHANGELOG.md`, rather than a `releases.json` file (see [Changelogs and Updates](changelogs-and-updates.md)).
+
+If you have an existing `releases.json` file, you can quickly convert it to a changelog using the following command in your terminal:
+
+```
+> cd path/to/plugin
+> curl https://api.craftcms.com/v1/utils/releases-2-changelog --data-binary @releases.json > CHANGELOG.md
+``` 
 
 ## Yii 2
 
