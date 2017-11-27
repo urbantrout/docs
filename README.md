@@ -33,7 +33,7 @@ Craft 3 Documentation
 - [Assets](en/assets.md)
 - [Users](en/users.md)
 - [Globals](en/globals.md)
-- Tags
+- [Tags](en/tags.md)
 - Relations
 - Routing
 - Searching
