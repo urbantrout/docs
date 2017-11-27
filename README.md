@@ -31,7 +31,7 @@ Craft 3 Documentation
   - [Twig Primer](en/twig-primer.md)
 - [Categories](en/categories.md)
 - [Assets](en/assets.md)
-- Users
+- [Users](en/users.md)
 - Globals
 - Tags
 - Relations
