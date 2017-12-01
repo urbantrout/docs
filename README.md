@@ -16,6 +16,7 @@ Craft 3 Documentation
 
 - [Upgrading from Craft 2](en/upgrade.md)
 - [Updating Craft 3](en/updating.md)
+- [Changes in Craft 3](en/changes-in-craft-3.md)
 
 ## Getting Started
 
