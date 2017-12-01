@@ -34,8 +34,8 @@ Craft 3 Documentation
 - [Users](en/users.md)
 - [Globals](en/globals.md)
 - [Tags](en/tags.md)
-- Relations
-- Routing
+- [Relations](en/relations.md)
+- [Routing](en/routing.md)
 - Searching
 - Sites and Localization
 - [Element Queries](en/element-queries.md)
