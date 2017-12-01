@@ -1,15 +1,15 @@
 Relations
 =========
 
-Craft has a powerful engine for relating elements to one another.
+Craft has a powerful engine for relating elements to one another. You create those relationships using relational field types. 
 
-That engine manifests itself through relational field types. Craft comes with 5 of them built-in:
+Craft comes with five relational field types:
 
-* Assets Fields
-* Categories Fields
-* Entries Fields
-* Tags Fields
-* Users Fields
+* [Assets Fields](assets-fields.md)
+* [Categories Fields](categories-fields.md)
+* [Entries Fields](entries-fields.md)
+* [Tags Fields](tags-fields.md)
+* [Users Fields](users-fields.md)
 
 Just like the other field types, you can add these to your [section](sections-and-entries.md#sections), [user](users.md), [asset](assets.md), [category group](categories.md), [tag group](tags.md), and [global sets]({globals.md)’ field layouts.
 
@@ -24,22 +24,23 @@ Each relation involves two elements:
 
 How does this look in practice?
 
-If we have an entry for a drink recipe where we choose the ingredients as relationships (via an Entries Field), we'd label the elements as follows:
+If we have an entry for a drink recipe where we select the ingredients as relationships (via an Entries Field), we'd label the elements as follows:
 
 * Drink Recipe Entry: Source
 * Ingredients: Target
 
-We'd create a new field of the Entries Field Type, give it the name Ingredients, check Ingredients as the source (the available elements will be from the Ingredients section), and leave the Limit field blank so we can choose as many ingredients as each recipe dictates.
+To set this up, we create a new field of the Entries Field Type, give it the name Ingredients, check Ingredients as the source (the available elements will be from the Ingredients section), and leave the Limit field blank so we can choose as many ingredients as each recipe dictates.
+
+Now we can assign the ingredients to each Drink entry via the new Ingredients relation field.
 
 
 ## Templating
 
-There are a lot of options when it comes to outputting related elements in your templates.
-
+Once we have our relations field set up, we can look at the options for outputting related elements in our templates.
 
 ### Getting Target Elements via the Source Element
 
-If you’ve already got a hold of the source element in your template, like in the example below where we're already outputting the Drink entry, you can access its target elements for a particular field in the same way you access any other field’s value: by the handle.
+If you’ve already got a hold of the source element in your template, like in the example below where we're outputting the Drink entry, you can access its target elements for a particular field in the same way you access any other field’s value: by the handle.
 
 Calling the source's relational field handle (`ingredients`) returns an Element Criteria Model that can output the field’s target elements, in the field-defined order.
 
