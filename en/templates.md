@@ -7,7 +7,7 @@ Templates are files that live within your craft/templates folder. The structure 
 
 Craft uses [Twig](http://twig.sensiolabs.org/) to parse your templates. Twig is elegant, powerful, and blazing fast. If you’re new to Twig, be sure to read through our {entry:docs/twig-primer:link} to familiarize yourself with its syntax.
 
-> {tip} PHP code isn’t allowed in your templates. If you have a need to do something that is not possible out-of-the-box with Craft or Twig, you can create a [plugin]({entry:plugins/introduction}) that provides a new [template variable]({entry:plugins/variables}).
+PHP code isn’t allowed in your templates. If you have a need to do something that is not possible out-of-the-box with Craft or Twig, you can create a [plugin]({entry:plugins/introduction}) that provides a new [template variable]({entry:plugins/variables}).
 
 ## Template Paths
 
