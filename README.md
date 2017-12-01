@@ -16,6 +16,7 @@ Craft 3 Documentation
 
 - [Upgrading from Craft 2](en/upgrade.md)
 - [Updating Craft 3](en/updating.md)
+- [Changes in Craft 3](en/changes-in-craft-3.md)
 
 ## Getting Started
 
@@ -29,14 +30,14 @@ Craft 3 Documentation
 - [Fields](en/fields.md)
 - [Templates](en/templates.md)
   - [Twig Primer](en/twig-primer.md)
-- Categories
-- Assets
-- Users
-- Globals
-- Tags
-- Relations
-- Routing
-- Searching
+- [Categories](en/categories.md)
+- [Assets](en/assets.md)
+- [Users](en/users.md)
+- [Globals](en/globals.md)
+- [Tags](en/tags.md)
+- [Relations](en/relations.md)
+- [Routing](en/routing.md)
+- [Searching](en/searching.md)
 - Sites and Localization
 - [Element Queries](en/element-queries.md)
 - [Content Migrations](en/content-migrations.md)
