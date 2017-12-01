@@ -1,16 +1,32 @@
 Twig Primer
 ===========
 
-Here’s a rundown of the core concepts in Twig, the templating engine used by Craft.
+Here’s a rundown of the core concepts in Twig, the templating engine used by Craft. 
 
-## Logic Tags
+This is only meant as a primer, not a comprehensive documentation of everything Twig can do. 
+
+To learn more, visit the Continued Reading section at the bottom of this page or refer directly to the [official Twig documentation](http://twig.sensiolabs.org/doc/templates.html) .
+
+## Three Types of Twig Tags
+
+There are three types of tags in Twig:
+
+* Logic Tags
+* Output Tags
+* Comment Tags
+
+Let's review each one in more detail.
+
+### Logic Tags
 
 Logic tags control what happens in your template. They can set variables, test conditionals, loop through arrays, and much more.
+
+Logic tags don't output anything to the template on their own.
 
 Their syntax always begins with “`{%`” and ends with “`%}`”. What happens in between is up to the tag you’re using.
 
 ```twig
-<p>Is it happy hour?</p>
+<p>Is it quitting time?</p>
 
 {% set hour = now|date("G") %}
 {% if hour >= 16 and hour < 18 %}
@@ -20,18 +36,19 @@ Their syntax always begins with “`{%`” and ends with “`%}`”. What happen
 {% endif %}
 ```
 
-## Output Tags
+### Output Tags
 
 Output tags are responsible for printing things out to the rendered HTML.
 
-Their syntax always begins with “`{{`” and ends with “`}}`”. You can put just about anything inside them – as long as it can be evaluated into a string.
+Their syntax always begins with “`{{`” and ends with “`}}`”. You can put just about anything inside them – as long as Twig can evaluate it into a string.
 
 ```twig
 <p>The current time is {{ now|date("g:i a") }}.</p>
 ```
-**Note:** You never place tags within other tags in Twig.
 
-These are wrong:
+Output tags are only for outputting to the template, so you never place output tags within statement tags in Twig.
+
+These examples are incorrect:
 
 ```twig
 {% set entry = craft.entries.section( {{ sectionId }} ).first() %}
@@ -51,22 +68,34 @@ Resources:
 * [Craft’s custom tags]({entry:templating/tags:url})
 
 
-## Comments
+### Comment Tags
 
-You can leave comments for future self in the code using comment tags. Comments won’t ever be evaluated or printed out; Twig will simply pretend they don’t exist.
+You can leave comments for future self in the code using comment tags. Twig won't evaluate anything inside the comment tags; it will simply pretend they don’t exist.
 
-Their syntax always begins with “`{#`” and ends with “`#}`”.
+The comment syntax always begins with “`{#`” and ends with “`#}`”.
 
 ```twig
-{# Holy cow Twig is awesome! #}
+{# Loop through the recipes #}
 ```
 
+Anything put inside of the comments tags will not render to the final template, not even as an HTML comment.
 
 ## Variables
 
 Variables in Twig are just like variables in Javascript or any other programming language. There are different types of variables – strings, arrays, booleans, and objects. You can pass them into functions, manipulate them, and output them.
 
-All of your Craft templates are pre-loaded with a few [global variables]({entry:templating/global-variables}); templates that are loaded as a result of a matching [route]({entry:docs/routing}#dynamic-routes) get pre-loaded with the variables defined by the route’s tokens; and templates that are loaded as the result of a matching [entry]({entry:docs/sections-and-entries}) URL get an “entry” variable (see {entry:docs/routing:link} for more details).
+You can assign your own variables using the `set` tag:
+
+```twig
+{% set style = 'stirred' %}
+
+{{ style }}
+```
+
+Additionally, all of your Craft templates are pre-loaded with a few [global variables]({entry:templating/global-variables}):
+
+* Templates that are loaded as a result of a matching [route]({entry:docs/routing}#dynamic-routes) get pre-loaded with the variables defined by the route’s tokens
+* Templates that are loaded as the result of a matching [entry]({entry:docs/sections-and-entries}) URL get an `entry` variable (see {entry:docs/routing:link} for more details).
 
 
 ## Filters
@@ -91,7 +120,7 @@ Resources:
 
 ## Functions
 
-Twig and Craft provide several functions that can be used within your template tags:
+Twig and Craft provide several functions that you can use within your template tags:
 
 ```twig
 <h3>Watch me count to ten!</h3>
@@ -115,5 +144,6 @@ Resources:
 There are several learning resources available online for learning Twig:
 
 * [Twig for Template Designers](http://twig.sensiolabs.org/doc/templates.html) documents all of Twig’s features in detail. It can be overly technical at times, but we still recommend you read through it.
+* [Twig Templates in Craft](https://mijingo.com/products/screencasts/twig-templates-in-craft/) is a video course by Mijingo that aims to get you comfortable with using Twig in Craft.
 * [Straight up Craft](http://straightupcraft.com/twig-templating) has some great articles on how to use Twig within Craft.
 * [Twig for Designers](https://github.com/brandonkelly/TwigForDesigners) is an in-progress eBook that aims to explain how Twig works to non-developers.
