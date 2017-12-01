@@ -1,28 +1,3 @@
-# Changes in Craft 3
-
-- [Configuration](#configuration)
-  - [Config Settings](#config-settings)
-  - [`omitScriptNameInUrls` and `usePathInfo`](#omitscriptnameinurls-and-usepathinfo)
-  - [Environment Variables](#environment-variables)
-  - [Redactor Configs](#redactor-configs)
-- [URL Rules](#url-rules)
-- [PHP Constants](#php-constants)
-- [Static Translation Files](#static-translation-files)
-- [Remote Volumes](#remote-volumes)
-- [User Photos](#user-photos)
-- [Twig 2](#twig-2)
-- [Template Tags](#template-tags)
-- [Template Functions](#template-functions)
-- [Date Formatting](#date-formatting)
-- [Element Queries](#element-queries)
-- [Elements](#elements)
-- [Models](#models)
-- [Locales](#locales)
-- [Request Params](#request-params)
-- [Memcache](#memcache)
-- [Plugins](#plugins)
-
-
 ## Configuration
 
 ### Config Settings
@@ -52,6 +27,7 @@ File          | Setting
 `db.php`      | `collation`
 `db.php`      | `initSQLs`
 `general.php` | `appId`
+`general.php` | `cacheMethod` (see [Configuration → Data Caching Config](configuration.md#data-caching-config)
 
 ### `omitScriptNameInUrls` and `usePathInfo`
 
@@ -573,51 +549,7 @@ The `csrfInput()` function is provided as a shortcut.
 {{ csrfInput() }}
 ```
 
-## Memcache
-
-If you are using `memcache` for your [cacheMethod](https://craftcms.com/docs/config-settings#cacheMethod) config setting and you did not have `useMemcached` set to `true` in your `craft/config/memcache.php` config file, you'll need to install memcached on your server.  Craft 3 will only use it because there is not a PHP 7 compatible version of memcache available.
-
-## DbCache
-
-If you are using `db` for your [cacheMethod](https://craftcms.com/docs/config-settings#cacheMethod) config setting, you'll need to manually execute some SQL before attempting the Craft 3 update.
-
-*MySQL:*
-
-```
-DROP TABLE IF EXISTS craft_cache;
-
-CREATE TABLE craft_cache (
-    id char(128) NOT NULL PRIMARY KEY,
-    expire int(11),
-    data BLOB,
-    dateCreated datetime NOT NULL,
-    dateUpdated datetime NOT NULL,
-    uid char(36) NOT NULL DEFAULT 0
-);
-```
-
-*PostgreSQL:*
-
-```
-DROP TABLE IF EXISTS craft_cache;
-
-CREATE TABLE craft_cache (
-    id char(128) NOT NULL PRIMARY KEY,
-    expire int4,
-    data BYTEA,
-    dateCreated timestamp NOT NULL,
-    dateUpdated timestamp NOT NULL,
-    uid char(36) NOT NULL DEFAULT '0'::bpchar
-);
-```
-
-Note that these examples use the default `craft/config/db.php` config setting of `craft`.
-
-If you have changed that config setting, you will want to adjust the examples accordingly.
-
-
 
 ## Plugins
 
 See [Updating Plugins for Craft 3](updating-plugins.md).
-
