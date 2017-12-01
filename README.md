@@ -36,7 +36,7 @@ Craft 3 Documentation
 - [Tags](en/tags.md)
 - [Relations](en/relations.md)
 - [Routing](en/routing.md)
-- Searching
+- [Searching](en/searching.md)
 - Sites and Localization
 - [Element Queries](en/element-queries.md)
 - [Content Migrations](en/content-migrations.md)

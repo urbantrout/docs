@@ -1,4 +1,4 @@
-Searching
+    Searching
 =========
 
 You can search for elements anywhere you see this bar:
@@ -90,7 +90,7 @@ Craft supports the following search syntax:
     </tbody>
 </table>
 
-> You can alter the default behavior of search terms with the [defaultSearchTermOptions]({entry:docs/config-settings:url}#defaultSearchTermOptions) config setting. See _{entry:supportArticles/enabling-fuzzy-search-by-default:link}_ for more info.
+> You can alter the default behavior of search terms with the [defaultSearchTermOptions](config-settings.md#defaultSearchTermOptions) config setting. See [Enabling Fuzzy Search by Default](https://craftcms.com/support/enabling-fuzzy-search-by-default) for more info.
 
 ## Searching for specific element attributes
 
@@ -127,7 +127,7 @@ Assets, categories, entries, users, and tags each support their own set of addit
 
 ## Templating
 
-{entry:templating/craft.assets:link}, {entry:templating/craft.entries:link}, {entry:templating/craft.tags:link}, and {entry:templating/craft.users:link} support a `search` parameter which lets you filter their elements by a given search query.
+[craft.assets](https://craftcms.com/docs/templating/craft.assets), [craft.entries](https://craftcms.com/docs/templating/craft.entries), [craft.tags](https://craftcms.com/docs/templating/craft.tags), and [craft.users](https://craftcms.com/docs/templating/craft.users) support a `search` parameter that you can use to filter their elements by a given search query.
 
 You can specify the search query in two different ways:
 
@@ -137,7 +137,7 @@ You can specify the search query in two different ways:
 {# Pass the search query directly into the search param: #}
 {% set results = craft.entries({
     search: query
-}) %}
+}).all() %}
 
 {# Or pass it along with some custom search term options: #}
 {% set results = craft.entries({
@@ -146,26 +146,26 @@ You can specify the search query in two different ways:
         subLeft: true,
         subRight: true                
     }
-}) %}
+}).all() %}
 ```
 
-If you go the latter route, note that the `query` property is required. Beyond that, all of the same keys available to the [defaultSearchTermOptions]({entry:docs/config-settings:url}#defaultSearchTermOptions) config setting can also be used here.
+If you go the latter route, note that the `query` property is required. Beyond that, you can use all of the same keys available to the [defaultSearchTermOptions](config-settings.md#defaultSearchTermOptions) config setting.
 
 ### Ordering results by score
 
-You can also set the ‘order’ parameter to `'score'` if you want results ordered by best-match to worst-match:
+You can also set the `order` parameter to `'score'` if you want results ordered by best-match to worst-match:
 
 ```twig
 {% set results = craft.entries({
     search: query,
     order: 'score'
-}) %}
+}).all() %}
 ```
 
 When you do this, each of the elements returned will have a `searchScore` attribute set, which reveals what their search score was.
 
-> See our [Search Form]({entry:templating/search-form}) tutorial for a complete example of listing dynamic search results.
+> See our [Search Form](https://craftcms.com/docs/templating/search-form) tutorial for a complete example of listing dynamic search results.
 
 ## Rebuilding your Search Indexes
 
-Craft does its best to keep its search indexes as up-to-date as possible, but there are a couple things that might render portions of them inaccurate. If you suspect that your search indexes don’t have the latest and greatest data, you can have Craft completely rebuild them with the Rebuild Search Indexes tool in Settings.
+Craft does its best to keep its search indexes as up-to-date as possible, but there are a couple things that might render portions of them inaccurate. If you suspect that your search indexes don’t have the latest and greatest data, you can have Craft rebuild them with the Rebuild Search Indexes tool in Settings.
