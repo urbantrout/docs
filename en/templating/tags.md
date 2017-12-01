@@ -5,13 +5,13 @@ On top of the template tags that [Twig comes with](http://twig.sensiolabs.org/do
 * [`{% cache %}`](tags/cache.md)
 * [`{% exit %}`](tags/exit.md)
 * [`{% header %}`](tags/header.md)
-* `{% css %}`
+* [`{% css %}`](tags/css.md)
 * `{% do view.registerCssFile(url) %}`
-* `{% js %}`
+* [`{% js %}`](tags/js.md)
 * `{% do view.registerJsFile(url) %}`
-* `{% nav %}`
-* `{% paginate %}`
-* `{% redirect %}`
-* `{% requireLogin %}`
-* `{% requirePermission %}`
-* `{% switch %}`
+* [`{% nav %}`](tags/nav.md)
+* [`{% paginate %}`](tags/paginate.md)
+* [`{% redirect %}`](tags/redirect.md)
+* [`{% requireLogin %}`](tags/requirelogin.md)
+* [`{% requirePermission %}`](tags/requirepermission.md)
+* [`{% switch %}`](tags/switch.md)
