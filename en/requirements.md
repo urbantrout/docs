@@ -1,5 +1,7 @@
 # Server Requirements
 
+These are the requirements to successfully install and properly run Craft.
+
 ## Checking Your Server
 
 Before you install Craft, it's important that you check that your server will meet the requirements. Review the requirements below or use the [Craft Server Check](https://github.com/craftcms/server-check) script to quickly check whether you meet the requirements.
@@ -13,13 +15,12 @@ Craft requires the following:
 * PHP 7.0+
 * MySQL 5.5+ (with InnoDB) or PostgreSQL 9.5+
 * A web server (Apache, Nginx, IIS)
-* A minimum of 32MB of memory allocated to PHP
+* A minimum of 256MB of memory allocated to PHP
 * A minimum of 200MB of free disk space
-* A minimum of 1MB of free database space
 
 ## Required PHP Extensions
 
-Craft requires the following PHP extensions to be enabled:
+Craft requires the following PHP extensions:
 
 * [PCRE](http://php.net/manual/en/book.pcre.php)
 * [PDO](http://php.net/manual/en/book.pdo.php)
@@ -69,9 +70,9 @@ The database user you tell Craft to connect with must have the following privile
 
 ## CP Browser Requirements
 
-Craft’s control panel requires a modern browser:
+Craft’s Control Panel requires a modern browser:
 
-### Windows and OS X
+### Windows and macOS
 
 * Chrome 29 or later
 * Firefox 28 or later
@@ -84,4 +85,4 @@ Craft’s control panel requires a modern browser:
 * iOS: Safari 9.1 or later
 * Android: Chrome 4.4 or later
 
-> {tip} Craft’s CP browser requirements have nothing to do with your actual website. If you’re a glutton for punishment and want your website to look flawless on IE 6, that’s your choice.
+Note: Craft’s Control Panel browser requirements have nothing to do with your actual website. If you’re a glutton for punishment and want your website to look flawless on IE 6, that’s your choice.

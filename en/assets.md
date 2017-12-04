@@ -1,49 +1,53 @@
 Assets
 ======
 
-Assets are files managed by Craft. They live in “asset sources”, which represent physical folders on your server. The default installation of Craft only support local sources (directories on your server) but you can also set up remote Asset Sources that live on Amazon S3, Rackspace Cloud, and Google Cloud using one of the first-party plugins.
+Assets are files managed by Craft. They live in Asset Volumes, which represent physical directories. 
 
-You can set up your asset sources from Settings → Assets. Local sources have two important settings:
+The default installation of Craft only supports local volumes (directories on the same server on which Craft is running) but you can also set up remote Asset Volumes that live on [Amazon S3](), [Rackspace Cloud](), and [Google Cloud]() using one of the first-party plugins.
 
-* The URL to the folder containing the files
-* The file system path to the folder containing the files
+You can set up your asset volumes from Settings → Assets. 
 
-If you want to use a relative file system path, note that it should be relative from the directory that holds your index.php file. So if your files are set up like this:
+Local volumes have two important settings:
+
+* The URL to the directory containing the files, assuming the files are meant to be publicly accessed
+* The file system path to the directory containing the files
+
+If you want to use a relative file system path, note that it should be relative from the directory that holds your `index.php` file. So if your files are set up like this:
 
     craft/
-	public_html/
+	web/
 		index.php
 		images/
 
-…then the correct relative path to images/ would be “images/”.
+…then the correct relative path to `images/` would be `images/`.
 
-Note that Craft/PHP must be able to write to the the folder you created. See [the installation guide]({entry:docs/installing:url}#step-2-set-the-permissions) for recommended permissions.
+Note that Craft/PHP must be able to write to the directory you created. See [the installation guide]({entry:docs/installing:url}#step-2-set-the-permissions) for recommended permissions.
 
-Both of these settings are eligible for [environment-specific variables]({entry:docs/multi-environment-configs:url}#environment-specific-variables), in the event that you are sharing your Craft site between multiple environments and relative paths aren’t for you.
+> {tip} You can override the Volume settings using the `config/volumes.php` configuration file. This file is not in the default Craft installation so you may have to create it. Learn more about what need to go in the `volumes.php` file in the [Overriding Volume Settings](configuration.md#overriding-volume-settings) section in the Configuration documentation.
 
 ## Asset Meta Fields
 
-Each of your asset sources have its own field layout, where you can attach [fields]({entry:docs/fields}) that will be available to any assets within that source. You can edit an asset source’s field layout by clicking on the “Field Layout” tab when editing the source.
+Each of your asset volumes has a field layout, where you can attach [fields]({entry:docs/fields}) that will be available to any assets within that volume. You can edit an asset volume’s field layout by clicking on the Field Layout tab when editing the volume.
 
-Once your asset source has some fields associated with it, you can edit the fields’ content by double-clicking on your assets, either from within the Assets index, or within an [Assets field]({entry:docs/assets-fields}).
+Once your asset volume has some fields associated with it, you can edit the fields’ content by double-clicking on your assets, either from within the Assets index, or within an [Assets field]({entry:docs/assets-fields}).
 
 ## Assets Index
 
-When you have at least one asset source, a new “Assets” item will be added to the CP’s main nav. Clicking on that will take you to the Assets Index, which lists all of your sources in the left sidebar, and the selected source’s files in the main content area.
+When you have at least one asset volume, Craft will add a new Assets item to the Control Panel's main navigation. Clicking on it will take you to the Assets Index with a list of all of your volumes in the left sidebar, and the selected volume’s files in the main content area.
 
 From this page, you can do the following:
 
 * Upload new files
 * Rename files
-* Edit files’ titles
-* Edit files’ content
-* Move files to a different folder
+* Edit files’ titles and filename
+* Edit an image using the built-in image editor
+* Move files to a different folder (via drag and drop)
 * Delete files
-* Create new subfolders
+* Create new subfolders (right-click on folder name)
 * Rename subfolders
 * Move subfolders
 * Delete subfolders
 
 ## Updating Your Asset Indexes
 
-Whenever there are files within your asset source that were not added directly by Craft (e.g. via FTP), you will need to tell Craft to go and look for them. You can do that from the “Update Asset Indexes” tool within Settings.
+Whenever there are files within your asset volume that were not added directly by Craft (e.g. via FTP), you will need to tell Craft to go and look for them. You can do that from the “Update Asset Indexes” tool within Settings.
