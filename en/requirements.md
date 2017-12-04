@@ -15,7 +15,7 @@ Craft requires the following:
 * PHP 7.0+
 * MySQL 5.5+ (with InnoDB) or PostgreSQL 9.5+
 * A web server (Apache, Nginx, IIS)
-* A minimum of 32MB of memory allocated to PHP
+* A minimum of 256MB of memory allocated to PHP
 * A minimum of 200MB of free disk space
 
 ## Required PHP Extensions

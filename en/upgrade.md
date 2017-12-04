@@ -7,7 +7,7 @@ The first step to upgrading your site to Craft 3 is updating the CMS itself.
 Before you begin, make sure that:
 
 - you've reviewed the [changes in Craft 3](changes-in-craft-3.md)
-- your server meets Craft 3’s [**minimum requirements**](requirements.md)
+- your server meets Craft 3’s [**minimum requirements**](requirements.md) (Craft 3 requires PHP 7+ and at least 256 MB of memory allocated to PHP)
 - your site is running at least **Craft 2.6.2788**
 - your **database is backed up** in case everything goes horribly wrong
 - you've installed **Composer** (see step 1 of the [installation instructions](installation.md))
