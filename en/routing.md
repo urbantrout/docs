@@ -1,31 +1,36 @@
 Routing
 =======
 
-When a request comes in, Craft goes through several checks when determining where to route the request.
+Routing helps Craft smartly handle requests to your site. When a request comes in to Craft, it checks to determine where to route the request.
 
-Here is an outline of what that entails:
+The checks detailed below explain how this process works. This information can helpful to you when troubleshooting template loading, plugin action URLs, dynamic routes, and unexpected 404 errors.
+
+Here is how Craft handles each request:
+
 
 0. **Should Craft handle this request in the first place?**
 
-   It’s important to keep in mind that Craft doesn’t actually get involved for *every* request that touches your server – only requests that go to your index.php file.
+   It’s important to keep in mind that Craft doesn’t actually get involved for *every* request that touches your server--only requests that go to your `index.php` file.
 
-   The .htaccess file that [comes with Craft]({entry:supportArticles/remove-index.php}) will redirect all would-be 404 requests over to index.php behind the scenes, which is why Craft is able to respond to URLs that don’t point to any actual folder/file in your web root. But if you point your browser directly at a file that *does* exist (such as a front-end image URL), Apache is going to serve that file directly. Craft won’t be summoned for that.
+   The `.htaccess` file that [comes with Craft](https://craftcms.com/support/remove-index.php) will redirect all would-be 404 requests over to `index.php` behind the scenes. Because of this Craft responds to URLs that don’t point to a valid directory or file in your web root. But if you point your browser directly at a file that *does* exist (such as an image URL), your web server will serve that file directly without Craft intervening.
 
 1. **Is it a resource request?**
 
-   Resource request URIs begin with “cpresources/” (or whatever your [resourceTrigger]({entry:docs/config-settings}#resourceTrigger) config setting is set to). They are used to serve CP resources, user photos, etc..
+   Resource request URIs begin with `cpresources/` (or whatever your [resourceTrigger](config-settings.md#resourceTrigger) config setting is set to). Craft uses them to serve CP resources, user photos, etc..
 
 2. **Is it an action request?**
 
-   Action requests either have a URL which begins with “actions/” (or whatever your [actionTrigger]({entry:docs/config-settings}#actionTrigger) config setting is set to), or an “action” param in POST or the query string. Action requests get routed to a controller action, which are used to perform… *actions*. Controller actions are built into the system for core actions, but plugins may also have Controllers that define their own custom actions.
+   Action requests either have a URL that begins with `actions/` (or whatever your [actionTrigger](config-settings.md#resourceTrigger) config setting is set to), or an `action` parameter in the POST request or the query string. 
 
-  The request doesn’t necessarily end after a controller has been called. The controller may allow it to keep going.
+   Craft routes action requests to a controller action that perform actions. Craft has system Controller actions for core actions, but plugins may also have Controllers that define their own custom actions.
+
+  The request doesn’t necessarily end after a controller call. The controller may allow it to keep going.
 
 3. **Is it an entry/category request?**
 
-   If the URI matches an [entry’s]({entry:docs/sections-and-entries}) or [category’s]({entry:docs/categories}) URI, the section’s/category group’s template will get loaded, and the matched element will be made available to the template via a pre-populated `entry` or `category` variable.
+   If the URI matches an [entry’s](sections-and-entries.md) or [category’s](categories.md) URI, Craft loads the section’s template or category group’s template. Craft makes the matched element available to the template via a pre-populated `entry` or `category` variable.
 
-   (This step is not actually limited to entries and categories – plugins are also capable of adding their own types of elements, which can opt to have their own dedicated URLs.)
+   (This step is not limited to entries and categories – plugins are also capable of adding their own types of elements, which can opt to have their own dedicated URLs.)
 
 4. **Does the URI match any Dynamic Routes?**
 
@@ -33,33 +38,39 @@ Here is an outline of what that entails:
 
 5. **Does the URI match a template?**
 
-   Finally, Craft will see if the URI is a valid [template path]({entry:docs/templating-overview}#template-paths). If it is, it will return the matched template. Note that if any of the URI segments begin with an underscore (`_`), Craft will return a 404, since template path segments that begin with an underscore are considered “hidden” from direct access.
+   Finally, Craft will check if the URI is a valid [template path](templating-overview.md#template-paths). If it is, Craft will return the matched template. Note: if any of the URI segments begin with an underscore (`_`), Craft will return a 404. Craft hides from direct access any template path segments that begin with an underscore.
 
 6. **404**
 
-   If none of those checks are successful, Craft will return a 404. You can customize your site’s 404 page by placing a “404.html” template at the root of your craft/templates/ folder.
+   If none of the above checks are successful, Craft will return a 404. You can customize your site’s 404 page by placing a `404.html` template at the root of your `craft/templates/` directory.
 
 
 ## Dynamic Routes
 
-There are times when you want a URL to load a template, but you don’t want the URI to match the template path.
+In some cases you want a URL to load a template, but you don’t want the URI to match the template path.
 
-A good example of this is dynamic URLs, such as a yearly archive template, where you want the year to be one of the segments in the URL (e.g. “blog/archive/2012”). It would be silly to create a new template for every year. Instead, your best bet is going to be to set up a new Route.
+A good example of this is a yearly archive page, where you want the year to be one of the segments in the URL (e.g. `news/archive/2017`). It would be silly to create a new template for every year. Instead, you should set up a new Dynamic Route.
 
-To create a new Route, go to Settings → Routes and click the “New Route” button. A modal window will appear where you can define the route settings:
+### Creating Routes
+
+To create a new Route, go to Settings → Routes and click the New Route button. A modal window will appear where you can define the route settings.
 
 The modal has the following settings:
 
 * What should the URI look like?
 * Which template should get loaded?
 
-The first setting can contain “tokens”, which represent a range of possible matches, rather than a specific string. (The “year” token, for example, represents four consecutive digits.) When you click on a token, it will get inserted into the URI setting wherever the cursor is.
+The first setting can contain “tokens”, which represent a range of possible matches, rather than a specific string. (The “year” token, for example, represents four consecutive digits.) When you click on a token, Craft inserts it into the URI setting wherever the cursor is.
 
-So if you want to match URIs that look like “blog/archive/2013”, you would type “blog/archive/” into the URI field, and then click on the “year” token.
+If you want to match URIs that look like `news/archive/2017`, you type `news/archive/` into the URI field, and then click on the “year” token.
 
-Your URI should **not** begin with a slash (/).
+Note: Your URI should **not** begin with a slash (/).
 
-After defining your URI pattern and entering a template path, click the ‘Save’ button. The modal will close, revealing your new route on the page. Now when you point your browser to <http://example.com/blog/archive/2013>, it will match your new route, and the specified template will get loaded. The value of the ‘year’ token will also be available to the template as a variable called “year”.
+After defining your URI pattern and entering a template path, click the Save button. The modal will close, revealing your new route on the page. 
+
+When you point your browser to `http://example.com/news/archive/2017`, it will match your new route, and Craft will load the specified template. 
+
+The value of the "year" token will also be available to the template as a variable called `year`.
 
 
 ### Available Tokens
@@ -78,42 +89,44 @@ The following tokens are available to the URI setting:
 
 ## Advanced Routing
 
-If you need to match a URL pattern that’s not covered by the available route tokens and you’re comfortable with regular expressions, you can set up your routes in craft/config/routes.php as well. When a request comes in, Craft checks this file first, and then the routes defined in Settings → Routes.
+If you need to match a URL pattern that’s not covered by the available route tokens and you’re comfortable with regular expressions, you can set up your routes in `craft/config/routes.php` as well. 
+
+When a request comes in, Craft checks this file first, and then the routes defined in Settings → Routes.
 
 ### Basic Syntax
 
-Routes in craft/config/routes.php generally follow this syntax:
+Routes in `craft/config/routes.php` generally follow this syntax:
 
 ```php
-'some/uri/pattern' => 'template/path',
+'news/archive/<year:\d{4}>' => 'news/_archive',
 ```
 
 Note that you don’t need to escape forward slashes; Craft will automatically escape them for you.
 
-If your site is setup with multiple locales, then you can target locale specific routes via:
+If your Craft installation has multiple sites, then you can target locale specific routes via:
 
 ```php
-'global/uri/pattern' => 'global/template/path',
+'news/archive/<year:\d{4}>' => 'news/_archive',
 
 'de' => array(
-    'german/only/uri/pattern' => 'german/only/template/path',
+    'nachrichten/archiv/<year:\d{4}>' => 'de/nachrichten/_archiv',
 ),
 ```
 
 ### Accessing Subpatterns in your Templates
 
-If your route contains any subpatterns, a ‘matches’ array will be passed to the matched template containing them. For example, with this route:
+If your route contains any subpatterns, Craft passes a matches array to the matched template containing them. For example, with this route:
 
 ```php
 'news/(\d{4})/(\d{2})' => 'news/_archive',
 ```
 
-…if you access http://example.com/news/2014/04, your news/_archive.html template will get loaded with a ‘matches’ variable set to this:
+If you access `http://example.com/news/2017/04`, your `news/_archive.html` template will get loaded with a ‘matches’ variable set to this:
 
 ```php
 array(
-    0 => 'news/2014/04',
-    1 => '2014',
+    0 => 'news/2017/04',
+    1 => '2017',
     2 => '04'
 )
 ```
@@ -124,7 +137,7 @@ If you specify any named subpatterns, then those matches will also get their own
 'news/(?P<year>\d{4})/(?P<month>\d{2})' => 'news/_archive',
 ```
 
-…if you access http://example.com/news/2014/04, your news/_archive.html template will get loaded with ‘year’ and ‘month’ variables set to “2014” and “04”.
+…if you access `http://example.com/news/2017/04`, your `news/_archive.html` template will get loaded with ‘year’ and ‘month’ variables set to “2017” and “04”.
 
 ### Routing to Controller Actions
 

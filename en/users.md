@@ -3,7 +3,7 @@ Users
 
 Craft calls all member accounts of the system “users”.
 
-The first user account is created during [installation]({entry:docs/installing:url}). If you stick with Craft Personal, this is the only account you will be able to create. If you need more, you will need to [upgrade](/pricing) to either Craft Client or Craft Pro, which offer additional user accounts.
+Craft creates the first user account during [installation]({entry:docs/installing:url}). If you stick with Craft Personal, this is the only account you will be able to create. If you need more, you will need to [upgrade](/pricing) to either Craft Client or Craft Pro, which offer additional user accounts.
 
 ## Admin Accounts
 
@@ -19,9 +19,9 @@ The user account you create during installation is an admin by default.
 
 ## Client’s Account
 
-Craft Client allows you to add one additional user account to the system: the “Client’s Account”. You can create the Client’s Account via the Account menu in the top-right of the Control Panel:
+Craft Client allows you to add one additional user account to the system: the “Client’s Account”. You can create the Client’s Account via the Account menu in the bottom left of the Control Panel.
 
-The first time you click that option, you will be taken to a registration page where you can create the Client’s Account. Once it’s been created, it will take you to their account settings page instead.
+The first time you click that option, you need to complete the registration page where you can create the Client’s Account. Once you create a Client Account, you will see an account settings page if you visit the "Client's Account" page again.
 
 The Client’s Account is _not_ an Admin account like yours, so they will not be able to access the Settings section or administrate your Admin account. They’ll be able to do everything else, though.
 
@@ -33,11 +33,11 @@ If you have Craft Pro, you can create User Groups to help organize your site’s
 
 To create a new User Group, go to Settings → Users and click the “New Group” button. You can give your group a Name and Handle, plus any permissions you want every user within the group to have.
 
-Once your groups have been created, you can assign users to groups by going into their account settings and clicking on the Permissions tab.
+After you create your groups, you can assign users to groups by going into their account settings and clicking on the Permissions tab.
 
 ## Permissions
 
-Craft Pro allows you to set permissions on users and groups, such as the ability to access the control panel, edit content within certain sections, etc. They can be applied directly to user accounts as well as to user groups. When permissions are applied to a user group, all users that belong to that group will inherit them.
+Craft Pro allows you to set permissions on users and groups, such as the ability to access the control panel, edit content within certain sections, etc. You can apply these permissions directly to user accounts as well as to user groups. When you apply permissions to a user group, all users that belong to that group will inherit them.
 
 The permissions Craft comes with are:
 
@@ -45,6 +45,8 @@ The permissions Craft comes with are:
 
 ## Public Registration
 
-Craft Pro has the option of allowing public user registration. It is not enabled by default, though. To enable it, you must go to Settings → Users → Settings, and check the “Allow public registration?” setting. With that checked, you will also be given the ability to choose a default user group that publicly-registered users are assigned to.
+Craft Pro has the option of allowing public user registration, which is disabled by default. 
 
-Once your site is set up to allow public user registration, the last step is to create a [user registration form]({entry:templating/user-registration-form}) on your site’s front end.
+To enable public registration, go to Settings → Users → Settings, and check the “Allow public registration?” setting. With that checked, you will also have the ability to choose a default user group to which Craft will assign the publicly-registered users.
+
+Once you set up your site to allow public user registration, the last step is to create a [user registration form]({entry:templating/user-registration-form}) on your site’s front end.
