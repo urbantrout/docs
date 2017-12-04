@@ -15,7 +15,6 @@ Craft requires the following:
 * A web server (Apache, Nginx, IIS)
 * A minimum of 32MB of memory allocated to PHP
 * A minimum of 200MB of free disk space
-* A minimum of 1MB of free database space
 
 ## Required PHP Extensions
 
