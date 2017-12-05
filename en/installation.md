@@ -12,11 +12,10 @@ Craft 3 is available as a [Composer] package, and for the duration of the Beta, 
 
 If you’re unfamiliar with Composer it’s a package manager for PHP that attempts to make installing and updating PHP libraries (like Craft) easy via the command line.
 
-Craft’s Composer support has three parts:
+Craft’s Composer support has two parts:
 
-1. **[`craftcms/cms`]** – Composer *package* that contains all of Craft’s source code and bootstrap scripts.
-2. **[`craftcms/plugin-installer`]** – Custom Composer *installer* that makes it possible to install Craft plugins with Composer.
-2. **[`craftcms/craft`]** – Composer *project* used as a starting point for new Craft projects, with the `cms` and `plugin-installer` dependencies already in place.
+1. **[`craftcms/cms`]** – This is the Composer package that contains all of Craft’s source code.
+2. **[`craftcms/craft`]** – This is a Composer “project” that can be used as a starting point for new Craft projects.
 
 ## 1. Install Composer
 
@@ -95,7 +94,6 @@ If successful, you will get the Craft installation wizard. The wizard will take 
 
 [Composer]: https://getcomposer.org/
 [`craftcms/cms`]: https://github.com/craftcms/cms
-[`craftcms/plugin-installer`]: https://github.com/craftcms/plugin-installer
 [`craftcms/craft`]: https://github.com/craftcms/craft
 [Composer installer]: https://getcomposer.org/doc/articles/custom-installers.md
 [project]: https://github.com/craftcms/craft

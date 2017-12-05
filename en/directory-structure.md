@@ -61,7 +61,7 @@ Readme for the `craftcms/craft` repo. Feel free to delete this file.
 
 #### `composer.json`
 
-The starting point `composer.json` file that should be used for all Craft projects. In addition to requiring Craft CMS itself, it also requires [`craftcms/plugin-installer`](https://github.com/craftcms/plugin-installer), [`vlucas/phpdotenv`](https://github.com/vlucas/phpdotenv), and [`roave/security-advisories`](https://github.com/Roave/SecurityAdvisories), and adds [asset-packagist.org](https://asset-packagist.org/) as a custom Composer repository (used to load Bower and NPM packages via Composer).
+The starting point `composer.json` file that should be used for all Craft projects.
 
 #### `craft`
 
