@@ -404,6 +404,19 @@ Old                               | New
 `{{ d.w3cDate() }}`               | `{{ d\|date('Y-m-d') }}`
 `{{ d.year() }}`                  | `{{ d\|date('Y') }}`
 
+## Currency Formatting
+
+The `|currency` filter now maps to [`craft\i18n\Formatter::asCurrency()`](https://docs.craftcms.com/api/v3/craft-i18n-formatter.html#asCurrency()-detail). It still works the same, but the `stripZeroCents` argument has been renamed to `stripZeros`, and pushed back a couple notches, so you will need to update your templates if you were setting that argument.
+
+```twig
+Old:
+{{ num|currency('USD', true) }}
+{{ num|currency('USD', stripZeroCents = true) }}
+
+New:
+{{ num|currency('USD', stripZeros = true) }}
+```
+
 ## Element Queries
 
 ### Params
