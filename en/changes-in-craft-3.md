@@ -386,15 +386,15 @@ Old                               | New
 `{{ d.atom() }}`                  | `{{ d\|atom }}`
 `{{ d.cookie() }}`                | `{{ d\|date('l, d-M-y H:i:s T')}}`
 `{{ d.day() }}`                   | `{{ d\|date('j') }}`
-`{{ d.iso8601() }}`               | `{{ d\|date('Y-m-d\\TH:i:sO') }}`
+`{{ d.iso8601() }}`               | `{{ d\|date('c') }}`
 `{{ d.localeDate() }}`            | `{{ d\|date('short') }}`
 `{{ d.localeTime() }}`            | `{{ d\|time('short') }}`
 `{{ d.month() }}`                 | `{{ d\|date('n') }}`
 `{{ d.mySqlDateTime() }}`         | `{{ d\|date('Y-m-d H:i:s') }}`
 `{{ d.nice() }}`                  | `{{ d\|datetime('short') }}`
 `{{ d.rfc1036() }}`               | `{{ d\|date('D, d M y H:i:s O') }}`
-`{{ d.rfc1123() }}`               | `{{ d\|date('D, d M Y H:i:s O') }}`
-`{{ d.rfc2822() }}`               | `{{ d\|date('D, d M Y H:i:s O') }}`
+`{{ d.rfc1123() }}`               | `{{ d\|date('r') }}`
+`{{ d.rfc2822() }}`               | `{{ d\|date('r') }}`
 `{{ d.rfc3339() }}`               | `{{ d\|date('Y-m-d\\TH:i:sP') }}`
 `{{ d.rfc822() }}`                | `{{ d\|date('D, d M y H:i:s O') }}`
 `{{ d.rfc850() }}`                | `{{ d\|date('l, d-M-y H:i:s T') }}`
