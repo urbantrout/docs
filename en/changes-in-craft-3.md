@@ -1,15 +1,15 @@
 # Changes in Craft 3
 
+- [Rich Text Fields](#rich-text-fields)
+  - [Redactor Configs](#redactor-configs)
+- [Remote Volumes](#remote-volumes)
 - [Configuration](#configuration)
   - [Config Settings](#config-settings)
   - [`omitScriptNameInUrls` and `usePathInfo`](#omitscriptnameinurls-and-usepathinfo)
   - [Environment Variables](#environment-variables)
-  - [Redactor Configs](#redactor-configs)
 - [URL Rules](#url-rules)
 - [PHP Constants](#php-constants)
 - [Static Translation Files](#static-translation-files)
-- [Rich Text Fields](#rich-text-fields)
-- [Remote Volumes](#remote-volumes)
 - [User Photos](#user-photos)
 - [Twig 2](#twig-2)
 - [Template Tags](#template-tags)
@@ -24,6 +24,41 @@
 - [Memcache](#memcache)
 - [DbCache](#dbcache)
 - [Plugins](#plugins)
+
+## Rich Text Fields
+
+The “Rich Text” field type has been removed from Craft 3, in favor of new [Redactor](https://github.com/craftcms/redactor) and [CKEditor](https://github.com/craftcms/ckeditor) plugins.
+
+If you have any existing Rich Text fields, they will be automatically converted to Redactor fields when you install the Redactor plugin.
+
+### Redactor Configs
+
+Your Redactor configs in `config/redactor/` must now be valid JSON. That means:
+
+- No comments
+- All object properties (the config setting names) must be wrapped in double quotes
+- All strings must use double quotes rather than single quotes
+
+```javascript
+// Bad:
+{
+  /* interesting comment */
+  buttons: ['bold', 'italic']
+}
+
+// Good:
+{
+  "buttons": ["bold", "italic"]
+}
+```
+
+## Remote Volumes
+
+Support for Amazon S3, Rackspace Cloud Files, and Google Cloud Storage have been moved into plugins. If you have any asset volumes that were using those services in Craft 2, you will need to install the new plugins:
+
+- [Amazon S3](https://github.com/craftcms/aws-s3)
+- [Rackspace Cloud Files](https://github.com/craftcms/rackspace)
+- [Google Cloud Storage](https://github.com/craftcms/google-cloud)
 
 ## Configuration
 
@@ -100,27 +135,6 @@ return [
 
 Craft 3 makes it possible to completely override all asset volume settings, not just the File System Path and URL settings for “Local” volumes. See [Overriding Volume Settings](configuration.md#overriding-volume-settings) on the Configuration page for more info.
 
-### Redactor Configs
-
-Your Redactor configs in `config/redactor/` must now be valid JSON. That means:
-
-- No comments
-- All object properties (the config setting names) must be wrapped in double quotes
-- All strings must use double quotes rather than single quotes
-
-```javascript
-// Bad:
-{
-  /* interesting comment */
-  buttons: ['bold', 'italic']
-}
-
-// Good:
-{
-  "buttons": ["bold", "italic"]
-}
-```
-
 ## URL Rules
 
 If you have any URL rules saved in `config/routes.php`, you will need to update them to Yii 2’s [pattern-route syntax](http://www.yiiframework.com/doc-2.0/guide-runtime-routing.html#url-rules).
@@ -171,20 +185,6 @@ translations/
     app.php
     site.php
 ```
-
-## Rich Text Fields
-
-The “Rich Text” field type has been removed from Craft 3, in favor of new [Redactor](https://github.com/craftcms/redactor) and [CKEditor](https://github.com/craftcms/ckeditor) plugins.
-
-If you have any existing Rich Text fields, they will be automatically converted to Redactor fields when you install the Redactor plugin.
-
-## Remote Volumes
-
-Support for Amazon S3, Rackspace Cloud Files, and Google Cloud Storage have been moved into plugins. If you have any asset volumes that were using those services in Craft 2, you will need to install the new plugins:
-
-- [Amazon S3](https://github.com/craftcms/aws-s3)
-- [Rackspace Cloud Files](https://github.com/craftcms/rackspace)
-- [Google Cloud Storage](https://github.com/craftcms/google-cloud)
 
 ## User Photos
 
