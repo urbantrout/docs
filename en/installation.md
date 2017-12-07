@@ -36,7 +36,7 @@ If it outputs a version number, but it’s less than `1.3.0`, run the following 
 
 To create a new Craft project, run this command (substituting `PATH` with the path where Composer should create the project):
 
-    composer create-project craftcms/craft PATH -s beta
+    composer create-project -s RC craftcms/craft PATH
 
 Note: If Composer complains that your system doesn’t have PHP 7 installed, but you know it’s not an issue because Craft will run with a different PHP install (e.g. through MAMP or Vagrant), use the `--ignore-platform-reqs` flag.
 
