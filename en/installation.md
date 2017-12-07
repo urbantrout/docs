@@ -80,7 +80,9 @@ Note:  [PHP dotenv](https://github.com/vlucas/phpdotenv), which the `craftcms/cr
 
 ## 4. Set up the Web Server
 
-Create a new web server to host your Craft project. Its document root should point to the `web/` directory.
+Create a new web server to host your Craft project. Its document root should point to your public HTML folder. If you’re using Craft’s Composer [starter project](https://github.com/craftcms/craft), then it is the `web/` directory by default, but it can be renamed to anything you want as long as your web server is configured to point to it.
+
+If your web host already has a public HTML folder setup to for you that you cannot rename, then you can just copy the contents of Craft’s `web` folder to it and use your host’s default public HTML folder. 
 
 If you’re not using [MAMP](https://mamp.info) or another localhosting tool, you will probably need to update your `hosts` file, so your computer knows to route requests to your chosen host name to the local computer.
 
