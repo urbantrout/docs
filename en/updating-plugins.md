@@ -33,6 +33,8 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
   - [Controller Action Templates](#controller-action-templates)
   - [Rendering Plugin Templates on Front End Requests](#rendering-plugin-templates-on-front-end-requests)
 - [Control Panel Templates](#control-panel-templates)
+  - [`extraPageHeaderHtml`](#extrapageheaderhtml)
+  - [Full-Page Grids](#full-page-grids)
 - [Resource Requests](#resource-requests)
 - [Registering Arbitrary HTML](#registering-arbitrary-html)
 - [Background Tasks](#background-tasks)
