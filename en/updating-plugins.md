@@ -35,6 +35,7 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
 - [Control Panel Templates](#control-panel-templates)
   - [`extraPageHeaderHtml`](#extrapageheaderhtml)
   - [Full-Page Grids](#full-page-grids)
+  - [Control Panel Template Hooks](#control-panel-template-hooks)
 - [Resource Requests](#resource-requests)
 - [Registering Arbitrary HTML](#registering-arbitrary-html)
 - [Background Tasks](#background-tasks)
@@ -817,6 +818,16 @@ Additionally, any `<div class="pane">`s you had should generally lose their `pan
     </div>
 {% endblock %}
 ```
+
+### Control Panel Template Hooks
+
+The following Control Panel template hooks have been renamed:
+
+Old                              | New
+-------------------------------- | ----------------------------
+`cp.categories.edit.right-pane`  | `cp.categories.edit.details`
+`cp.entries.edit.right-pane`     | `cp.entries.edit.details`
+`cp.users.edit.right-pane`       | `cp.users.edit.details`
 
 ## Resource Requests
 
