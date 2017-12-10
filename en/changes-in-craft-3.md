@@ -139,7 +139,8 @@ Craft 3 makes it possible to completely override all asset volume settings, not 
 
 If you have any URL rules saved in `config/routes.php`, you will need to update them to Yii 2’s [pattern-route syntax](http://www.yiiframework.com/doc-2.0/guide-runtime-routing.html#url-rules).
 
-- Named parameters in the pattern should be defined using the format (`<paramName:regex>`) rather than as a regular expression subpattern (`(?P<paramName>regex)`).
+- Named parameters in the pattern should be defined using the format (`<ParamName:RegExp>`) rather than as a regular expression subpattern (`(?P<ParamName>RegExp)`).
+- Unnamed parameters are no longer allowed (e.g. `([^\/]+)`). They must also be converted to the new named parameter syntax (`<ParamName:RegExp>`).
 - Controller action routes should be defined as a string (`'action/path'`) rather than an array with an `action` key (`['action' => 'action/path']`).
 - Template routes should be defined as as an array with a `template` key (`['template' => 'template/path']`) rather than a string (`'template/path'`).
 
@@ -148,11 +149,13 @@ If you have any URL rules saved in `config/routes.php`, you will need to update 
 'dashboard' => ['action' => 'dashboard/index'],
 'settings/fields/new' => 'settings/fields/_edit',
 'settings/fields/edit/(?P<fieldId>\d+)' => 'settings/fields/_edit',
+'blog/type/([^\/]+)' => 'blog/_type',
 
 // New:
 'dashboard' => 'dashboard/index',
 'settings/fields/new' => ['template' => 'settings/fields/_edit'],
 'settings/fields/edit/<fieldId:\d+>' => ['template' => 'settings/fields/_edit'],
+'blog/type/<type:[^\/]+>' => ['template' => 'blog/_type'],
 ```
 
 ## PHP Constants
