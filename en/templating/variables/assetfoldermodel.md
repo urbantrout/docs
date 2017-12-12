@@ -46,3 +46,4 @@ AssetFolderModel objects have the following methods:
 ### `getParent()`
 
 Returns an AssetFolderModel object representing the parent folder, if there is one.
+
