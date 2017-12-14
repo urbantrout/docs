@@ -6,7 +6,7 @@ If you want to make your plugin available in the in-app Plugin Store, and on [pl
 
 All plugins in the Plugin Store must have one of two licenses:
 
-- **[MIT](https://opensource.org/licenses/MIT)** – Use this if you aren’t planning on ever changing for your plugin, and you’re OK with other people pretty much doing whatever they want with your code, as long as they give credit back to you. ([Example](https://github.com/craftcms/element-api/blob/v2/LICENSE.md))
+- **[MIT](https://opensource.org/licenses/MIT)** – Use this if you aren’t planning on ever charging for your plugin, and you’re OK with other people pretty much doing whatever they want with your code, as long as they give credit back to you. ([Example](https://github.com/craftcms/element-api/blob/v2/LICENSE.md))
 - **[Craft](https://craftcms.github.io/license/)** – Use this if you are planning on charging for your plugin, and want to prevent people from using your code without paying up. ([Example](https://github.com/craftcms/cms/blob/develop/LICENSE.md))
 
 Create a `LICENSE.md` file at the root of your plugin’s repository, and paste in the license text, beginning with a copyright notice.
