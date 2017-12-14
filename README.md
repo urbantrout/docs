@@ -61,3 +61,4 @@ Craft 3 Documentation
 - [Element Types](en/element-types.md)
 - [Element Action Types](en/element-action-types.md)
 - [Plugin Migrations](en/plugin-migrations.md)
+- [Publishing to the Plugin Store](plugin-store.md)
