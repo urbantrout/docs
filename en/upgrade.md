@@ -24,31 +24,17 @@ To update Craft without making any major changes to your site’s directory stru
 
 Note that at the end of this, your “project root” (as referenced in other areas of the documentation) will be your `craft/` directory, _not_ its parent directory.
 
-1. Create a `composer.json` file within your project’s `craft/` directory, and add the following properties:
-
-    ```json
-    {
-      "minimum-stability": "beta",
-      "repositories": [
-        {
-          "type": "composer",
-          "url": "https://asset-packagist.org"
-        }
-      ]
-    }
-    ```
-
-2. Open your terminal and go to the `craft/` directory:
+1. Open your terminal and go to the `craft/` directory:
 
         cd /path/to/project/craft
 
-3. Run the following command to load Craft 3 (this will take a few minutes):
+2. Run the following command to load Craft 3 (this will take a few minutes):
 
-        composer require craftcms/cms:~3.0.0-beta.29
+        composer require craftcms/cms:^3.0.0-RC1
 
     Note: If Composer complains that your system doesn’t have PHP 7 installed, but you know it’s not an issue because Craft will run with a different PHP install (e.g. through MAMP or Vagrant), use the `--ignore-platform-reqs` flag.
 
-4. Once all the files are in place, open your `public/index.php` file, find this line:
+3. Once all the files are in place, open your `public/index.php` file, find this line:
 
     ```php
     // Do not edit below this line
@@ -68,9 +54,9 @@ Note that at the end of this, your “project root” (as referenced in other ar
     $app->run();
     ```
 
-5. Point your browser to your Control Panel URL (e.g. `http://example.dev/admin`). If you see the update prompt, you did everything right! Go ahead and click Finish Up to update your database.
+4. Point your browser to your Control Panel URL (e.g. `http://example.dev/admin`). If you see the update prompt, you did everything right! Go ahead and click Finish Up to update your database.
 
-6. Delete your old `craft/app/` directory. It’s no longer needed; Craft 3 is located in `vendor/craftcms/cms/` now.
+5. Delete your old `craft/app/` directory. It’s no longer needed; Craft 3 is located in `vendor/craftcms/cms/` now.
 
 > Note: If your `craft/` directory lives in a public directory on your server (e.g. within `public_html/`), you will need to make sure the new `craft/vendor/` directory is protected from web traffic. If your server is running Apache, you can do this by creating a `.htaccess` file within it, with the contents `Deny from all`.
 
