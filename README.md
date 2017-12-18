@@ -43,6 +43,17 @@ Craft 3 Documentation
 - [Content Migrations](en/content-migrations.md)
 - [Configuration](en/configuration.md)
 
+## Templating
+
+- [Global Variables](en/templating/global-variables.md)
+- [Functions](en/templating/functions.md)
+- [Filters](en/templating/filters.md)
+- [Tags](en/templating/tags.md)
+- Querying Elements
+- Variables
+- More
+- Examples
+
 
 ## Plugin Development
 
