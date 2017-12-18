@@ -40,7 +40,7 @@ Removes any empty elements from an array and returns the modified array.
 Groups the items of an array together based on common properties.
 
 ```twig
-{% set allEntries = craft.entries.section('blog').find() %}
+{% set allEntries = craft.entries.section('blog').all() %}
 {% set allEntriesByYear = allEntries|group('postDate.year') %}
 
 {% for year, entriesInYear in allEntriesByYear %}
@@ -160,7 +160,7 @@ You can optionally pass `false` to it if you want group symbols to be omitted (e
 
 ## `parseRefs`
 
-Parses a string for [reference tags]({entry:docs/reference-tags}).
+Parses a string for [reference tags](reference-tags.md).
 
 ```twig
 {% set content %}
