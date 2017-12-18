@@ -8,5 +8,5 @@ This tag will ensure that the user is logged in. If they aren’t, they will be 
 
 You can place this tag anywhere in your template, including within a conditional. If/when Twig gets to it, the login enforcement will take place.
 
-The URL that the logged-out users get redirected to is based on your [loginPath]({entry:docs/config-settings}#loginPath) config setting.
+The URL that the logged-out users get redirected to is based on your [loginPath](config-settings.md#loginPath) config setting.
 
