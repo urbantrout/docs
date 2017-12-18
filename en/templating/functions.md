@@ -19,38 +19,38 @@ Rounds a number down.
 {{ floor(42.9) }} => 42
 ```
 
-## `getCsrfInput()`
+## `csrfInput()`
 
-Returns a hidden CSRF Token input. All sites that have [CSRF Protection]({entry:supportArticles/csrf-protection}) enabled must include this in each form that submits via POST.
+Returns a hidden CSRF Token input. All sites that have CSRF Protection enabled must include this in each form that submits via POST.
 
 ```twig
 <form method="post">
-    {{ getCsrfInput() }}
+    {{ csrfInput() }}
     <!-- ... -->
 </form>
 ```
 
-## `getFootHtml()`
+## `endBody()`
 
-Outputs all of the HTML nodes that have been queued up by the [includeJsFile]({entry:templating/tags}#includeJsFile) and [includeJs]({entry:templating/tags}#includeJs) tags. It should be placed right before your `</body>` tag.
+Outputs all of the HTML nodes that have been queued up by the [registerJsFile]({entry:templating/tags}#includeJsFile) and [js]({entry:templating/tags}#includeJs) tags. It should be placed right before your `</body>` tag.
 
 ```twig
 <body>
     <h1>{{ page.name }}</h1>
     {{ page.body }}
 
-    {{ getFootHtml() }}
+    {{ endBody() }}
 </body>
 ```
 
-## `getHeadHtml()`
+## `head()`
 
-Outputs all of the HTML nodes that have been queued up by the [includeCssFile]({entry:templating/tags}#includeCssFile), [includeCss]({entry:templating/tags}#includeCss), and [includeHiResCss]({entry:templating/tags}#includeHiResCss) tags.
+Outputs all of the HTML nodes that have been queued up by the [registerCssFile]({entry:templating/tags}#includeCssFile) and [css]({entry:templating/tags}#includeCss) tags.
 
 ```twig
 <head>
     <title>{{ siteName }}</title>
-    {{ getHeadHtml() }}
+    {{ head() }}
 </head>
 ```
 
