@@ -4,7 +4,7 @@ Every single template is going to get loaded with the following variables:
 
 ## `now`
 
-A {entry:templating/datetime:link} object set to the current date and time.
+A [DateTime](variables/datetime.md) object set to the current date and time.
 
 ```twig
 Today is {{ now|date('M j, Y') }}.
@@ -12,7 +12,7 @@ Today is {{ now|date('M j, Y') }}.
 
 ## `siteName`
 
-The name of your site, as defined in Settings → General.
+The name of your site, as defined in Settings → Sites.
 
 ```twig
 <h1>{{ siteName }}</h1>
@@ -20,7 +20,7 @@ The name of your site, as defined in Settings → General.
 
 ## `siteUrl`
 
-The URL of your site. (See {entry:supportArticles/site-url:link})
+The URL of your site
 
 ```twig
 <link rel="home" href="{{ siteUrl }}">
@@ -28,7 +28,7 @@ The URL of your site. (See {entry:supportArticles/site-url:link})
 
 ## `currentUser`
 
-A {entry:templating/usermodel:link} object set to the currently logged-in user (if there is one).
+A [UserModel](https://craftcms.com/docs/templating/usermodel) object set to the currently logged-in user (if there is one).
 
 ```twig
 {% if currentUser %}
@@ -38,7 +38,7 @@ A {entry:templating/usermodel:link} object set to the currently logged-in user (
 
 ## `loginUrl`
 
-The URL to your site’s login page, based on the [loginPath]({entry:docs/config-settings}#loginPath) config setting.
+The URL to your site’s login page, based on the [loginPath](https://craftcms.com/docs/config-settings#loginPath) config setting.
 
 ```twig
 {% if not currentUser %}
@@ -48,7 +48,7 @@ The URL to your site’s login page, based on the [loginPath]({entry:docs/config
 
 ## `logoutUrl`
 
-The URL Craft uses to log users out, based on the [logoutPath]({entry:docs/config-settings}#logoutPath) config setting. Note that Craft will automatically redirect users to your homepage after going here; there’s no such thing as a “logout _page_”.
+The URL Craft uses to log users out, based on the [logoutPath](https://craftcms.com/docs/config-settings#logoutPath) config setting. Note that Craft will automatically redirect users to your homepage after going here; there’s no such thing as a “logout _page_”.
 
 ```twig
 {% if currentUser %}
@@ -58,7 +58,7 @@ The URL Craft uses to log users out, based on the [logoutPath]({entry:docs/confi
 
 ## Global Set Variables
 
-Each of your site’s [global sets]({entry:docs/globals}) get {entry:templating/globalsetmodel:link} object to represent them.
+Each of your site’s [global sets](globals.md) get [GlobalSetModel](https://craftcms.com/docs/templating/globalsetmodel) object to represent them.
 
 ```twig
 <p>{{ companyInfo.companyName }} was established in {{ companyInfo.yearEstablished }}.</p>
