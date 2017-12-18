@@ -45,10 +45,10 @@ Craft 3 Documentation
 
 ## Templating
 
-- [Global Variables](templating/global-variables.md)
-- [Functions](templating/functions.md)
-- [Filters](templating/filters.md)
-- [Tags](templating/tags.md)
+- [Global Variables](en/templating/global-variables.md)
+- [Functions](en/templating/functions.md)
+- [Filters](en/templating/filters.md)
+- [Tags](en/templating/tags.md)
 - Querying Elements
 - Variables
 - More
