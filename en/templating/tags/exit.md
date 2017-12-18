@@ -3,7 +3,7 @@
 This tag will preventing the rest of the template from executing, and end the request.
 
 ```twig
-{% set entry = craft.entries.id(entryId).first() %}
+{% set entry = craft.entries.id(entryId).one() %}
 
 {% if not entry %}
     {% exit 404 %}
