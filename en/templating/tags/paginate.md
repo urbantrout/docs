@@ -3,7 +3,7 @@
 This tag makes it easy to paginate a set of elements across multiple pages.
 
 ```twig
-{% paginate craft.entries.section('blog').limit(10) as pageInfo, pageEntries %}
+{% paginate craft.entries.section('blog').limit(10).all() as pageInfo, pageEntries %}
 
 {% for entry in pageEntries %}
     <article>
@@ -18,7 +18,7 @@ This tag makes it easy to paginate a set of elements across multiple pages.
 
 Paginated URLs will be identical to the first page’s URL, except that “/p_X_” will be appended to the end (where _X_ is the page number), e.g. `http://example.com/news/p2`.
 
-Tip: You can use the [pageTrigger]({entry:docs/config-settings}#pageTrigger) config setting to customize what comes before the actual page number in your URLs. For example you could set it to `'page/'`, and your paginated URLs would start looking like `http://example.com/news/page/2`.
+Tip: You can use the [pageTrigger](config-settings.md#pageTrigger) config setting to customize what comes before the actual page number in your URLs. For example you could set it to `'page/'`, and your paginated URLs would start looking like `http://example.com/news/page/2`.
 
 Warning: Only a single `{% paginate %}` tag should be used per request.
 
@@ -54,7 +54,7 @@ The `{% paginate %}` tag won’t actually output the current page’s elements f
 Following your `{% paginate %}` tag, you will need to loop through this page’s elements using a [`{% for %}`](http://twig.sensiolabs.org/doc/tags/for.html) tag.
 
 ```twig
-{% paginate craft.entries.section('blog').limit(10) as pageEntries %}
+{% paginate craft.entries.section('blog').limit(10).all() as pageEntries %}
 
 {% for entry in pageEntries %}
     <article>
