@@ -62,11 +62,11 @@ The accepted duration units are:
 - `year`(`s`)
 - `week`(`s`)
 
-Tip: If this parameter is omitted, your [cacheDuration]({entry:docs/config-settings:url}#cacheDuration) config setting will be used to define the default duration.
+Tip: If this parameter is omitted, your [cacheDuration](config-settings#cacheDuration) config setting will be used to define the default duration.
 
 ### `until`
 
-A [DateTime]({entry:templating/datetime}) object defining when the cache should expire.
+A [DateTime](templating/variables/datetime.md) object defining when the cache should expire.
 
 ```twig
 {% cache until entry.eventDate %}
@@ -98,7 +98,7 @@ Tip: You can only use [`if`](#if) **_or_** [`unless`](#unless) in a single `{% c
 
 Your caches will automatically clear when any elements (entries, assets, etc.) within the tags are saved or deleted.
 
-If you have any element _queries_ within the tags (e.g. a [craft.entries]({entry:templating/craft.entries}) call), and you create a new element that should be returned by one of the queries, Craft will also be able to figure that out and clear the cache.
+If you have any element _queries_ within the tags (e.g. a [craft.entries](templating/craft-entries.md) call), and you create a new element that should be returned by one of the queries, Craft will also be able to figure that out and clear the cache.
 
 You can also manually clear all of your template caches from the Settings page, using the “Clear Caches” tool.
 
@@ -116,7 +116,7 @@ There are also some cases where it’s _not_ a good idea to use them:
 
 * Don’t use them to cache static text; that will be more expensive than simply outputting the text.
 * You can’t use them outside of top-level `{% block %}` tags within a template that extends another.
-* The `{% cache %}` tag will only cache HTML, so using tags like [{% includeCss %}]({entry:templating/includecss}) and [{% includeJs %}]({entry:templating/includejs}) inside of it doesn’t make sense because they don’t actually output HTML therefore their output won’t be cached.
+* The `{% cache %}` tag will only cache HTML, so using tags like [{% css %}](templating/includecss) and [{% js %}](templating/includejs) inside of it doesn’t make sense because they don’t actually output HTML therefore their output won’t be cached.
 
     ```twig
     {# Bad: #}
@@ -139,4 +139,4 @@ There are also some cases where it’s _not_ a good idea to use them:
     ```
 
 
-Tip: The `{% cache %}` tag will detect if there are any ungenerated [image transform]({entry:docs/image-transforms}) URLs within it. If there are, it will hold off on caching the template until the next request, so those temporary image URLs won’t get cached.
+Tip: The `{% cache %}` tag will detect if there are any ungenerated [image transform](image-transforms.md) URLs within it. If there are, it will hold off on caching the template until the next request, so those temporary image URLs won’t get cached.
