@@ -18,7 +18,7 @@ If you believe someone is violating the code of conduct, we ask that you report 
 
   - Violent threats or language directed against another person.
   - Discriminatory jokes and language.
-  - Exclusionary gendered language (guys, gentlemen, bros, etc.)
+  - Exclusionary gendered language (guys, gentlemen, bros, etc).
   - Posting sexually explicit or violent material.
   - Posting (or threatening to post) other people’s personally identifying information ("doxing").
   - Personal insults, especially those using racist or sexist terms.
