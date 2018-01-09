@@ -4,7 +4,7 @@ Every single template is going to get loaded with the following variables:
 
 ## `now`
 
-A [DateTime](variables/datetime.md) object set to the current date and time.
+A [DateTime](http://php.net/manual/en/class.datetime.php) object set to the current date and time.
 
 ```twig
 Today is {{ now|date('M j, Y') }}.

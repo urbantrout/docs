@@ -66,7 +66,7 @@ Tip: If this parameter is omitted, your [cacheDuration](config-settings#cacheDur
 
 ### `until`
 
-A [DateTime](templating/variables/datetime.md) object defining when the cache should expire.
+A [DateTime](http://php.net/manual/en/class.datetime.php) object defining when the cache should expire.
 
 ```twig
 {% cache until entry.eventDate %}
