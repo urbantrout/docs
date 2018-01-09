@@ -13,14 +13,14 @@ Tip: If you save this in a template that ends with a “.rss” file extension, 
         <atom:link href="{{ craft.request.url }}" rel="self" type="application/rss+xml" />
         <description>{{ globals.siteDescription }}</description>
         <language>en-us</language>
-        <pubDate>{{ now.rss }}</pubDate>
-        <lastBuildDate>{{ now.rss }}</lastBuildDate>
+        <pubDate>{{ now|rss }}</pubDate>
+        <lastBuildDate>{{ now|rss }}</lastBuildDate>
 
         {% for entry in craft.entries.find() %}
             <item>
                 <title>{{ entry.title }}</title>
                 <link>{{ entry.url }}</link>
-                <pubDate>{{ entry.postDate.rss }}</pubDate>
+                <pubDate>{{ entry.postDate|rss }}</pubDate>
                 <author>{{ entry.author }}</author>
                 <guid>{{ entry.url }}</guid>
                 <description><![CDATA[

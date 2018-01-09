@@ -11,7 +11,7 @@ Tip: If you save this in a template that ends with a “.atom” file extension,
     <title>{{ siteName }}</title>
     <link href="{{ siteUrl }}" />
     <link type="application/atom+xml" rel="self" href="{{ craft.request.url }}" />
-    <updated>{{ now.atom }}</updated>
+    <updated>{{ now|atom }}</updated>
     <id>{{ craft.request.url }}</id>
     <author>
         <name>{{ globals.feedAuthorName }}</name>
@@ -23,8 +23,8 @@ Tip: If you save this in a template that ends with a “.atom” file extension,
             <id>{{ entry.url }}</id>
             <link type="text/html" rel="alternate" href="{{ entry.url }}" />
             <title>{{ entry.title }}</title>
-            <published>{{ entry.postDate.atom }}</published>
-            <updated>{{ entry.dateUpdated.atom }}</updated>
+            <published>{{ entry.postDate|atom }}</published>
+            <updated>{{ entry.dateUpdated|atom }}</updated>
             <author>
                 <name>{{ entry.author.fullName }}</name>
                 <uri>{{ siteUrl }}</uri>
