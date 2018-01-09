@@ -4,7 +4,7 @@ If you need to login a user from the front-end of your site, you can do so with 
 
 ```twig
 <form method="post" accept-charset="UTF-8">
-    {{ getCsrfInput() }}
+    {{ csrfInput() }}
     <input type="hidden" name="action" value="users/login">
 
     <h3><label for="loginName">Username or email</label></h3>

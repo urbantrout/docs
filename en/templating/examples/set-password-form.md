@@ -8,7 +8,7 @@ Within that template, place the following code:
 
 ```twig
 <form method="post" accept-charset="UTF-8">
-    {{ getCsrfInput() }}
+    {{ csrfInput() }}
     <input type="hidden" name="action" value="users/setPassword">
     <input type="hidden" name="code" value="{{ code }}">
     <input type="hidden" name="id" value="{{ id }}">

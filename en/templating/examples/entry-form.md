@@ -16,7 +16,7 @@ You can create a new entry form for the front-end of your site using the followi
 {% from _self import errorList %}
 
 <form method="post" accept-charset="UTF-8">
-    {{ getCsrfInput() }}
+    {{ csrfInput() }}
     <input type="hidden" name="action" value="entries/saveEntry">
     <input type="hidden" name="redirect" value="viewentry/{slug}">
     <input type="hidden" name="sectionId" value="2">
