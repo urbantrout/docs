@@ -1,6 +1,6 @@
 # RSS Feed
 
-The following template can be used to provide a RSS 2.0 feed on your site. It assumes that you have a [global set]({entry:docs/globals}) with the handle “globals”, with a field called “siteDescription”.
+The following template can be used to provide a RSS 2.0 feed on your site. It assumes that you have a [global set](../../globals.md) with the handle “globals”, with a field called “siteDescription”.
 
 Tip: If you save this in a template that ends with a “.rss” file extension, Craft will even serve it with an `application/rss+xml` MIME type.
 

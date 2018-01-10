@@ -16,7 +16,7 @@ Dates and times are both formatted for the user’s preferred locale. They are d
 
 ## Templating
 
-Calling a Date field in your templates will return a [DateTime]({entry:templating/datetime}) variable set to the selected date, if there was one.
+Calling a Date field in your templates will return a [DateTime](http://php.net/manual/en/class.datetime.php) object set to the selected date, or `null` if the field doesn’t have a value.
 
 ```twig
 {% if user.birthday %}

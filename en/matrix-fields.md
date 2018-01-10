@@ -36,9 +36,9 @@ To output your Matrix blocks in a template, use a [for-loop](http://twig.sensiol
 {% endfor %}
 ```
 
-All of the code you put within the for-loop will be repeated for each Matrix block in the field. The current block will get set to that `block` variable we’ve defined, and it will be a {entry:templating/matrixblockmodel:link} object.
+All of the code you put within the for-loop will be repeated for each Matrix block in the field. The current block will get set to that `block` variable we’ve defined, and it will be a [MatrixBlock](templating/variables/matrixblockmodel.md) model.
 
-Here’s an example of what the template might look like for a Matrix field with four Block Types (Heading, Text, Image, and Quote). We can determine the current block type’s handle by checking [`block.type`]({entry:templating/matrixblockmodel}#type).
+Here’s an example of what the template might look like for a Matrix field with four Block Types (Heading, Text, Image, and Quote). We can determine the current block type’s handle by checking [`block.type`](https://docs.craftcms.com/api/v3/craft-elements-matrixblock.html#getType()-detail).
 
 ```twig
 {% for block in entry.myMatrixField %}
@@ -70,7 +70,7 @@ Here’s an example of what the template might look like for a Matrix field with
 {% endfor %}
 ```
 
-> This code can be simplified using the [`{% switch %}`]({entry:templating/switch}) tag.
+> This code can be simplified using the [`{% switch %}`](templating/tags/switch.md) tag.
 
 ### Filtering by block type
 
@@ -121,5 +121,5 @@ You can get the total number of blocks using the [length filter](http://twig.sen
 
 ### See Also
 
-* {entry:templating/elementcriteriamodel:link}
-* {entry:templating/matrixblockmodel:link}
+* [Element Queries](element-queries.md)
+* [craft\models\MatrixBlock](https://docs.craftcms.com/api/v3/craft-elements-matrixblock.html)

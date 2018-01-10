@@ -1,6 +1,6 @@
 # Atom Feed
 
-The following template can be used to provide an Atom 1.0 feed on your site. It assumes that you have a [global set]({entry:docs/globals}) with the handle “globals”, with two fields: “feedAuthorName” and “feedAuthorEmail”.
+The following template can be used to provide an Atom 1.0 feed on your site. It assumes that you have a [global set](../../globals.md) with the handle “globals”, with two fields: “feedAuthorName” and “feedAuthorEmail”.
 
 Tip: If you save this in a template that ends with a “.atom” file extension, Craft will even serve it with an `application/atom+xml` MIME type.
 

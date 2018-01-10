@@ -1,7 +1,7 @@
 Assets Fields
 =============
 
-Assets fields allow you to select related [assets]({entry:docs/assets}).
+Assets fields allow you to select related [assets](assets.md).
 
 ## Settings
 
@@ -27,7 +27,7 @@ If the “Restrict allowed file types?” setting is checked, a list of file typ
 
 The “Default Upload Location” setting, and the “Upload Location” setting that replaces it if “Restrict uploads to a single folder?” is checked, support dynamic subfolder paths.
 
-After an element is saved, the subfolder path will be parsed for any tags representing properties of the source element. For example, if you intend to use the field with [entries]({entry:docs/sections-and-entries}), then you can use any properties listed in the {entry:templating/entrymodel:link} documentation, such as `{id}`, `{slug}`, or even nested object properties like `{author.username}`.
+After an element is saved, the subfolder path will be parsed for any tags representing properties of the source element. For example, if you intend to use the field with [entries](sections-and-entries.md), then you can use any properties listed in the [craft\elements\entries](https://docs.craftcms.com/api/v3/craft-elements-entry.html) documentation, such as `{id}`, `{slug}`, or even nested object properties like `{author.username}`.
 
 Normal Twig tags are supported as well, in case you want to include `{% if %}` conditionals in your path, or access other objects besides the source element, such as `{{ now|date('Y-m-d') }}`  or `{{ currentUser.username }}`.
 
@@ -37,7 +37,7 @@ If you are using normal Twig tags, you can still access the source element, via 
 {{ object.slug ?: object.id }}
 ```
 
-Note that if you are creating the Assets field within a [Matrix field]({entry:docs/matrix-fields}), the source element is going to be the actual Matrix block, _not_ the element that the Matrix field is being created on. So if your Matrix field is attached to an entry, and you want to output the entry ID in your dynamic subfolder path, you would type `{owner.id}` not just `{id}`.
+Note that if you are creating the Assets field within a [Matrix field](matrix-fields.md), the source element is going to be the actual Matrix block, _not_ the element that the Matrix field is being created on. So if your Matrix field is attached to an entry, and you want to output the entry ID in your dynamic subfolder path, you would type `{owner.id}` not just `{id}`.
 
 ## The Field
 
@@ -57,7 +57,7 @@ If you have an element with an Assets field in your template, you can access its
 {% set assets = entry.assetsFieldHandle %}
 ```
 
-That will give you an {entry:templating/elementcriteriamodel:link} object, prepped to output all of the selected assets for the given field. In other words, the line above is really just a shortcut for this:
+That will give you an [element query](element-queries.md), prepped to output all of the selected assets for the given field. In other words, the line above is really just a shortcut for this:
 
 ```twig
 {% set assets = craft.assets({
@@ -67,7 +67,7 @@ That will give you an {entry:templating/elementcriteriamodel:link} object, prepp
 }) %}
 ```
 
-(See {entry:docs/relations:link} for more info on the `relatedTo` param.)
+(See [Relations](relations.md) for more info on the `relatedTo` param.)
 
 ### Examples
 
@@ -122,7 +122,7 @@ If your Assets field is only meant to have a single asset selected, remember tha
 
 ### Uploading Files from Front-end Entry Forms
 
-If you want to allow users to upload files to an Assets field from a front-end [entry form]({entry:templating/entry-form}), you just need to do two things.
+If you want to allow users to upload files to an Assets field from a front-end [entry form](templating/examples/entry-form.md), you just need to do two things.
 
 First, make sure your `<form>` tag has an `enctype="multipart/form-data"` attribute, so that it is capable of uploading files.
 * Add a file input to the form, in the same way you would add a textarea for a Plain Text field:
@@ -139,7 +139,7 @@ If you want your form to allow multiple files being uploaded at once, just add t
 
 ## See Also
 
-* {entry:templating/craft.assets:link}
-* {entry:templating/elementcriteriamodel:link}
-* {entry:templating/assetfilemodel:link}
-* {entry:docs/relations:link}
+* [`craft.assets`](templating/querying-elements/craft-assets.md)
+* [Element Queries](element-queries.md)
+* [Asset Models](templating/variables/assetfilemodel.md)
+* [Relations](relations.md)

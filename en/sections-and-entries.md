@@ -75,7 +75,7 @@ If you want your entries to have auto-generated titles rather than requiring aut
 
 The Title Format is a full-blown Twig template, and it will get parsed whenever your entries are saved.
 
-The entry is passed to this template as a variable named `object`. You can reference the entry’s [properties]({entry:templating/entrymodel}#properties) in two ways:
+The entry is passed to this template as a variable named `object`. You can reference the entry’s [properties](https://docs.craftcms.com/api/v3/craft-elements-entry.html#public-properties) in two ways:
 
 * `{{ object.property }}` _(normal Twig syntax)_
 * `{property}` _(shortcut syntax)_
@@ -91,7 +91,7 @@ You can use Twig filters in both syntaxes:
 {postDate|date('M j, Y')}
 ```
 
-Craft’s [global variables]({entry:templating/global-variables}) are available to these templates as well:
+Craft’s [global variables](templating/global-variables.md) are available to these templates as well:
 
 ```twig
 {{ now|date('Y-m-d') }}
