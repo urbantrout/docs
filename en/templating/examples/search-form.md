@@ -9,7 +9,7 @@ To create a search form, first create a normal HTML form with a ‘search’ inp
 </form>
 ```
 
-Then, on whatever template your form submits to (e.g. search/results.html), just pull the search query from the GET/POST data, and pass it to the “search” param on [craft.entries](../querying-elements/craft-entries.md):
+Then, on whatever template your form submits to (e.g. search/results.html), just pull the search query from the GET/POST data, and pass it to the `search` [entry query param](../../entry-query-params.md):
 
 ```twig
 <h1>Search Results</h1>

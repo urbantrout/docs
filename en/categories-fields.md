@@ -91,7 +91,7 @@ If your Categories field is only meant to have a single category selected, remem
 
 ### See Also
 
-* [`craft.categories`](querying-elements/craft-categories.md)
 * [Element Queries](element-queries.md)
+* [Category Query Params](category-query-params.md)
 * [Category Models](templating/variables/categorymodel.md)
 * [Relations](relations.md)

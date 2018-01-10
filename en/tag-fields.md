@@ -94,7 +94,7 @@ If your Tags field is only meant to have a single tag selected, remember that ca
 
 ### See Also
 
-* [`craft.tags`](templating/querying-elements/craft-tags.md)
 * [Element Queries](element-queries.md)
+* [Tag Query Params](tag-query-params.md)
 * [craft\elements\Tag](https://docs.craftcms.com/api/v3/craft-elements-tag.html)
 * [Relations](relations.md)

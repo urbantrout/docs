@@ -98,7 +98,7 @@ Tip: You can only use [`if`](#if) **_or_** [`unless`](#unless) in a single `{% c
 
 Your caches will automatically clear when any elements (entries, assets, etc.) within the tags are saved or deleted.
 
-If you have any element _queries_ within the tags (e.g. a [craft.entries](templating/craft-entries.md) call), and you create a new element that should be returned by one of the queries, Craft will also be able to figure that out and clear the cache.
+If you have any element _queries_ within the tags (e.g. a `craft.entries`), and you create a new element that should be returned by one of the queries, Craft will also be able to figure that out and clear the cache.
 
 You can also manually clear all of your template caches from the Settings page, using the “Clear Caches” tool.
 
