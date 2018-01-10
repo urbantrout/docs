@@ -5,13 +5,13 @@ If a template is looping through a list of elements, and each of those elements 
 For example, here’s a template that loops through a list of entries, and displays images related by an Assets field for each entry:
 
 ```twig
-{% set entries = craft.entries({
-    section: 'news'
-}) %}
+{% set entries = craft.entries()
+    .section('news')
+    .all() %}
 
 {% for entry in entries %}
     {# Get the related asset, if there is one #}
-    {% set image = entry.assetsField.first() %}
+    {% set image = entry.assetsField.one() %}
     {% if image %}
         <img src="{{ image.url }}" alt="{{ image.title }}">
     {% endif %}
@@ -27,10 +27,10 @@ The purpose of the `with` param is to tell Craft which sub-elements you’re goi
 Here’s how to apply the `with` param to our example:
 
 ```twig
-{% set entries = craft.entries({
-    section: 'news',
-    with: ['assetsField']
-}) %}
+{% set entries = craft.entries()
+    .section('news')
+    .with(['assetsField'])
+    .all() %}
 
 {% for entry in entries %}
     {# Get the eager-loaded asset, if there is one #}
@@ -51,15 +51,15 @@ Take a look at how we assigned the `image` variable in our examples, before and 
 
 ```twig
 {# Before: #}
-{% set image = entry.assetsField.first() %}
+{% set image = entry.assetsField.one() %}
 
 {# After: #}
 {% set image = entry.assetsField[0] ?? null %}
 ```
 
-When the assets _aren’t_ eager-loaded, `entry.assetsField` gives you an {entry:templating/elementcriteriamodel:link} that is preconfigured to return the related assets once they’re requested (e.g. when `first()` is called).
+When the assets _aren’t_ eager-loaded, `entry.assetsField` gives you an [element query](../element-queries.md) that is preconfigured to return the related assets.
 
-However when the assets _are_ eager-loaded, `entry.assetsField` gets overwritten with an array of the eager-loaded assets. So `first()`, `find()`, and other ElementCriteriaModel methods are not available. Instead you must stick to the standard array syntaxes. In our example, we’re grabbing the first asset with `entry.assetsField[0]`, and we’re using Twig’s _null-coalescing operator_ (`??`) to define a default value (`null`) in case there is no related asset.
+However when the assets _are_ eager-loaded, `entry.assetsField` gets overwritten with an array of the eager-loaded assets. So `one()`, `all()`, and other element query methods are not available. Instead you must stick to the standard array syntaxes. In our example, we’re grabbing the first asset with `entry.assetsField[0]`, and we’re using Twig’s _null-coalescing operator_ (`??`) to define a default value (`null`) in case there is no related asset.
 
 
 ### Eager-Loading Multiple Sets of Elements
@@ -67,13 +67,13 @@ However when the assets _are_ eager-loaded, `entry.assetsField` gets overwritten
 If you have multiple sets of elements you wish to eager-load off of the top list of elements, just add additional values to your `with` parameter.
 
 ```twig
-{% set entries = craft.entries({
-    section: 'news',
-    with: [
+{% set entries = craft.entries
+    .section('news')
+    .with([
         'assetsField',
         'matrixField'
-    ]
-}) %}
+    ])
+    .all() %}
 
 {% for entry in entries %}
     {# Get the eager-loaded asset, if there is one #}
@@ -96,12 +96,12 @@ If you have multiple sets of elements you wish to eager-load off of the top list
 It’s also possible to load _nested_ sets of elements, using this syntax:
 
 ```twig
-{% set entries = craft.entries({
-    section: 'news',
-    with: [
+{% set entries = craft.entries()
+    .section('news')
+    .with([
         'entriesField.assetsField'
-    ]
-}) %}
+    ])
+    .all() %}
 
 {% for entry in entries %}
     {# Loop through any eager-loaded sub-entries #}
@@ -120,24 +120,24 @@ It’s also possible to load _nested_ sets of elements, using this syntax:
 You can define custom criteria parameters that will get applied as elements are being eager-loaded, by replacing its key with an array that has two values: the key, and an object that defines the criteria parameters that should be applied.
 
 ```twig
-{% set entries = craft.entries({
-    section: 'news',
-    with: [
+{% set entries = craft.entries()
+    .section('news'),
+    .with([
         ['assetsField', { kind: 'image' }]
-    ]
-}) %}
+    ])
+    .all() %}
 ```
 
 When eager-loading nested sets of elements, you can apply parameters at any level of the eager-loading path.
 
 ```twig
-{% set entries = craft.entries({
-    section: 'news',
-    with: [
+{% set entries = craft.entries()
+    .section('news')
+    .with([
         ['entriesField', { authorId: 5 }],
         ['entriesField.assetsField', { kind: 'image' }]
-    ]
-}) %}
+    ])
+    .all() %}
 ```
 
 ### Eager-Loading Elements Related to Matrix Blocks
@@ -145,9 +145,9 @@ When eager-loading nested sets of elements, you can apply parameters at any leve
 The syntax for eager-loading relations from Matrix blocks is a little different than other contexts. You need to prefix your relational field’s handle with the block type’s handle:
 
 ```twig
-{% set blocks = entry.matrixField.find({
-    with: ['blockType:assetsField']
-}) %}
+{% set blocks = entry.matrixField
+    .with(['blockType:assetsField'])
+    .all() %}
 ```
 
 The reason for this is that Matrix fields can have multiple sub-fields that each share the same handle, as long as they’re in different block types. By requiring the block type handle as part of the eager-loading key, Matrix can be confident that it is eager-loading the right set of elements.
@@ -155,10 +155,10 @@ The reason for this is that Matrix fields can have multiple sub-fields that each
 This applies if the Matrix blocks themselves are being eager-loaded, too.
 
 ```twig
-{% set entries = craft.entries({
-    section: 'news',
-    with: ['matrixField.blockType:assetsField']
-}) %}
+{% set entries = craft.entries()
+    .section('news')
+    .with(['matrixField.blockType:assetsField'])
+    .all() %}
 ```
 
 ## Eager-Loading Image Transform Indexes
@@ -168,12 +168,12 @@ Another _N+1_ problem occurs when looping through a set of assets, and applying 
 This problem can be solved with the `withTransforms` asset criteria parameter:
 
 ```twig
-{% set assets = entry.assetsField.find({
-    withTransforms: [
+{% set assets = entry.assetsField
+    .withTransforms([
         'heroImage',
         { width: 100, height: 100 }
-    ]
-}) %}
+    ])
+    .all() %}
 ```
 
 Note that each transform definition you want to eager-load can either be a string (the handle of a transform defined in Settings → Assets → Image Transforms) or an object that defines the transform properties.
@@ -183,11 +183,11 @@ Using the `withTransforms` param has no effect on how you’d access image trans
 Image transform indexes can be eager-loaded on assets that are also eager-loaded:
 
 ```twig
-{% set entries = craft.entries({
-    with: [
+{% set entries = craft.entries()
+    .with([
         ['assetsField', {
             withTransforms: ['heroImage']
         }]
-    ]
-}) %}
+    ])
+    .all() %}
 ```

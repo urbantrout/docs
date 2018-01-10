@@ -1,8 +1,8 @@
 # Atom Feed
 
-The following template can be used to provide an Atom 1.0 feed on your site. It assumes that you have a [global set](../../globals.md) with the handle “globals”, with two fields: “feedAuthorName” and “feedAuthorEmail”.
+The following template can be used to provide an Atom 1.0 feed on your site. It assumes that you have a [global set](../../globals.md) with the handle `globals`, with two fields: `feedAuthorName` and `feedAuthorEmail`.
 
-Tip: If you save this in a template that ends with a “.atom” file extension, Craft will even serve it with an `application/atom+xml` MIME type.
+> {tip} If you save this in a template that ends with an `.atom` file extension, Craft will even serve it with an `application/atom+xml` MIME type.
 
 ```twig
 <?xml version="1.0"?>
@@ -18,7 +18,7 @@ Tip: If you save this in a template that ends with a “.atom” file extension,
         <email>{{ globals.feedAuthorEmail }}</email>
     </author>
 
-    {% for entry in craft.entries.find() %}
+    {% for entry in craft.entries.all() %}
         <entry>
             <id>{{ entry.url }}</id>
             <link type="text/html" rel="alternate" href="{{ entry.url }}" />

@@ -4,7 +4,7 @@ This tag will cache a portion of your template, which can improve performance fo
 
 ```twig
 {% cache %}
-    {% for block in entry.myMatrixField %}
+    {% for block in entry.myMatrixField.all() %}
         <p>{{ block.text }}</p>
     {% endfor %}
 {% endcache %}

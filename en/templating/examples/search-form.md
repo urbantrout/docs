@@ -1,6 +1,6 @@
 # Search Form
 
-To create a search form, first create a normal HTML form with a ‘search’ input:
+To create a search form, first create a normal HTML form with a `search` input:
 
 ```twig
 <form action="{{ url('search/results') }}">
@@ -9,13 +9,13 @@ To create a search form, first create a normal HTML form with a ‘search’ inp
 </form>
 ```
 
-Then, on whatever template your form submits to (e.g. search/results.html), just pull the search query from the GET/POST data, and pass it to the `search` [entry query param](../../entry-query-params.md):
+Then, on whatever template your form submits to (e.g. `search/results.html`), just pull the search query from the `GET`/`POST` data, and pass it to the `search` [entry query param](../../entry-query-params.md):
 
 ```twig
 <h1>Search Results</h1>
 
 {% set query = craft.request.getParam('q') %}
-{% set entries = craft.entries.search(query).order('score') %}
+{% set entries = craft.entries.search(query).order('score').all() %}
 
 {% if entries|length %}
     <p>{{ entries|length }} results:</p>

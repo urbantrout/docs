@@ -3,7 +3,7 @@
 This tag makes it easy to paginate a set of elements across multiple pages.
 
 ```twig
-{% paginate craft.entries.section('blog').limit(10).all() as pageInfo, pageEntries %}
+{% paginate craft.entries.section('blog').limit(10) as pageInfo, pageEntries %}
 
 {% for entry in pageEntries %}
     <article>
@@ -54,7 +54,7 @@ The `{% paginate %}` tag won’t actually output the current page’s elements f
 Following your `{% paginate %}` tag, you will need to loop through this page’s elements using a [`{% for %}`](http://twig.sensiolabs.org/doc/tags/for.html) tag.
 
 ```twig
-{% paginate craft.entries.section('blog').limit(10).all() as pageEntries %}
+{% paginate craft.entries.section('blog').limit(10) as pageEntries %}
 
 {% for entry in pageEntries %}
     <article>
