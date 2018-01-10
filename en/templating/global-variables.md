@@ -38,7 +38,7 @@ A [UserModel](https://craftcms.com/docs/templating/usermodel) object set to the 
 
 ## `loginUrl`
 
-The URL to your site’s login page, based on the [loginPath](https://craftcms.com/docs/config-settings#loginPath) config setting.
+The URL to your site’s login page, based on the [loginPath](https://docs.craftcms.com/api/v3/craft-config-generalconfig.html#$loginPath-detail) config setting.
 
 ```twig
 {% if not currentUser %}
@@ -48,7 +48,7 @@ The URL to your site’s login page, based on the [loginPath](https://craftcms.c
 
 ## `logoutUrl`
 
-The URL Craft uses to log users out, based on the [logoutPath](https://craftcms.com/docs/config-settings#logoutPath) config setting. Note that Craft will automatically redirect users to your homepage after going here; there’s no such thing as a “logout _page_”.
+The URL Craft uses to log users out, based on the [logoutPath](https://docs.craftcms.com/api/v3/craft-config-generalconfig.html#$logoutPath-detail) config setting. Note that Craft will automatically redirect users to your homepage after going here; there’s no such thing as a “logout _page_”.
 
 ```twig
 {% if currentUser %}
