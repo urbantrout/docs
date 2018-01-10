@@ -14,33 +14,29 @@ Here is how Craft handles each request:
 
    The `.htaccess` file that [comes with Craft](https://craftcms.com/support/remove-index.php) will redirect all would-be 404 requests over to `index.php` behind the scenes. Because of this Craft responds to URLs that don’t point to a valid directory or file in your web root. But if you point your browser directly at a file that *does* exist (such as an image URL), your web server will serve that file directly without Craft intervening.
 
-1. **Is it a resource request?**
+1. **Is it an action request?**
 
-   Resource request URIs begin with `cpresources/` (or whatever your [resourceTrigger](config-settings.md#resourceTrigger) config setting is set to). Craft uses them to serve CP resources, user photos, etc..
-
-2. **Is it an action request?**
-
-   Action requests either have a URL that begins with `actions/` (or whatever your [actionTrigger](config-settings.md#resourceTrigger) config setting is set to), or an `action` parameter in the POST request or the query string. 
+   Action requests either have a URL that begins with `actions/` (or whatever your [actionTrigger](https://docs.craftcms.com/api/v3/craft-config-generalconfig.html#$actionTrigger-detail) config setting is set to), or an `action` parameter in the POST request or the query string. 
 
    Craft routes action requests to a controller action that perform actions. Craft has system Controller actions for core actions, but plugins may also have Controllers that define their own custom actions.
 
   The request doesn’t necessarily end after a controller call. The controller may allow it to keep going.
 
-3. **Is it an entry/category request?**
+2. **Is it an entry/category request?**
 
    If the URI matches an [entry’s](sections-and-entries.md) or [category’s](categories.md) URI, Craft loads the section’s template or category group’s template. Craft makes the matched element available to the template via a pre-populated `entry` or `category` variable.
 
    (This step is not limited to entries and categories – plugins are also capable of adding their own types of elements, which can opt to have their own dedicated URLs.)
 
-4. **Does the URI match any Dynamic Routes?**
+3. **Does the URI match any Dynamic Routes?**
 
    If the URI matches any [dynamic routes](#dynamic-routes), the template specified by that route will get loaded. If the route contains any tokens, they will be available as variables to that template.
 
-5. **Does the URI match a template?**
+4. **Does the URI match a template?**
 
    Finally, Craft will check if the URI is a valid [template path](templating-overview.md#template-paths). If it is, Craft will return the matched template. Note: if any of the URI segments begin with an underscore (`_`), Craft will return a 404. Craft hides from direct access any template path segments that begin with an underscore.
 
-6. **404**
+5. **404**
 
    If none of the above checks are successful, Craft will return a 404. You can customize your site’s 404 page by placing a `404.html` template at the root of your `craft/templates/` directory.
 

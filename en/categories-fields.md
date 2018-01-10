@@ -1,7 +1,7 @@
 Categories Fields
 =================
 
-Categories fields allow you to relate [categories]({entry:docs/categories}) to the parent element.
+Categories fields allow you to relate [categories](categories.md) to the parent element.
 
 ## Settings
 
@@ -28,7 +28,7 @@ If you have an element with a Categories field in your template, you can access 
 {% set categories = entry.categoriesFieldHandle %}
 ```
 
-That will give you an {entry:templating/elementcriteriamodel:link} object, prepped to output all of the selected categories for the given field. In other words, the line above is really just a shortcut for this:
+That will give you an [element query](element-queries.md), prepped to output all of the selected categories for the given field. In other words, the line above is really just a shortcut for this:
 
 ```twig
 {% set categories = craft.categories({
@@ -37,7 +37,7 @@ That will give you an {entry:templating/elementcriteriamodel:link} object, prepp
 }) %}
 ```
 
-(See {entry:docs/relations:link} for more info on the `relatedTo` param.)
+(See [Relations](relations.md) for more info on the `relatedTo` param.)
 
 ### Examples
 
@@ -91,7 +91,7 @@ If your Categories field is only meant to have a single category selected, remem
 
 ### See Also
 
-* {entry:templating/craft.categories:link}
-* {entry:templating/elementcriteriamodel:link}
-* {entry:templating/categorymodel:link}
-* {entry:docs/relations:link}
+* [Element Queries](element-queries.md)
+* [Category Query Params](element-query-params/category-query-params.md)
+* [craft\elements\Category](https://docs.craftcms.com/api/v3/craft-elements-category.html)
+* [Relations](relations.md)

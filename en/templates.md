@@ -7,14 +7,14 @@ Templates are files that live within your craft/templates folder. The structure 
 
 Craft uses [Twig](http://twig.sensiolabs.org/) to parse your templates. Twig is elegant, powerful, and blazing fast. If you’re new to Twig, be sure to read through our [documentation](twig-primer.md) to familiarize yourself with its syntax.
 
-PHP code isn’t allowed in your templates. If you have a need to do something that is not possible out-of-the-box with Craft or Twig, you can create a [plugin]({entry:plugins/introduction}) that provides a new [template variable]({entry:plugins/variables}).
+PHP code isn’t allowed in your templates. If you have a need to do something that is not possible out-of-the-box with Craft or Twig, you can create a [plugin](plugin-intro.md) that provides a new [Twig extension](https://twig.symfony.com/doc/2.x/advanced.html#creating-an-extension).
 
 ## Template Paths
 
 There are several times when you’ll need to enter a path to one of your templates:
 
-* When choosing which template [entry]({entry:docs/sections-and-entries}) and [category]({entry:docs/categories}) URLs should load
-* When assigning a template to a [route]({entry:docs/routing}#dynamic-routes)
+* When choosing which template [entry](sections-and-entries.md) and [category](categories.md) URLs should load
+* When assigning a template to a [route](routing.md#dynamic-routes)
 * Within [`{% include %}`](http://twig.sensiolabs.org/doc/tags/include.html), [`{% extends %}`](http://twig.sensiolabs.org/doc/tags/extends.html), and [`{% embed %}`](http://twig.sensiolabs.org/doc/tags/embed.html) template tags
 
 Craft has a standard template path format that applies to each of these cases: a Unix-style file system path to the template file, relative from your `craft/templates` directory.
@@ -53,4 +53,4 @@ If you’re running multiple sites with Craft, you can create site-specific subd
 
 For example, if you want to create a special template welcoming your German customers, but there’s no need for it on your English site, then you could save it in `craft/templates/de/welcome.html`. That template would be available from http://example.de/welcome.
 
-Craft will look for localized templates _before_ it looks for templates in the normal location, so you can use them to override non-localized templates. See our [Localization Guide]({entry:docs/localization-guide}) for more details.
+Craft will look for localized templates _before_ it looks for templates in the normal location, so you can use them to override non-localized templates. See our [Localization Guide](sites-localization.md) for more details.

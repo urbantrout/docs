@@ -1,7 +1,7 @@
 Categories
 ==========
 
-You can create taxonomies for your [entries]({entry:docs/sections-and-entries:url}), [users]({entry:docs/users:url}), and [assets]({entry:docs/assets:url}) using Categories.
+You can create taxonomies for your [entries](sections-and-entries.md), [users](users.md), and [assets](assets.md) using Categories.
 
 ## Category Groups
 
@@ -12,7 +12,7 @@ Before you can create categories, you must create Category Groups to contain the
 * Maximum number of levels you can nest categories in the group
 * The format of the category URI
 * Which template should load if a category’s URL is accessed
-* Which [fields]({entry:docs/fields}) categories in the group should have
+* Which [fields](fields.md) categories in the group should have
 
 To create a new category group, go to Settings → Categories and click the “New Category Group” button.
 
@@ -40,6 +40,6 @@ When you create a category, you have the following options:
 
 ## Assigning Categories
 
-To assign categories to things (entries, assets, users, etc.), you must first create a [Categories field]({entry:docs/categories-fields}). 
+To assign categories to things (entries, assets, users, etc.), you must first create a [Categories field](categories-fields.md). 
 
-Each Categories field is connected to a single category group. Whatever you attach the field to will be able to create [relations]({entry:docs/relations}) to any of the categories within that group.
+Each Categories field is connected to a single category group. Whatever you attach the field to will be able to create [relations](relations.md) to any of the categories within that group.

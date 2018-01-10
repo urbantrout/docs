@@ -3,7 +3,7 @@ Users
 
 Craft calls all member accounts of the system “users”.
 
-Craft creates the first user account during [installation]({entry:docs/installing:url}). If you stick with Craft Personal, this is the only account you will be able to create. If you need more, you will need to [upgrade](/pricing) to either Craft Client or Craft Pro, which offer additional user accounts.
+Craft creates the first user account during [installation](installation.md). If you stick with Craft Personal, this is the only account you will be able to create. If you need more, you will need to [upgrade](/pricing) to either Craft Client or Craft Pro, which offer additional user accounts.
 
 ## Admin Accounts
 
@@ -41,7 +41,35 @@ Craft Pro allows you to set permissions on users and groups, such as the ability
 
 The permissions Craft comes with are:
 
-{entry:snippets/user-permissions:body}
+Permission | Handle
+-|-
+Access the site when the system is off | `accessSiteWhenSystemIsOff`
+Access the CP | `accessCp`
+↳  Access the CP when the system is off | `accessCpWhenSystemIsOff`
+↳  Perform Craft and plugin updates | `performUpdates`
+↳  Access _[Plugin Name]_ | `accessPlugin-[PluginHandle]`
+Edit users | `editUsers`
+↳  Register users | `registerUsers`
+↳  Assign permissions | `assignUserPermissions`
+↳  Administrate users | `administrateUsers`
+Delete users | `deleteUsers`
+Edit _[Locale Name]_ | `editLocale:[LocaleID]`
+Edit entries | `editEntries:[SectionID]`
+↳  Create entries | `createEntries:[SectionID]`
+↳  Publish entries | `publishEntries:[SectionID]`
+↳  Delete entries | `deleteEntries:[SectionID]`
+↳  Edit other authors’ entries | `editPeerEntries:[SectionID]`
+      ↳  Publish other authors’ entries | `publishPeerEntries:[SectionID]`
+      ↳  Delete other authors’ entries | `deletePeerEntries:[SectionID]`
+↳  Edit other authors’ drafts | `editPeerEntryDrafts:[SectionID]`
+      ↳  Publish other authors’ drafts | `publishPeerEntryDrafts:[SectionID]`
+      ↳  Delete other authors’ drafts | `deletePeerEntryDrafts:[SectionID]`
+Edit _[Global Set Name]_ | `editGlobalSet:[GlobalSetID]`
+Edit _[Category Group Name]_ | `editCategories:[CategoryGroupID]`
+View _[Asset Source Name]_ | `viewAssetSource:[SourceID]`
+↳  Upload files | `uploadToAssetSource:[SourceID]`
+↳  Create subfolders | `createSubfoldersInAssetSource:[SourceID]`
+↳  Remove files | `removeFromAssetSource:[SourceID]`
 
 ## Public Registration
 
@@ -49,4 +77,4 @@ Craft Pro has the option of allowing public user registration, which is disabled
 
 To enable public registration, go to Settings → Users → Settings, and check the “Allow public registration?” setting. With that checked, you will also have the ability to choose a default user group to which Craft will assign the publicly-registered users.
 
-Once you set up your site to allow public user registration, the last step is to create a [user registration form]({entry:templating/user-registration-form}) on your site’s front end.
+Once you set up your site to allow public user registration, the last step is to create a [user registration form](templating/examples/user-registration-form.md) on your site’s front end.

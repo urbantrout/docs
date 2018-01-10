@@ -75,7 +75,7 @@ Assets, Categories, Entries, Users, and Tags each support a `relatedTo` paramete
 
 In its simplest form, you can pass in one of these things to it:
 
-* An {entry:templating/assetfilemodel:link}, {entry:templating/categorymodel:link}, {entry:templating/entrymodel:link}, {entry:templating/usermodel:link}, or {entry:templating/tagmodel:link} object
+* A [craft\elements\Asset](https://docs.craftcms.com/api/v3/craft-elements-asset.html), [craft\elements\Category](https://docs.craftcms.com/api/v3/craft-elements-category.html), [craft\elements\Entry](https://docs.craftcms.com/api/v3/craft-elements-entry.html), [craft\elements\User](https://docs.craftcms.com/api/v3/craft-elements-user.html), or [craft\elements\Tag](https://docs.craftcms.com/api/v3/craft-elements-tag.html) object
 * An element’s ID
 * An array of element objects and/or IDs
 

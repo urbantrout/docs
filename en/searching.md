@@ -90,7 +90,7 @@ Craft supports the following search syntax:
     </tbody>
 </table>
 
-> You can alter the default behavior of search terms with the [defaultSearchTermOptions](config-settings.md#defaultSearchTermOptions) config setting. See [Enabling Fuzzy Search by Default](https://craftcms.com/support/enabling-fuzzy-search-by-default) for more info.
+> You can alter the default behavior of search terms with the [defaultSearchTermOptions](https://docs.craftcms.com/api/v3/craft-config-generalconfig.html#$defaultSearchTermOptions-detail) config setting. See [Enabling Fuzzy Search by Default](https://craftcms.com/support/enabling-fuzzy-search-by-default) for more info.
 
 ## Searching for specific element attributes
 
@@ -149,7 +149,7 @@ You can specify the search query in two different ways:
 }).all() %}
 ```
 
-If you go the latter route, note that the `query` property is required. Beyond that, you can use all of the same keys available to the [defaultSearchTermOptions](config-settings.md#defaultSearchTermOptions) config setting.
+If you go the latter route, note that the `query` property is required. Beyond that, you can use all of the same keys available to the [defaultSearchTermOptions](https://docs.craftcms.com/api/v3/craft-config-generalconfig.html#$defaultSearchTermOptions-detail) config setting.
 
 ### Ordering results by score
 
@@ -164,7 +164,7 @@ You can also set the `order` parameter to `'score'` if you want results ordered 
 
 When you do this, each of the elements returned will have a `searchScore` attribute set, which reveals what their search score was.
 
-> See our [Search Form](https://craftcms.com/docs/templating/search-form) tutorial for a complete example of listing dynamic search results.
+> See our [Search Form](templating/examples/search-form.md) tutorial for a complete example of listing dynamic search results.
 
 ## Rebuilding your Search Indexes
 

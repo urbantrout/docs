@@ -21,12 +21,12 @@ Once you’ve created an element query, you can set parameters on it.
 
 The available parameters varies by element type. Here are the lists of parameters supported by Craft’s built-in element types:
 
-- [Assets](asset-query-params.md)
-- [Categories](category-query-params.md)
-- [Entries](entry-query-params.md)
-- [Matrix blocks](matrix-block-query-params.md)
-- [Tags](tag-query-params.md)
-- [Users](user-query-params.md)
+- [Assets](element-query-params/asset-query-params.md)
+- [Categories](element-query-params/category-query-params.md)
+- [Entries](element-query-params/entry-query-params.md)
+- [Matrix blocks](element-query-params/matrix-block-query-params.md)
+- [Tags](element-query-params/tag-query-params.md)
+- [Users](element-query-params/user-query-params.md)
 
 The parameters should be set with chained method calls, like so:
 

@@ -1,7 +1,7 @@
 Users Fields
 ============
 
-Users fields type allow you relate [users]({entry:docs/users}) to the parent element.
+Users fields type allow you relate [users](users.md) to the parent element.
 
 ## Settings
 
@@ -26,7 +26,7 @@ If you have an element with a Users field in your template, you can access its s
 {% set users = entry.usersFieldHandle %}
 ```
 
-That will give you an {entry:templating/elementcriteriamodel:link} object, prepped to output all of the selected users for the given field. In other words, the line above is really just a shortcut for this:
+That will give you an [element query](element-queries.md), prepped to output all of the selected users for the given field. In other words, the line above is really just a shortcut for this:
 
 ```twig
 {% craft.users({
@@ -36,7 +36,7 @@ That will give you an {entry:templating/elementcriteriamodel:link} object, prepp
 }) %}
 ```
 
-(See {entry:docs/relations:link} for more info on the `relatedTo` param.)
+(See [Relations](relations.md) for more info on the `relatedTo` param.)
 
 ### Examples
 
@@ -90,7 +90,7 @@ If your Users field is only meant to have a single user selected, remember that 
 
 ### See Also
 
-* {entry:templating/craft.users:link}
-* {entry:templating/elementcriteriamodel:link}
-* {entry:templating/usermodel:link}
-* {entry:docs/relations:link}
+* [Element Queries](element-queries.md)
+* [User Query Params](element-query-params/user-query-params.md)
+* [craft\elements\User](https://docs.craftcms.com/api/v3/craft-elements-user.html)
+* [Relations](relations.md)

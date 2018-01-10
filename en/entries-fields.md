@@ -1,7 +1,7 @@
 Entries Fields
 ==============
 
-Entries fields allow you to relate [entries]({entry:docs/sections-and-entries}) to the parent element.
+Entries fields allow you to relate [entries](sections-and-entries.md) to the parent element.
 
 ## Settings
 
@@ -31,7 +31,7 @@ If you have an element with an Entries field in your template, you can access it
 {% set entries = entry.entriesFieldHandle %}
 ```
 
-That will give you an {entry:templating/elementcriteriamodel:link} object, prepped to output all of the selected entries for the given field. In other words, the line above is really just a shortcut for this:
+That will give you an [element query](element-queries.md), prepped to output all of the selected entries for the given field. In other words, the line above is really just a shortcut for this:
 
 ```twig
 {% set entries = craft.entries({
@@ -41,7 +41,7 @@ That will give you an {entry:templating/elementcriteriamodel:link} object, prepp
 }) %}
 ```
 
-(See {entry:docs/relations:link} for more info on the `relatedTo` param.)
+(See [Relations](relations.md) for more info on the `relatedTo` param.)
 
 ### Examples
 
@@ -95,7 +95,7 @@ If your Entries field is only meant to have a single entry selected, remember th
 
 ### See Also
 
-* {entry:templating/craft.entries:link}
-* {entry:templating/elementcriteriamodel:link}
-* {entry:templating/entrymodel:link}
-* {entry:docs/relations:link}
+* [Element Queries](element-queries.md)
+* [Entry Query Params](element-query-params/entry-query-params.md)
+* [craft\elements\Entry](https://docs.craftcms.com/api/v3/craft-elements-entry.html)
+* [Relations](relations.md)

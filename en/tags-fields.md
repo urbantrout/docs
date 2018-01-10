@@ -1,7 +1,7 @@
 Tags Fields
 ===========
 
-Tags fields allow you create [tags]({entry:docs/tags}) and relate them to the parent element.
+Tags fields allow you create [tags](tags.md) and relate them to the parent element.
 
 ## Settings
 
@@ -30,7 +30,7 @@ If you have an element with a Tags field in your template, you can access its se
 {% set tags = entry.tagsFieldHandle %}
 ```
 
-That will give you an {entry:templating/elementcriteriamodel:link} object, prepped to output all of the selected tags for the given field. In other words, the line above is really just a shortcut for this:
+That will give you an [Element Query](element-queries.md), prepped to output all of the selected tags for the given field. In other words, the line above is really just a shortcut for this:
 
 ```twig
 {% set tags = craft.tags({
@@ -40,7 +40,7 @@ That will give you an {entry:templating/elementcriteriamodel:link} object, prepp
 }) %}
 ```
 
-(See {entry:docs/relations:link} for more info on the `relatedTo` param.)
+(See [Relations](relations.md) for more info on the `relatedTo` param.)
 
 ### Examples
 
@@ -94,7 +94,7 @@ If your Tags field is only meant to have a single tag selected, remember that ca
 
 ### See Also
 
-* {entry:templating/craft.tags:link}
-* {entry:templating/elementcriteriamodel:link}
-* {entry:templating/tagmodel:link}
-* {entry:docs/relations:link}
+* [Element Queries](element-queries.md)
+* [Tag Query Params](element-query-params/tag-query-params.md)
+* [craft\elements\Tag](https://docs.craftcms.com/api/v3/craft-elements-tag.html)
+* [Relations](relations.md)
