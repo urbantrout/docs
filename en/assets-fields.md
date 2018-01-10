@@ -140,6 +140,6 @@ If you want your form to allow multiple files being uploaded at once, just add t
 ## See Also
 
 * [Element Queries](element-queries.md)
-* [Asset Query Params](asset-query-params.md)
+* [Asset Query Params](element-query-params/asset-query-params.md)
 * [craft\elements\Asset](https://docs.craftcms.com/api/v3/craft-elements-asset.html)
 * [Relations](relations.md)
