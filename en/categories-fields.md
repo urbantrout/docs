@@ -93,5 +93,5 @@ If your Categories field is only meant to have a single category selected, remem
 
 * [Element Queries](element-queries.md)
 * [Category Query Params](category-query-params.md)
-* [Category Models](templating/variables/categorymodel.md)
+* [craft\elements\Category](https://docs.craftcms.com/api/v3/craft-elements-category.html)
 * [Relations](relations.md)
