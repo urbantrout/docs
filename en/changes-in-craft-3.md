@@ -192,9 +192,6 @@ Or all of them:
 {{ macros.foo() }}
 ```
 
-[Twig 2 also requires](http://twig.sensiolabs.org/doc/1.x/deprecated.html) that you "import macros explicitly in each file where you are using them." Any macros you import in a file are not automatically available in included templates.
-
-
 #### Undefined Blocks
 
 Twig 1 let you call `block()` even for blocks that didn’t exist:
