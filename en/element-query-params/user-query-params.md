@@ -58,4 +58,4 @@ Param                 | Accepts                              | Description
 `username`            | `string\|string[]\|null`             | The username that the resulting users must have
 `where`               | `string\|array`                      | Query condition
 `with`                | `string\|array\|null`                | The eager-loading declaration
-`with`                | `string\|array\|null`                | The eager-loading declaration
+`withStructure`       | `bool\|null`                         | Whether element structure data should automatically be left-joined into the query

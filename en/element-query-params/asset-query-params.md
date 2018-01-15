@@ -61,4 +61,4 @@ Param                 | Accepts                              | Description
 `width`               | `int\|null`                          | The width (in pixels) that the resulting assets must have
 `with`                | `string\|array\|null`                | The eager-loading declaration
 `withStructure`       | `bool\|null`                         | Whether element structure data should automatically be left-joined into the query
-`withStructure`       | `bool\|null`                         | Whether element structure data should automatically be left-joined into the query
+`withTransforms`      | `string\|array\|null`                | The asset transform indexes that should be eager-loaded, if they exist
