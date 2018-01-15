@@ -6,7 +6,7 @@ You can create a Forgot Password form using the following code:
 <form method="post" accept-charset="UTF-8">
     {{ csrfInput() }}
     <input type="hidden" name="action" value="users/send-password-reset-email">
-    <input type="hidden" name="redirect" value="">
+    <input type="hidden" name="redirect" value="{{ ''|hash }}">
 
     <h3><label for="loginName">Username or email</label></h3>
     <input id="loginName" type="text" name="loginName"
