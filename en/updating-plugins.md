@@ -88,13 +88,13 @@ Relevant sections:
 
 The following core service names have changed:
 
-Old             | New
---------------- | ----------------
-`assetSources`  | `volumes`
-`email`         | `mailer`
-`templateCache` | `templateCaches`
-`templates`     | `view`
-`userSession`   | `user`
+| Old             | New
+| --------------- | ----------------
+| `assetSources`  | `volumes`
+| `email`         | `mailer`
+| `templateCache` | `templateCaches`
+| `templates`     | `view`
+| `userSession`   | `user`
 
 ## Translations
 
@@ -823,11 +823,11 @@ Additionally, any `<div class="pane">`s you had should generally lose their `pan
 
 The following Control Panel template hooks have been renamed:
 
-Old                              | New
--------------------------------- | ----------------------------
-`cp.categories.edit.right-pane`  | `cp.categories.edit.details`
-`cp.entries.edit.right-pane`     | `cp.entries.edit.details`
-`cp.users.edit.right-pane`       | `cp.users.edit.details`
+| Old                              | New
+| -------------------------------- | ----------------------------
+| `cp.categories.edit.right-pane`  | `cp.categories.edit.details`
+| `cp.entries.edit.right-pane`     | `cp.entries.edit.details`
+| `cp.users.edit.right-pane`       | `cp.users.edit.details`
 
 ## Resource Requests
 
