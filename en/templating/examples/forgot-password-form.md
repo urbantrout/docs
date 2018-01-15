@@ -5,7 +5,7 @@ You can create a Forgot Password form using the following code:
 ```twig
 <form method="post" accept-charset="UTF-8">
     {{ csrfInput() }}
-    <input type="hidden" name="action" value="users/sendPasswordResetEmail">
+    <input type="hidden" name="action" value="users/send-password-reset-email">
     <input type="hidden" name="redirect" value="">
 
     <h3><label for="loginName">Username or email</label></h3>
