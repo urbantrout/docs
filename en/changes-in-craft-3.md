@@ -172,25 +172,23 @@ Craft 3 uses Twig 2, which has its own breaking changes for templates:
 
 #### Macros
 
+Twig 2 requires that you explicitly import macros in each template where you are using them. They are no longer automatically available if a parent template is including them, or even if they were defined in the same template file.
+
 Twig 1 let you call macros defined by the same template using `_self.macroName()`:
 
 ```twig
+{# Old: #}
 {% macro foo %}...{% endmacro %}
-
 {{ _self.foo() }}
-```
 
-Twig 2 requires you to explicitly import them first:
-
-```twig
-Import just one macro:
-{% from _self import foo %}
-{{ foo() }}
-
-Or all of them:
+{# New: #}
+{% macro foo %}...{% endmacro %}
 {% import _self as macros %}
 {{ macros.foo() }}
 ```
+
+[Twig 2 also requires](http://twig.sensiolabs.org/doc/1.x/deprecated.html) that you "import macros explicitly in each file where you are using them." Any macros you import in a file are not automatically available in included templates.
+
 
 #### Undefined Blocks
 
