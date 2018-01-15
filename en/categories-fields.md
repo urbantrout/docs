@@ -44,7 +44,7 @@ That will give you an [element query](element-queries.md), prepped to output all
 To check if your Categories field has any selected tags, you can use the `length` filter:
 
 ```twig
-{% if entry.categoriesFieldHandle | length %}
+{% if entry.categoriesFieldHandle|length %}
     ...
 {% endif %}
 ```
@@ -62,7 +62,7 @@ Rather than typing “`entry.categoriesFieldHandle`” every time, you can call 
 ```twig
 {% set categories = entry.categoriesFieldHandle %}
 
-{% if categories | length %}
+{% if categories|length %}
 
     <h3>Some great categories</h3>
     {% nav category in categories %}

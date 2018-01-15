@@ -48,7 +48,7 @@ That will give you an [element query](element-queries.md), prepped to output all
 To check if your Entries field has any selected entries, you can use the `length` filter:
 
 ```twig
-{% if entry.entriesFieldHandle | length %}
+{% if entry.entriesFieldHandle|length %}
     ...
 {% endif %}
 ```
@@ -66,7 +66,7 @@ Rather than typing “`entry.entriesFieldHandle`” every time, you can call it 
 ```twig
 {% set entries = entry.entriesFieldHandle %}
 
-{% if entries | length %}
+{% if entries|length %}
 
     <h3>Some great entries</h3>
     {% for entry in entries %}

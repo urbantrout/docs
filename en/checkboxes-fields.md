@@ -19,7 +19,7 @@ Checkboxes fields will show each of the checkbox options as defined in the field
 If you only have one checkbox, and you just want to tell if it has been selected, you can do that using the `length` filter:
 
 ```twig
-{% if entry.checkboxFieldHandle | length %}
+{% if entry.checkboxFieldHandle|length %}
 ```
 
 You can loop through your selected options like so:

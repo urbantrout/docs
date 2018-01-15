@@ -23,6 +23,6 @@ Calling a Plain Text field in your templates will return the value that was ente
 ```twig
 {% if user.bio %}
     <h3>Bio</h3>
-    {{ user.bio | markdown }}
+    {{ user.bio|markdown }}
 {% endif %}
 ```

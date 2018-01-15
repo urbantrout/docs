@@ -47,7 +47,7 @@ Calling the source's relational field handle (`ingredients`) returns an Element 
 If we want to output the ingredients list for a drink recipe, we'd use the following:
 
 ```twig
-{% if drink.ingredients | length %}
+{% if drink.ingredients|length %}
     
     <h3>Ingredients</h3>
     

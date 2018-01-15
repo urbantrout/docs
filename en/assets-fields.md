@@ -74,7 +74,7 @@ That will give you an [element query](element-queries.md), prepped to output all
 To check if your Assets field has any selected assets, you can use the `length` filter:
 
 ```twig
-{% if entry.assetsFieldHandle | length %}
+{% if entry.assetsFieldHandle|length %}
     {% for asset in entry.assetsFieldHandle %}
         {{ asset.url }}
     {% endfor %}
@@ -94,7 +94,7 @@ Rather than typing “`entry.assetsFieldHandle`” every time, you can call it o
 ```twig
 {% set assets = entry.assetsFieldHandle %}
 
-{% if assets | length %}
+{% if assets|length %}
 
     <h3>Some great assets</h3>
     {% for asset in assets %}

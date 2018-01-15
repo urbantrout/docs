@@ -47,7 +47,7 @@ That will give you an [Element Query](element-queries.md), prepped to output all
 To check if your Tags field has any selected tags, you can use the `length` filter:
 
 ```twig
-{% if entry.tagsFieldHandle | length %}
+{% if entry.tagsFieldHandle|length %}
     ...
 {% endif %}
 ```
@@ -65,7 +65,7 @@ Rather than typing “`entry.tagsFieldHandle`” every time, you can call it onc
 ```twig
 {% set tags = entry.tagsFieldHandle %}
 
-{% if tags | length %}
+{% if tags|length %}
 
     <h3>Some great tags</h3>
     {% for tag in tags %}

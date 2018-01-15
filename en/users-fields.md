@@ -43,7 +43,7 @@ That will give you an [element query](element-queries.md), prepped to output all
 To check if your Users field has any selected users, you can use the `length` filter:
 
 ```twig
-{% if entry.usersFieldHandle | length %}
+{% if entry.usersFieldHandle|length %}
     ...
 {% endif %}
 ```
@@ -61,7 +61,7 @@ Rather than typing “`entry.usersFieldHandle`” every time, you can call it on
 ```twig
 {% set users = entry.usersFieldHandle %}
 
-{% if users | length %}
+{% if users|length %}
 
     <h3>Some great users</h3>
     {% for user in users %}

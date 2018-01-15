@@ -28,7 +28,7 @@ Table fields will show the table as configured based on the field settings. You 
 Calling a Table field in your templates will return an array of the rows. Each row is a sub-array which holds each of the columns’ values for that row.
 
 ```twig
-{% if entry.whiskeyTableHandle | length %}
+{% if entry.whiskeyTableHandle|length %}
     <h3>Whiskeys</h3>
 
     <ul>

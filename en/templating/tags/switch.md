@@ -28,7 +28,7 @@ Since all of the conditionals are evaluating the same thing – `matrixBlock.ty
 
     {% case "text" %}
 
-        {{ matrixBlock.textField | markdown }}
+        {{ matrixBlock.textField|markdown }}
 
     {% case "image" %}
 
