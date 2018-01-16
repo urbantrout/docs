@@ -448,10 +448,40 @@ The following methods are now deprecated, and will be removed in Craft 4:
 | `ids(criteria)` | `ids()` (setting criteria params here is now deprecated)
 | `find()`        | `all()`<sup>1</sup>
 | `first()`       | `one()`
-| `last()`        | `nth(query.count() - 1)`
+| `last()`        | `nth(query.count() - 1)` or `orderBy(...).one()` _(see [`last()`](#last))_
 | `total()`       | `count()`
 
 *<sup>1</sup> Looping through an element query as if it’s an array has been deprecated as well, so you will need to start explicitly calling `.all()`.*
+
+#### `last()`
+
+`last()` was deprecated in Craft 3 because it isn’t clear that it needs to run two queries behind the scenes ([`count()`](https://docs.craftcms.com/api/v3/craft-elements-db-elementquery.html#count()-detail) + [`nth()`](https://docs.craftcms.com/api/v3/craft-elements-db-elementquery.html#nth()-detail)).
+
+When replacing calls to `.last()`, one option is to simply replace it with the two query methods that it was already calling internally:
+
+```twig
+{% set query = craft.entries()
+    .section('news') %}
+{% set total = query.count() %}
+{% set last = query.nth(total - 1) %}
+```
+
+While not as elegant as `.last()`, at least the extra SQL query won’t surprise you.
+
+A better approach would be to reverse the query’s order using [`orderBy()`](http://www.yiiframework.com/doc-2.0/yii-db-querytrait.html#orderBy()-detail), and then call [`one()`](https://docs.craftcms.com/api/v3/craft-elements-db-elementquery.html#one()-detail).
+
+```twig
+{% set last = craft.entries()
+    .section('news')
+    .orderBy('postDate desc')
+    .one() '%}
+```
+
+> {tip} You can call [`getRawSql()`] to find out what the current `ORDER BY` SQL clause is, if you’re not sure.
+>
+> ```twig
+> <pre>{{ query.getRawSql() }}</pre>
+> ```
 
 ## Elements
 
