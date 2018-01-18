@@ -473,7 +473,7 @@ A better approach would be to reverse the query’s order using [`orderBy()`](ht
 ```twig
 {% set last = craft.entries()
     .section('news')
-    .orderBy('postDate desc')
+    .orderBy('postDate asc')
     .one() '%}
 ```
 
