@@ -3,33 +3,6 @@
 On top of the template functions that [Twig comes with](http://twig.sensiolabs.org/doc/functions/index.html), Craft provides a few of its own:
 
 
-## `ceil( num )`
-
-Rounds a number up.
-
-```twig
-{{ ceil(42.1) }} => 43
-```
-
-## `floor( num )`
-
-Rounds a number down.
-
-```twig
-{{ floor(42.9) }} => 42
-```
-
-## `csrfInput()`
-
-Returns a hidden CSRF Token input. All sites that have CSRF Protection enabled must include this in each form that submits via POST.
-
-```twig
-<form method="post">
-    {{ csrfInput() }}
-    <!-- ... -->
-</form>
-```
-
 ## `beginBody()`
 
 Outputs any scripts and styles that were registered for the “begin body” position. It should be placed right after your `<body>` tag.
@@ -43,6 +16,25 @@ Outputs any scripts and styles that were registered for the “begin body” pos
 </body>
 ```
 
+## `ceil( num )`
+
+Rounds a number up.
+
+```twig
+{{ ceil(42.1) }} => 43
+```
+
+## `csrfInput()`
+
+Returns a hidden CSRF Token input. All sites that have CSRF Protection enabled must include this in each form that submits via POST.
+
+```twig
+<form method="post">
+    {{ csrfInput() }}
+    <!-- ... -->
+</form>
+```
+
 ## `endBody()`
 
 Outputs any scripts and styles that were registered for the “end body” position. It should be placed right before your `</body>` tag.
@@ -54,6 +46,14 @@ Outputs any scripts and styles that were registered for the “end body” posit
 
     {{ endBody() }}
 </body>
+```
+
+## `floor( num )`
+
+Rounds a number down.
+
+```twig
+{{ floor(42.9) }} => 42
 ```
 
 ## `head()`
