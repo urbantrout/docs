@@ -5,6 +5,7 @@
 - [Database Config](#database-config)
 - [Data Caching Config](#data-caching-config)
 - [Guzzle Config](#guzzle-config)
+- [Aliases](#aliases)
 - [Overriding Volume Settings](#overriding-volume-settings)
 - [URL Rules](#url-rules)
 - [Redactor Configs](#redactor-configs)
@@ -136,6 +137,61 @@ return [
 ```
 
 The options defined here will be passed into new `GuzzleHttp\Client` instances. See [Guzzle’s documentation](http://docs.guzzlephp.org/en/latest/) for a list of available options.
+
+## Aliases
+
+Some settings and functions in Craft support [Yii aliases](http://www.yiiframework.com/doc-2.0/guide-concept-aliases.html), which are basically placeholders for base file system paths and URLs. These include:
+
+- Sites’ Base URL settings
+- Volumes’ Base URL settings
+- Local volumes’ File System Path settings
+- The [resourceBasePath](https://docs.craftcms.com/api/v3/craft-config-generalconfig.html#$resourceBasePath-detail) and [resourceBaseUrl](https://docs.craftcms.com/api/v3/craft-config-generalconfig.html#$resourceBaseUrl-detail) config settings
+- The [svg()](templating/functions.md#svg-svg-sanitize-) Twig function
+
+The following aliases are available out of the box:
+
+| Alias | Description
+| ----- | -----------
+| `@app` | The path to `vendor/craftcms/cms/src/`
+| `@config` | The path to your `config/` folder
+| `@contentMigrations` | The path to your `migrations/` folder
+| `@craft` | The path to `vendor/craftcms/cms/src/`
+| `@lib` | The path to `vendor/craftcms/cms/lib/`
+| `@root` | The root project path (same as the `CRAFT_BASE_PATH` PHP constant)
+| `@runtime` | The path to your `storage/runtime/` folder
+| `@storage` | The path to your `storage/` folder
+| `@templates` | The path to your `templates/` folder
+| `@translations` | The path to your `translations/` folder
+| `@vendor` | The path to your `vendor/` folder
+| `@web` | The URL to the folder that contains the `index.php` file that was loaded for the request
+| `@webroot` | The path to the folder that contains the `index.php` file that was loaded for the request
+
+You can define additional custom aliases using the [aliases](https://docs.craftcms.com/api/v3/craft-config-generalconfig.html#$aliases-detail) config setting. For example, you may wish to create aliases that define the base URL and base path that your asset volumes will live in.
+
+```php
+'aliases' => [
+    '@assetBaseUrl' => 'http://example.com/assets',
+    '@assetBasePath' => '/path/to/web/assets',
+],
+```
+
+With those in place, you could begin your asset volumes’ Base URL and File System Path settings with them, e.g. `@assetBaseUrl/user-photos` and `@assetBasePath/user-photos`.
+
+If you’d like, you can set the alias values with environment variables, either from your `.env` file or somewhere in your environment’s configuration:
+
+```
+ASSET_BASE_URL=http://example.com/assets
+ASSET_BASE_PATH=/path/to/web/assets
+```
+
+Then you can pull them into the alias definitions using [getenv()](http://php.net/manual/en/function.getenv.php):
+
+```php
+'aliases' => [
+    '@assetBaseUrl' => getenv('ASSET_BASE_URL'),
+    '@assetBasePath' => getenv('ASSET_BASE_PATH'),
+],
+```
 
 ## Overriding Volume Settings
 
