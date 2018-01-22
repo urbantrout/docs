@@ -24,6 +24,10 @@ Rounds a number up.
 {{ ceil(42.1) }} => 43
 ```
 
+## `className( object )`
+
+Returns the fully qualified class name of a given object.
+
 ## `csrfInput()`
 
 Returns a hidden CSRF Token input. All sites that have CSRF Protection enabled must include this in each form that submits via POST.
@@ -83,6 +87,10 @@ Returns the smallest number of a given set.
 {{ min(1, 2, 3) }} => 1
 ```
 
+## `redirectInput( url )`
+
+Shortcut for typing `<input type="hidden" name="redirect" value="{{ url|hash }}">`.
+
 ## `round( num )`
 
 Rounds off a number to the closest integer.
@@ -107,6 +115,17 @@ Randomizes the order of the elements within an array.
     </div>
 {% endfor %}
 ```
+
+## `svg( svg, sanitize )`
+
+Returns the contents of a given SVG file.
+
+### Arguments
+
+The `svg()` function has the following arguments:
+
+- **`svg`** – The SVG file path, or an SVG file’s contents.
+- **`sanitize`** – Whether the SVG should be sanitized of any potentially malicious scripts (`true` by default).
 
 ## `url( path, params, protocol, mustShowScriptName )`
 
