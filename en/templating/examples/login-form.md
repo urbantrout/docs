@@ -34,6 +34,6 @@ If you need to login a user from the front-end of your site, you can do so with 
 By default, users will be redirected based on your `postLoginRedirect` config setting value after logging in. You can override that within your login form using a `redirect` param:
 
 ```twig
-<input type="hidden" name="redirect" value="{{ 'some/custom/path'|hash }}">
+{{ redirectInput('some/custom/path') }}
 ```
 

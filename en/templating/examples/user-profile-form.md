@@ -6,7 +6,7 @@ If you want to create a form that is able to edit a user’s own profile, you ca
 <form method="post" accept-charset="UTF-8">
     {{ csrfInput() }}
     <input type="hidden" name="action" value="users/save-user">
-    <input type="hidden" name="redirect" value="{{ ('users/'~currentUser.username)|hash }}">
+    {{ redirectInput('users/'~currentUser.username) }}
     <input type="hidden" name="userId" value="{{ currentUser.id }}">
 
     <label for="location">Location</label>

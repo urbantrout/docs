@@ -18,7 +18,7 @@ You can create a new entry form for the front-end of your site using the followi
 <form method="post" accept-charset="UTF-8">
     {{ csrfInput() }}
     <input type="hidden" name="action" value="entries/save-entry">
-    <input type="hidden" name="redirect" value="{{ 'viewentry/{slug}'|hash }}">
+    {{ redirectInput('viewentry/{slug}') }}
     <input type="hidden" name="sectionId" value="2">
     <input type="hidden" name="enabled" value="1">
 

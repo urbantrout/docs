@@ -8,7 +8,7 @@ Then you can create a registration form on the front end, like this:
 <form method="post" accept-charset="UTF-8">
     {{ csrfInput() }}
     <input type="hidden" name="action" value="users/save-user">
-    <input type="hidden" name="redirect" value="{{ ''|hash }}">
+    {{ redirectInput('') }}
 
     {% macro errorList(errors) %}
         {% if errors %}
