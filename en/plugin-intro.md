@@ -202,7 +202,7 @@ Plugins can provide an icon, which will be visible on the Settings → Plugins p
 
 Plugin icons must be square SVG files, saved as `icon.svg` at the root of your plugin’s source directory (e.g `src/`).
 
-If your plugin has a [Control Panel section](cp-templates.md), you can also give its global nav item a custom icon by saving an `icon-mask.svg` file in the root of your plugin’s source directory. Note that this icon cannot contain strokes, and will always be displayed in a solid color (respecting alpha transparency).
+If your plugin has a [Control Panel section](cp-section.md), you can also give its global nav item a custom icon by saving an `icon-mask.svg` file in the root of your plugin’s source directory. Note that this icon cannot contain strokes, and will always be displayed in a solid color (respecting alpha transparency).
 
 [Yii Modules]: http://www.yiiframework.com/doc-2.0/guide-structure-modules.html
 [models]: http://www.yiiframework.com/doc-2.0/guide-structure-models.html
