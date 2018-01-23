@@ -101,8 +101,6 @@ return array(
 
 Just as with general.php, that `'*'` key is required to trigger multi-environment config support, even if you end up not needing it.
 
----
-
 ## Environment-Specific Variables
 
 Something else that goes hand-in-hand with Craft’s multi-environment config support is the [environmentVariables](config-settings.md#environmentVariables) config setting. The value of this setting is an array of custom variables that can be accessed from various settings within the Control Panel.

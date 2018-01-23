@@ -5,7 +5,7 @@
 -   [About Craft CMS](en/introduction.md)
 -   [Code of Conduct](en/code-of-conduct.md)
 
-## Installing & Updating Craft
+## Installing & Updating
 
 -   [Server Requirements](en/requirements.md)
 -   [Installation](en/installing.md)
