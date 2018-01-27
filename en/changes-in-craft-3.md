@@ -455,9 +455,9 @@ The following methods are now deprecated in Craft 3, and will be completely remo
 
 #### `last()`
 
-`last()` was deprecated in Craft 3 because it isn’t clear that it needs to run two queries behind the scenes (the equivalent of `query.nth(query.count() - 1)`).
+`last()` was deprecated in Craft 3 because it isn’t clear that it needs to run two database queries behind the scenes (the equivalent of `query.nth(query.count() - 1)`).
 
-In most cases you can replace calls to `.last()` with `.inReverse().one()` and get the same result, without the extra query. (`inReverse()` tells the query to reverse the sort direction of all of the `ORDER BY` columns.)
+In most cases you can replace calls to `.last()` with `.inReverse().one()` and get the same result, without the extra database query. (`inReverse()` will reverse the sort direction of all of the `ORDER BY` columns in the generated SQL.)
 
 ```twig
 {# Channel entries are ordered by `postDate DESC` by default, so this will swap
@@ -471,7 +471,7 @@ In most cases you can replace calls to `.last()` with `.inReverse().one()` and g
 
 There are two cases where `inReverse()` won’t work as expected, though:
 
-- when there is no `ORDER BY` clause on the query, therefore nothing to reverse
+- when there is no `ORDER BY` clause in the SQL, therefore nothing to reverse
 - when the `orderBy` param contains a [`yii\db\Expression`](http://www.yiiframework.com/doc-2.0/yii-db-expression.html) object
 
 In those cases, you can just replace the `.last()` call with what it’s already doing internally:
