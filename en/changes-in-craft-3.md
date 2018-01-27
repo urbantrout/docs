@@ -63,7 +63,7 @@ Support for Amazon S3, Rackspace Cloud Files, and Google Cloud Storage have been
 
 ### Config Settings
 
-The following config settings have been deprecated, and will be removed in Craft 4:
+The following config settings have been deprecated in Craft 3, and will be completely removed in Craft 4:
 
 | File          | Old Setting                  | New Setting
 | ------------- | ---------------------------- | -----------------------------
@@ -124,7 +124,7 @@ If you have any URL rules saved in `config/routes.php`, you will need to update 
 
 ## PHP Constants
 
-The following PHP constants have been deprecated, and will no longer be supported in Craft 4:
+The following PHP constants have been deprecated in Craft 3, and will no longer work in Craft 4:
 
 | Old              | New
 | ---------------- | ----------------------------------------
@@ -211,7 +211,7 @@ The following Twig template tags have been removed:
 | ------------------- | -----------------------------------------
 | `{% endpaginate %}` | *(no replacement needed; just delete it)*
 
-The following Twig template tags have been deprecated, and will be removed in Craft 4:
+The following Twig template tags have been deprecated in Craft 3, and will be completely removed in Craft 4:
 
 | Old                             | New
 | ------------------------------- | ---------------------------------------------
@@ -242,7 +242,7 @@ The following template functions have been removed:
 
 *<sup>1</sup> Only available if the `queue` component implements `craft\queue\QueueInterface`.*
 
-The following template functions have been deprecated, and will be removed in Craft 4:
+The following template functions have been deprecated in Craft 3, and will be completely removed in Craft 4:
 
 | Old                                                     | New
 | ------------------------------------------------------- | ---------------------------------------------
@@ -419,7 +419,7 @@ The following params have been removed:
 | Tag          | `set`              | `group`
 | Tag          | `orderBy:"name"`   | `orderBy:"title"`
 
-The following params are now deprecated, and will be removed in Craft 4:
+The following params are now deprecated in Craft 3, and will be completely removed in Craft 4:
 
 | Element Type | Old Param                | New Param
 | ------------ | ------------------------ | ----------------------------
@@ -441,7 +441,7 @@ The following methods have been removed:
 | ----------------------------- | -------------
 | `findElementAtOffset(offset)` | `nth(offset)`
 
-The following methods are now deprecated, and will be removed in Craft 4:
+The following methods are now deprecated in Craft 3, and will be completely removed in Craft 4:
 
 | Old             | New
 | --------------- | --------------------------------------------------------
@@ -491,7 +491,7 @@ The following element properties have been removed:
 | ------------ | ------------ | ------------
 | Tag          | `name`       | `title`
 
-The following element properties have been deprecated, and will be removed in Craft 4:
+The following element properties have been deprecated in Craft 3, and will be completely removed in Craft 4:
 
 | Old      | New
 | -------- | -------------------------------------------
@@ -499,7 +499,7 @@ The following element properties have been deprecated, and will be removed in Cr
 
 ## Models
 
-The following model methods have been deprecated, and will be removed in Craft 4:
+The following model methods have been deprecated in Craft 3, and will be completely removed in Craft 4:
 
 | Old                 | New
 | ------------------- | ------------------------
@@ -507,7 +507,7 @@ The following model methods have been deprecated, and will be removed in Craft 4
 
 ## Locales
 
-The following locale methods have been deprecated, and will be removed in Craft 4:
+The following locale methods have been deprecated in Craft 3, and will be completely removed in Craft 4:
 
 | Old                | New
 | ------------------ | ------------------------------------
