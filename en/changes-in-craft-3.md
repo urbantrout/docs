@@ -16,6 +16,10 @@
 - [Date Formatting](#date-formatting)
 - [Currency Formatting](#currency-formatting)
 - [Element Queries](#element-queries)
+  - [Query Params](#query-params)
+  - [Query Methods](#query-methods)
+  - [Treating Queries as Arrays](#treating-queries-as-arrays)
+  - [`last()`](#last)
 - [Elements](#elements)
 - [Models](#models)
 - [Locales](#locales)
@@ -403,7 +407,7 @@ New:
 
 ## Element Queries
 
-### Params
+### Query Params
 
 The following params have been removed:
 
@@ -433,7 +437,7 @@ The following params are now deprecated in Craft 3, and will be completely remov
 
 Also note that the `limit` param is now set to `null` (no limit) by default, rather than 100.
 
-### Methods
+### Query Methods
 
 The following methods have been removed:
 
@@ -451,9 +455,42 @@ The following methods are now deprecated in Craft 3, and will be completely remo
 | `last()`        | `inReverse().one()` _(see [`last()`](#last))_
 | `total()`       | `count()`
 
-*<sup>1</sup> Looping through an element query as if it’s an array has been deprecated as well, so you will need to start explicitly calling `.all()`.*
+### Treating Queries as Arrays
 
-#### `last()`
+Support for treating element queries as if they’re arrays has been deprecated in Craft 3, and will be completely removed in Craft 4.
+
+When you need to loop over an element query, you should start explicitly calling `.all()`, which will execute the database query and return the array of results:
+
+```twig
+Old:
+{% for entry in craft.entries.section('news') %}...{% endfor %}
+{% for asset in enrty.myAssetsField %}...{% endfor %}
+
+New:
+{% for entry in craft.entries.section('news').all() %}...{% endfor %}
+{% for asset in enrty.myAssetsField.all() %}...{% endfor %}
+```
+
+When you need to to get the total number of results from an element query, you should call the `.count()` method:
+
+```twig
+Old:
+{% set total = craft.entries.section('news')|length %}
+
+New:
+{% set total = craft.entries.section('news').count() %}
+``` 
+
+Alternatively, if you already needed to fetch the actual query results, and you didn’t set the `offset` or `limit` params, you can use the [`|length`](https://twig.symfony.com/doc/2.x/filters/length.html) filter to find the total size of the results array without the need for an extra database query.
+
+```twig
+{% set entries = craft.entries()
+    .section('news')
+    .all() %}
+{% set total = entries|length %}
+```
+
+### `last()`
 
 `last()` was deprecated in Craft 3 because it isn’t clear that it needs to run two database queries behind the scenes (the equivalent of `query.nth(query.count() - 1)`).
 
