@@ -453,7 +453,7 @@ The following methods are now deprecated in Craft 3, and will be completely remo
 | Old             | New
 | --------------- | --------------------------------------------------------
 | `ids(criteria)` | `ids()` (setting criteria params here is now deprecated)
-| `find()`        | `all()`<sup>1</sup>
+| `find()`        | `all()`
 | `first()`       | `one()`
 | `last()`        | `inReverse().one()` _(see [`last()`](#last))_
 | `total()`       | `count()`
