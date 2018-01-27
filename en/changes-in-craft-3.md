@@ -175,11 +175,11 @@ Craft 3 uses Twig 2, which has its own breaking changes for templates:
 Twig 2 requires that you explicitly import macros in each template where you are using them. They are no longer automatically available if a parent template is including them, or even if they were defined in the same template file.
 
 ```twig
-{# Old: #}
+Old:
 {% macro foo %}...{% endmacro %}
 {{ _self.foo() }}
 
-{# New: #}
+New:
 {% macro foo %}...{% endmacro %}
 {% import _self as macros %}
 {{ macros.foo() }}
