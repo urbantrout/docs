@@ -65,6 +65,7 @@ Craft 3 Documentation
 - [Control Panel Section](en/cp-section.md)
 - [Asset Bundles](en/asset-bundles.md)
 - [Services](en/services.md)
+- [Extending Twig](en/extending-twig.md)
 - [Widget Types](en/widget-types.md)
 - [Field Types](en/field-types.md)
 - [Volume Types](en/volume-types.md)
