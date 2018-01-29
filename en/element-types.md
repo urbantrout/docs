@@ -20,6 +20,7 @@ If your plugin needs to provide a new content type, architecting it as an elemen
   - [Element Class](#element-class)
   - [Database Table](#database-table)
   - [Element Query Class](#element-query-class)
+  - [Template Function](#template-function)
 - [Element Content](#element-content)
   - [Titles](#titles)
   - [Custom Fields](#custom-fields)
@@ -223,6 +224,30 @@ Now you’re ready to start querying for elements of your type:
 Product::find()
     ->price(100)
     ->all();
+```
+
+### Template Function
+
+If you want to make it possible for templates to query for your elements, you can create a new template function that returns a new element query. (See [Extending Twig](extending-twig.md) for more details.)
+
+```php
+<?php
+namespace ns\prefix;
+
+use Craft;
+use yii\base\Behavior;
+
+class CraftVariableBehavior extends Behavior
+{
+    public function products($criteria = null): ProductQuery
+    {
+        $query = Product::find();
+        if ($criteria) {
+            Craft::configure($query, $criteria);
+        }
+        return $query;
+    }
+}
 ```
 
 #### `$this->query` vs. `$this->subQuery`
