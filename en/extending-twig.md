@@ -7,12 +7,14 @@ Craft provides two ways for plugins to extend its Twig templating environment.
 
 ## Extend the Global `craft` Variable
 
-The global `craft` template variable can be extended using [behaviors](http://www.yiiframework.com/doc-2.0/guide-concept-behaviors.html) or [services](http://www.yiiframework.com/doc-2.0/guide-concept-service-locator.html).
+The global `craft` template variable is an instance of [craft\web\twig\variables\CraftVariable](https://docs.craftcms.com/api/v3/craft-web-twig-variables-craftvariable.html). So When a template references `craft.entries` or `craft.entries()`, it’s calling [CraftVariable::entries()](https://docs.craftcms.com/api/v3/craft-web-twig-variables-craftvariable.html#entries()-detail) behind the scenes, for example.
+
+`CraftVariable` can be extended by plugins with [behaviors](http://www.yiiframework.com/doc-2.0/guide-concept-behaviors.html) and [services](http://www.yiiframework.com/doc-2.0/guide-concept-service-locator.html). Choosing the right approach depends on what you’re trying to add to it.
 
 - Use a **behavior** to add custom properties or methods directly onto the `craft` variable (e.g. `craft.foo()`).
-- Use a **service** to add a sub-object to the `craft` variable, which will be lazy-loaded the first time it is actually requested by a template (e.g. `craft.foo.*`).
+- Use a **service** to add a sub-object to the `craft` variable, which can be accessed with a custom property name, called the service’s “ID”. (e.g. `craft.foo.*`).
 
-You can attach your behavior or service to the `craft` variable by registering an [`EVENT_INIT`](https://docs.craftcms.com/api/v3/craft-web-twig-variables-craftvariable.html#EVENT_INIT-detail) event handler from your plugin’s `init()` method:
+You can attach your behavior or service to the `CraftVariable` instance by registering an [`EVENT_INIT`](https://docs.craftcms.com/api/v3/craft-web-twig-variables-craftvariable.html#EVENT_INIT-detail) event handler from your plugin’s `init()` method:
 
 ```php
 use craft\web\twig\variables\CraftVariable;
