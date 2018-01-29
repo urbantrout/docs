@@ -22,6 +22,7 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
   - [Table Names](#table-names)
   - [Select Queries](#select-queries)
   - [Operational Queries](#operational-queries)
+- [Element Queries](#element-queries)
 - [Craft Config Settings](#craft-config-settings)
 - [Files](#files)
 - [Events](#events)
@@ -172,6 +173,24 @@ One notable difference is that the helper methods no longer automatically execut
 $result = \Craft::$app->db->createCommand()
     ->insert('{{%tablename}}', $rowData)
     ->execute();
+```
+
+## Element Queries
+
+`ElementCriteriaModel` has been replaced with [Element Queries](element-queries.md) in Craft 3:
+
+```php
+// Old:
+$criteria = craft()->elements->getCriteria(ElementType::Entry);
+$criteria->section = 'news';
+$entries = $criteria->find();
+
+// New:
+use craft\elements\Entry;
+
+$entries = Entry::find()
+    ->section('news')
+    ->all(); 
 ```
 
 ## Craft Config Settings
