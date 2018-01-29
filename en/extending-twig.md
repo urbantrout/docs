@@ -3,7 +3,7 @@
 Craft provides two ways for plugins to extend its Twig templating environment.
 
 - [Extend the Global `craft` Variable](#extend-the-craft-global-variable)
-- [Twig Extensions](#twig-extensions)
+- [Register a Twig Extension](#register-a-twig-extension)
 
 ## Extend the Global `craft` Variable
 
@@ -37,7 +37,7 @@ public function init()
 }
 ```
 
-## Twig Extensions
+## Register a Twig Extension
 
 If you want to add new global variables, functions, filters, tags, operators, or tests to Twig, you can do that by creating a custom [Twig extension](https://twig.symfony.com/doc/2.x/advanced.html#creating-an-extension).
 
