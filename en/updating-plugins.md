@@ -16,6 +16,7 @@ The end result is a faster, leaner, and much more elegant codebase for core deve
 - [Changelogs](#changelogs)
 - [Yii 2](#yii-2)
 - [Service Names](#service-names)
+- [Components](#components)
 - [Translations](#translations)
 - [DB Queries](#db-queries)
   - [Table Names](#table-names)
@@ -95,6 +96,23 @@ The following core service names have changed:
 | `templateCache` | `templateCaches`
 | `templates`     | `view`
 | `userSession`   | `user`
+
+## Components 
+
+Component classes (element types, field types, widget types, etc.) follow a new design pattern in Craft 3.
+
+In Craft 2, each component was represented by two classes: a Model (e.g. `FieldModel`) and a Type (e.g. `PlainTextFieldType`). The Model was the main representation of the component, and defined the common properties that were always going to be there, regardless of the component’s type (e.g. `id`, `name`, and `handle`); whereas the Type was responsible for defining the things that made the particular component type unique (e.g. its input UI).
+
+In Craft 3, component types no longer act as separate, peripheral classes to the Model; they now are one and the same class as the model.
+
+Here’s how it works:
+
+- Any required component methods such as `getInputHtml()` are defined by an interface (e.g. [craft\base\FieldInterface](https://docs.craftcms.com/api/v3/craft-base-fieldinterface.html)).
+- Common properties such as `$handle` are defined by a trait (e.g. [craft\base\FieldTrait](https://docs.craftcms.com/api/v3/craft-base-fieldtrait.html)).
+- A base implementation of the component type is provided by an abstract base class (e.g. [craft\base\Field](https://docs.craftcms.com/api/v3/craft-base-field.html)).
+- The base class is extended by the various component classes (e.g. [craft\fields\PlainText](https://docs.craftcms.com/api/v3/craft-fields-plaintext.html)).
+
+
 
 ## Translations
 
