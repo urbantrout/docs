@@ -226,6 +226,12 @@ Product::find()
     ->all();
 ```
 
+#### `$this->query` vs. `$this->subQuery`
+
+Behind the scenes, `craft\elements\db\ElementQuery` creates two `craft\db\Query` instances: the main query (`$this->query`), and a subquery (`$this->subQuery`). Column selections should go in the main query, and conditions/joins should be applied to the subquery. Ultimately the subquery will become the `FROM` clause of the main query.
+
+The reason for this separation is performance. It allows MySQL/PostgreSQL to figure out exactly which element rows should be fetched before it has to worry about which columns to select, etc., avoiding the need to run expensive condition operations on temporary tables.
+
 ### Template Function
 
 If you want to make it possible for templates to query for your elements, you can create a new template function that returns a new element query. (See [Extending Twig](extending-twig.md) for more details.)
@@ -237,6 +243,9 @@ namespace ns\prefix;
 use Craft;
 use yii\base\Behavior;
 
+/**
+ * Adds a `craft.products()` function to the templates (like `craft.entries()`) 
+ */
 class CraftVariableBehavior extends Behavior
 {
     public function products($criteria = null): ProductQuery
@@ -249,12 +258,6 @@ class CraftVariableBehavior extends Behavior
     }
 }
 ```
-
-#### `$this->query` vs. `$this->subQuery`
-
-Behind the scenes, `craft\elements\db\ElementQuery` creates two `craft\db\Query` instances: the main query (`$this->query`), and a subquery (`$this->subQuery`). Column selections should go in the main query, and conditions/joins should be applied to the subquery. Ultimately the subquery will become the `FROM` clause of the main query.
-
-The reason for this separation is performance. It allows MySQL/PostgreSQL to figure out exactly which element rows should be fetched before it has to worry about which columns to select, etc., avoiding the need to run expensive condition operations on temporary tables.
 
 ## Element Content
 
