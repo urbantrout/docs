@@ -133,10 +133,10 @@ There might be times when you need to factor multiple types of relations into th
 ```twig
 {% set espresso = craft.entries.section('ingredients').slug('espresso').first() %}
 
-{% set cocktails = craft.entries.section('drinks').relatedTo('and',
+{% set cocktails = craft.entries.section('drinks').relatedTo(['and',
     { sourceElement: currentUser, field: 'favoriteDrinks' },
     { targetElement: espresso, field: 'ingredients' }
-).all() %}
+]).all() %}
 ```
 
 That first argument (`'and'`) specified that the query must match _all_ of the relation criteria. You can pass `'or'` instead if you want _any_ of the relation criteria to match.
