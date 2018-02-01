@@ -438,7 +438,23 @@ The following params are now deprecated in Craft 3, and will be completely remov
 | Asset        | `sourceId`               | `volumeId`
 | Matrix Block | `ownerLocale`            | `ownerSite` or `ownerSiteId`
 
-Also note that the `limit` param is now set to `null` (no limit) by default, rather than 100.
+#### `limit` Param
+
+The `limit` param is now set to `null` (no limit) by default, rather than 100.
+
+#### Setting Params to Arrays
+
+If you want to set a param value to an array, you now **must** type out the array brackets.
+
+```twig
+Old:
+{% set query = craft.entries()
+    .relatedTo('and', 1, 2, 3) %}
+
+New:
+{% set query = craft.entries()
+    .relatedTo(['and', 1, 2, 3]) %}
+``` 
 
 ### Query Methods
 
