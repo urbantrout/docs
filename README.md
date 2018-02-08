@@ -2,7 +2,7 @@
 
 ## Introduction
 
--   [About Craft CMS](en/introduction.md)
+-   [About Craft CMS](en/index.md)
 -   [Code of Conduct](en/code-of-conduct.md)
 
 ## Installing & Updating
