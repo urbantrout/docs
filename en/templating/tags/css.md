@@ -1,31 +1,32 @@
 # `{% css %}`
 
-```twig
-{% set myCss %}
-.content {
-    color: {{ entry.textColor }};
-}
-{% endset %}
+The `{% css %}` tag can be used to register a `<style>` tag in the page’s `<head>`.
 
-{% css myCss %}
+```css
+{% css %}
+    .content { 
+        color: {{ entry.textColor }};
+    }
+{% endcss %}
 ```
+
+> {note} The tag calls [yii\web\View::registerCss()](http://www.yiiframework.com/doc-2.0/yii-web-view.html#registerCss()-detail) under the hood, which can also be accessed via the global `view` variable.
+> 
+> ```twig
+> {% set styles = ".content { color: #{entry.textColor}; }" %}
+> {% do view.registerCss(styles) %}
+> ``` 
 
 ## Parameters
 
 The `{% css %}` tag supports the following parameters:
 
-### CSS snippet
+### `with`
 
-A string that defines the CSS that should be included. The string can be typed directly into the tag, or you can set it to a variable beforehand, and just type the variable name.
-
-### `first`
-
-Add `first` at the end of the tag if you want this CSS to be included before any other CSS snippets.
+Any HTML attributes that should be included on the `<style>` tag.
 
 ```twig
-{% css myCss first %}
+{% css with {type: 'text/css'} %}
 ```
 
-## Where does it get output?
-
-Your CSS snippet will be output by the `head()` function. If you aren’t calling that function anywhere, Craft will insert it right before the HTML’s `</head>` tag.
+Attributes will be rendered by [yii\helpers\Html::renderTagAttributes()](http://www.yiiframework.com/doc-2.0/yii-helpers-basehtml.html#renderTagAttributes()-detail).

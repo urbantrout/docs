@@ -1,31 +1,44 @@
 # `{% js %}`
 
-This tag will queue up a Javascript snippet for inclusion on the page.
+The `{% js %}` tag can be used to register a `<script>` tag on the page.
 
-```twig
-{% set myJs %}
-_gaq.push([ "_trackEvent", "Search", "{{ searchTerm|e('js') }}" ]);
-{% endset %}
-
-{% js myJs %}
+```javascript
+{% js %}
+    _gaq.push([
+        "_trackEvent",
+        "Search",
+        "{{ searchTerm|e('js') }}"
+    ]);
+{% endjs %}
 ```
+
+> {note} The tag calls [yii\web\View::registerJs()](http://www.yiiframework.com/doc-2.0/yii-web-view.html#registerJs()-detail) under the hood, which can also be accessed via the global `view` variable.
+> 
+> ```twig
+> {% set script = '_gaq.push(["_trackEvent", "Search", "'~searchTerm|e('js')~'"' %}
+> {% do view.registerJs(styles) %}
+> ``` 
 
 ## Parameters
 
 The `{% js %}` tag supports the following parameters:
 
-### Javascript snippet
+### Position
 
-A string that defines the Javascript that should be included. The string can be typed directly into the tag, or you can set it to a variable beforehand, and just type the variable name.
+You can specify where the `<script>` tag should be added to the page using one of these position keywords:
 
-### `first`
-
-Add `first` at the end of the tag if you want this Javascript to be included before any other Javascript snippets that were included using this tag.
+| Keyword | Description
+| ------- | -----------
+| `at head` | In the page’s `<head>`
+| `at beginBody` | At the beginning of the page’s `<body>`
+| `at endBody` | At the end of the page’s `<body>`
+| `on load` | At the end of the page’s `<body>`, within `jQuery(window).load()`
+| `on ready` | At the end of the page’s `<body>`, within `jQuery(document).ready()`
 
 ```twig
-{% js myJs first %}
+{% js at head %}
 ```
 
-## Where does it get output?
+By default, `at endBody` will be used.
 
-Your Javascript snippet will be output by the `endBody()` function. If you aren’t calling that function anywhere, Craft will insert it right before the HTML’s `</body>` tag.
+> {note} Setting the position to `on load` or `on ready` will cause Craft to load its internal copy of jQuery onto the page (even if the template is already including its own copy), so you should probably avoid using them in front-end templates.
