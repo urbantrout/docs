@@ -2,7 +2,7 @@
 
 Craft requires the following:
 
-* PHP 5.3.0 or later with safe mode disabled
+* PHP 5.3.0 - 7.1.x with safe mode disabled
 * MySQL 5.1.0 or later, with the InnoDB storage engine installed
 * A web server (Apache, Nginx, IIS)
 * A minimum of 32MB of memory allocated to PHP
@@ -10,6 +10,8 @@ Craft requires the following:
 * A minimum of 1MB of database space
 
 > {tip} If you’re using MySQL 5.7.5+, give [this a read](https://craftcms.stackexchange.com/questions/12084/getting-this-sql-error-group-by-incompatible-with-sql-mode-only-full-group-by/12106) and save yourself a headache.
+
+> {note} Craft 2 does not support PHP 7.2 or later. If you want to run PHP 7.2 or later, you will need to install [Craft 3](https://github.com/craftcms/craft).
 
 ## Required PHP Extensions
 
