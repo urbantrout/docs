@@ -1,17 +1,17 @@
 Sites
 ======================
 
-Sites allows you to host multiple sites in a single Craft installation. You can define one or more sites at different domains, using a different set of templates, and different versions of entry content.
+Sites allows you to host multiple websites in a single Craft installation. You can define one or more sites at different domains, using a different set of templates, and different versions of entry content.
 
 The multi-site feature in Craft is designed for sites with similar content structures. You manage the multi-site content at the entry level, with the ability to the enable Sections you want included in a site.
 
 ## Creating a Site
 
-When you install Craft you automatically get a default site. The site name is what you defined at time of installation, and the handle is `default`.
+Every Craft installation starts with one default site. The site name is what you defined at time of installation, and the handle is `default`.
 
 You add additional sites using the Sites settings in Settings -> Sites.
 
-A site has the following attributes:
+Each site has the following attributes:
 
 * Group
 * Name
@@ -28,6 +28,19 @@ Site Groups allow you to organize your sites together by commonality, like langu
 Craft creates the first Site Group for you--named after the default site--and assigns the default site to that group.
 
 Similar to [Field Groups](), Site Groups are for organization only.
+
+You can access the current site's group information using: 
+
+```
+Site ID:            {{ craft.app.getSites.currentSite.id }}
+Site Handle:        {{ craft.app.getSites.currentSite.handle }}
+Site Name:          {{ craft.app.getSites.currentSite.name }}
+Site Language:      {{ craft.app.getSites.currentSite.language }}
+Is Primary Site?:   {{ craft.app.getSites.currentSite.primary }}
+Base URL:           {{ craft.app.getSites.currentSite.baseUrl }}
+
+```
+
 
 ### Language
 
@@ -60,9 +73,9 @@ You can change the Primary site once you create additional sites using the setti
 
 Any additional site can have its own Base URL apart from the URL you defined when creating the first site.
 
-This comes in handy for hosting the site at a different domain instead of in a subdirectory. Instead of using `https://craftcms.com/de`, you can have a different domain like `https://de.craftcms.com` or `https://craftcms.de`.
+This comes in handy for hosting the site at a different domain instead of in a subdirectory. Instead of using `https://craftcms.com/beta`, you can have a different domain like `https://beta.craftcms.com`.
 
-Defining a Base URL for your site requires that you have an additional `web` directory with a different name (like `web-de`), and that you configure your web server to route requests for that domain to the new web directory.
+Defining a Base URL for your site requires that you have an additional `web` directory with a different name (like `web-beta`), and that you configure your web server to route requests for that domain to the new web directory.
 
 
 ## Propagating Entries Across All Enabled Sites
@@ -78,9 +91,9 @@ In this short guide we'll walk through the steps of setting up a new site in Cra
 The first step is to create the new site in the Settings of your Craft installation.
 
 1. Go to Settings -> Sites and click the New Site button.
-2. Choose in which group your site should belong using the drop-down. The group selection won't have any impact on your site's functionality.
+2. Choose the group your site should belong to using the drop-down. The group selection won't have any impact on your site's functionality.
 3. Give your site a name. Craft uses the site name in the Control Panel and you can also display it in your templates using `{{ siteName }}`.
-4. Based on the Site name, Craft will generate a Site Handle. You can edit the Handle if you'd like. The Handle is how you’ll refer to this site in the templates.
+4. Based on the Site name, Craft will generate a Site Handle. You can edit the Handle if you'd like. You will use the Site Handle to refer to this site in the templates.
 5. Choose the language for this site (see above for more information on how you can use languages).
 6. If this site should be the Primary Site, toggle the Is Primary Site? to enable it.
 7. Check the box for "This site has its own base URL" and then put in the Base URL. For our example it'll be `https://beta.craftcms.com`.
@@ -88,8 +101,9 @@ The first step is to create the new site in the Settings of your Craft installat
 
 ### Step 2: Update the Site Sections and Fields
 
-1. Go into each Section of the Craft installation and enable the new site.
+1. Go into each Section of the Craft installation that you want to be available in the new site and enable the new site using the Site Settings table.
 2. Define the Entry URI Format, Template, and Status for the new site in each Section.
+3. Choose whether you want to propagate the entries across all sites. If checked, Craft will create a new entry in every site in the system. If the option is unchecked, Craft will only save the new entry to the site you have currently selected.
  
 ### Step 3: Define Translation Method of Fields
 
