@@ -483,11 +483,11 @@ When you need to loop over an element query, you should start explicitly calling
 ```twig
 Old:
 {% for entry in craft.entries.section('news') %}...{% endfor %}
-{% for asset in enrty.myAssetsField %}...{% endfor %}
+{% for asset in entry.myAssetsField %}...{% endfor %}
 
 New:
 {% for entry in craft.entries.section('news').all() %}...{% endfor %}
-{% for asset in enrty.myAssetsField.all() %}...{% endfor %}
+{% for asset in entry.myAssetsField.all() %}...{% endfor %}
 ```
 
 When you need to to get the total number of results from an element query, you should call the `.count()` method:
