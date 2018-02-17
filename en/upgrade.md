@@ -70,14 +70,16 @@ To set your site up with the same directory structure (including the [PHP dotenv
 
 3. Copy any settings from your old `craft/config/general.php` file into your new project’s `config/general.php` file.
 
-4. Copy your old templates from `craft/templates/` over to your new project’s `templates/` directory.
+4. Copy your old `craft/config/license.key` file into your new project’s `config/` folder.
 
-5. If you had made any changes to your `public/index.php` file, copy them to your new project’s `web/index.php` file.
+5. Copy your old templates from `craft/templates/` over to your new project’s `templates/` directory.
 
-6. Copy any other files in your old `public/` directory into your new project’s `web/` directory.
+6. If you had made any changes to your `public/index.php` file, copy them to your new project’s `web/index.php` file.
 
-7. Update your web server to point to your new project’s `web/` directory.
+7. Copy any other files in your old `public/` directory into your new project’s `web/` directory.
 
-8. Point your browser to your Control Panel URL (e.g. `http://example.dev/admin`). If you see the update prompt, you did everything right! Go ahead and click “Finish up” to update your database.
+8. Update your web server to point to your new project’s `web/` directory.
+
+9. Point your browser to your Control Panel URL (e.g. `http://example.dev/admin`). If you see the update prompt, you did everything right! Go ahead and click “Finish up” to update your database.
 
 Now that you have successfully upgraded your Craft 2 project to Craft 3, please take some time to review the [changes in Craft 3](changes-in-craft-3.md).
