@@ -39,7 +39,7 @@ Craft 3 Documentation
 - [Routing](en/routing.md)
 - [Searching](en/searching.md)
 - [Sites](en/sites.md)
-- Localization
+- [Localization](en/localization.md)
 - [Element Queries](en/element-queries.md)
 - [Content Migrations](en/content-migrations.md)
 - [Configuration](en/configuration.md)
