@@ -27,7 +27,7 @@ Site Groups allow you to organize your sites together by commonality, like langu
 
 Craft creates the first Site Group for you--named after the default site--and assigns the default site to that group.
 
-Similar to [Field Groups](), Site Groups are for organization only.
+Similar to Field Groups, Site Groups are for organization only.
 
 You can access the current site's group information using: 
 
@@ -38,7 +38,6 @@ Site Name:          {{ craft.app.getSites.currentSite.name }}
 Site Language:      {{ craft.app.getSites.currentSite.language }}
 Is Primary Site?:   {{ craft.app.getSites.currentSite.primary }}
 Base URL:           {{ craft.app.getSites.currentSite.baseUrl }}
-
 ```
 
 
@@ -67,20 +66,26 @@ where your template name would be, for example, `_share/footer-de`.
 
 Craft sets the default site as the Primary site, meaning Craft will load it by default on the front end. If you only have one site then you cannot disable it as the Primary site. 
 
-You can change the Primary site once you create additional sites using the settings for the new site. Craft will automatically toggle the current Primary site.
+You can change the Primary site once you create additional sites. Craft will automatically toggle the current Primary site.
 
 ### Site URL
 
-Any additional site can have its own Base URL apart from the URL you defined when creating the first site.
+Additional sites can have their own Base URL apart from the URL you defined when creating the first site.
 
 This comes in handy for hosting the site at a different domain instead of in a subdirectory. Instead of using `https://craftcms.com/beta`, you can have a different domain like `https://beta.craftcms.com`.
 
-Defining a Base URL for your site requires that you have an additional `web` directory with a different name (like `web-beta`), and that you configure your web server to route requests for that domain to the new web directory.
+Defining an additional site requires only that your chosen domain name has its DNS records pointing at the server, as well as the web server pointing at the `web` directory for that domain.
+
+You do not need to create additional `web` directories for new sites.
 
 
 ## Propagating Entries Across All Enabled Sites
 
-In the settings for each Channel or Structure Section is an option to propagate entries in that section across all sites. When enabled, Craft will create the new entry in each site enabled for that section using the submitted content.
+In the settings for each Channel or Structure Section is an option to propagate entries in that section across all sites. This is enabled by default.
+
+When enabled, Craft will create the new entry in each site enabled for that section using the submitted content.
+
+If you would like the section's content to be separate then disable this option for that section.
 
 ## Guide: Setting Up a New Site
 
@@ -99,13 +104,17 @@ The first step is to create the new site in the Settings of your Craft installat
 7. Check the box for "This site has its own base URL" and then put in the Base URL. For our example it'll be `https://beta.craftcms.com`.
 8. Save the new site.
 
-### Step 2: Update the Site Sections and Fields
+### Step 2: Create Template Directories
+
+Create the template directories and templates for your new site. We reommend you have template directories named after the sites handles (e.g. `templates/default` and `templates/beta`). You store the site-specific templates in each site template directory.
+
+### Step 3: Update the Site Sections and Fields
 
 1. Go into each Section of the Craft installation that you want to be available in the new site and enable the new site using the Site Settings table.
 2. Define the Entry URI Format, Template, and Status for the new site in each Section.
 3. Choose whether you want to propagate the entries across all sites. If checked, Craft will create a new entry in every site in the system. If the option is unchecked, Craft will only save the new entry to the site you have currently selected.
  
-### Step 3: Define Translation Method of Fields
+### Step 4: Define Translation Method of Fields
 
 By default, your custom fields will store values on a per-site basis. If you have a Body field, each site can store its only content in that field. 
 
@@ -113,36 +122,18 @@ If your site has a different language than your default language then you will n
 
 To set the Translation Method, go into each field you'd like to translate and choose the appropriate option under Translation Method.
 
-### Step 4: Test Your Settings
+### Step 5: Test Your Settings
 
 Using new or existing entries, test that the Section, Field, and Translation Method settings work as you expect.
-
-### Step 5: Creating a Web Directory
-
-Now that we have our site created in the Craft Control Panel, we now need to make some changes to our files and directories to support the new site.
-
-1. We need our web server to point to a web directory for this new site. Duplicate the existing `web` and name it something unique. In this example we'll use `web-beta`.
-2. Edit the `index.php` file in the newly created `web-beta` directory (remember, we duplicated the existing `web` directory), adding this line near the top: `define('CRAFT_SITE', 'beta');` The name `beta` is the handle of the site we just created in the Control Panel.
-
-This set up creates this directory structure:
-
-```
-web/                   --> craftcms.com/
-    .htaccess
-    index.php
-web-beta/              --> beta.craftcms.com/
-    .htaccess
-    index.php
-```
 
 ### Step 6: Check Your Asset Volumes Settings
 
 If you have any local asset volumes, you will need to make sure those assets are available from each of your sites.
 
-* The File System Path settings should be absolute (/full/path/to/example.com/images/).
-* The URL settings should be absolute (http://example.com/images/) or protocol-relative (//example.com/images/).
+* The File System Path settings should be relative (`uploads/images/`).
+* The URL settings should be relative (`/images`)
 
 ### Step 7: Configure Your Web Server and DNS
 
-1. Configure your web server so the domain (e.g. `beta.craftcms.com`) points at the new web directory.
+1. Configure your web server so the domain (e.g. `beta.craftcms.com`) points at the `web` directory. Craft will automatically detect which site the browser is requesting.
 2. Update your DNS records so the domain points at the web server.
