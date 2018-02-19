@@ -1,7 +1,7 @@
 Guide: Setting Up a Localized Site
 =============
 
-This guide will walk you through all of the steps that are typically involved in setting up a localized site, using Craft’s deep localization features.
+This guide will walk you through all of the steps that are typically involved in setting up a localized site, using Craft’s multi-site feature and translation support.
 
 ## Step 1: Defining Your Sites and Languages
 
