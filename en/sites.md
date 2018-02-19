@@ -1,7 +1,7 @@
 Sites
 ======================
 
-In Craft 3 you can host multiple websites in a single Craft installation. The multi-site feature in Craft is designed for sites with similar content structures. 
+In Craft 3 you can host multiple websites in a single Craft installation. The multi-site feature in Craft is designed for sites with the same publishing team. 
 
 You can define one or more sites at different domains, using a different set of templates, and different versions of entry content. You manage the multi-site content at the entry level, with the ability to the enable Sections you want included in a site.
 
