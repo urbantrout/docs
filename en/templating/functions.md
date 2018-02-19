@@ -9,7 +9,7 @@ Outputs any scripts and styles that were registered for the “begin body” pos
 
 ```twig
 <body>
-    {{ endBody() }}
+    {{ beginBody() }}
 
     <h1>{{ page.name }}</h1>
     {{ page.body }}
