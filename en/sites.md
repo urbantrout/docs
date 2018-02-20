@@ -1,9 +1,11 @@
 Sites
 ======================
 
-In Craft 3 you can host multiple websites in a single Craft installation. The multi-site feature in Craft is designed for sites with the same publishing team. 
+In Craft 3 you can host multiple websites in a single Craft installation.
 
-You can define one or more sites at different domains, using a different set of templates, and different versions of entry content. You manage the multi-site content at the entry level, with the ability to the enable Sections you want included in a site.
+You can define one or more sites at different domains, using a different set of templates, and different versions of entry content. 
+
+The multi-site feature in Craft is for sites with the same publishing team. You manage the multi-site content at the entry level, with the ability to the enable Sections you want included in a site.
 
 ## Creating a Site
 
@@ -106,11 +108,13 @@ The first step is to create the new site in the Settings of your Craft installat
 
 ### Step 2: Create Template Directories
 
-Create the template directories and templates for your new site. We reommend you have template directories named after the sites handles (e.g. `templates/default` and `templates/beta`). You store the site-specific templates in each site template directory.
+Create the template directories and templates for your new site. 
+
+We recommend you have template directories named after the sites handles (e.g. `templates/default` and `templates/beta`). You store the site-specific templates in each site template directory.
 
 ### Step 3: Update the Site Sections and Fields
 
-1. Go into each Section of the Craft installation that you want to be available in the new site and enable the new site using the Site Settings table.
+1. Go into each Section that you want to be available in the new site and enable the site using the Site Settings table.
 2. Define the Entry URI Format, Template, and Status for the new site in each Section.
 3. Choose whether you want to propagate the entries across all sites. If checked, Craft will create a new entry in every site in the system. If the option is unchecked, Craft will only save the new entry to the site you have currently selected.
  
