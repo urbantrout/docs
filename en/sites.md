@@ -83,7 +83,7 @@ You do not need to create additional `web` directories for new sites.
 
 ## Propagating Entries Across All Enabled Sites
 
-In the settings for each Channel or Structure Section is an option to propagate entries in that section across all sites. This is enabled by default.
+In the settings for each Channel Section is an option to propagate entries in that section across all sites. This is enabled by default, and is the only option for Single and Structure sections.
 
 When enabled, Craft will create the new entry in each site enabled for that section using the submitted content.
 
