@@ -34,12 +34,12 @@ Similar to Field Groups, Site Groups are for organization only.
 You can access the current site's group information using: 
 
 ```
-Site ID:            {{ craft.app.getSites.currentSite.id }}
-Site Handle:        {{ craft.app.getSites.currentSite.handle }}
-Site Name:          {{ craft.app.getSites.currentSite.name }}
-Site Language:      {{ craft.app.getSites.currentSite.language }}
-Is Primary Site?:   {{ craft.app.getSites.currentSite.primary }}
-Base URL:           {{ craft.app.getSites.currentSite.baseUrl }}
+Site ID:            {{ currentSite.id }}
+Site Handle:        {{ currentSite.handle }}
+Site Name:          {{ currentSite.name }}
+Site Language:      {{ currentSite.language }}
+Is Primary Site?:   {{ currentSite.primary }}
+Base URL:           {{ currentSite.baseUrl }}
 ```
 
 
