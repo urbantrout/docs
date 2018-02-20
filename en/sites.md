@@ -11,7 +11,7 @@ The multi-site feature in Craft is for sites with the same publishing team. You 
 
 Every Craft installation starts with one default site. The site name is what you defined at time of installation, and the handle is `default`.
 
-You add additional sites using the Sites settings in Settings -> Sites.
+You add additional sites using the Sites settings in Settings → Sites.
 
 Each site has the following attributes:
 
@@ -97,7 +97,7 @@ In this short guide we'll walk through the steps of setting up a new site in Cra
 
 The first step is to create the new site in the Settings of your Craft installation.
 
-1. Go to Settings -> Sites and click the New Site button.
+1. Go to Settings → Sites and click the New Site button.
 2. Choose the group your site should belong to using the drop-down. The group selection won't have any impact on your site's functionality.
 3. Give your site a name. Craft uses the site name in the Control Panel and you can also display it in your templates using `{{ siteName }}`.
 4. Based on the Site name, Craft will generate a Site Handle. You can edit the Handle if you'd like. You will use the Site Handle to refer to this site in the templates.

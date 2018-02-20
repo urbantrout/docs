@@ -9,11 +9,11 @@ The first step to creating localized site is to decide the languages you need to
 
 ## Step 2: Update Your Sections
 
-After creating a new site for a language, enable the new site in each Section. In Settings -> Sections, go into each section settings you want included in the localized site and enable the site in the Site Settings. Fill out the Entry URI Format (for Channel and Structure sections) or URI (for Single sections) to reflect how you want the URIs structured for that site.
+After creating a new site for a language, enable the new site in each Section. In Settings → Sections, go into each section settings you want included in the localized site and enable the site in the Site Settings. Fill out the Entry URI Format (for Channel and Structure sections) or URI (for Single sections) to reflect how you want the URIs structured for that site.
 
 ## Step 3: Define Your Translatable Fields
 
-In Settings -> Fields, choose the fields you want to have translatable. Under Translation Method, choose "Translate for each language."
+In Settings → Fields, choose the fields you want to have translatable. Under Translation Method, choose "Translate for each language."
 
 Craft will allow you to update this field's content in each entry on a per-language basis. 
 
