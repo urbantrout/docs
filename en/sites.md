@@ -45,7 +45,7 @@ Base URL:           {{ currentSite.baseUrl }}
 
 ### Language
 
-Choosing the language for the site tells Craft the language to use when generating date and time formatting and system messages.
+Choosing the language for the site tells Craft the language to use when formatting dates, times, and numbers, and translating static messages.
 
 In your templates, you can also access the language setting via `craft.app.language`. You can use this in a conditional:
 
@@ -66,7 +66,7 @@ where your template name would be, for example, `_share/footer-de`.
 
 ### Primary Site
 
-Craft sets the default site as the Primary site, meaning Craft will load it by default on the front end. If you only have one site then you cannot disable it as the Primary site. 
+Craft sets the default site as the Primary site, meaning Craft will load it by default on the front end, if it is unable to determine which site to load. If you only have one site then you cannot disable it as the Primary site. 
 
 You can change the Primary site once you create additional sites. Craft will automatically toggle the current Primary site.
 
@@ -78,7 +78,7 @@ This comes in handy for hosting the site at a different domain instead of in a s
 
 Defining an additional site requires only that your chosen domain name has its DNS records pointing at the server, as well as the web server pointing at the `web` directory for that domain.
 
-You do not need to create additional `web` directories for new sites.
+Craft doesn’t require you to create additional `web` directories for new sites, though it’s fine if you need to.
 
 
 ## Propagating Entries Across All Enabled Sites
