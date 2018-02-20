@@ -27,7 +27,7 @@ Each site has the following attributes:
 
 Site Groups allow you to organize your sites together by commonality, like language or site type.
 
-Craft creates the first Site Group for you--named after the default site--and assigns the default site to that group.
+Craft creates the first Site Group for you – named after the default site – and assigns the default site to that group.
 
 Similar to Field Groups, Site Groups are for organization only.
 

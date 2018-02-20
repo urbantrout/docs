@@ -10,7 +10,7 @@ Here is how Craft handles each request:
 
 0. **Should Craft handle this request in the first place?**
 
-   It’s important to keep in mind that Craft doesn’t actually get involved for *every* request that touches your server--only requests that go to your `index.php` file.
+   It’s important to keep in mind that Craft doesn’t actually get involved for *every* request that touches your server – only requests that go to your `index.php` file.
 
    The `.htaccess` file that [comes with Craft](https://craftcms.com/support/remove-index.php) will redirect all would-be 404 requests over to `index.php` behind the scenes. Because of this Craft responds to URLs that don’t point to a valid directory or file in your web root. But if you point your browser directly at a file that *does* exist (such as an image URL), your web server will serve that file directly without Craft intervening.
 
