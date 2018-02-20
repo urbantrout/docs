@@ -3,6 +3,14 @@
 On top of the template functions that [Twig comes with](http://twig.sensiolabs.org/doc/functions/index.html), Craft provides a few of its own:
 
 
+## `alias( string )`
+
+Passes a string through [Craft::getAlias()](http://www.yiiframework.com/doc-2.0/yii-baseyii.html#getAlias()-detail), which will check if the string begins with an [alias](http://www.yiiframework.com/doc-2.0/guide-concept-aliases.html). (See [Configuration](../configuration.md#aliases) for more info.)
+
+```twig
+<img src="{{ alias('@assetBaseUrl/images/logo.png') }}">
+```
+
 ## `beginBody()`
 
 Outputs any scripts and styles that were registered for the “begin body” position. It should be placed right after your `<body>` tag.
@@ -27,6 +35,15 @@ Rounds a number up.
 ## `className( object )`
 
 Returns the fully qualified class name of a given object.
+
+## `clone( object )`
+
+Clones a given object.
+
+```twig
+{% set query = craft.entries.section('news') %}
+{% set articles = clone(query).type('articles') %}
+```
 
 ## `csrfInput()`
 
