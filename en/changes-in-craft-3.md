@@ -456,6 +456,39 @@ New:
     .relatedTo(['and', 1, 2, 3]) %}
 ``` 
 
+#### Cloning Element Queries
+
+In Craft 2, each time you call a parameter-setter method (e.g. `.type('article')`), the method would:
+
+1. clone the `ElementCriteriaModel` object
+2. set the parameter value on the cloned object
+3. return the cloned object
+
+That made it possible to execute variations of an element query, without affecting subsequent queries. For example:
+
+```twig
+{% set query = craft.entries.section('news') %}
+{% set articleEntries = query.type('article').find() %}
+{% set totalEntries = query.total() %}
+```
+
+Here `.type()` is applying the `type` parameter to a _clone_ of `query`, so it had no effect on `query.total()`, which will still return the total number of News entries, regardless of their entry types.
+
+This behavior has changed in Craft 3, though. Now any time you call a parameter-setter method, the method will:
+
+1. set the parameter value on the current element query
+2. return the element query
+
+Which means in the above code example, `totalEntries` will be set to the total _Article_ entries, as the `type` parameter will still be applied.
+
+If you have any templates that count on the Craft 2 behavior, you can fix them using the [clone()](templating/functions.md#clone-object) function.
+
+```twig
+{% set query = craft.entries.section('news') %}
+{% set articleEntries = clone(query).type('article').all() %}
+{% set totalEntries = query.count() %}
+```
+
 ### Query Methods
 
 The following methods have been removed:
