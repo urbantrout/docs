@@ -77,6 +77,14 @@ Rounds a number down.
 {{ floor(42.9) }} => 42
 ```
 
+## `getenv( name )`
+
+Returns the value of an environment variable.
+
+```twig
+{{ getenv('MAPS_API_KEY') }}
+```
+
 ## `head()`
 
 Outputs any scripts and styles that were registered for the “head” position. It shoul be placed right before your `</head>` tag. 
