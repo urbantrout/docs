@@ -20,7 +20,7 @@ The user account you create during installation is an admin by default.
 
 Craft Client allows you to add one additional user account to the system: the “Client’s Account”. You can create the Client’s Account via the Account menu in the top-right of the Control Panel:
 
-![clients-account](https://craftcmsassets.craftcdn.com/images/docs/clients-account.jpg)
+<img src="assets/clients-account.jpg" width="186" alt="Clients Account.">
 
 The first time you click that option, you will be taken to a registration page where you can create the Client’s Account. Once it’s been created, it will take you to their account settings page instead.
 
@@ -76,6 +76,6 @@ View _[Asset Source Name]_ | `viewAssetSource:[SourceID]`
 
 Craft Pro has the option of allowing public user registration. It is not enabled by default, though. To enable it, you must go to Settings → Users → Settings, and check the “Allow public registration?” setting. With that checked, you will also be given the ability to choose a default user group that publicly-registered users are assigned to.
 
-![users-settings-publicregistration.2x](https://craftcmsassets.craftcdn.com/images/docs/users-settings-publicregistration.2x.jpg)
+<img src="assets/users-settings-publicregistration.2x.jpg" width="432" alt="Users Settings Public Registration 2x.">
 
 Once your site is set up to allow public user registration, the last step is to create a [user registration form](templating/user-registration-form.md) on your site’s front end.
