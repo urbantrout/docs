@@ -8,9 +8,9 @@
 
 ## 0. Introduction
 
-Craft 3 is available as a [Composer] package, and for the duration of the Beta, Composer is the only way to install Craft 3. (We’ll introduce an alternate, non-Composer installation method once it’s out of Beta.) 
+Craft 3 is available as a [Composer] package. If you’re unfamiliar with Composer, it’s a package manager (like npm) that attempts to make installing and updating PHP libraries easy via terminal commands.
 
-If you’re unfamiliar with Composer it’s a package manager for PHP that attempts to make installing and updating PHP libraries (like Craft) easy via the command line.
+> {note} An alternate installation method that forgoes Composer is in the works, and should be ready by the time Craft 3.0 GA is released. It’s still a good idea to start familiarizing yourself with Composer though!
 
 Craft’s Composer support has two parts:
 
