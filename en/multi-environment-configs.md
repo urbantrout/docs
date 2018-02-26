@@ -146,7 +146,7 @@ return array(
 
 With those environment variables in place, we can now go into our asset source settings and type in some tags with corresponding names:
 
-![environment-variables.2x](https://craftcmsassets.craftcdn.com/images/docs/environment-variables.2x.png)
+<img src="assets/environment-variables.2x.png" width="527" alt="Environment Variables 2x.">
 
 That’s it! And the next time you need to create an asset source, you’ll be able to re-use the same `{basePath}` and `{baseUrl}` tags again – no need to manage several different asset sources’ settings individually from your config.
 
