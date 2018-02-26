@@ -94,7 +94,7 @@ Once you’ve finished setting your DB config settings, save the file and close 
 
 Now that everything’s set up, point your browser to <http://example.com/admin>. If you see a monkey in your browser, you’ve done everything right!
 
-![install1](https://craftcmsassets.craftcdn.com/images/docs/install1.png)
+<img src="assets/install1.png" width="509" alt="Install Image 1.">
 
 No monkey? Here’s a couple tips:
 
@@ -103,19 +103,19 @@ No monkey? Here’s a couple tips:
 
 The first step of the installer is to create a user account. Don’t be one of *those* people and be sure to pick a strong password.
 
-![install2](https://craftcmsassets.craftcdn.com/images/docs/install2.png)
+<img src="assets/install2.png" width="509" alt="Install Image 2.">
 
 The next screen will have you define the basic info about your site.
 
-![install3](https://craftcmsassets.craftcdn.com/images/docs/install3.png)
+<img src="assets/install3.png" width="509" alt="Install Image 3.">
 
 Click the “Finish up” button and let the installer do its thing. A few seconds later, you should have a working Craft install!
 
-![install4](https://craftcmsassets.craftcdn.com/images/docs/install4.png)
+<img src="assets/install4.png" width="509" alt="Install Image 4.">
 
 Click “Go to Craft” and you’ll get taken straight to the dashboard.
 
-![install5](https://craftcmsassets.craftcdn.com/images/docs/install5.png)
+<img src="assets/install5.png" width="502" alt="Install Image 5.">
 
 Congratulations, you’ve just installed Craft!
 
