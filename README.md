@@ -21,7 +21,6 @@ Craft 3 Documentation
 ## Getting Started
 
 - [The Pieces of Craft](en/the-pieces-of-craft.md)
-- Planning Your Craft Site
 - [Directory Structure](en/directory-structure.md)
 
 ## Core Concepts
