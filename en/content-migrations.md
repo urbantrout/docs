@@ -6,7 +6,7 @@ Enter content migrations. Content migrations are [migrations](http://www.yiifram
 
 ## Creating Migrations
 
-To create a new migration, open up your terminal and go to a Craft project that your plugin is installed in:
+To create a new migration, open up your terminal and go to your Craft project:
 
     cd /path/to/project
 
