@@ -30,7 +30,9 @@ If you have at least one category group, there will be a “Categories” tab in
 
 ![Category Index](images/categories-category-index.png)
 
-> {tip} Double-clicking on a category will bring up a modal that lets you edit its name, slug, and any fields you’ve assigned to the group.
+Double-clicking on a category will bring up a modal that lets you edit its name, slug, and any fields you’ve assigned to the group.
+
+![Category Edit Modal](images/categories-edit-popup.png)
 
 When you create a category, you have the following options:
 
