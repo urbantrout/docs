@@ -2,7 +2,7 @@ How to Use the Documentation
 ============================
 We created this documentation to accurately record the functionality of Craft with the purpose of helping you understand how to use it to build websites. This documentation is for you.
 
-The Craft documentation is set up to help you as you get started with Craft, as well as an ongoing reference from your first website build and beyond.
+Most sections of the documentation have detailed examples of how to use the concept we're covering. They are there to help contextualize the Craft feature and make it easier for you to understand how to implement it on your own site.
 
 How you use the documentation will depend on your experience and situation.
 
@@ -21,5 +21,3 @@ If you're familiar with Craft already but don't know where to start when it come
 For projects that require upgrading a current Craft 2 project to Craft 3, review the [Craft 2 Upgrade documentation](upgrade.md).
 
 If you are starting a Craft 3 project from scratch, review the [Craft 3 Installation instructions](installation.md). There are new requirements for running Craft 3 and a new installation process, too.
-
-Most sections of the documentation have detailed examples of how to use the concept we're covering. They are there to help contextualize the Craft feature and make it easier for you to understand how to implement it on your own site.
