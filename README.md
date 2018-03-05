@@ -5,7 +5,7 @@ Craft 3 Documentation
 
 - [About Craft CMS](en/introduction.md)
 - [Code of Conduct](en/coc.md)
-- How to Use the Documentation
+- [How to Use the Documentation](en/how-to-use-docs.md)
 
 ## Installing Craft
 
