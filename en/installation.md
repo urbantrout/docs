@@ -5,6 +5,7 @@
 - [2. Create a New Craft Project](#2-create-a-new-craft-project)
 - [3. Set up the Database](#3-set-up-the-database)
 - [4. Set up the Web Server](#4-set-up-the-web-server)
+- [5. Run the installer!](#-5-run-the-installer)
 
 ## 0. Introduction
 
