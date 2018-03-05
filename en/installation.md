@@ -91,7 +91,9 @@ If you’re not using [MAMP](https://mamp.info) or another localhosting tool, yo
 
 ## 5. Run the installer!
 
-You can test whether you set everything up correctly by pointing your web browser to `http://HOSTNAME/index.php?p=admin` (substituting `HOSTNAME` with your new web server’s host name). 
+You can test whether you set everything up correctly by pointing your web browser to `http://HOSTNAME/index.php?p=admin` (substituting `HOSTNAME` with your new web server’s host name).
+
+> Tip: Want to install Craft from the command line? [Check out the Craft setup command](#setup-from-the-command-line).
 
 If successful, you will get the Craft installation wizard. The wizard will take you through a couple setup screens, and then perform the installation of Craft.
 
@@ -128,6 +130,18 @@ If it was successful, Craft will redirect your browser to the Control Panel dash
 Congratulations, you’ve just installed Craft!
 
 Now get back to work.
+
+## Setup from the Command Line
+
+In lieu of using the web browser to run the Craft installer, you can set up Craft from the command line.
+
+After successfully creating a new project via Composer, you'll see a link to the Craft `setup` command.
+
+![Craft Setup from the Command Line](images/installation-command-line.png )
+
+`$ ./craft setup`
+
+This command will run you through a similar wizard as in the web browser but all from the command line. Once you've completed the setup process you can right to the control panel to log in. 
 
 ## Additional Resources
 

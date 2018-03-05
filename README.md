@@ -52,7 +52,7 @@ Craft 3 Documentation
 - Querying Elements
 - Variables
 - More
-- Examples
+- [Common Examples](en/templating/examples)
 
 
 ## Plugin Development
