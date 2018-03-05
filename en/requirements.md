@@ -11,8 +11,6 @@ Craft requires the following:
 
 > {tip} If you’re using MySQL 5.7.5+, give [this a read](https://craftcms.stackexchange.com/questions/12084/getting-this-sql-error-group-by-incompatible-with-sql-mode-only-full-group-by/12106) and save yourself a headache.
 
-<!-- -->
-
 > {note} Craft 2 does not support PHP 7.2 or later. If you want to run PHP 7.2 or later, you will need to install [Craft 3](https://github.com/craftcms/craft).
 
 ## Required PHP Extensions
