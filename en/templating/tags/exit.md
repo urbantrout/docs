@@ -1,6 +1,6 @@
 # `{% exit %}`
 
-This tag will preventing the rest of the template from executing, and end the request.
+This tag will prevent the rest of the template from executing, and end the request.
 
 ```twig
 {% set entry = craft.entries.id(entryId).one() %}
