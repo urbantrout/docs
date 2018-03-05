@@ -12,6 +12,8 @@ All fields share a few common settings:
 * Handle
 * Instruction text
 
+![Field Settings](images/fields-field-settings.png)
+
 ## Translatable Fields
 
 If you’re running a multi-language site with Craft you have the option to mark the field as translatable.
