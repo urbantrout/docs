@@ -1,11 +1,10 @@
-Craft 3 Documentation
-=====================
+# Craft 3 Documentation
 
 ## Introduction
 
 - [About Craft CMS](en/index.md)
 - [Code of Conduct](en/coc.md)
-- How to Use the Documentation
+<!-- - How to Use the Documentation -->
 
 ## Installing Craft
 
@@ -15,13 +14,13 @@ Craft 3 Documentation
 ## Upgrading & Updating Craft
 
 - [Upgrading from Craft 2](en/upgrade.md)
-- Updating Craft 3
+<!-- - Updating Craft 3 -->
 - [Changes in Craft 3](en/changes-in-craft-3.md)
 
 ## Getting Started
 
 - [The Pieces of Craft](en/the-pieces-of-craft.md)
-- Planning Your Craft Site
+<!-- - Planning Your Craft Site -->
 - [Directory Structure](en/directory-structure.md)
 
 ## Core Concepts
@@ -29,7 +28,6 @@ Craft 3 Documentation
 - [Sections and Entries](en/sections-and-entries.md)
 - [Fields](en/fields.md)
 - [Templates](en/templates.md)
-  - [Twig Primer](en/twig-primer.md)
 - [Categories](en/categories.md)
 - [Assets](en/assets.md)
 - [Users](en/users.md)
@@ -46,15 +44,17 @@ Craft 3 Documentation
 
 ## Templating
 
+- [Twig Primer](en/twig-primer.md)
 - [Global Variables](en/templating/global-variables.md)
 - [Functions](en/templating/functions.md)
 - [Filters](en/templating/filters.md)
 - [Tags](en/templating/tags.md)
+<!--
 - Querying Elements
 - Variables
 - More
 - Examples
-
+-->
 
 ## Plugin Development
 
