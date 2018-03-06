@@ -194,7 +194,7 @@ New:
 
 #### Undefined Blocks
 
-Twig 1 let you call `block()` even for blocks that didn’t exist:
+Twig 1 lets you call `block()` even for blocks that didn’t exist:
 
 ```twig
 {% if block('foo') is not empty %}
