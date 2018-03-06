@@ -49,10 +49,10 @@ Craft 3 Documentation
 - [Functions](en/templating/functions.md)
 - [Filters](en/templating/filters.md)
 - [Tags](en/templating/tags.md)
-- Querying Elements
+- [Querying Elements](en/querying-elements.md)
 - Variables
 - More
-- [Common Examples](en/templating/examples)
+- [Common Examples](en/templating/examples/index.md)
 
 
 ## Plugin Development
