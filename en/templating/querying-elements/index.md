@@ -1,8 +1,8 @@
 Querying Elements
 =================
 
-- [`craft.assets`](templating/querying-elements/craft-assets.md)
-- [`craft.categories`](templating/querying-elements/craft-categories.md)
+- [`craft.assets`](craft-assets.md)
+- [`craft.categories`](craft-categories.md)
 - `craft.entries`
 - `craft.tags`
 - `craft.users`
