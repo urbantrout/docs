@@ -6,4 +6,4 @@ Querying Elements
 - [`craft.entries`](craft-entries.md)
 - [`craft.tags`](craft-tags.md)
 - [`craft.users`](craft-users.md)
-- [Eager-Loading Elements](templating/eager-loading-elements.md)
+- [Eager-Loading Elements](en/templating/eager-loading-elements.md)
