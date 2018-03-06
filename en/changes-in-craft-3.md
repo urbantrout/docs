@@ -162,7 +162,7 @@ translations/
 
 ## User Photos
 
-User photos are stored as assets now. When upgrading to Craft 3, Craft will automatically create a new asset volume called “User Photos”, set to the `storage/userphotos/` folder, where Craft previously stored all user photos. However this folder is be above your web root and inaccessible to HTTP requests, so until you make this volume publicly accessible, user photos will not work on the front end.
+User photos are stored as assets now. When upgrading to Craft 3, Craft will automatically create a new asset volume called “User Photos”, set to the `storage/userphotos/` folder, where Craft previously stored all user photos. However this folder is above your web root and inaccessible to HTTP requests, so until you make this volume publicly accessible, user photos will not work on the front end.
 
 Here’s how you can resolve this:
 
