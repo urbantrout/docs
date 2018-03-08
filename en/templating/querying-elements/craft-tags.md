@@ -1,7 +1,7 @@
 `craft.tags`
 ============
 
-You can access your site’s [tags](en/tags.md) from your templates via `craft.tags`.
+You can access your site’s [tags](/en/tags.md) from your templates via `craft.tags`.
 
 ```twig
 {% for tag in craft.tags.group('blogTags').all() %}
@@ -51,7 +51,7 @@ The order the tags should be returned in. Possible values include `'title'`, `'i
 
 ### `relatedTo`
 
-Only fetch tags that are related to certain other elements. (See [Relations](en/relations.md) for the syntax options.)
+Only fetch tags that are related to certain other elements. (See [Relations](/en/relations.md) for the syntax options.)
 
 ### `search`
 

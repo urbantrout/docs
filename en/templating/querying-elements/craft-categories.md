@@ -1,7 +1,7 @@
 `craft-categories`
 ==================
 
-You can access your site’s [categories](en/categories.md) from your templates via `craft.categories`. It returns an ElementCriteriaModel object.
+You can access your site’s [categories](/en/categories.md) from your templates via `craft.categories`. It returns an ElementCriteriaModel object.
 
 ```twig
 <ul>
@@ -24,7 +24,7 @@ You can access your site’s [categories](en/categories.md) from your templates 
 
 ### `ancestorOf`
 
-Only fetch categories that are an ancestor of a given category. Accepts a [CategoryModel]({entry:templating/categorymodel}) object.
+Only fetch categories that are an ancestor of a given category. Accepts a CategoryModel object.
 
 ### `ancestorDist`
 
@@ -36,7 +36,7 @@ Only fetch categories located at a certain level.
 
 ### `descendantOf`
 
-Only fetch categories that are a descendant of a given category. Accepts a [CategoryModel]({entry:templating/categorymodel}) object.
+Only fetch categories that are a descendant of a given category. Accepts a CategoryModel object.
 
 ### `descendantDist`
 
@@ -72,7 +72,7 @@ The site the categories should be returned in. (Defaults to the current site.)
 
 ### `nextSiblingOf`
 
-Only fetch the category which is the next sibling of the given category. Accepts either a [CategoryModel](en/templating/categorymodel) object or a category’s ID.
+Only fetch the category which is the next sibling of the given category. Accepts either a [CategoryModel](/en/templating/categorymodel) object or a category’s ID.
 
 ### `offset`
 
@@ -86,19 +86,19 @@ The order the categories should be returned in. Possible values include `'title'
 
 ### `positionedAfter`
 
-Only fetch categories which are positioned after the given category. Accepts either a [CategoryModel](en/templating/categorymodel) object or a category’s ID.
+Only fetch categories which are positioned after the given category. Accepts either a [CategoryModel](/en/templating/categorymodel) object or a category’s ID.
 
 ### `positionedBefore`
 
-Only fetch categories which are positioned before the given category. Accepts either a [CategoryModel](en/templating/categorymodel) object or a category’s ID.
+Only fetch categories which are positioned before the given category. Accepts either a [CategoryModel](/en/templating/categorymodel) object or a category’s ID.
 
 ### `prevSiblingOf`
 
-Only fetch the category which is the previous sibling of the given category. Accepts either a [CategoryModel](en/templating/categorymodel) object or a category’s ID.
+Only fetch the category which is the previous sibling of the given category. Accepts either a [CategoryModel](/en/templating/categorymodel) object or a category’s ID.
 
 ### `relatedTo`
 
-Only fetch categories that are related to certain other elements. (See [Relations](en/relations.md) for the syntax options.)
+Only fetch categories that are related to certain other elements. (See [Relations](/en/relations.md) for the syntax options.)
 
 ### `search`
 
@@ -106,7 +106,7 @@ Only fetch entries that match a given search query. (See {entry:docs/searching:l
 
 ### `siblingOf`
 
-Only fetch categories which are siblings of the given category. Accepts either a [CategoryModel](en/templating/categorymodel) object or a category’s ID.
+Only fetch categories which are siblings of the given category. Accepts either a [CategoryModel](/en/templating/categorymodel) object or a category’s ID.
 
 ### `slug`
 

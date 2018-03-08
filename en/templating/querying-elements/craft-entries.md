@@ -1,7 +1,7 @@
 `craft.entries`
 ===============
 
-You can access your site’s [entries](en/sections-and-entries.md) from your templates via `craft.entries`.
+You can access your site’s [entries](/en/sections-and-entries.md) from your templates via `craft.entries`.
 
 ```twig
 {% for entry in craft.entries.section('news').limit(10).all() %}
@@ -123,11 +123,11 @@ Only fetch the entry which is the previous sibling of the given entry within a S
 
 ### `relatedTo`
 
-Only fetch entries that are related to certain other elements. (See [Relations](en/relations.md) for the syntax options.)
+Only fetch entries that are related to certain other elements. (See [Relations](/en/relations.md) for the syntax options.)
 
 ### `search`
 
-Only fetch entries that match a given search query. (See [Searching](en/searching.md) for the syntax and available search attributes.)
+Only fetch entries that match a given search query. (See [Searching](/en/searching.md) for the syntax and available search attributes.)
 
 ### `section`
 
@@ -157,7 +157,7 @@ Only fetch entries with the given title.
 
 ### `type`
 
-Only fetch entries of the given [entry type](en/sections-and-entries#entry-types). This parameter accepts an entry type handle.
+Only fetch entries of the given [entry type](/en/sections-and-entries#entry-types). This parameter accepts an entry type handle.
 
 ### `uri`
 

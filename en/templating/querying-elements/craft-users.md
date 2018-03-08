@@ -1,7 +1,7 @@
 `craft.users`
 =============
 
-If you have Craft Pro, you can access your site’s [users]({entry:docs/users}) from your templates via `craft.users`. It returns an {entry:templating/elementcriteriamodel:link} object.
+If you have Craft Pro, you can access your site’s [users](/en/users.md) from your templates via `craft.users`. It returns an {entry:templating/elementcriteriamodel:link} object.
 
 ```twig
 {% for author in craft.users.group('authors') %}
@@ -33,7 +33,7 @@ Only fetch users that have a given permission.
 {% set authors = craft.users.can('createEntries:5') %}
 ```
 
-You can see a list of the permissions Craft comes with [here]({entry:docs/users}#permissions).
+You can see a list of the permissions Craft comes with [here](/en/users}#permissions).
 
 ### `email`
 
