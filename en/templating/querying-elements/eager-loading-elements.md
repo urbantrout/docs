@@ -5,11 +5,11 @@ For example, here’s a template that loops through a list of entries, and displ
 ```twig
 {% set entries = craft.entries({
     section: 'news'
-}) %}
+}).all() %}
 
 {% for entry in entries %}
     {# Get the related asset, if there is one #}
-    {% set image = entry.assetsField.first() %}
+    {% set image = entry.assetsField.one() %}
     {% if image %}
         <img src="{{ image.url }}" alt="{{ image.title }}">
     {% endif %}
@@ -28,7 +28,7 @@ Here’s how to apply the `with` param to our example:
 {% set entries = craft.entries({
     section: 'news',
     with: ['assetsField']
-}) %}
+}).all() %}
 
 {% for entry in entries %}
     {# Get the eager-loaded asset, if there is one #}
@@ -49,15 +49,15 @@ Take a look at how we assigned the `image` variable in our examples, before and 
 
 ```twig
 {# Before: #}
-{% set image = entry.assetsField.first() %}
+{% set image = entry.assetsField.one() %}
 
 {# After: #}
 {% set image = entry.assetsField[0] ?? null %}
 ```
 
-When the assets _aren’t_ eager-loaded, `entry.assetsField` gives you an {entry:templating/elementcriteriamodel:link} that is preconfigured to return the related assets once they’re requested (e.g. when `first()` is called).
+When the assets _aren’t_ eager-loaded, `entry.assetsField` gives you an {entry:templating/elementcriteriamodel:link} that is preconfigured to return the related assets once they’re requested (e.g. when `one()` is called).
 
-However when the assets _are_ eager-loaded, `entry.assetsField` gets overwritten with an array of the eager-loaded assets. So `first()`, `find()`, and other ElementCriteriaModel methods are not available. Instead you must stick to the standard array syntaxes. In our example, we’re grabbing the first asset with `entry.assetsField[0]`, and we’re using Twig’s _null-coalescing operator_ (`??`) to define a default value (`null`) in case there is no related asset.
+However when the assets _are_ eager-loaded, `entry.assetsField` gets overwritten with an array of the eager-loaded assets. So `one()`, `all()`, and other ElementCriteriaModel methods are not available. Instead you must stick to the standard array syntaxes. In our example, we’re grabbing the first asset with `entry.assetsField[0]`, and we’re using Twig’s _null-coalescing operator_ (`??`) to define a default value (`null`) in case there is no related asset.
 
 
 ### Eager-Loading Multiple Sets of Elements
@@ -71,7 +71,7 @@ If you have multiple sets of elements you wish to eager-load off of the top list
         'assetsField',
         'matrixField'
     ]
-}) %}
+}).all() %}
 
 {% for entry in entries %}
     {# Get the eager-loaded asset, if there is one #}
@@ -99,7 +99,7 @@ It’s also possible to load _nested_ sets of elements, using this syntax:
     with: [
         'entriesField.assetsField'
     ]
-}) %}
+}).all() %}
 
 {% for entry in entries %}
     {# Loop through any eager-loaded sub-entries #}
