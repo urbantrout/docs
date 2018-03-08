@@ -1,7 +1,7 @@
 `craft.assets`
 ==============
 
-You can access your site’s [assets](en/assets.md) from your templates via `craft.assets`. It returns an {entry:templating/elementcriteriamodel:link} object.
+You can access your site’s [assets](/en/assets.md) from your templates via `craft.assets`. It returns an {entry:templating/elementcriteriamodel:link} object.
 
 ```twig
 {% for image in craft.assets.kind('image') %}
