@@ -1,7 +1,7 @@
 `craft.assets`
 ==============
 
-You can access your site’s [assets]({entry:docs/assets}) from your templates via `craft.assets`. It returns an {entry:templating/elementcriteriamodel:link} object.
+You can access your site’s [assets](en/assets.md) from your templates via `craft.assets`. It returns an {entry:templating/elementcriteriamodel:link} object.
 
 ```twig
 {% for image in craft.assets.kind('image') %}
@@ -43,23 +43,39 @@ Only fetch assets of the given file kind.
 
 The supported values are:
 
-{entry:snippets/asset-file-kinds:body}
+  * access
+  * audio
+  * compressed
+  * excel
+  * flash
+  * html
+  * illustrator
+  * image
+  * pdf
+  * photoshop
+  * php
+  * powerpoint
+  * text
+  * video
+  * word
 
 ### `limit`
 
-Limits the results to *X* assets.
+Limits the results to *X* assets. Set to `null` (no limit) by default.
 
-### `locale`
+### `site`
 
-The locale the assets should be returned in. (Defaults to the current site locale.)
+The site the assets should be returned in. (Defaults to the current site locale.)
+
+Can also use `siteId`.
 
 ### `offset`
 
 Skips the first *X* assets. For example, if you set `offset(1)`, the would-be second asset returned becomes the first.
 
-### `order`
+### `orderBy`
 
-The order the assets should be returned in. Possible values include `'title'`, `'id'`, `'sourceId'`, `'folderId'`, `'filename'`, `'kind'`, `'width'`, `'height'`, `'size'`, `'dateCreated'`, and `'dateUpdated'`, as well as any textual custom field handles. If you want the entries to be sorted in descending order, add “`desc`” after the property name (ex: `'size desc'`). The default value is `'title asc'`.
+The order the assets should be returned in. Possible values include `'title'`, `'id'`, `'volumeId'`, `'folderId'`, `'filename'`, `'kind'`, `'width'`, `'height'`, `'size'`, `'dateCreated'`, and `'dateUpdated'`, as well as any textual custom field handles. If you want the entries to be sorted in descending order, add “`desc`” after the property name (ex: `'size desc'`). The default value is `'title asc'`.
 
 ### `relatedTo`
 
@@ -77,11 +93,11 @@ Only fetch assets with a given size(s) in bytes.
 
 Only fetch assets with the given title.
 
-### `source`
+### `volume`
 
-Only fetch assets that belong to a given asset source(s), referenced by its handle.
+Only fetch assets that belong to a given asset volume(s), referenced by its handle.
 
-### `sourceId`
+### `volumeId`
 
 Only fetch assets that belong to a given asset source(s), referenced by its ID.
 

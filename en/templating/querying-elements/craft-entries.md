@@ -1,10 +1,10 @@
 `craft.entries`
 ===============
 
-You can access your site’s [entries]({entry:docs/sections-and-entries}) from your templates via `craft.entries`. It returns an {entry:templating/elementcriteriamodel:link} object.
+You can access your site’s [entries](en/sections-and-entries.md) from your templates via `craft.entries`.
 
 ```twig
-{% for entry in craft.entries.section('news').limit(10) %}
+{% for entry in craft.entries.section('news').limit(10).all() %}
     <article>
         <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
         {{ entry.summary }}
@@ -25,7 +25,7 @@ Only fetch entries with a Post Date that is on or after the given date.
 
 ### `ancestorOf`
 
-Only fetch entries that are an ancestor of a given entry within a Structure section. Accepts an [EntryModel]({entry:templating/entrymodel}) object.
+Only fetch entries that are an ancestor of a given entry within a Structure section. Accepts an EntryModel object.
 
 ### `ancestorDist`
 
@@ -57,13 +57,13 @@ Only fetch entries with a Post Date that is before the given date.
 
 Only fetch entries at a certain level within a Structure section.
 
-### `localeEnabled`
+### `enabledForSite`
 
-Set to `false` to fetch entries which aren’t actually enabled for the current site locale. (By default they won’t show up.)
+Set to `false` to fetch entries which aren’t actually enabled for the current site. (By default they won’t show up.)
 
 ### `descendantOf`
 
-Only fetch entries that are a descendant of a given entry within a Structure section. Accepts an [EntryModel]({entry:templating/entrymodel}) object.
+Only fetch entries that are a descendant of a given entry within a Structure section. Accepts an EntryModel object.
 
 ### `descendantDist`
 
@@ -83,15 +83,17 @@ Indexes the results by a given property. Possible values include `'id'` and `'ti
 
 ### `limit`
 
-Limits the results to *X* entries.
+Limits the results to *X* entries. Defaults to `null` (no limit).
 
-### `locale`
+### `site`
 
-The locale the entries should be returned in. (Defaults to the current site locale.)
+The site the entries should be returned in. (Defaults to the current site.)
+
+Can also use `siteId`.
 
 ### `nextSiblingOf`
 
-Only fetch the entry which is the next sibling of the given entry within a Structure section. Accepts either an [EntryModel]({entry:templating/entrymodel}) object or an entry’s ID.
+Only fetch the entry which is the next sibling of the given entry within a Structure section. Accepts either an EntryModel object or an entry’s ID.
 
 ### `offset`
 
@@ -99,17 +101,17 @@ Skips the first *X* entries.
 
 For example, if you set `offset(1)`, the would-be second entry returned becomes the first.
 
-### `order`
+### `orderBy`
 
 The order the entries should be returned in. Possible values include `'title'`, `'id'`, `'authorId'`, `'sectionId'`, `'slug'`, `'uri'`, `'postDate'`, `'expiryDate'`, `'dateCreated'`, and `'dateUpdated'`, as well as any textual custom field handles. If you want the entries to be sorted in descending order, add “`desc`” after the property name (ex: `'postDate desc'`). The default value is `'postDate desc'`.
 
 ### `positionedAfter`
 
-Only fetch entries which are positioned after the given entry within a Structure section. Accepts either an [EntryModel]({entry:templating/entrymodel}) object or an entry’s ID.
+Only fetch entries which are positioned after the given entry within a Structure section. Accepts either an EntryModel object or an entry’s ID.
 
 ### `positionedBefore`
 
-Only fetch entries which are positioned before the given entry within a Structure section. Accepts either an [EntryModel]({entry:templating/entrymodel}) object or an entry’s ID.
+Only fetch entries which are positioned before the given entry within a Structure section. Accepts either an EntryModel object or an entry’s ID.
 
 ### `postDate`
 
@@ -117,19 +119,19 @@ Fetch entries based on their Post Date.
 
 ### `prevSiblingOf`
 
-Only fetch the entry which is the previous sibling of the given entry within a Structure section. Accepts either an [EntryModel]({entry:templating/entrymodel}) object or an entry’s ID.
+Only fetch the entry which is the previous sibling of the given entry within a Structure section. Accepts either an EntryModel object or an entry’s ID.
 
 ### `relatedTo`
 
-Only fetch entries that are related to certain other elements. (See {entry:docs/relations:link} for the syntax options.)
+Only fetch entries that are related to certain other elements. (See [Relations](en/relations.md) for the syntax options.)
 
 ### `search`
 
-Only fetch entries that match a given search query. (See {entry:docs/searching:link} for the syntax and available search attributes.)
+Only fetch entries that match a given search query. (See [Searching](en/searching.md) for the syntax and available search attributes.)
 
 ### `section`
 
-Only fetch entries that belong to a given section(s). Accepted values include a section handle, an array of section handles, or a [SectionModel]({entry:templating/sectionmodel}) object.
+Only fetch entries that belong to a given section(s). Accepted values include a section handle, an array of section handles, or a SectionModel object.
 
 ### `sectionId`
 
@@ -137,7 +139,7 @@ Only fetch entries that belong to a given section(s), referenced by its ID.
 
 ### `siblingOf`
 
-Only fetch entries which are siblings of the given entry within a Structure section. Accepts either an [EntryModel]({entry:templating/entrymodel}) object or an entry’s ID.
+Only fetch entries which are siblings of the given entry within a Structure section. Accepts either an EntryModel object or an entry’s ID.
 
 ### `slug`
 
@@ -155,7 +157,7 @@ Only fetch entries with the given title.
 
 ### `type`
 
-Only fetch entries of the given [entry type]({entry:docs/sections-and-entries}#entry-types). This parameter accepts an entry type handle.
+Only fetch entries of the given [entry type](en/sections-and-entries#entry-types). This parameter accepts an entry type handle.
 
 ### `uri`
 
