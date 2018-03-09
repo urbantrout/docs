@@ -5,7 +5,7 @@ Craft 3 Documentation
 
 - [About Craft CMS](en/introduction.md)
 - [Code of Conduct](en/coc.md)
-- How to Use the Documentation
+- [How to Use the Documentation](en/how-to-use-the-documentation.md)
 
 ## Installing Craft
 
@@ -15,13 +15,12 @@ Craft 3 Documentation
 ## Upgrading & Updating Craft
 
 - [Upgrading from Craft 2](en/upgrade.md)
-- Updating Craft 3
+- [Updating Craft 3](en/updating.md)
 - [Changes in Craft 3](en/changes-in-craft-3.md)
 
 ## Getting Started
 
 - [The Pieces of Craft](en/the-pieces-of-craft.md)
-- Planning Your Craft Site
 - [Directory Structure](en/directory-structure.md)
 
 ## Core Concepts
@@ -50,10 +49,10 @@ Craft 3 Documentation
 - [Functions](en/templating/functions.md)
 - [Filters](en/templating/filters.md)
 - [Tags](en/templating/tags.md)
-- Querying Elements
-- Variables
+- [Querying Elements](en/templating/querying-elements/index.md)
+- [Variables](en/templating/variables.md)
 - More
-- Examples
+- [Common Examples](en/templating/examples/index.md)
 
 
 ## Plugin Development

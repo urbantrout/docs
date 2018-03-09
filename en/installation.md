@@ -5,6 +5,7 @@
 - [2. Create a New Craft Project](#2-create-a-new-craft-project)
 - [3. Set up the Database](#3-set-up-the-database)
 - [4. Set up the Web Server](#4-set-up-the-web-server)
+- [5. Run the installer!](#-5-run-the-installer)
 
 ## 0. Introduction
 
@@ -89,9 +90,102 @@ If you’re not using [MAMP](https://mamp.info) or another localhosting tool, yo
 - **macOS/Linux/Unix:** `/etc/hosts`
 - **Windows:** `\Windows\System32\drivers\etc\hosts`
 
-You can test whether you set everything up correctly by pointing your web browser to `http://HOSTNAME/index.php?p=admin` (substituting `HOSTNAME` with your new web server’s host name). 
+## 5. Run the installer!
+
+You can test whether you set everything up correctly by pointing your web browser to `http://HOSTNAME/index.php?p=admin` (substituting `HOSTNAME` with your new web server’s host name).
+
+> Tip: Want to install Craft from the command line? [Check out the Craft setup command](#setup-from-the-command-line).
 
 If successful, you will get the Craft installation wizard. The wizard will take you through a couple setup screens, and then perform the installation of Craft.
+
+![Craft Installation Screen](images/installation-step-0.png)
+
+Not working? Here are a couple tips:
+
+* If you’re getting a 404, your server might not be configured to redirect would-be 404’s to index.php correctly. Try going to http://example.com/index.php/admin or http://example.com/index.php?p=admin instead.
+* If you’re getting other errors then you should revisit the prior steps to ensure everything is set up properly.
+
+The first step of the installer is to accept the license agreement. Scroll down through the agreement (reading it all, of course) and tap or click "Got it" to accept.
+
+![Craft Installation License Agreement](images/installation-step-1.png)
+
+The second step is to enter your database connection information. Input the information you saved in Step 3. 
+
+![Craft Installation Database Connection Information](images/installation-step-2.png)
+
+
+The third step of the installer is to create a user account. Don’t be one of those people and be sure to pick a strong password.
+
+![Craft Installation Create User Account](images/installation-step-3.png)
+
+The final step is to define your System Name, Base URL, and Language. Craft pre-fills all three based on other settings but you can edit each field before clicking "Finish up".
+
+![Craft Installation System Settings](images/installation-step-4.png)
+
+Now Craft will run the installer and complete the setup process. A few seconds later, you should have a working Craft install!
+
+If it was successful, Craft will redirect your browser to the Control Panel dashboard.
+
+![Craft Installation Complete](images/installation-step-5.png)
+
+Congratulations, you’ve just installed Craft!
+
+Now get back to work.
+
+## Setup from the Command Line
+
+In lieu of using the web browser to run the Craft installer, you can set up Craft from the command line.
+
+After successfully creating a new project via Composer, you'll see a link to the Craft `setup` command.
+
+![Craft Setup from the Command Line](images/installation-command-line.png )
+
+`$ ./craft setup`
+
+This command will run you through a similar wizard as in the web browser but all from the command line. Once you've completed the setup process you can right to the control panel to log in. 
+
+## Additional Resources
+
+Here are some additional resources for getting Craft installed in various environments:
+
+### Local Environments
+
+**[Installing Craft CMS on Mac OS X Using MAMP & Sequel Pro](http://a73cram5ay.blogspot.com/2015/04/installing-craft-cms-on-mac-os-x-using.html)**<br>
+Guide by Alec Ramsay
+
+**[The Absolute Beginners Guide to Setting Up Craft on Mac](https://una.im/2013/08/13/the-absolute-beginners-guide-to-setting-up-craft-on-mac/)**<br>
+Guide by Una Kravets
+
+**[Craft CMS with Laravel Valet, How to Setup Local Web Development Environment on a Mac](https://3redkites.com/blog/entry/craft-cms-with-laravel-valet-how-to-setup-local-web-development-environment-on-a-mac/)**<br>
+Guide by Joann, 3 Red Kites
+
+**[Setting up a local dev environment for Craft CMS with Laravel Homestead](https://medium.com/@mattcollins_6/setting-up-a-local-dev-environment-for-craft-cms-using-laravel-homestead-2724be3954a5)**<br>
+Guide by Matt Collins
+
+### Remote Environments
+
+**[How To Install Craft CMS On Cloudways](https://www.cloudways.com/blog/install-craft-cms-on-cloud/)**<br>
+[Cloudways](https://www.cloudways.com/en/) installation guide by Ahmed Khan
+
+**[Installing a fresh Craft CMS Installation on Laravel Forge](http://mattstauffer.co/blog/installing-a-fresh-craft-cms-installation-on-laravel-forge)**<br>
+Guide by Matt Stauffer
+
+**[One-click Deploy: Craft CMS to DigitalOcean](http://blog.deploybot.com/blog/deploying-craft-cms-to-a-digitalocean-with-deploybot)**<br>
+[DeployBot](http://deploybot.com/) deployment guide by Eugene Fedorenko, [Wildbit](http://wildbit.com/)
+
+**[Craft on Heroku](https://medium.com/@aj1215/craft-cms-on-heroku-79b991665b0b)**<br>
+Guide by AJ Griem
+
+**[Install Craft CMS 2 on fortrabbit](http://help.fortrabbit.com/install-craft-2)**<br>
+[fortrabbit](http://www.fortrabbit.com/) installation guide
+
+### Utilities
+
+**[Craft Deploy](https://github.com/Bluegg/craft-deploy/)**<br>
+Capistrano deployment utility by [Bluegg](http://bluegg.co.uk/)
+
+**[Craft Command Line Installer](https://github.com/themccallister/craft)**<br>
+Local installation utility by Jason McCallister
 
 
 [Composer]: https://getcomposer.org/
