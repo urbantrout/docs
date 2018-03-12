@@ -48,11 +48,64 @@ Craft 3 Documentation
 - [Global Variables](en/templating/global-variables.md)
 - [Functions](en/templating/functions.md)
 - [Filters](en/templating/filters.md)
-- [Tags](en/templating/tags.md)
-- [Querying Elements](en/templating/querying-elements/index.md)
-- [Variables](en/templating/variables.md)
-- More
-- [Common Examples](en/templating/examples/index.md)
+- [More](#)
+
+### Tags
+
+- [`{% cache %}`](en/templating/tags/cache.md)
+- [`{% exit %}`](en/templating/tags/exit.md)
+- [`{% header %}`](en/templating/tags/header.md)
+- [`{% css %}`](en/templating/tags/css.md)
+- [`{% do view.registerCssFile(url) %}`](#)
+- [`{% js %}`](en/templating/tags/js.md)
+- [`{% do view.registerJsFile(url) %}`](#)
+- [`{% nav %}`](en/templating/tags/nav.md)
+- [`{% paginate %}`](en/templating/tags/paginate.md)
+- [`{% redirect %}`](en/templating/tags/redirect.md)
+- [`{% requireLogin %}`](en/templating/tags/requirelogin.md)
+- [`{% requirePermission %}`](en/templating/tags/requirepermission.md)
+- [`{% switch %}`](en/templating/tags/switch.md)
+
+### Querying Elements
+
+- [`craft.assets`](en/templating/querying-elements/craft-assets.md)
+- [`craft.categories`](en/templating/querying-elements/craft-categories.md)
+- [`craft.entries`](en/templating/querying-elements/craft-entries.md)
+- [`craft.tags`](en/templating/querying-elements/craft-tags.md)
+- [`craft.users`](en/templating/querying-elements/craft-users.md)
+- [Eager-Loading Elements](en/templating/querying-elements/eager-loading-elements.md)
+
+### Variables
+
+- [AssetFileModel](en/templating/variables/assetfilemodel.md)
+- [AssetFolderModel](en/templating/variables/assetfoldermodel.md)
+- [AssetSourceModel](en/templating/variables/assetsourcemodel.md)
+- [CategoryModel](en/templating/variables/categorymodel.md)
+- [CategoryGroupModel](en/templating/variables/categorygroupmodel.md)
+- [DateTime](en/templating/variables/datetime.md)
+- [ElementCriteriaModel](en/templating/variables/elementcriteriamodel.md)
+- [EntryModel](#)
+- [EntryTypeModel](#)
+- [GlobalSetModel](#)
+- [MatrixBlockModel](#)
+- [SectionModel](#)
+- [TagModel](#)
+- [TagGroupModel](#)
+- [UserGroupModel](#)
+- [UserModel](#)
+
+### Common Examples
+
+- [Integrating Disqus](en/templating/examples/integrating-diqus.md)
+- [RSS Feed](en/templating/examples/rss-feed.md)
+- [Atom Feed](en/templating/examples/atom-feed.md)
+- [Entry Form](en/templating/examples/entry-form.md)
+- [Search Form](en/templating/examples/search-form.md)
+- [Login Form](en/templating/examples/login-form.md)
+- [User Profile Form](en/templating/examples/user-profile-form.md)
+- [User Registration Form](en/templating/examples/user-registration-form.md)
+- [Forgot Password Form](en/templating/examples/forgot-password-form.md)
+- [Set Password Form](en/templating/examples/set-password-form.md)
 
 
 ## Plugin Development
