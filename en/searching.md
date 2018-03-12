@@ -3,6 +3,8 @@ Searching
 
 You can search for elements anywhere you see this bar:
 
+![Search Bar](images/searching-search-bar.png)
+
 ## Supported syntaxes
 
 Craft supports the following search syntax:
