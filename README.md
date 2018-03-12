@@ -28,7 +28,6 @@ Craft 3 Documentation
 - [Sections and Entries](en/sections-and-entries.md)
 - [Fields](en/fields.md)
 - [Templates](en/templates.md)
-  - [Twig Primer](en/twig-primer.md)
 - [Categories](en/categories.md)
 - [Assets](en/assets.md)
 - [Users](en/users.md)
@@ -45,6 +44,7 @@ Craft 3 Documentation
 
 ## Templating
 
+- [Twig Primer](en/twig-primer.md)
 - [Global Variables](en/templating/global-variables.md)
 - [Functions](en/templating/functions.md)
 - [Filters](en/templating/filters.md)
