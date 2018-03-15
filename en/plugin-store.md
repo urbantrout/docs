@@ -23,6 +23,23 @@ To register your plugin, first make sure it’s published to a public GitHub rep
 
 From your Craft ID account, go to Plugins → “Add a plugin”, and click the “Select” button next to your plugin’s repository. You will then be able to edit its description, screenshots, and other details.
 
+### Choose a Price
+
+If you wish to sell your plugin, choose a price point that makes sense. Here are some suggested price ranges to consider:
+
+| Price Range | Example Use Cases
+| ----------- | ------------------------------------------------------
+| $10-$29     | Lightweight “plug and play” utilities and integrations
+| $49-$99     | Complex field types and integrations
+| $149-$249   | Plugins that add significant new system functionality
+| $499-$999   | Major or highly niche applications
+
+You will also be required to pick a Renewal Price, which is the annual fee the Plugin Store will charge customers who wish to continue installing new updates, after the first year. Pick a Renewal Price that is around 20-50% of the initial Price. For example, if you are charging $99 for your plugin, your Renewal Price should be between $19-$49.
+
+> {note} If you initially submit your plugin as free, you will not be able to change it to a commercial plugin later; you will need to submit the commercial version as a completely separate plugin. Eventually the Plugin Store will support plugin Editions, which will provide a path for free plugins to offer commercial upgrades.
+
+### Submit for Approval
+
 Once you’re ready to submit the plugin, click the “Submit for approval” button. Once your plugin is approved, it will become visible on [plugins.craftcms.com](http://plugins.craftcms.com). It won’t necessarily be available in the in-app Plugin Store yet, though, unless your plugin already has at least one [release](#plugin-releases).
 
 > {tip} You might want to register your plugin with [Packagist](https://packagist.org/) in addition to the Plugin Store, so that people can install and update your plugin from the command line. But Packagist isn’t a requirement for the Plugin Store.
