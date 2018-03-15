@@ -49,7 +49,7 @@ define('CRAFT_SITE_URL', "http://{host}/nl");
 
 ### `CRAFT_BASE_PATH`
 
-Craft uses this as the starting point for finding [all of the folders](/v2/folder-structure "Folders located within craft/") traditionally located in craft/, with the notable exception of craft/app/, whose path gets defined with the help of your `$craftPath` variable in index.php.
+Craft uses this as the starting point for finding [all of the folders](folder-structure.md "Folders located within craft/") traditionally located in craft/, with the notable exception of craft/app/, whose path gets defined with the help of your `$craftPath` variable in index.php.
 
 ```php
 // Path to your craft/ folder (where the app/ folder lives)
