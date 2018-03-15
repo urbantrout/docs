@@ -15,7 +15,7 @@ Create a `LICENSE.md` file at the root of your plugin’s repository, and paste 
 Copyright © <YOUR_NAME>
 ```
 
-### Registering your Plugin
+## Registering your Plugin
 
 To register your plugin, first make sure it’s published to a public GitHub repository. Then create a Craft ID account at [id.craftcms.com](https://id.craftcms.com), and connect it to your GitHub account.
 
@@ -27,7 +27,7 @@ Once you’re ready to submit the plugin, click the “Submit for approval” bu
 
 > {tip} You might want to register your plugin with [Packagist](https://packagist.org/) in addition to the Plugin Store, so that people can install and update your plugin from the command line. But Packagist isn’t a requirement for the Plugin Store.
 
-### Plugin Releases
+## Plugin Releases
 
 To release a new version of your plugin, first decide on the version number. The Plugin Store follows the same [Semantic Versioning](https://semver.org/) conventions supported by Composer:
 
