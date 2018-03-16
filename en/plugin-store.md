@@ -56,7 +56,7 @@ Once you’ve decided on a version, follow these steps:
 1. If your plugin has a [changelog](changelogs-and-updates.md), make sure the new version has a correctly-formatted heading, including the release date.
 
    ```markdown
-   ## 3.0.0 - 2018-04-04
+   ## 3.0.0 - 2018-03-31
    ```
 
 2. If your plugin’s `composer.json` file includes a `version` property, make sure that it is set to the new version number.
