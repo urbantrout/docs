@@ -58,6 +58,12 @@ If you do install the Redactor plugin, you will need to ensure that your Redacto
 }
 ```
 
+## Position Select Fields
+
+The “Position Select” field type has been removed from Craft 3. If you had any Position Select fields, they will be converted to Dropdown fields, with all the same options.
+
+If you miss Position Select, you can try installing the [Position Fieldtype](https://github.com/Rias500/craft-position-fieldtype) plugin, which brings it back. 
+
 ## Remote Volumes
 
 Support for Amazon S3, Rackspace Cloud Files, and Google Cloud Storage have been moved into plugins. If you have any asset volumes that were using those services in Craft 2, you will need to install the new plugins:
