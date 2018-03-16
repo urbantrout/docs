@@ -39,7 +39,7 @@ If you have any existing Rich Text fields, they will be automatically converted 
 
 ### Redactor Configs
 
-Your Redactor configs in `config/redactor/` must now be valid JSON. That means:
+If you do install the Redactor plugin, you will need to ensure that your Redactor configs in `config/redactor/` are valid JSON. That means:
 
 - No comments
 - All object properties (the config setting names) must be wrapped in double quotes
