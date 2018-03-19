@@ -157,7 +157,7 @@ Only fetch entries with the given title.
 
 ### `type`
 
-Only fetch entries of the given [entry type](/en/sections-and-entries#entry-types). This parameter accepts an entry type handle.
+Only fetch entries of the given [entry type](/en/sections-and-entries.md#entry-types). This parameter accepts an entry type handle.
 
 ### `uri`
 
