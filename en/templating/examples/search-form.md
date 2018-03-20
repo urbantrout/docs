@@ -14,7 +14,7 @@ Then, on whatever template your form submits to (e.g. `search/results.html`), ju
 ```twig
 <h1>Search Results</h1>
 
-{% set query = craft.request.getParam('q') %}
+{% set query = craft.app.request.getParam('q') %}
 {% set entries = craft.entries.search(query).order('score').all() %}
 
 {% if entries|length %}
