@@ -15,7 +15,7 @@ Create a `LICENSE.md` file at the root of your plugin’s repository, and paste 
 Copyright © <YOUR_NAME>
 ```
 
-### Registering your Plugin
+## Registering your Plugin
 
 To register your plugin, first make sure it’s published to a public GitHub repository. Then create a Craft ID account at [id.craftcms.com](https://id.craftcms.com), and connect it to your GitHub account.
 
@@ -23,11 +23,28 @@ To register your plugin, first make sure it’s published to a public GitHub rep
 
 From your Craft ID account, go to Plugins → “Add a plugin”, and click the “Select” button next to your plugin’s repository. You will then be able to edit its description, screenshots, and other details.
 
+### Choose a Price
+
+If you wish to sell your plugin, choose a price point that makes sense. Here are some suggested price ranges to consider:
+
+| Price Range | Example Use Cases
+| ----------- | ------------------------------------------------------
+| $10-$29     | Lightweight “plug and play” utilities and integrations
+| $49-$99     | Complex field types and integrations
+| $149-$249   | Plugins that add significant new system functionality
+| $499-$999   | Major or highly niche applications
+
+You will also be required to pick a Renewal Price, which is the annual fee the Plugin Store will charge customers who wish to continue installing new updates, after the first year. Pick a Renewal Price that is around 20-50% of the initial Price. For example, if you are charging $99 for your plugin, your Renewal Price should be between $19-$49.
+
+> {note} If you initially submit your plugin as free, you will not be able to change it to a commercial plugin later; you will need to submit the commercial version as a completely separate plugin. Eventually the Plugin Store will support plugin Editions, which will provide a path for free plugins to offer commercial upgrades.
+
+### Submit for Approval
+
 Once you’re ready to submit the plugin, click the “Submit for approval” button. Once your plugin is approved, it will become visible on [plugins.craftcms.com](http://plugins.craftcms.com). It won’t necessarily be available in the in-app Plugin Store yet, though, unless your plugin already has at least one [release](#plugin-releases).
 
 > {tip} You might want to register your plugin with [Packagist](https://packagist.org/) in addition to the Plugin Store, so that people can install and update your plugin from the command line. But Packagist isn’t a requirement for the Plugin Store.
 
-### Plugin Releases
+## Plugin Releases
 
 To release a new version of your plugin, first decide on the version number. The Plugin Store follows the same [Semantic Versioning](https://semver.org/) conventions supported by Composer:
 
@@ -39,7 +56,7 @@ Once you’ve decided on a version, follow these steps:
 1. If your plugin has a [changelog](changelogs-and-updates.md), make sure the new version has a correctly-formatted heading, including the release date.
 
    ```markdown
-   ## 3.0.0 - 2018-04-04
+   ## 3.0.0 - 2018-03-31
    ```
 
 2. If your plugin’s `composer.json` file includes a `version` property, make sure that it is set to the new version number.

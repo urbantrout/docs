@@ -39,7 +39,7 @@ If you have any existing Rich Text fields, they will be automatically converted 
 
 ### Redactor Configs
 
-Your Redactor configs in `config/redactor/` must now be valid JSON. That means:
+If you do install the Redactor plugin, you will need to ensure that your Redactor configs in `config/redactor/` are valid JSON. That means:
 
 - No comments
 - All object properties (the config setting names) must be wrapped in double quotes
@@ -57,6 +57,12 @@ Your Redactor configs in `config/redactor/` must now be valid JSON. That means:
   "buttons": ["bold", "italic"]
 }
 ```
+
+## Position Select Fields
+
+The “Position Select” field type has been removed from Craft 3. If you had any Position Select fields, they will be converted to Dropdown fields, with all the same options.
+
+If you miss Position Select, you can try installing the [Position Fieldtype](https://github.com/Rias500/craft-position-fieldtype) plugin, which brings it back. 
 
 ## Remote Volumes
 
@@ -610,7 +616,7 @@ Your front-end `<form>`s and JS scripts that submit to a controller action will 
 
 ### `action` Params
 
-`action` params must be rewritten in in `snake-case` rather than `camelCase`.
+`action` params must be rewritten in in `kebab-case` rather than `camelCase`.
 
 ```twig
 Old:

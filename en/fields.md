@@ -39,9 +39,7 @@ Craft comes with the following built-in field types:
 * [Multi-select](multi-select-fields.md)
 * [Number](number-fields.md)
 * [Plain Text](plain-text-fields.md)
-* [Position Select](position-select-fields.md)
 * [Radio Buttons](radio-buttons-fields.md)
-* [Rich Text](rich-text-fields.md)
 * [Table](table-fields.md)
 * [Tags](tags-fields.md)
 * URL

@@ -8,8 +8,6 @@
 - [Aliases](#aliases)
 - [Overriding Volume Settings](#overriding-volume-settings)
 - [URL Rules](#url-rules)
-- [Redactor Configs](#redactor-configs)
-- [HTML Purifier](#html-purifier-configs)
 - [Application Config](#application-config)
   - [Mailer Component](#mailer-component)
 
@@ -222,39 +220,6 @@ Craft supports a custom syntax for routing requests to a template, rather than a
 return [
     'blog/archive/<year:\d{4}>' => ['template' => 'blog/_archive'],
 ];
-```
-
-## Redactor Configs
-
-You can customize the Redactor configurations that are available to Rich Text fields by saving them as `.json` files within your `config/redactor/` directory. The available config settings are listed in [Redactor’s documentation](https://imperavi.com/redactor/docs/settings/).
-
-These `.json` files must contain **valid JSON**. That means:
-
-- No comments
-- All object properties (the config setting names) must be wrapped in double quotes
-- All strings must use double quotes rather than single quotes
-
-```javascript
-// Bad:
-{
-  /* interesting comment */
-  buttons: ['bold', 'italic']
-}
-
-// Good:
-{
-  "buttons": ["bold", "italic"]
-}
-```
-
-## HTML Purifier Configs
-
-You can customize the HTML Purifier configurations that are available to Rich Text fields by saving them as `.json` files within your `config/htmlpurifier/` directory. The available config settings are listed in [HTML Purifier’s documentation](http://htmlpurifier.org/live/configdoc/plain.html).
-
-```json
-{
-  "HTML.AllowedCommentsRegexp": "p, div"
-}
 ```
 
 ## Application Config
