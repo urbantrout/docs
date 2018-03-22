@@ -1,11 +1,11 @@
-AssetSourceModel
+AssetSource Model
 =================
 
-AssetSourceModel objects represent your asset sources.
+AssetSource Model objects represent your asset sources.
 
 ## Simple Output
 
-Outputting an AssetSourceModel object without attaching a property or method will return the source’s name:
+Outputting an AssetSource Model object without attaching a property or method will return the source’s name:
 
 ```twig
 Source: {{ source }}
@@ -13,7 +13,7 @@ Source: {{ source }}
 
 ## Properties
 
-AssetFolderModel objects have the following properties:
+AssetFolder Model objects have the following properties:
 
 ### `id`
 

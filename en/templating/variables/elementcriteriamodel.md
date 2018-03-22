@@ -1,19 +1,19 @@
-ElementCriteriaModel
+ElementCriteria Model
 ===================
 
-ElementCriteriaModel objects are at the center of how Craft fetches elements from the database.
+ElementCriteria Model objects are at the center of how Craft fetches elements from the database.
 
 ## How it Works
 
 Whenever you fetch elements in your templates, this happens:
 
-1. [An ElementCriteriaModel object is created](#creating-an-elementCriteriaModel), and wired to fetch elements of a single type (entries, assets, etc.).
+1. [An ElementCriteria Model object is created](#creating-an-elementCriteriaModel), and wired to fetch elements of a single type (entries, assets, etc.).
 2. [Parameters are set on the model](#setting-the-parameters), which help filter the elements, set the order they should be returned in, limit how many should be returned, etc.
 3. [The elements are fetched from the database.](#fetching-the-elements)
 
-## Creating an ElementCriteriaModel
+## Creating an ElementCriteria Model
 
-Craft provides five functions which create and return new ElementCriteriaModel objects. They are:
+Craft provides five functions which create and return new ElementCriteria Model objects. They are:
 
 - [`craft.assets`](/en/templating/querying-elements/craft-assets.md)
 - [`craft.categories`](/en/templating/querying-elements/craft-categories.md)
@@ -21,7 +21,7 @@ Craft provides five functions which create and return new ElementCriteriaModel o
 - [`craft.tags`](/en/templating/querying-elements/craft-tags.md)
 - [`craft.users`](/en/templating/querying-elements/craft-users.md)
 
-Those aren’t the only ways you’ll interact with ElementCriteriaModel objects, though. They’re actually used all over the place. Here are two examples:
+Those aren’t the only ways you’ll interact with ElementCriteria Model objects, though. They’re actually used all over the place. Here are two examples:
 
 * Calling a relational field (e.g. an [Assets](/en/assets-fields.md) field) from an element will give you an ElementCriteriaModel with its [`relatedTo`](/en/relations.md#the-relatedTo-param) parameter pre-populated.
 

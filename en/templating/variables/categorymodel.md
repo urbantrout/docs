@@ -1,11 +1,11 @@
-CategoryModel
+Category Model
 ============
 
-Whenever you’re dealing with a [category](/en/categories.md) in your template, you’re actually working with a CategoryModel object.
+Whenever you’re dealing with a [category](/en/categories.md) in your template, you’re actually working with a Category Model object.
 
 ## Simple Output
 
-Outputting a CategoryModel object without attaching a property or method will return the category’s title:
+Outputting a Category Model object without attaching a property or method will return the category’s title:
 
 ```twig
 <h1>{{ category }}</h1>
@@ -14,7 +14,7 @@ Outputting a CategoryModel object without attaching a property or method will re
 
 ## Properties
 
-CategoryModel objects have the following properties:
+Category Model objects have the following properties:
 
 ### `ancestors`
 
@@ -118,23 +118,23 @@ Whether the category has any descendants.
   
   ## Methods
   
-  CategoryModel objects have the following methods:
+  Category Model objects have the following methods:
   
   ### `getAncestors( distance )`
   
-  Returns an {entry:templating/elementcriteriamodel:link} prepped to return the category’s ancestors (if it lives in a Structure section). You can limit it to only return ancestors that are up to a certain distance away by passing the distance as an argument.
+  Returns an [ElementCriteria Model](elementcriteriamodel.md) prepped to return the category’s ancestors (if it lives in a Structure section). You can limit it to only return ancestors that are up to a certain distance away by passing the distance as an argument.
   
   ### `getChildren()`
   
-  Returns an {entry:templating/elementcriteriamodel:link} prepped to return the category’s children. (This is an alias for `getDescendants(1)`)
+  Returns an [ElementCriteria Model](elementcriteriamodel.md) prepped to return the category’s children. (This is an alias for `getDescendants(1)`)
   
   ### `getDescendants( distance )`
   
-  Returns an {entry:templating/elementcriteriamodel:link} prepped to return the category’s descendants. You can limit it to only return descendants that are up to a certain distance away by passing the distance as an argument.
+  Returns an [ElementCriteria Model](elementcriteriamodel.md) prepped to return the category’s descendants. You can limit it to only return descendants that are up to a certain distance away by passing the distance as an argument.
   
   ### `getGroup()`
   
-  Returns a [CategoryGroupModel]({entry:templating/categorygroupmodel}) object representing the category’s group.
+  Returns a [CategoryGroup Model](categorygroupmodel.md) object representing the category’s group.
   
   ### `getLink()`
   
@@ -151,7 +151,7 @@ Whether the category has any descendants.
  > {tip} `getNextSibling()` will return the next sibling whether or not it’s enabled. If you want to get the closest enabled sibling, you can do this instead:
   
  ```twig
-  {% set nextSibling = craft.categories.positionedAfter(category).order('lft asc').first() %}
+  {% set nextSibling = craft.categories.positionedAfter(category).order('lft asc').one() %}
   ```  
 
 ### `getParent()`
@@ -161,7 +161,7 @@ Returns the category’s parent, if it’s not a top-level category.
   > {tip} `getParent()` will return the parent whether or not it’s enabled. If you want to get the closest enabled ancestor, you can do this instead:
           
 ```twig
-{% set parent = craft.categories.ancestorOf(category).order('lft desc').first() %}
+{% set parent = craft.categories.ancestorOf(category).order('lft desc').one() %}
 ```
  
 ### `getPrev( params )`
@@ -175,12 +175,12 @@ Returns a category’s previous sibling, if there is one.
 > {tip} `getPrevSibling()` will return the previous sibling whether or not it’s enabled. If you want to get the closest enabled sibling, you can do this instead:
 
 ```twig
-{% set prevSibling = craft.categories.positionedBefore(category).order('lft desc').first() %}
+{% set prevSibling = craft.categories.positionedBefore(category).order('lft desc').one() %}
 ```        
 
 ### `getSiblings()`
 
-Returns an {entry:templating/elementcriteriamodel:link} prepped to return the category’s siblings (if it lives in a Structure section).
+Returns an [ElementCriteria Model](elementcriteriamodel.md) prepped to return the category’s siblings (if it lives in a Structure section).
 
 ### `getUrl()`
 

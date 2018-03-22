@@ -1,11 +1,11 @@
-AssetFileModel
+AssetFile Model
 ==============
 
-Whenever you’re dealing with an [asset](/en/assets.md) in your template, you’re actually working with an AssetFileModel object.
+Whenever you’re dealing with an [asset](/en/assets.md) in your template, you’re actually working with an AssetFile Model object.
 
 ## Simple Output
 
-Outputting an AssetFileModel object without attaching a property or method will return the asset’s Title:
+Outputting an AssetFile Model object without attaching a property or method will return the asset’s Title:
 
 ```twig
 <a href="{{ file.url }}">{{ file }}</a>
@@ -13,7 +13,7 @@ Outputting an AssetFileModel object without attaching a property or method will 
 
 ## Properties
 
-AssetFileModel objects have the following properties:
+AssetFile Model objects have the following properties:
 
 ### `dateCreated`
 
@@ -95,7 +95,7 @@ Alias of [`getPrev()`](#getPrev).
 
 ### `size`
 
-The size of the file in bytes. You can output it as a formatted filesize using Craft’s [filesize](/en/templating/filters.md#filesize) filter.
+The size of the file in bytes. You can output it as a formatted file size using Craft’s [filesize](/en/templating/filters.md#filesize) filter.
 
 ```twig
 {{ file.size|filesize }}
@@ -124,7 +124,7 @@ Alias of [`getWidth()`](#getWidth).
 
 ## Methods
 
-AssetFileModel objects have the following methods:
+AssetFile Model objects have the following methods:
 
 ### `getExtension()`
 
@@ -132,7 +132,7 @@ Returns the file extension, if there is one.
 
 ### `getFolder()`
 
-Returns an {entry:templating/assetfoldermodel:link} object with info about the folder the file lives in.
+Returns an [AssetFolder Model](assetfoldermodel.md) object with info about the folder the file lives in.
 
 ### `getHeight( transform )`
 
@@ -164,7 +164,7 @@ Returns the previous asset that would have shown up in a list based on the param
 
 ### `getSource()`
 
-Returns an {entry:templating/assetsourcemodel:link} object representing the asset’s source.
+Returns an [AssetSource Model](assetsourcemodel.md) object representing the asset’s source.
 
 ### `getUrl( transform )`
 
