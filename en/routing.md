@@ -87,7 +87,7 @@ The following tokens are available to the URI setting:
 
 ## Advanced Routing
 
-If you need to match a URL pattern that’s not covered by the available route tokens and you’re comfortable with regular expressions, you can set up your routes in `craft/config/routes.php` as well. 
+If you need to set up routes to controller actions, or you need to create a template route that matches a URI pattern that’s not covered by the available route tokens in Settings → Routes, you can set up your routes in `craft/config/routes.php` as well. 
 
 When a request comes in, Craft checks this file first, and then the routes defined in Settings → Routes.
 
@@ -96,10 +96,12 @@ When a request comes in, Craft checks this file first, and then the routes defin
 Routes in `craft/config/routes.php` generally follow this syntax:
 
 ```php
-'news/archive/<year:\d{4}>' => 'news/_archive',
-```
+// routes "news/subscribe" to a "lists/subscribe/news" action:
+'news/subscribe' => 'lists/subscribe/news',
 
-Note that you don’t need to escape forward slashes; Craft will automatically escape them for you.
+// routes "news/archive/2020" to a "news/_archive" template:
+'news/archive/<year:\d{4}>' => ['template' => 'news/_archive'],
+```
 
 If your Craft installation has multiple sites, then you can target locale specific routes via:
 
@@ -111,36 +113,30 @@ If your Craft installation has multiple sites, then you can target locale specif
 ),
 ```
 
+You can find a full specification for defining URL rules and routes at the [Yii documentation](https://www.yiiframework.com/doc/guide/2.0/en/runtime-routing#using-pretty-urls). The only Craft-specific addition is support for template routes (`['template' => 'some/template']`).
+
 ### Accessing Subpatterns in your Templates
 
-If your route contains any subpatterns, Craft passes a matches array to the matched template containing them. For example, with this route:
+If you have a template route that contains subpatterns, Craft passes a `matches` array to the matched template containing them. For example, with this route:
 
 ```php
 'news/(\d{4})/(\d{2})' => 'news/_archive',
 ```
 
-If you access `http://example.com/news/2017/04`, your `news/_archive.html` template will get loaded with a ‘matches’ variable set to this:
+If you access `http://example.com/news/2020/10`, your `news/_archive.html` template will get loaded with a `matches` variable set to this:
 
 ```php
-array(
-    0 => 'news/2017/04',
-    1 => '2017',
-    2 => '04'
-)
+[
+    0 => 'news/2020/10',
+    1 => '2020',
+    2 => '10'
+]
 ```
 
-If you specify any named subpatterns, then those matches will also get their own normal variables. For example, with this route:
+If you specify any named subpatterns, then those matches will also get their own variables. For example, with this route:
 
 ```php
-'news/(?P<year>\d{4})/(?P<month>\d{2})' => 'news/_archive',
+'news/<year:\d{4}>/<month:\d{2}>' => 'news/_archive',
 ```
 
-…if you access `http://example.com/news/2017/04`, your `news/_archive.html` template will get loaded with ‘year’ and ‘month’ variables set to “2017” and “04”.
-
-### Routing to Controller Actions
-
-You can also set your route to point to a controller action, rather than a template:
-
-```php
-'some/uri/pattern' => array('action' => 'action/path'),
-```
+…if you access `http://example.com/news/2020/10`, your `news/_archive.html` template will get loaded with `year` and `month` variables set to `'2017'` and `'04'`.
