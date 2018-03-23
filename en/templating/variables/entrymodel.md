@@ -153,11 +153,11 @@ Returns an {entry:templating/elementcriteriamodel:link} prepped to return the en
 
 ### `getAuthor()`
 
-Returns a [UserModel](usermodel.md) object representing the entry’s author, if there is one.
+Returns a [User Models](usermodel.md) object representing the entry’s author, if there is one.
 
 ### `getChildren()`
 
-Returns an [ElementCriteriaModel](elementcriteriamodel.md) prepped to return the entry’s children (if it lives in a Structure section). (This is an alias for `getDescendants(1)`)
+Returns an [ElementCriteria Models](elementcriteriamodel.md) prepped to return the entry’s children (if it lives in a Structure section). (This is an alias for `getDescendants(1)`)
 
 > {warning} If `getChildren()` is called for an entry in a Channel section, it will return any entries that are related by the entry. This behavior is deprecated, though, and removed in Craft 3.
 
@@ -167,7 +167,7 @@ Returns the URL to the entry’s edit page within the control panel.
 
 ### `getDescendants( distance )`
 
-Returns an [ElementCriteriaModel](elementcriteriamodel.md) prepped to return the entry’s descendants (if it lives in a Structure section). You can limit it to only return descendants that are up to a certain distance away by passing the distance as an argument.
+Returns an [ElementCriteria Models](elementcriteriamodel.md) prepped to return the entry’s descendants (if it lives in a Structure section). You can limit it to only return descendants that are up to a certain distance away by passing the distance as an argument.
 
 ### `getLink()`
 
@@ -213,15 +213,15 @@ Returns a Structured entry’s previous sibling, if there is one.
 
 ### `getSection()`
 
-Returns a [SectionModel](sectionmodel.md) object representing the entry’s section.
+Returns a [Section Models](sectionmodel.md) object representing the entry’s section.
 
 ### `getSiblings()`
 
-Returns an [ElementCriteriaModel](elementcriteriamodel.md) object prepped to return the entry’s siblings (if it lives in a Structure section).
+Returns an [ElementCriteria Models](elementcriteriamodel.md) object prepped to return the entry’s siblings (if it lives in a Structure section).
 
 ### `getType()`
 
-Returns an [EntryModel](entrymodel.md) object representing the entry’s type.
+Returns an [Entry Models](entrymodel.md) object representing the entry’s type.
 
 ### `getUrl()`
 
