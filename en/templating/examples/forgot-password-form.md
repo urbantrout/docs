@@ -10,7 +10,7 @@ You can create a Forgot Password form using the following code:
 
     <h3><label for="loginName">Username or email</label></h3>
     <input id="loginName" type="text" name="loginName"
-        value="{% if loginName is defined %}{{ loginName }}{% else %}{{ craft.session.rememberedUsername }}{% endif %}">
+        value="{% if loginName is defined %}{{ loginName }}{% else %}{{ craft.app.user.rememberedUsername }}{% endif %}">
 
     {% if errors is defined %}
         <ul class="errors">
