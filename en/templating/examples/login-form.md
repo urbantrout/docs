@@ -9,7 +9,7 @@ If you need to login a user from the front-end of your site, you can do so with 
 
     <h3><label for="loginName">Username or email</label></h3>
     <input id="loginName" type="text" name="loginName"
-        value="{{ craft.session.rememberedUsername }}">
+        value="{{ craft.app.user.rememberedUsername }}">
 
     <h3><label for="password">Password</label></h3>
     <input id="password" type="password" name="password">
