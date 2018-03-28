@@ -10,9 +10,9 @@ The following template can be used to provide an Atom 1.0 feed on your site. It 
 
     <title>{{ siteName }}</title>
     <link href="{{ siteUrl }}" />
-    <link type="application/atom+xml" rel="self" href="{{ craft.request.url }}" />
+    <link type="application/atom+xml" rel="self" href="{{ craft.app.request.absoluteUrl }}" />
     <updated>{{ now|atom }}</updated>
-    <id>{{ craft.request.url }}</id>
+    <id>{{ craft.app.request.absoluteUrl }}</id>
     <author>
         <name>{{ globals.feedAuthorName }}</name>
         <email>{{ globals.feedAuthorEmail }}</email>
