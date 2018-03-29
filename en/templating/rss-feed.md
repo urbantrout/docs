@@ -6,10 +6,11 @@ The following template can be used to provide a RSS 2.0 feed on your site. It as
 
 ```twig
 <?xml version="1.0"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>{{ siteName }}</title>
         <link>{{ siteUrl }}</link>
+        <atom:link href="{{ craft.request.url }}" rel="self" type="application/rss+xml" />
         <description>{{ globals.siteDescription }}</description>
         <language>en-us</language>
         <pubDate>{{ now.rss }}</pubDate>
