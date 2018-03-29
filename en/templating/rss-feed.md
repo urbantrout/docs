@@ -10,7 +10,6 @@ The following template can be used to provide a RSS 2.0 feed on your site. It as
     <channel>
         <title>{{ siteName }}</title>
         <link>{{ siteUrl }}</link>
-        <atom:link href="{{ craft.request.url }}" rel="self" type="application/rss+xml" />
         <description>{{ globals.siteDescription }}</description>
         <language>en-us</language>
         <pubDate>{{ now.rss }}</pubDate>
