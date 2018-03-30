@@ -3,7 +3,7 @@ Craft 3 Documentation
 
 ## Introduction
 
-- [About Craft CMS](en/introduction.md)
+- [About Craft CMS](en/index.md)
 - [Code of Conduct](en/coc.md)
 - [How to Use the Documentation](en/how-to-use-the-documentation.md)
 
