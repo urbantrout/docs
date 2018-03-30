@@ -36,7 +36,7 @@ That will give you an [element query](element-queries.md), prepped to output all
 ```twig
 {% set entries = craft.entries({
     relatedTo: { sourceElement: entry, field: "entriesFieldHandle" },
-    order:     "sortOrder",
+    orderBy:     "sortOrder",
     limit:     null
 }) %}
 ```
@@ -53,10 +53,10 @@ To check if your Entries field has any selected entries, you can use the `length
 {% endif %}
 ```
 
-To loop through the selected entries, you can treat the field like an array:
+To loop through the selected entries:
 
 ```twig
-{% for entry in entry.entriesFieldHandle %}
+{% for entry in entry.entriesFieldHandle.all() %}
     ...
 {% endfor %}
 ```
@@ -82,10 +82,10 @@ You can add parameters to the ElementCriteriaModel object as well:
 {% set newsEntries = entry.entriesFieldHandle.section('news') %}
 ```
 
-If your Entries field is only meant to have a single entry selected, remember that calling your Entries field will still give you the same ElementCriteriaModel, not the selected entry. To get the first (and only) entry selected, use `first()`:
+If your Entries field is only meant to have a single entry selected, remember that calling your Entries field will still give you the same ElementCriteriaModel, not the selected entry. To get the first (and only) entry selected, use `one()`:
 
 ```twig
-{% set entry = entry.myEntriesField.first() %}
+{% set entry = entry.myEntriesField.one() %}
 
 {% if entry %}
     ...
