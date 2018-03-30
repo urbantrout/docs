@@ -49,10 +49,10 @@ To check if your Categories field has any selected tags, you can use the `length
 {% endif %}
 ```
 
-To loop through the selected categories, you can treat the field like an array:
+To loop through the selected categories:
 
 ```twig
-{% nav category in entry.categoriesFieldHandle %}
+{% nav category in entry.categoriesFieldHandle.all() %}
     ...
 {% endnav %}
 ```
@@ -75,13 +75,13 @@ Rather than typing “`entry.categoriesFieldHandle`” every time, you can call 
 You can add parameters to the ElementCriteriaModel object as well:
 
 ```twig
-{% set categories = entry.categoriesFieldHandle.order('name') %}
+{% set categories = entry.categoriesFieldHandle.orderBy('name') %}
 ```
 
-If your Categories field is only meant to have a single category selected, remember that calling your Categories field will still give you the same ElementCriteriaModel, not the selected category. To get the first (and only) tag selected, use `first()`:
+If your Categories field is only meant to have a single category selected, remember that calling your Categories field will still give you the same ElementCriteriaModel, not the selected category. To get the first (and only) tag selected, use `one()`:
 
 ```twig
-{% set category = entry.myCategoriesField.first() %}
+{% set category = entry.myCategoriesField.one() %}
 
 {% if category %}
     ...
