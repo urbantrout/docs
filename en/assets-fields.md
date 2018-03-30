@@ -110,10 +110,10 @@ You can add parameters to the ElementCriteriaModel object as well:
 {% set images = entry.assetsFieldHandle.kind('image') %}
 ```
 
-If your Assets field is only meant to have a single asset selected, remember that calling your Assets field will still give you the same ElementCriteriaModel, not the selected asset. To get the first (and only) asset selected, use `first()`:
+If your Assets field is only meant to have a single asset selected, remember that calling your Assets field will still give you the same ElementCriteriaModel, not the selected asset. To get the first (and only) asset selected, use `one()`:
 
 ```twig
-{% set asset = entry.myAssetsField.first() %}
+{% set asset = entry.myAssetsField.one() %}
 
 {% if asset %}
     {{ asset.url }}
