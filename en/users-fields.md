@@ -31,7 +31,7 @@ That will give you an [element query](element-queries.md), prepped to output all
 ```twig
 {% craft.users({
     relatedTo: { sourceElement: entry, field: "usersFieldHandle" },
-    order:     "sortOrder",
+    orderBy:     "sortOrder",
     limit:     null
 }) %}
 ```
@@ -48,10 +48,10 @@ To check if your Users field has any selected users, you can use the `length` fi
 {% endif %}
 ```
 
-To loop through the selected users, you can treat the field like an array:
+To loop through the selected users:
 
 ```twig
-{% for user in entry.usersFieldHandle %}
+{% for user in entry.usersFieldHandle.all() %}
     ...
 {% endfor %}
 ```
@@ -77,10 +77,10 @@ You can add parameters to the ElementCriteriaModel object as well:
 {% set authors = entry.usersFieldHandle.group('authors') %}
 ```
 
-If your Users field is only meant to have a single user selected, remember that calling your Users field will still give you the same ElementCriteriaModel, not the selected user. To get the first (and only) user selected, use `first()`:
+If your Users field is only meant to have a single user selected, remember that calling your Users field will still give you the same ElementCriteriaModel, not the selected user. To get the first (and only) user selected, use `one()`:
 
 ```twig
-{% set user = entry.myUsersField.first() %}
+{% set user = entry.myUsersField.one() %}
 
 {% if user %}
     ...
