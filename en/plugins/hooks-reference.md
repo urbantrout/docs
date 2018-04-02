@@ -9,7 +9,7 @@
 ### `addRichTextLinkOptions`
 
 Called by
-: [RichTextFieldType::getInputHtml()](https://craftcms.com/classreference/fieldtypes/RichTextFieldType#getInputHtml-detail)
+: [RichTextFieldType::getInputHtml()](/api/v2/fieldtypes/RichTextFieldType.html#getInputHtml-detail)
 
 Return
 : An array of additional options that should be available to Rich Text fields’ Link menus.
@@ -32,14 +32,14 @@ Each sub-array can contain the following keys:
 
 * **`'optionTitle'`** _(required)_ – The user-facing option label
 * **`'elementType'`** _(required)_ – The element type class that the option represents
-* **`'sources'`** _(optional)_ – An array of source keys (matching the keys returned by the element type’s [getSources()](https://craftcms.com/classreference/elementtypes/IElementType#getSources-detail) method) which the element selector modal should be restricted to
+* **`'sources'`** _(optional)_ – An array of source keys (matching the keys returned by the element type’s [getSources()](/api/v2/elementtypes/IElementType.html#getSources-detail) method) which the element selector modal should be restricted to
 * **`'criteria'`** _(optional)_ – Any element criteria params that should be applied to filter which elements can be selected
 * **`'storageKey'`** _(optional)_ – The localStorage key that should be used to store the element selector modal state (defaults to RichTextFieldType.LinkTo[ElementType])
 
 ### `addTwigExtension`
 
 Called by
-: [TemplatesService::getTwig()](http://buildwithcraft.com/classreference/services/TemplatesService#getTwig-detail), [TemplatesService::onPluginsLoaded()](http://buildwithcraft.com/classreference/services/TemplatesService#onPluginsLoaded-detail)
+: [TemplatesService::getTwig()](/api/v2/services/TemplatesService.html#getTwig-detail), [TemplatesService::onPluginsLoaded()](/api/v2/services/TemplatesService.html#onPluginsLoaded-detail)
 
 Return
 : A new [\Twig\_Extension](http://twig.sensiolabs.org/api/master/Twig_Extension.html) object
@@ -57,7 +57,7 @@ public function addTwigExtension()
 ### `addUserAdministrationOptions`
 
 Called by
-: [UsersController::actionEditUser()](http://buildwithcraft.com/classreference/controllers/UsersController#actionEditUser-detail)
+: [UsersController::actionEditUser()](/api/v2/controllers/UsersController#actionEditUser-detail)
 
 Return
 : An array of additional administration options for the Edit User page.
@@ -90,7 +90,7 @@ public function addUserAdministrationOptions(UserModel $user)
 ### `getResourcePath`
 
 Called by
-: [ResourcesService::getResourcePath()](http://buildwithcraft.com/classreference/services/ResourcesService#getResourcePath-detail)
+: [ResourcesService::getResourcePath()](/api/v2/services/ResourcesService.html#getResourcePath-detail)
 
 Return
 : A string identifying the server path to the requested resource, or `null` if your plugin isn’t sure.
@@ -112,7 +112,7 @@ public function getResourcePath($path)
 ### `modifyCpNav`
 
 Called by
-: [CpVariable::nav()](http://buildwithcraft.com/classreference/variables/CpVariable#nav-detail)
+: [CpVariable::nav()](/api/v2/variables/CpVariable.html#nav-detail)
 
 Gives plugins a chance to modify the Control Panel navigation.
 
@@ -134,7 +134,7 @@ The config arrays can be set to the following:
 ### `registerCachePaths`
 
 Called by
-: [ClearCachesTool::performAction()](http://buildwithcraft.com/classreference/tools/ClearCachesTool#performAction-detail)
+: [ClearCachesTool::performAction()](/api/v2/tools/ClearCachesTool.html#performAction-detail)
 
 Return
 : An array where the keys are paths and the values are the labels.
@@ -153,7 +153,7 @@ public function registerCachePaths()
 ### `registerEmailMessages`
 
 Called by
-: [EmailMessagesService::getAllMessages()](http://buildwithcraft.com/classreference/services/EmailMessagesService#getAllMessages-detail), [EmailMessagesService::getMessage()](http://buildwithcraft.com/classreference/services/EmailMessagesService#getMessage-detail), [EmailMessagesService::saveMessage()](http://buildwithcraft.com/classreference/services/EmailMessagesService#saveMessage-detail)
+: [EmailMessagesService::getAllMessages()](/api/v2/services/EmailMessagesService.html#getAllMessages-detail), [EmailMessagesService::getMessage()](/api/v2/services/EmailMessagesService.html#getMessage-detail), [EmailMessagesService::saveMessage()](/api/v2/services/EmailMessagesService.html#saveMessage-detail)
 
 Return
 : An array of email messages.
@@ -181,7 +181,7 @@ public function registerEmailMessages()
 ### `registerUserPermissions`
 
 Called by
-: [UserPermissionsService::getAllPermissions()](http://buildwithcraft.com/classreference/services/UserPermissionsService#getAllPermissions-detail)
+: [UserPermissionsService::getAllPermissions()](/api/v2/services/UserPermissionsService.html#getAllPermissions-detail)
 
 Return
 : An array of user permissions.
@@ -201,7 +201,7 @@ public function registerUserPermissions()
 ### `getCpAlerts`
 
 Called by
-: [CpHelper::getAlerts()](https://craftcms.com/classreference/helpers/CpHelper#getAlerts-detail)
+: [CpHelper::getAlerts()](/api/v2/helpers/CpHelper.html#getAlerts-detail)
 
 Return
 : An array of CP alerts, or `null` if there are no alerts to display.
@@ -220,7 +220,7 @@ public function getCpAlerts($path, $fetch)
 
 The hook is passed the following arguments:
 
-* **`$path`** – The path to the main CP page that the alert will be displayed on. (This won’t nceessarily be the same as [HttpRequestService::getPath()](https://craftcms.com/classreference/services/HttpRequestService#getPath-detail) because getCpAlerts() is often called over Ajax after the main page has loaded.)
+* **`$path`** – The path to the main CP page that the alert will be displayed on. (This won’t nceessarily be the same as [HttpRequestService::getPath()](/api/v2services/HttpRequestService.html#getPath-detail) because getCpAlerts() is often called over Ajax after the main page has loaded.)
 * **`$fetch`** – Whether the method can create HTTP requests when determining if it should display alerts. When this is `false`, if the alerts can not be determined without an HTTP request, `null` should be returned, so the method does not significantly impact CP page load times.
 
 ## Routing Hooks
@@ -228,7 +228,7 @@ The hook is passed the following arguments:
 ### `registerCpRoutes`
 
 Called by
-: [UrlManager::parseUrl()](http://buildwithcraft.com/classreference/etc/web/UrlManager#parseUrl-detail)
+: [UrlManager::parseUrl()](/api/v2/etc/web/UrlManager.html#parseUrl-detail)
 
 Return
 : An array of CP routes.
@@ -248,7 +248,7 @@ public function registerCpRoutes()
 ### `registerSiteRoutes`
 
 Called by
-: [UrlManager::parseUrl()](http://buildwithcraft.com/classreference/etc/web/UrlManager#parseUrl-detail)
+: [UrlManager::parseUrl()](/api/v2/etc/web/UrlManager.html#parseUrl-detail)
 
 Return
 : An array of site routes.
@@ -269,12 +269,12 @@ public function registerSiteRoutes()
 ### `getElementRoute`
 
 Called by
-: [EntryElementType::getAvailableActions()](http://buildwithcraft.com/classreference/elementtypes/EntryElementType#getAvailableActions-detail)
+: [EntryElementType::getAvailableActions()](/api/v2/elementtypes/EntryElementType.html#getAvailableActions-detail)
 
 Return
 : An array of element actions.
 
-Gives plugins a chance to add additional actions to the entry index page. Each item in the array can either be an element action’s class handle or an instantiated [IElementAction](http://buildwithcraft.com/classreference/elementactions/IElementAction) object.
+Gives plugins a chance to add additional actions to the entry index page. Each item in the array can either be an element action’s class handle or an instantiated [IElementAction](/api/v2/elementactions/IElementAction.html) object.
 
 ```php
 public function addEntryActions($source)
@@ -291,12 +291,12 @@ public function addEntryActions($source)
 ### `addEntryActions`
 
 Called by
-: [EntryElementType::getAvailableActions()](http://buildwithcraft.com/classreference/elementtypes/EntryElementType#getAvailableActions-detail)
+: [EntryElementType::getAvailableActions()](/api/v2/elementtypes/EntryElementType.html#getAvailableActions-detail)
 
 Return
 : An array of element actions.
 
-Gives plugins a chance to add additional actions to the entry index page. Each item in the array can either be an element action’s class handle or an instantiated [IElementAction](http://buildwithcraft.com/classreference/elementactions/IElementAction) object.
+Gives plugins a chance to add additional actions to the entry index page. Each item in the array can either be an element action’s class handle or an instantiated [IElementAction](/api/v2/elementactions/IElementAction.html) object.
 
 ```php
 public function addEntryActions($source)
@@ -311,12 +311,12 @@ public function addEntryActions($source)
 ### `addCategoryActions`
 
 Called by
-: [CategoryElementType::getAvailableActions()](http://buildwithcraft.com/classreference/elementtypes/CategoryElementType#getAvailableActions-detail)
+: [CategoryElementType::getAvailableActions()](/api/v2/elementtypes/CategoryElementType.html#getAvailableActions-detail)
 
 Return
 : An array of element actions.
 
-Gives plugins a chance to add additional actions to the category index page. Each item in the array can either be an element action’s class handle or an instantiated [IElementAction](http://buildwithcraft.com/classreference/elementactions/IElementAction) object.
+Gives plugins a chance to add additional actions to the category index page. Each item in the array can either be an element action’s class handle or an instantiated [IElementAction](/api/v2/elementactions/IElementAction.html) object.
 
 ```php
 public function addCategoryActions($source)
@@ -331,12 +331,12 @@ public function addCategoryActions($source)
 ### `addAssetActions`
 
 Called by
-: [AssetElementType::getAvailableActions()](http://buildwithcraft.com/classreference/elementtypes/AssetElementType#getAvailableActions-detail)
+: [AssetElementType::getAvailableActions()](/api/v2/elementtypes/AssetElementType.html#getAvailableActions-detail)
 
 Return
 : An array of element actions.
 
-Gives plugins a chance to add additional actions to the asset index page. Each item in the array can either be an element action’s class handle or an instantiated [IElementAction](http://buildwithcraft.com/classreference/elementactions/IElementAction) object.
+Gives plugins a chance to add additional actions to the asset index page. Each item in the array can either be an element action’s class handle or an instantiated [IElementAction](/api/v2/elementactions/IElementAction.html) object.
 
 ```php
 public function addAssetActions($source)
@@ -351,12 +351,12 @@ public function addAssetActions($source)
 ### `addUserActions`
 
 Called by
-: [UserElementType::getAvailableActions()](http://buildwithcraft.com/classreference/elementtypes/UserElementType#getAvailableActions-detail)
+: [UserElementType::getAvailableActions()](/api/v2/elementtypes/UserElementType.html#getAvailableActions-detail)
 
 Return
 : An array of element actions.
 
-Gives plugins a chance to add additional actions to the user index page. Each item in the array can either be an element action’s class handle or an instantiated [IElementAction](http://buildwithcraft.com/classreference/elementactions/IElementAction) object.
+Gives plugins a chance to add additional actions to the user index page. Each item in the array can either be an element action’s class handle or an instantiated [IElementAction](/api/v2/elementactions/IElementAction.html) object.
 
 ```php
 public function addUserActions($source)
@@ -371,7 +371,7 @@ public function addUserActions($source)
 ### `modifyAssetFilename`
 
 Called by
-: [AssetsHelper::cleanAssetName()](https://craftcms.com/classreference/helpers/AssetsHelper#cleanAssetName-detail)
+: [AssetsHelper::cleanAssetName()](/api/v2/helpers/AssetsHelper.html#cleanAssetName-detail)
 
 Return
 : The modified asset filename.
@@ -388,7 +388,7 @@ public function modifyAssetFilename($filename)
 ### `modifyEntrySortableAttributes`
 
 Called by
-: [EntryElementType::defineSortableAttributes()](http://buildwithcraft.com/classreference/elementtypes/EntryElementType#defineSortableAttributes-detail)
+: [EntryElementType::defineSortableAttributes()](/api/v2/elementtypes/EntryElementType.html#defineSortableAttributes-detail)
 
 Gives plugins a chance to modify the attributes that entries can be sorted by in the Control Panel.
 
@@ -402,7 +402,7 @@ public function modifyEntrySortableAttributes(&$attributes)
 ### `modifyCategorySortableAttributes`
 
 Called by
-: [CategoryElementType::defineSortableAttributes()](http://buildwithcraft.com/classreference/elementtypes/CategoryElementType#defineSortableAttributes-detail)
+: [CategoryElementType::defineSortableAttributes()](/api/v2/elementtypes/CategoryElementType.html#defineSortableAttributes-detail)
 
 Gives plugins a chance to modify the attributes that categories can be sorted by in the Control Panel.
 
@@ -416,7 +416,7 @@ public function modifyCategorySortableAttributes(&$attributes)
 ### `modifyAssetSortableAttributes`
 
 Called by
-: [AssetElementType::defineSortableAttributes()](http://buildwithcraft.com/classreference/elementtypes/AssetElementType#defineSortableAttributes-detail)
+: [AssetElementType::defineSortableAttributes()](/api/v2/elementtypes/AssetElementType.html#defineSortableAttributes-detail)
 
 Gives plugins a chance to modify the attributes that assets can be sorted by in the Control Panel.
 
@@ -430,7 +430,7 @@ public function modifyAssetSortableAttributes(&$attributes)
 ### `modifyUserSortableAttributes`
 
 Called by
-: [UserElementType::defineSortableAttributes()](http://buildwithcraft.com/classreference/elementtypes/UserElementType#defineSortableAttributes-detail)
+: [UserElementType::defineSortableAttributes()](/api/v2/elementtypes/UserElementType.html#defineSortableAttributes-detail)
 
 Gives plugins a chance to modify the attributes that users can be sorted by in the Control Panel.
 
@@ -444,7 +444,7 @@ public function modifyUserSortableAttributes(&$attributes)
 ### `modifyEntrySources`
 
 Called by
-: [EntryElementType::getSources()](http://buildwithcraft.com/classreference/elementtypes/EntryElementType#getSources-detail)
+: [EntryElementType::getSources()](/api/v2/elementtypes/EntryElementType.html#getSources-detail)
 
 Gives plugins a chance to modify the available sources for entries.
 
@@ -470,7 +470,7 @@ public function modifyEntrySources(&$sources, $context)
 ### `modifyCategorySources`
 
 Called by
-: [CategoryElementType::getSources()](http://buildwithcraft.com/classreference/elementtypes/CategoryElementType#getSources-detail)
+: [CategoryElementType::getSources()](/api/v2/elementtypes/CategoryElementType.html#getSources-detail)
 
 Gives plugins a chance to modify the available sources for categories.
 
@@ -496,7 +496,7 @@ public function modifyCategorySources(&$sources, $context)
 ### `modifyAssetSources`
 
 Called by
-: [AssetElementType::getSources()](http://buildwithcraft.com/classreference/elementtypes/AssetElementType#getSources-detail)
+: [AssetElementType::getSources()](/api/v2/elementtypes/AssetElementType.html#getSources-detail)
 
 Gives plugins a chance to modify the available sources for assets.
 
@@ -518,7 +518,7 @@ public function modifyAssetSources(&$sources, $context)
 ### `modifyUserSources`
 
 Called by
-: [UserElementType::getSources()](http://buildwithcraft.com/classreference/elementtypes/UserElementType#getSources-detail)
+: [UserElementType::getSources()](/api/v2/elementtypes/UserElementType.html#getSources-detail)
 
 Gives plugins a chance to modify the available sources for users.
 
@@ -544,7 +544,7 @@ public function modifyUserSources(&$sources, $context)
 ### `defineAdditionalEntryTableAttributes`
 
 Called by
-: [EntryElementType::defineAvailableTableAttributes()](http://buildwithcraft.com/classreference/elementtypes/EntryElementType#defineAvailableTableAttributes-detail)
+: [EntryElementType::defineAvailableTableAttributes()](/api/v2/elementtypes/EntryElementType#defineAvailableTableAttributes-detail)
 
 Gives plugins a chance to make additional table columns available to entry indexes.
 
@@ -561,7 +561,7 @@ public function defineAdditionalEntryTableAttributes()
 ### `defineAdditionalCategoryTableAttributes`
 
 Called by
-: [CategoryElementType::defineAvailableTableAttributes()](http://buildwithcraft.com/classreference/elementtypes/CategoryElementType#defineAvailableTableAttributes-detail)
+: [CategoryElementType::defineAvailableTableAttributes()](/api/v2/elementtypes/CategoryElementType#defineAvailableTableAttributes-detail)
 
 Gives plugins a chance to make additional table columns available to category indexes.
 
@@ -578,7 +578,7 @@ public function defineAdditionalCategoryTableAttributes()
 ### `defineAdditionalAssetTableAttributes`
 
 Called by
-: [AssetElementType::defineAvailableTableAttributes()](http://buildwithcraft.com/classreference/elementtypes/AssetElementType#defineAvailableTableAttributes-detail)
+: [AssetElementType::defineAvailableTableAttributes()](/api/v2/elementtypes/AssetElementType#defineAvailableTableAttributes-detail)
 
 Gives plugins a chance to make additional table columns available to asset indexes.
 
@@ -595,7 +595,7 @@ public function defineAdditionalAssetTableAttributes()
 ### `defineAdditionalUserTableAttributes`
 
 Called by
-: [UserAssetType::defineAvailableTableAttributes()](http://buildwithcraft.com/classreference/elementtypes/UserElementType#defineAvailableTableAttributes-detail)
+: [UserAssetType::defineAvailableTableAttributes()](/api/v2/elementtypes/UserElementType#defineAvailableTableAttributes-detail)
 
 Gives plugins a chance to make additional table columns available to user indexes.
 
@@ -612,7 +612,7 @@ public function defineAdditionalUserTableAttributes()
 ### `getEntryTableAttributeHtml`
 
 Called by
-: [EntryElementType::getTableAttributeHtml()](http://buildwithcraft.com/classreference/elementtypes/EntryElementType#getTableAttributeHtml-detail)
+: [EntryElementType::getTableAttributeHtml()](/api/v2/elementtypes/EntryElementType#getTableAttributeHtml-detail)
 
 Return
 : The HTML that should be displayed in the table cell for the given attribute.
@@ -632,7 +632,7 @@ public function getEntryTableAttributeHtml(EntryModel $entry, $attribute)
 ### `getCategoryTableAttributeHtml`
 
 Called by
-: [CategoryElementType::getTableAttributeHtml()](http://buildwithcraft.com/classreference/elementtypes/CategoryElementType#getTableAttributeHtml-detail)
+: [CategoryElementType::getTableAttributeHtml()](/api/v2/elementtypes/CategoryElementType#getTableAttributeHtml-detail)
 
 Return
 : The HTML that should be displayed in the table cell for the given attribute.
@@ -652,7 +652,7 @@ public function getCategoryTableAttributeHtml(CategoryModel $category, $attribut
 ### `getAssetTableAttributeHtml`
 
 Called by
-: [AssetElementType::getTableAttributeHtml()](http://buildwithcraft.com/classreference/elementtypes/AssetElementType#getTableAttributeHtml-detail)
+: [AssetElementType::getTableAttributeHtml()](/api/v2/elementtypes/AssetElementType#getTableAttributeHtml-detail)
 
 Return
 : The HTML that should be displayed in the table cell for the given attribute.
@@ -681,7 +681,7 @@ public function getAssetTableAttributeHtml(AssetFileModel $asset, $attribute)
 ### `getUserTableAttributeHtml`
 
 Called by
-: [UserElementType::getTableAttributeHtml()](http://buildwithcraft.com/classreference/elementtypes/UserElementType#getTableAttributeHtml-detail)
+: [UserElementType::getTableAttributeHtml()](/api/v2/elementtypes/UserElementType#getTableAttributeHtml-detail)
 
 Return
 : The HTML that should be displayed in the table cell for the given attribute.
@@ -701,7 +701,7 @@ public function getUserTableAttributeHtml(UserModel $user, $attribute)
 ### `getTableAttributesForSource`
 
 Called by
-: [BaseElementType::getTableAttributesForSource()](https://craftcms.com/classreference/elementtypes/BaseElementType#getTableAttributesForSource-detail)
+: [BaseElementType::getTableAttributesForSource()](/api/v2/elementtypes/BaseElementType.html#getTableAttributesForSource-detail)
 
 Return
 : An array of table attributes, or `null`.

@@ -181,7 +181,7 @@ BaseController makes several methods available to your action methods:
 
 ### `$this->renderTemplate($template, $variables)`
 
-This is a shortcut for [TemplatesService::render()](/classreference/services/TemplatesService#render-detail), but rather than returning the rendered template, it will output it to the browser and end the request. It will also include any CSS and JS that is queued up via [includeCssFile()](/classreference/services/TemplatesService#includeCssFile-detail), [includeJsFile()](/classreference/services/TemplatesService#includeJsFile-detail), et al., and it will set the appropriate MIME type header based on the template file’s extension.
+This is a shortcut for [TemplatesService::render()](/api/v2/services/TemplatesService.html#render-detail), but rather than returning the rendered template, it will output it to the browser and end the request. It will also include any CSS and JS that is queued up via [includeCssFile()](/api/v2/services/TemplatesService.html#includeCssFile-detail), [includeJsFile()](/api/v2/services/TemplatesService.html#includeJsFile-detail), et al., and it will set the appropriate MIME type header based on the template file’s extension.
 
 ### `$this->requireLogin()`
 

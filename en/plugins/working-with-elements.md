@@ -4,9 +4,9 @@
 
 ## Fetching Elements
 
-To fetch elements in Craft, you first need to create a new [ElementCriteriaModel](/classreference/models/ElementCriteriaModel) instance (yes, the same type of object used to [fetch elements from your templates](../templating/elementcriteriamodel.md)).
+To fetch elements in Craft, you first need to create a new [ElementCriteriaModel](/api/v2/models/ElementCriteriaModel.html) instance (yes, the same type of object used to [fetch elements from your templates](../templating/elementcriteriamodel.md)).
 
-[ElementsService](/classreference/services/ElementsService) provides a `getCriteria()` function that makes this easy:
+[ElementsService](/api/v2/services/ElementsService.html) provides a `getCriteria()` function that makes this easy:
 
 ```php
 $criteria = craft()->elements->getCriteria(ElementType::Entry);
@@ -68,7 +68,7 @@ It all works exactly the same as you’re probably used to when working with ele
 
 ## Saving Elements
 
-If you need to make changes to an element, or create a new one, generally the best place to do that will be through the element types’ own APIs. For example entries should be saved with [`craft()->entries->saveEntry()`](/classreference/services/EntriesService#saveEntry-detail).
+If you need to make changes to an element, or create a new one, generally the best place to do that will be through the element types’ own APIs. For example entries should be saved with [`craft()->entries->saveEntry()`](/api/v2/services/EntriesService.html#saveEntry-detail).
 
 ## Creating new Element Types
 
@@ -84,7 +84,7 @@ Here are some existing resources, if you want to start diving in:
 * [Introduction to Element Types in Craft CMS - Part 1 of 3](https://straightupcraft.com/events/introduction-to-element-types-in-craft-cms-part-1-of-3) _(video)_
 * [Introduction to Element Types in Craft CMS - Part 2 of 3](https://straightupcraft.com/events/element-types-and-the-element-service-part-2-of-3) _(video)_
 * [Introduction to Element Types in Craft CMS - Part 3 of 3](https://straightupcraft.com/events/exploring-the-element-type-model-part-3-of-3) _(video)_
-* [BaseElementType](/classreference/elementtypes/BaseElementType) class reference
-* [BaseElementModel](/classreference/models/BaseElementModel) class reference
-* [ElementsService](/classreference/services/ElementsService) class reference
+* [BaseElementType](/api/v2/elementtypes/BaseElementType.html) class reference
+* [BaseElementModel](/api/v2/models/BaseElementModel.html) class reference
+* [ElementsService](/api/v2/services/ElementsService.html) class reference
 * [Events](https://github.com/pixelandtonic/Events) sample Element Type plugin
