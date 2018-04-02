@@ -45,4 +45,8 @@ From this page, you can do the following:
 
 ## Updating Your Asset Indexes
 
-Whenever there are files within your asset source that were not added directly by Craft (e.g. via FTP), you will need to tell Craft to go and look for them. You can do that from the “Update Asset Indexes” tool within Settings.
+Whenever there are files within your asset source that were not added directly by Craft (e.g. via FTP), you will need to tell Craft to go and look for them. You can do that from the “Update Asset Indexes” tool within Settings.z
+
+## Image Transforms
+
+Craft provides a way to perform a large variety of image transformations to your assets. See [Image Transforms](image-transforms.md) for more information.
