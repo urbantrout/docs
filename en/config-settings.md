@@ -87,7 +87,7 @@ Since
 
 Any custom ASCII character mappings.
 
-This array is merged into the default mapping array in [StringHelper::getAsciiCharMap()](/api/v2/helpers/StringHelper.html#getAsciiCharMap-detail).
+This array is merged into the default mapping array in [StringHelper::getAsciiCharMap()](https://docs.craftcms.com/api/v2/helpers/StringHelper.html#getAsciiCharMap-detail).
 
 The keys should be the HTML decimal code equivalent of the character to search for and the value is the ASCII character used for swapping.
 

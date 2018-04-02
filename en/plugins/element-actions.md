@@ -16,9 +16,9 @@ On a technical level, Element Action classes must meet the following requirement
   [PluginHandle]_[ActionHandle]ElementAction.php
   ```
 * Their files must have the `Craft` namespace.
-* They must implement the [IElementAction](/api/v2/elementactions/IElementAction.html) interface.
+* They must implement the [IElementAction](https://docs.craftcms.com/api/v2/elementactions/IElementAction.html) interface.
 
-> {tip} To keep your Element Action class lean and mean, it can inherit from [BaseElementAction](/api/v2/elementactions/BaseElementAction.html) instead of implementing the whole IElementAction interface on its own.
+> {tip} To keep your Element Action class lean and mean, it can inherit from [BaseElementAction](https://docs.craftcms.com/api/v2/elementactions/BaseElementAction.html) instead of implementing the whole IElementAction interface on its own.
 
 ## UI Modes
 
@@ -27,7 +27,7 @@ There are two ways your Element Action can manifest itself on the page:
 * As a custom trigger in the toolbar
 * As an option tucked inside the menu at the end of the toolbar
 
-The choice is up to the Element Action class. If [getTriggerHtml()](/api/v2/elementactions/IElementAction.html#getTriggerHtml-detail) returns anything, then whatever it returns will show up the toolbar; otherwise a new option will be added to the menu for you, labeled with whatever [getName()](/api/v2/etc/components/IComponentType.html#getName-detail) returns.
+The choice is up to the Element Action class. If [getTriggerHtml()](https://docs.craftcms.com/api/v2/elementactions/IElementAction.html#getTriggerHtml-detail) returns anything, then whatever it returns will show up the toolbar; otherwise a new option will be added to the menu for you, labeled with whatever [getName()](https://docs.craftcms.com/api/v2/etc/components/IComponentType.html#getName-detail) returns.
 
 
 ## Example 1: Custom Trigger
@@ -111,13 +111,13 @@ And here’s what that ‘cocktailRecipes/\_addIngredientsTrigger’ template lo
 
 Here’s what’s going on in this example:
 
-1. Our [getTriggerHtml()](/api/v2/elementactions/IElementAction.html#getTriggerHtml-detail) method fetches all the ingredients from our plugin’s imaginary [service](services.md), passes them to a ‘cocktailRecipes/\_addIngredientsTrigger’ template, and returns the template’s rendered HTML.
+1. Our [getTriggerHtml()](https://docs.craftcms.com/api/v2/elementactions/IElementAction.html#getTriggerHtml-detail) method fetches all the ingredients from our plugin’s imaginary [service](services.md), passes them to a ‘cocktailRecipes/\_addIngredientsTrigger’ template, and returns the template’s rendered HTML.
 2. Our ‘cocktailRecipes/\_addIngredientsTrigger’ template defines a menu button labeled “Add Ingredient”. When clicked, the button will open a menu that lists all of the ingredients we fetched. (We get this UI functionality for free in Craft thanks to those `menubtn` and `menu` classes.)
 3. When one of the menu options are clicked on, a form that contains our trigger will automatically get submitted thanks to that `formsubmit` class. Additionally, a new hidden input will added to the form with the name “ingredient” and its value will be whatever the ingredient’s ID is, thanks to those `data-param` and `data-value` attributes.
-4. On the back end, when an action request comes in, Craft will instantiate a new CocktailRecipes_AddIngredientElementAction object. Craft knows that it’s expecting an “ingredients” parameter because [defineParams()](/api/v2/elementactions/BaseElementAction.html#defineParams-detail) has defined it, so Craft will check the POST data for it.
-5. Once any parameters have been assigned, Craft will call the [performAction()](/api/v2/elementactions/IElementAction.html#performAction-detail) method, passing an [ElementCriteriaModel](/api/v2/models/ElementCriteriaModel.html) to it that represents all of the selected elements.
+4. On the back end, when an action request comes in, Craft will instantiate a new CocktailRecipes_AddIngredientElementAction object. Craft knows that it’s expecting an “ingredients” parameter because [defineParams()](https://docs.craftcms.com/api/v2/elementactions/BaseElementAction.html#defineParams-detail) has defined it, so Craft will check the POST data for it.
+5. Once any parameters have been assigned, Craft will call the [performAction()](https://docs.craftcms.com/api/v2/elementactions/IElementAction.html#performAction-detail) method, passing an [ElementCriteriaModel](https://docs.craftcms.com/api/v2/models/ElementCriteriaModel.html) to it that represents all of the selected elements.
 6. performAction() then loops through all of the selected elements, adding the selected ingredient to them, with the help of one of its service methods. It responds with either `true` or `false` depending on whether it was successful.
-7. The index page is notified of the action’s result, the elements are refreshed, and the message set by [setMessage()](/api/v2/elementactions/BaseElementAction.html#setMessage-detail) is displayed to the user.
+7. The index page is notified of the action’s result, the elements are refreshed, and the message set by [setMessage()](https://docs.craftcms.com/api/v2/elementactions/BaseElementAction.html#setMessage-detail) is displayed to the user.
 
 
 ## Example 2: Menu Option
@@ -161,18 +161,18 @@ class CocktailRecipes_RemoveAllIngredientsElementAction extends BaseElementActio
 
 Here’s what’s going on in this example:
 
-1. Our Element Action doesn’t have a [getTriggerHtml()](/api/v2/elementactions/IElementAction.html#getTriggerHtml-detail) method, so instead of getting its own trigger in the toolbar, Craft simply gives it an option in the actions menu, labelled “Remove all ingredients” because that’s what [getName()](/api/v2/etc/components/IComponentType.html#getName-detail) returned. It will show up below a horizontal rule in the option menu, because [isDestructive()](/api/v2/elementactions/IElementAction.html#isDestructive-detail) returned `true`.
+1. Our Element Action doesn’t have a [getTriggerHtml()](https://docs.craftcms.com/api/v2/elementactions/IElementAction.html#getTriggerHtml-detail) method, so instead of getting its own trigger in the toolbar, Craft simply gives it an option in the actions menu, labelled “Remove all ingredients” because that’s what [getName()](https://docs.craftcms.com/api/v2/etc/components/IComponentType.html#getName-detail) returned. It will show up below a horizontal rule in the option menu, because [isDestructive()](https://docs.craftcms.com/api/v2/elementactions/IElementAction.html#isDestructive-detail) returned `true`.
 2. When the user clicks on the “Remove all ingredients” menu option, the browser will send off a request to the back end informing it to run that action.
-3. On the back end, when the action request comes in, Craft will instantiate a new CocktailRecipes_RemoveAllIngredientsElementAction object, and call its [performAction()](/api/v2/elementactions/IElementAction.html#performAction-detail) method, passing an [ElementCriteriaModel](/api/v2/models/ElementCriteriaModel.html) to it that represents all of the selected elements.
+3. On the back end, when the action request comes in, Craft will instantiate a new CocktailRecipes_RemoveAllIngredientsElementAction object, and call its [performAction()](https://docs.craftcms.com/api/v2/elementactions/IElementAction.html#performAction-detail) method, passing an [ElementCriteriaModel](https://docs.craftcms.com/api/v2/models/ElementCriteriaModel.html) to it that represents all of the selected elements.
 4. performAction() then loops through all of the selected elements, adding the selected ingredient to them, with the help of one of its service methods. It responds with either `true` or `false` depending on whether it was successful.
-5. The index page is notified of the action’s result, the elements are refreshed, and the message set by [setMessage()](/api/v2/elementactions/BaseElementAction.html#setMessage-detail) is displayed to the user.
+5. The index page is notified of the action’s result, the elements are refreshed, and the message set by [setMessage()](https://docs.craftcms.com/api/v2/elementactions/BaseElementAction.html#setMessage-detail) is displayed to the user.
 
 
 ## Binding JavaScript to Element Action Triggers
 
 Craft provides a JavaScript class that makes it easy to bind JavaScript to your triggers.
 
-To get started, add this to your [getTriggerHtml()](/api/v2/elementactions/IElementAction.html#getTriggerHtml-detail) method:
+To get started, add this to your [getTriggerHtml()](https://docs.craftcms.com/api/v2/elementactions/IElementAction.html#getTriggerHtml-detail) method:
 
 ```php
 public function getTriggerHtml()
@@ -188,7 +188,7 @@ public function getTriggerHtml()
 }
 ```
 
-> {tip} You might find it easier to write the JavaScript using PHP’s [Heredoc string syntax](http://php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc). Alternatively you could write it in a resource file and include it using [TemplatesService::includeJsFile()](/api/v2/services/TemplatesService.html#includeJsFile-detail).
+> {tip} You might find it easier to write the JavaScript using PHP’s [Heredoc string syntax](http://php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc). Alternatively you could write it in a resource file and include it using [TemplatesService::includeJsFile()](https://docs.craftcms.com/api/v2/services/TemplatesService.html#includeJsFile-detail).
 
 Craft.ElementActionTrigger supports the following settings:
 
@@ -203,7 +203,7 @@ Craft.ElementActionTrigger supports the following settings:
 
 Once you’ve created an Element Action class, you need to add it to the appropriate element index page(s.html).
 
-If your Element Action is intended for your own custom Element Type, you can do that by implementing the [getAvailableActions()](/api/v2/elementtypes/IElementType.html#getAvailableActions-detail) method on your Element Type class.
+If your Element Action is intended for your own custom Element Type, you can do that by implementing the [getAvailableActions()](https://docs.craftcms.com/api/v2/elementtypes/IElementType.html#getAvailableActions-detail) method on your Element Type class.
 
 If you want to add your Element Action to a third party’s Element Type, you will need to use its corresponding plugin hook (assuming the Element Type provides one). The following hooks are provided by Craft’s built-in Element Types:
 
