@@ -8,7 +8,7 @@ Craft is for folks who like to take their time and do things right, building out
 
 ## What it’s For
 
-Craft was built to be exceptionably scalable, to the point that even its own feature set can adapt to the scope of the project. Whether you’re building a portfolio site or a big corporate site, Craft is a great choice.
+Craft was built to be exceptionally scalable, to the point that even its own feature set can adapt to the scope of the project. Whether you’re building a portfolio site or a big corporate site, Craft is a great choice.
 
 ## Tech Specs
 
