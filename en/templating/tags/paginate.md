@@ -30,7 +30,7 @@ The `{% paginate %}` tag has the following parameters:
 
 The first thing you pass into the `{% paginate %}` tag is an [Element Query](../../element-queries.md) object, which defines all of the elements that should be paginated. Use the `limit` parameter to define how many elements should show up per page.
 
-Warning: This parameter needs to be an actual ElementCriteriaModel object; not an array of elements. So don’t call `find()` on the object.
+Warning: This parameter needs to be an actual ElementCriteriaModel object; not an array of elements. So don’t call `all()` on the object.
 
 ### `as`
 
