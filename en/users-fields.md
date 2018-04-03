@@ -91,7 +91,6 @@ If your Users field is only meant to have a single user selected, remember that 
 {% endif %}
 ```
 
-
 ### See Also
 
 *   [`craft.users`](templating/craft.users.md)
