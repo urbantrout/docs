@@ -16,18 +16,6 @@ The user account you create during installation is an admin by default.
 
 > {warning} Considering the amount of damage an admin can do, it’s strongly recommended that you be conservative with creating new admin accounts. Only do it if you trust that they know what they’re doing.
 
-## Client’s Account
-
-Craft Client allows you to add one additional user account to the system: the “Client’s Account”. You can create the Client’s Account via the Account menu in the top-right of the Control Panel:
-
-<img src="assets/clients-account.jpg" width="186" alt="Clients Account.">
-
-The first time you click that option, you will be taken to a registration page where you can create the Client’s Account. Once it’s been created, it will take you to their account settings page instead.
-
-The Client’s Account is _not_ an Admin account like yours, so they will not be able to access the Settings section or administrate your Admin account. They’ll be able to do everything else, though.
-
-If you ever upgrade from Craft Client to Craft Pro, note that the Client’s Account will become just like any other user account. You will need to manually assign any permissions you want that account to have at that point.
-
 ## User Groups
 
 If you have Craft Pro, you can create User Groups to help organize your site’s user accounts, as well as batch-set permissions on them.

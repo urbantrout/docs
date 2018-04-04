@@ -15,7 +15,7 @@ Raised after Craft’s edition changes.
 
 #### Params:
 
-*   _edition_ – The new edition (`0` for Personal, `1` for Client, `2` for Pro)
+*   _edition_ – The new edition (`0` for Solo, `2` for Pro)
 
 ### db.onBackup
 

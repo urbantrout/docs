@@ -113,8 +113,8 @@ You can perform the following actions from the Edit Entry page:
 * Choose the entry’s Expiration Date (optional)
 * Choose whether the entry is enabled or not
 * Save changes to the entry
-* Save a new draft of the entry (Craft Client or Craft Pro required)
-* Publish a draft (Craft Client or Craft Pro required)
-* View past versions of the entry (Craft Client or Craft Pro required)
+* Save a new draft of the entry
+* Publish a draft
+* View past versions of the entry
 
 If you leave the Post Date blank, Craft will automatically set it the first time an entry is saved as enabled.
