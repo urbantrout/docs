@@ -11,7 +11,7 @@
 
 Craft 3 is available as a [Composer] package. If you’re unfamiliar with Composer, it’s a package manager (like npm) that attempts to make installing and updating PHP libraries easy via terminal commands.
 
-> {note} An alternate installation method that forgoes Composer is in the works, and should be ready by the time Craft 3.0 GA is released. It’s still a good idea to start familiarizing yourself with Composer though!
+> {tip} If you’d prefer to download a zip file instead, you can download Craft 3 from the Download button in the header of [craftcms.com](https://craftcms.com). If you go that route, you can skip to step 3.
 
 Craft’s Composer support has two parts:
 
@@ -35,9 +35,9 @@ If it outputs a version number, but it’s less than `1.3.0`, run the following 
 
 ## 2. Create a New Craft Project
 
-To create a new Craft project, run this command (substituting `PATH` with the path where Composer should create the project):
+To create a new Craft project, run this command (substituting `<PATH>` with the path where Composer should create the project):
 
-    composer create-project -s RC craftcms/craft PATH
+    composer create-project craftcms/craft <PATH>
 
 Note: If Composer complains that your system doesn’t have PHP 7 installed, but you know it’s not an issue because Craft will run with a different PHP install (e.g. through MAMP or Vagrant), use the `--ignore-platform-reqs` flag.
 
