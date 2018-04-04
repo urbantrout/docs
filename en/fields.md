@@ -1,6 +1,6 @@
 # Fields
 
-All of the content on your site will get entered into fields.
+All of the content on your site will get entered into fields..
 
 Fields are defined globally from Settings → Fields. They are organized into “field groups”, but field groups have very little relevance anywhere else in the system.
 
