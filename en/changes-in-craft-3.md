@@ -690,7 +690,7 @@ If you are using `db` for your [cacheMethod](https://craftcms.com/docs/config-se
 
 *MySQL:*
 
-```
+```sql
 DROP TABLE IF EXISTS craft_cache;
 
 CREATE TABLE craft_cache (
@@ -705,7 +705,7 @@ CREATE TABLE craft_cache (
 
 *PostgreSQL:*
 
-```
+```sql
 DROP TABLE IF EXISTS craft_cache;
 
 CREATE TABLE craft_cache (

@@ -33,7 +33,7 @@ Similar to Field Groups, Site Groups are for organization only.
 
 You can access the current site's group information using: 
 
-```
+```twig
 Site ID:            {{ currentSite.id }}
 Site Handle:        {{ currentSite.handle }}
 Site Name:          {{ currentSite.name }}
@@ -49,7 +49,7 @@ Choosing the language for the site tells Craft the language to use when formatti
 
 In your templates, you can also access the language setting via `craft.app.language`. You can use this in a conditional:
 
-```
+```twig
 {% if craft.app.language == 'de' %}
     <p>Guten Tag!</p>
 {% endif %}
@@ -57,7 +57,7 @@ In your templates, you can also access the language setting via `craft.app.langu
 
 Or as a way to automatically include the proper template for each language:
 
-```
+```twig
 {% include '_share/footer-' ~ craft.app.language %}
 ```
 

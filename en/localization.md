@@ -32,7 +32,7 @@ templates/
 
 Use `craft.app.language` to toggle specific parts of your templates, depending on the language:
 
-```
+```twig
 {% if craft.app.language == 'de' %}
     <p>I like bread and beer.</p>
 {% endif %}
@@ -40,7 +40,7 @@ Use `craft.app.language` to toggle specific parts of your templates, depending o
 
 You can also take advantage of Craft’s static translation support for strings throughout your templates.
 
-```
+```twig
 {{ "Welcome!"|t }}
 ```
 
