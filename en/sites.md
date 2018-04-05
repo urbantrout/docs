@@ -72,13 +72,13 @@ You can change the Primary site once you create additional sites. Craft will aut
 
 ### Site URL
 
-Additional sites can have their own Base URL apart from the URL you defined when creating the first site.
+Each site has a Base URL, which Craft uses as the starting point when generating dynamic links to entries and other site content.
 
-This comes in handy for hosting the site at a different domain instead of in a subdirectory. Instead of using `https://craftcms.com/beta`, you can have a different domain like `https://beta.craftcms.com`.
+Sites can all share the same domain name, such as `https://craftcms.com` and `https//craftcms.com/beta`, or they can have different domains, like `https://www.craftcms.com` and `https://beta.craftcms.com` .
 
-Defining an additional site requires only that your chosen domain name has its DNS records pointing at the server, as well as the web server pointing at the `web` directory for that domain.
+If you want to create a site that will live at a different domain name, just make sure that its DNS record is pointing to your server, and make sure the web server is configured to point traffic for that domain to your `web/` directory.
 
-Craft doesn’t require you to create additional `web` directories for new sites, though it’s fine if you need to.
+> {tip} Craft doesn’t require you to create additional `web/` directories for new sites, though it’s fine if you need to.
 
 
 ## Propagating Entries Across All Enabled Sites
