@@ -31,7 +31,7 @@ Blocks can also be reordered by dragging the “Move” icon at the end of the b
 To output your Matrix blocks in a template, use a [for-loop](http://twig.sensiolabs.org/doc/tags/for.html) pointed at your Matrix field:
 
 ```twig
-{% for block in entry.myMatrixField %}
+{% for block in entry.myMatrixField.all() %}
     ...
 {% endfor %}
 ```
@@ -41,7 +41,7 @@ All of the code you put within the for-loop will be repeated for each Matrix blo
 Here’s an example of what the template might look like for a Matrix field with four Block Types (Heading, Text, Image, and Quote). We can determine the current block type’s handle by checking [`block.type`](https://docs.craftcms.com/api/v3/craft-elements-matrixblock.html#getType()-detail).
 
 ```twig
-{% for block in entry.myMatrixField %}
+{% for block in entry.myMatrixField.all() %}
 
     {% if block.type == "heading" %}
 
@@ -53,7 +53,7 @@ Here’s an example of what the template might look like for a Matrix field with
 
     {% elseif block.type == "image" %}
 
-        {% set image = block.image.first() %}
+        {% set image = block.image.one() %}
         {% if image %}
             <img src="{{ image.getUrl('thumb') }}" width="{{ image.getWidth('thumb') }}" height="{{ image.getHeight('thumb') }}" alt="{{ image.title }}">
         {% endif %}
@@ -77,7 +77,7 @@ Here’s an example of what the template might look like for a Matrix field with
 If you just want to output blocks of a certain type, you can do that by appending a ‘type’ filter to your Matrix field:
 
 ```twig
-{% for block in entry.myMatrixField.type('text') %}
+{% for block in entry.myMatrixField.type('text').all() %}
     {{ block.text|markdown }}
 {% endfor %}
 ```
@@ -85,7 +85,7 @@ If you just want to output blocks of a certain type, you can do that by appendin
 You can pass multiple block types if you want:
 
 ```twig
-{% for block in entry.myMatrixField.type('text, heading') %}
+{% for block in entry.myMatrixField.type('text, heading').all() %}
     {% if block.type == "heading" %}
         <h3>{{ block.heading }}</h3>
     {% else %}
