@@ -3,7 +3,7 @@ Template Examples
 
 Some common usage examples in Craft:
 
-- [Integrating Disqus](integrating-diqus.md)
+- [Integrating Disqus](integrating-disqus.md)
 - [RSS Feed](rss-feed.md)
 - [Atom Feed](atom-feed.md)
 - [Entry Form](entry-form.md)
