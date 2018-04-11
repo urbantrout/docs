@@ -49,7 +49,7 @@ If you leave **Image Format** blank, Craft will use the original image’s forma
 
 ### Applying CP-defined Transforms to Images
 
-To output an image with a transform applied, simply pass your transform’s handle into your [AssetFile Model’s](/en/templating/variables/assetfilemodel.md) `getUrl()`, `getWidth()`, and `getHeight()` functions:
+To output an image with a transform applied, simply pass your transform’s handle into your asset’s [`getUrl()`](https://docs.craftcms.com/api/v3/craft-elements-asset.html#getUrl()-detail), [`getWidth()`](https://docs.craftcms.com/api/v3/craft-elements-asset.html#getWidth()-detail), and [`getHeight()`](https://docs.craftcms.com/api/v3/craft-elements-asset.html#getHeight()-detail) functions:
 
 ```twig
 <img src="{{ asset.getUrl('thumb') }}" width="{{ asset.getWidth('thumb') }}" height="{{ asset.getHeight('thumb') }}">
