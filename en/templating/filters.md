@@ -39,6 +39,24 @@ If you pass `true` into the second argument, the “.00” will be stripped if t
 {{ 1000000|currency('USD', true) }} => $1,000,000
 ```
 
+## `date`
+
+Like Twig’s core [`date`](https://twig.symfony.com/doc/2.x/filters/date.html) filter, but with additional support for the following `format` values:
+
+- `'short'`
+- `'medium'` (default)
+- `'long'`
+- `'full'`
+
+When one of those formats are used, the date will be formatted into a localized date format using [`craft\i18n\Formatter::asDate()`](https://docs.craftcms.com/api/v3/craft-i18n-formatter.html#asDate()-detail).
+
+A `translate` argument is also available. If `true` is passed, the formatted date will be run through [`craft\helpers\DateTimeHelper::translateDate()`](https://docs.craftcms.com/api/v3/craft-helpers-datetimehelper.html#translateDate()-detail) before being returned.
+
+```twig
+{{ entry.postDate|format('short') }}
+```
+ 
+
 ## `datetime`
 
 Formats a date according to the user’s preferred language.
