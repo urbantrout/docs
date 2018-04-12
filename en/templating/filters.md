@@ -331,3 +331,35 @@ Translates a message with [Craft::t()](https://www.yiiframework.com/doc/api/2.0/
 ```twig
 {{ "Hello world"|t }}
 ``` 
+
+## `ucfirst`
+
+Capitalizes the first character of a string.
+
+## `ucwords`
+
+Capitalizes the first character of each word in a string.
+
+## `unique`
+
+Runs an array through [array_unique()](http://php.net/manual/en/function.array-unique.php).
+
+## `values`
+
+Returns an array of all the values in a given array, but without any custom keys.
+
+```twig
+{% set arr1 = {foo: "Foo", bar: "Bar"} %}
+{% set arr2 = arr1|values %}
+{# arr2 = ["Foo", "Bar"] #}
+```
+
+## `without`
+
+Returns an array without the specified element(s).
+
+```twig
+{% set entries = craft.entries.section('articles').limit(3).find %}
+{% set firstEntry = entries[0] %}
+{% set remainingEntries = entries|without(firstEntry) %}
+```
