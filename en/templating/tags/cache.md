@@ -35,7 +35,7 @@ Specifies the name of the key the cache should use. If this is not provided, a r
 Tip: You can combine this parameter with [`globally`](#globally) to cache templates on a per-page basis, without letting any query string variables get included in the path:
 
 ```twig
-{% cache globally using key craft.request.path %}
+{% cache globally using key craft.app.request.pathInfo %}
 ```
 
 Warning: If you change the template code within a `{% cache %}` that uses a custom key, any existing template caches will not automatically be purged. You will either need to assign the tag a new key, or clear your existing template caches manually using the Clear Caches tool in Settings.
