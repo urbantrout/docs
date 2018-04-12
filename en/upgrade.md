@@ -66,7 +66,7 @@ To set your site up with the same directory structure (including the [PHP dotenv
 
 1. Follow steps 1 and 2 from the [Installation Instructions](installation.md). (Note that you should create your Craft 3 project in a new location; not in the same place as your Craft 2 project).
 
-2. Configure your `.env` file with your database connection settings. You can either edit the file manually, or run the `./craft setup` command from your new root project directory in your terminal.
+2. Configure your `.env` file with your database connection settings. You can either edit the file manually, or run the `./craft setup` command from your new root project directory in your terminal. **Note**: If you are using mysql, add `craft` to DB_TABLE_PREFIX in your `.env` or Craft 3 will not detect your old install.
 
 3. Copy any settings from your old `craft/config/general.php` file into your new project’s `config/general.php` file.
 
