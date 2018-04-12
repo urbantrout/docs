@@ -227,3 +227,11 @@ You can also use a regular expression to search for matches by starting and endi
 ```twig
 {{ tag.name|lower|replace('/[^\\w]+/', '-') }}
 ```
+
+## `rss`
+
+Outputs a date in the format required for RSS feeds (`D, d M Y H:i:s O`).
+
+```twig
+{{ entry.postDate|rss }}
+```
