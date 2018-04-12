@@ -85,6 +85,10 @@ Formats a number of bytes into something nicer.
 
 Removes any empty elements from an array and returns the modified array.
 
+## `filterByValue`
+
+Runs an array through [craft\helpers\ArrayHelper::filterByValue()](https://docs.craftcms.com/api/v3/craft-helpers-arrayhelper.html#filterByValue()-detail).
+
 ## `group`
 
 Groups the items of an array together based on common properties.
