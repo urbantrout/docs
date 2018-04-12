@@ -65,6 +65,10 @@ Like the [`date`](#date) filter, but the result will also include a timestamp.
 {{ entry.postDate|datetime('short') }}
 ```
 
+## `duration`
+
+Runs a [`DateInterval`](http://php.net/manual/en/class.dateinterval.php) object through [craft\helpers\DateTimeHelper::humanDurationFromInterval()](https://docs.craftcms.com/api/v3/craft-helpers-datetimehelper.html#humanDurationFromInterval()-detail)
+
 ## `filesize`
 
 Formats a number of bytes into something nicer.
