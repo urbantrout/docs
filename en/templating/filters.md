@@ -226,6 +226,10 @@ the [Apple Extended Keyboard II] [1].
 {{ content|markdown }}
 ```
 
+## `multisort`
+
+Sorts an array with [ArrayHelper::multisort()](https://www.yiiframework.com/doc/api/2.0/yii-helpers-basearrayhelper#multisort()-detail).
+
 ## `number`
 
 Formats a number according to the user’s preferred language.
