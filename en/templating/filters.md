@@ -319,3 +319,7 @@ Like the [`time`](#time) filter, but for times rather than dates.
 ```twig
 {{ entry.postDate|time('short') }}
 ```
+
+## `timestamp`
+
+Formats a date as a human-readable timestamp, via [craft\i18n\Formatter::asTimestamp()](https://docs.craftcms.com/api/v3/craft-i18n-formatter.html#asTimestamp()-detail).
