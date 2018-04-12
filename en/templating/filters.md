@@ -186,6 +186,10 @@ Returns an array containing only the values that are also in a passed-in array.
 %}
 ```
 
+## `json_encode`
+
+Like Twig’s core [`json_encode`](https://twig.symfony.com/doc/2.x/filters/json_encode.html) filter, but if the `options` argument isn’t set, it will default to `JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_QUOT` if the response content type is either `text/html` or `application/xhtml+xml`.  
+
 ## `kebab`
 
 Returns a string formatted in “kebab-case”. 
