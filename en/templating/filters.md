@@ -311,3 +311,11 @@ Returns a string formatted in “snake_case”.
 {{ "foo bar"|snake }}
 {# Outputs: foo_bar #}
 ```
+
+## `time`
+
+Like the [`time`](#time) filter, but for times rather than dates.
+
+```twig
+{{ entry.postDate|time('short') }}
+```
