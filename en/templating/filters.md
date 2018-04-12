@@ -205,6 +205,10 @@ Tip: That’s a reference to [shish kebabs](http://en.wikipedia.org/wiki/Kebab#S
 
 Lowercases the first character of a string.
 
+## `literal`
+
+Runs a string through [craft\helpers\Db::escapeParam](https://docs.craftcms.com/api/v3/craft-helpers-db.html#escapeParam()-detail)
+
 ## `markdown` or `md`
 
 Processes a string with [Markdown](http://daringfireball.net/projects/markdown/).
