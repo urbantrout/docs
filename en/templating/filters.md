@@ -323,3 +323,11 @@ Like the [`time`](#time) filter, but for times rather than dates.
 ## `timestamp`
 
 Formats a date as a human-readable timestamp, via [craft\i18n\Formatter::asTimestamp()](https://docs.craftcms.com/api/v3/craft-i18n-formatter.html#asTimestamp()-detail).
+
+## `translate` or `t`
+
+Translates a message with [Craft::t()](https://www.yiiframework.com/doc/api/2.0/yii-baseyii#t()-detail). If no category is specified, it will default to `site`.
+
+```twig
+{{ "Hello world"|t }}
+``` 
