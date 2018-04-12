@@ -59,7 +59,11 @@ A `translate` argument is also available. If `true` is passed, the formatted dat
 
 ## `datetime`
 
-Formats a date according to the user’s preferred language.
+Like the [`date`](#date) filter, but the result will also include a timestamp.
+
+```twig
+{{ entry.postDate|datetime('short') }}
+```
 
 ## `filesize`
 
