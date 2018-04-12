@@ -22,7 +22,7 @@ Returns a string formatted in “camelCase”.
 
 ## `column`
 
-Runs an array through [`ArrayHelper::getColumn()`](https://www.yiiframework.com/doc/api/2.0/yii-helpers-basearrayhelper#getColumn()-detail) and returns the result.
+Runs an array through [ArrayHelper::getColumn()](https://www.yiiframework.com/doc/api/2.0/yii-helpers-basearrayhelper#getColumn()-detail) and returns the result.
 
 ```twig
 {% set entryIds = entries|column('id') %}
@@ -48,9 +48,9 @@ Like Twig’s core [`date`](https://twig.symfony.com/doc/2.x/filters/date.html) 
 - `'long'`
 - `'full'`
 
-When one of those formats are used, the date will be formatted into a localized date format using [`craft\i18n\Formatter::asDate()`](https://docs.craftcms.com/api/v3/craft-i18n-formatter.html#asDate()-detail).
+When one of those formats are used, the date will be formatted into a localized date format using [craft\i18n\Formatter::asDate()](https://docs.craftcms.com/api/v3/craft-i18n-formatter.html#asDate()-detail).
 
-A `translate` argument is also available. If `true` is passed, the formatted date will be run through [`craft\helpers\DateTimeHelper::translateDate()`](https://docs.craftcms.com/api/v3/craft-helpers-datetimehelper.html#translateDate()-detail) before being returned.
+A `translate` argument is also available. If `true` is passed, the formatted date will be run through [craft\helpers\DateTimeHelper::translateDate()](https://docs.craftcms.com/api/v3/craft-helpers-datetimehelper.html#translateDate()-detail) before being returned.
 
 ```twig
 {{ entry.postDate|date('short') }}
