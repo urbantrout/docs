@@ -53,7 +53,7 @@ When one of those formats are used, the date will be formatted into a localized 
 A `translate` argument is also available. If `true` is passed, the formatted date will be run through [`craft\helpers\DateTimeHelper::translateDate()`](https://docs.craftcms.com/api/v3/craft-helpers-datetimehelper.html#translateDate()-detail) before being returned.
 
 ```twig
-{{ entry.postDate|format('short') }}
+{{ entry.postDate|date('short') }}
 ```
  
 
