@@ -69,6 +69,14 @@ Like the [`date`](#date) filter, but the result will also include a timestamp.
 
 Runs a [`DateInterval`](http://php.net/manual/en/class.dateinterval.php) object through [craft\helpers\DateTimeHelper::humanDurationFromInterval()](https://docs.craftcms.com/api/v3/craft-helpers-datetimehelper.html#humanDurationFromInterval()-detail)
 
+## `encenc`
+
+Encrypts and base64-encodes a string.
+
+```twig
+{{ "secure-string"|encenc }}
+```
+
 ## `filesize`
 
 Formats a number of bytes into something nicer.
