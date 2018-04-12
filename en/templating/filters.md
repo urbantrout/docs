@@ -302,3 +302,12 @@ Outputs a date in the format required for RSS feeds (`D, d M Y H:i:s O`).
 ```twig
 {{ entry.postDate|rss }}
 ```
+
+## `snake`
+
+Returns a string formatted in “snake_case”.
+
+```twig
+{{ "foo bar"|snake }}
+{# Outputs: foo_bar #}
+```
