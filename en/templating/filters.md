@@ -127,6 +127,15 @@ if ($foo !== false) {
 }
 ```
 
+## `id`
+
+Formats a string into something that will work well as an HTML input `id`, via [craft\web\View::formatInputId()](https://docs.craftcms.com/api/v3/craft-web-view.html#formatInputId()-detail).
+
+```twig
+{% set name = 'input[name]' %}
+<input type="text" name="{{ name }}" id="{{ name|id }}">
+```
+
 ## `indexOf`
 
 Returns the index of a passed-in value within an array, or the position of a passed-in string within another string. (Note that the returned position is 0-indexed.) If no position can be found, `-1` is returned instead.
