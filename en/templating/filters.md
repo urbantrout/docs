@@ -20,6 +20,14 @@ Returns a string formatted in “camelCase”.
 {# Outputs: fooBar #}
 ```
 
+## `column`
+
+Runs an array through [`ArrayHelper::getColumn()`](https://www.yiiframework.com/doc/api/2.0/yii-helpers-basearrayhelper#getColumn()-detail) and returns the result.
+
+```twig
+{% set entryIds = entries|column('id') %}
+```
+
 ## `currency( currency, stripZeroCents )`
 
 Formats a number with a given currency according to the user’s preferred language.
