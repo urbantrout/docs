@@ -136,6 +136,14 @@ Formats a string into something that will work well as an HTML input `id`, via [
 <input type="text" name="{{ name }}" id="{{ name|id }}">
 ```
 
+## `index`
+
+Runs an array through [ArrayHelper::index()](https://www.yiiframework.com/doc/api/2.0/yii-helpers-basearrayhelper#index()-detail).
+
+```twig
+{% set entries = entries|index('id') %}
+```
+
 ## `indexOf`
 
 Returns the index of a passed-in value within an array, or the position of a passed-in string within another string. (Note that the returned position is 0-indexed.) If no position can be found, `-1` is returned instead.
