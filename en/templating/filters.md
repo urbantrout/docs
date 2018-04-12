@@ -2,7 +2,6 @@
 
 On top of the template filters that [Twig comes with](http://twig.sensiolabs.org/doc/filters/index.html), Craft provides a few of its own.
 
-
 ## `atom`
 
 Outputs a date in the ISO-8601 format (which should be used for Atom feeds, among other things).
