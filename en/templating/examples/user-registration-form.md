@@ -24,25 +24,25 @@ Then you can create a registration form on the front end, like this:
 
     <h3><label for="username">Username</label></h3>
     <input id="username" type="text" name="username"
-        {%- if account is defined %} value="{{ account.username }}"{% endif -%}>
+        {%- if user is defined %} value="{{ user.username }}"{% endif -%}>
 
-    {% if account is defined %}
-        {{ errorList(account.getErrors('username')) }}
+    {% if user is defined %}
+        {{ errorList(user.getErrors('username')) }}
     {% endif %}
 
     <h3><label for="email">Email</label></h3>
     <input id="email" type="text" name="email"
-        {%- if account is defined %} value="{{ account.email }}"{% endif %}>
+        {%- if user is defined %} value="{{ user.email }}"{% endif %}>
 
-    {% if account is defined %}
-        {{ errorList(account.getErrors('email')) }}
+    {% if user is defined %}
+        {{ errorList(user.getErrors('email')) }}
     {% endif %}
 
     <h3><label for="password">Password</label></h3>
     <input id="password" type="password" name="password">
 
-    {% if account is defined %}
-        {{ errorList(account.getErrors('password')) }}
+    {% if user is defined %}
+        {{ errorList(user.getErrors('password')) }}
     {% endif %}
 
     <input type="submit" value="Register">
