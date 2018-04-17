@@ -49,6 +49,7 @@ Craft 3 Documentation
 - [Functions](en/templating/functions.md)
 - [Filters](en/templating/filters.md)
 - [Tags](en/templating/tags.md)
+- [Tests](en/templating/tests.md)
 - [Elements](en/templating/elements.md)
 - [Common Examples](en/templating/examples/index.md)
 

@@ -4,5 +4,6 @@
 - [Functions](functions.md)
 - [Filters](filters.md)
 - [Tags](tags.md)
+- [Tests](tests.md)
 - More
 - Examples
