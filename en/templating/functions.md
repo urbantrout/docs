@@ -96,22 +96,6 @@ Outputs any scripts and styles that were registered for the “head” position.
 </head>
 ```
 
-## `max( num1, num2, ... )`
-
-Returns the largest number of a given set.
-
-```twig
-{{ max(1, 2, 3) }} => 3
-```
-
-## `min( num1, num2, ... )`
-
-Returns the smallest number of a given set.
-
-```twig
-{{ min(1, 2, 3) }} => 1
-```
-
 ## `redirectInput( url )`
 
 Shortcut for typing `<input type="hidden" name="redirect" value="{{ url|hash }}">`.
