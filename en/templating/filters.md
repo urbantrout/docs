@@ -1,6 +1,6 @@
 # Filters
 
-On top of the template filters that [Twig comes with](http://twig.sensiolabs.org/doc/filters/index.html), Craft provides a few of its own.
+In addition to the template filters that [Twig comes with](http://twig.sensiolabs.org/doc/filters/index.html), Craft provides a few of its own.
 
 ## `atom`
 
