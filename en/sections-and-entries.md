@@ -56,6 +56,38 @@ Structures are good for times when you need to store multiple similar entries, a
 * a Services section, where the order of services matters
 * a company organization chart
 
+### Entry URI Formats
+
+Channel and Structure sections can choose whether their entries should be assigned URLs in the system, by filling in the “Entry URI Format” setting.
+
+Entry URI Formats are mini Twig templates, which will be rendered each time an entry in the section is saved. The rendering result will be saved as the entry’s URI in the system.
+
+The entry being saved will be available to the template as an `object` variable, and each of the entry’s properties and custom field values will also be available as their own variables. So something like this is possible:
+
+```twig
+{{ author.username }}/{{ slug }}
+``` 
+
+A shortcut syntax is also available for output tags that reference a property on the entry:
+
+```twig
+{author.username}/{slug}
+```
+
+Structure sections may wish to have an Entry URI Format that differs depending on whether it’s a top-level entry or a nested one:
+
+```twig
+{% if level == 1 %}docs{% else %}{parent.uri}{% endif %}{slug}
+```
+
+With that Entry URI Format, a top-level entry might end up with the URI `docs/templating`, whereas a nested entry might end up with the URI `docs/templating/tags`.
+
+The same template could also be expressed with this syntax:
+
+```twig
+{parent.uri ?? 'docs'}/{slug}
+``` 
+
 ## Entry Types
 
 Both Channel and Structure sections let you define multiple types of entries using Entry Types.
