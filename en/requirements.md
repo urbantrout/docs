@@ -56,6 +56,7 @@ The database user you tell Craft to connect with must have the following privile
 * `INDEX`
 * `DROP`
 * `REFERENCES`
+* `LOCK TABLES`
 
 #### PostgreSQL
 
