@@ -73,6 +73,36 @@ $query = Entry::find();
 }) %}
 ```
 
+### Param Value Syntax
+
+Most parameter values will get processed through [craft\helpers\Db::parseParam()](https://docs.craftcms.com/api/v3/craft-helpers-db.html#parseParam()-detail) before being applied as a condition on the element query. That method makes things like the following possible:
+
+- `['and', 'value1', 'value2']`
+- `['or', 'value1', 'value2']`
+- `['value1', 'value2']` _(implied `'or'`)_
+- `':empty:` _(checks for `null` or an empty string)_
+- `':notempty:'` _opposite of `':empty:'`)_
+- `'not value'`
+- `'!= value'`
+- `'<= value'`
+- `'>= value'`
+- `'< value'`
+- `'> value'`
+- `'= value'`
+- `'*value*'`
+- `'not *value*'`
+
+### Custom Field Parameters
+
+In addition to the core parameters, most custom fields support their own parameters as well.
+
+```twig
+{% set query = craft.entries()
+    .section('news')
+    .myCustomFieldHandle('param-value')
+    .all() %}
+``
+
 ## Executing Element Queries
 
 Once you’ve defined your parameters on the query, there are multiple methods available to execute it, depending on the data you need back.
