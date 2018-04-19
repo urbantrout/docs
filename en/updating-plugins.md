@@ -655,12 +655,12 @@ use yii\base\Event;
 
 Event::on(Entry::class, Element::EVENT_REGISTER_SOURCES, function(RegisterElementSourcesEvent $event) {
     if ($event->context === 'index') {
-        $sources[] = [
+        $event->sources[] = [
             'heading' => \Craft::t('plugin-handle', 'Statuses'),
         ];
 
         foreach (Entry::statuses() as $status => $label) {
-            $sources[] = [
+            $event->sources[] = [
                 'key' => 'status:'.$status,
                 'label' => $label,
                 'criteria' => ['status' => $status]
