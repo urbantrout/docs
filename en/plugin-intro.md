@@ -183,7 +183,13 @@ Composer’s installation log should indicate that the package was installed via
   - Installing package/name (X.Y.Z): Symlinking from ../my-plugin
 ```
 
-> {note} One caveat of `path` Composer repositories is that Composer is not too smart about keeping their dependencies updated when calling `composer update`. You may need to `remove` and re-`require` your plugin in your Craft project each time its dependencies change.
+> {note} One caveat of `path` Composer repositories is that Composer will ignore `path`-based dependencies when you run `composer update`. So any time you change anything in `composer.json`, such as your plugin’s dependency requirements or its plugin information, you will need to completely remove and re-require your plugin in your project for those changes to take effect.
+>
+> ```
+> > cd ~/dev/my/craft-project
+> > composer remove package/name
+> > composer require package/name
+> ```
 
 #### Packagist
 
