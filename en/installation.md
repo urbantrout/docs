@@ -68,6 +68,8 @@ See [Directory Structure](directory-structure.md) for information on these direc
 For Craft to run properly, PHP needs to be able to write to the following places:
 
 - `.env`
+- `composer.json`
+- `composer.lock`
 - `config/license.key`
 - `storage/*`
 - `vendor/*`
