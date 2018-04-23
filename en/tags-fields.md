@@ -8,9 +8,9 @@
 
 Tags fields have the following settings:
 
-*   **Source** – The tag group you want to relate tags from.
-*   **Target Locale** – Which locale tags should be created/related with (this setting only appears if you’re running Craft Pro with more than one site locale)
-*   **Selection Label** – The label that should be used on the field’s tag search input.
+- **Source** – The tag group you want to relate tags from.
+- **Target Locale** – Which locale tags should be created/related with (this setting only appears if you’re running Craft Pro with more than one site locale)
+- **Selection Label** – The label that should be used on the field’s tag search input.
 
 ## The Field
 
@@ -97,7 +97,7 @@ If your Tags field is only meant to have a single tag selected, remember that ca
 
 ### See Also
 
-*   [`craft.tags`](templating/craft.tags.md)
-*   [ElementCriteriaModel](templating/elementcriteriamodel.md)
-*   [TagModel](templating/tagmodel.md)
-*   [Relations](relations.md)
+- [`craft.tags`](templating/craft.tags.md)
+- [ElementCriteriaModel](templating/elementcriteriamodel.md)
+- [TagModel](templating/tagmodel.md)
+- [Relations](relations.md)

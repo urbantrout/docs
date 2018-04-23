@@ -52,17 +52,17 @@ The amount of time it should take for the cache to expire.
 
 The accepted duration units are:
 
-*   `sec`(`s`)
-*   `second`(`s`)
-*   `min`(`s`)
-*   `minute`(`s`)
-*   `hour`(`s`)
-*   `day`(`s`)
-*   `fortnight`(`s`)
-*   `forthnight`(`s`)
-*   `month`(`s`)
-*   `year`(`s`)
-*   `week`(`s`)
+- `sec`(`s`)
+- `second`(`s`)
+- `min`(`s`)
+- `minute`(`s`)
+- `hour`(`s`)
+- `day`(`s`)
+- `fortnight`(`s`)
+- `forthnight`(`s`)
+- `month`(`s`)
+- `year`(`s`)
+- `week`(`s`)
 
 > {tip} If this parameter is omitted, your [cacheDuration](../config-settings.md#cacheDuration) config setting will be used to define the default duration.
 
@@ -110,15 +110,15 @@ You should use `{% cache %}` tags any time you’ve got a template that’s caus
 
 Here are some examples of when to use them:
 
-*   A big list of entries
-*   A Matrix field loop, where some of the blocks have relational fields on them, adding their own additional database queries to the page
-*   Whenever you’re pulling in data from another site
+- A big list of entries
+- A Matrix field loop, where some of the blocks have relational fields on them, adding their own additional database queries to the page
+- Whenever you’re pulling in data from another site
 
 There are also some cases where it’s _not_ a good idea to use them:
 
-*   Don’t use them to cache static text; that will be more expensive than simply outputting the text.
-*   You can’t use them outside of top-level `{% block %}` tags within a template that extends another.
-*   The `{% cache %}` tag will only cache HTML, so using tags like [{% includeCss %}](includecss.md) and [{% includeJs %}](includejs.md) inside of it doesn’t make sense because they don’t actually output HTML therefore their output won’t be cached.
+- Don’t use them to cache static text; that will be more expensive than simply outputting the text.
+- You can’t use them outside of top-level `{% block %}` tags within a template that extends another.
+- The `{% cache %}` tag will only cache HTML, so using tags like [{% includeCss %}](includecss.md) and [{% includeJs %}](includejs.md) inside of it doesn’t make sense because they don’t actually output HTML therefore their output won’t be cached.
 
 ```twig
 {# Bad: #}

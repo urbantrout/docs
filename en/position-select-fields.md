@@ -8,7 +8,7 @@
 
 Position Select fields have the following settings:
 
-*   **Options** – Choose which options should be available in the field. Your choices include `left`, `center`, `right`, `full`, `drop-left`, and `drop-right`. (The names are not customizable.)
+- **Options** – Choose which options should be available in the field. Your choices include `left`, `center`, `right`, `full`, `drop-left`, and `drop-right`. (The names are not customizable.)
 
 ## The Field
 

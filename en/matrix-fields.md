@@ -8,8 +8,8 @@
 
 Matrix fields have the following settings:
 
-*   **Configuration** – This is where you configure which block types should be available to your Matrix field, and which sub-fields each of those block types should have.
-*   **Max Blocks** – The maximum number of blocks that can be created within the field. (Default is no limit.)
+- **Configuration** – This is where you configure which block types should be available to your Matrix field, and which sub-fields each of those block types should have.
+- **Max Blocks** – The maximum number of blocks that can be created within the field. (Default is no limit.)
 
 ## The Field
 
@@ -129,5 +129,5 @@ You can get the total number of blocks using the [length filter](http://twig.sen
 
 ### See Also
 
-*   [ElementCriteriaModel](templating/elementcriteriamodel.md)
-*   [MatrixBlockModel](templating/matrixblockmodel.md)
+- [ElementCriteriaModel](templating/elementcriteriamodel.md)
+- [MatrixBlockModel](templating/matrixblockmodel.md)

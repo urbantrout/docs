@@ -8,7 +8,7 @@
 
 Dropdown fields have the following settings:
 
-*   **Dropdown Options** – Define the options that will be available in the field. You even get to set the option values and labels separately, and choose which one should be selected by default.
+- **Dropdown Options** – Define the options that will be available in the field. You even get to set the option values and labels separately, and choose which one should be selected by default.
 
 ## The Field
 

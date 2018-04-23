@@ -8,15 +8,16 @@
 
 Table fields have the following settings:
 
-*   **Table Columns** – Define the columns that will be available to your Table field.
+- **Table Columns** – Define the columns that will be available to your Table field.
 
     Each column has the following properties:
 
-    *   _Column Heading_ – The name that will appear in the head of the table
-    *   _Handle_ – How you’ll refer to this column from your templates
-    *   _Width_ – The width for this column specified in either pixels or a percentage
-    *   _Type_ – The type of content allowed in the column. Choose from Single-line text, Multi-line text, Number, and Checkbox.
-*   **Default Values** – Define the default row and column values for new instances of the field.
+    - _Column Heading_ – The name that will appear in the head of the table
+    - _Handle_ – How you’ll refer to this column from your templates
+    - _Width_ – The width for this column specified in either pixels or a percentage
+    - _Type_ – The type of content allowed in the column. Choose from Single-line text, Multi-line text, Number, and Checkbox.
+
+- **Default Values** – Define the default row and column values for new instances of the field.
 
 ## The Field
 

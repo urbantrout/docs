@@ -8,9 +8,9 @@
 
 Users fields have the following settings:
 
-*   **Sources** – The user groups you want to relate users from. (Default is “All”)
-*   **Limit** – The maximum number of users that can be related with the field at once. (Default is no limit.)
-*   **Selection Label** – The label that should be used on the field’s selection button.
+- **Sources** – The user groups you want to relate users from. (Default is “All”)
+- **Limit** – The maximum number of users that can be related with the field at once. (Default is no limit.)
+- **Selection Label** – The label that should be used on the field’s selection button.
 
 ## The Field
 
@@ -93,7 +93,7 @@ If your Users field is only meant to have a single user selected, remember that 
 
 ### See Also
 
-*   [`craft.users`](templating/craft.users.md)
-*   [ElementCriteriaModel](templating/elementcriteriamodel.md)
-*   [UserModel](templating/usermodel.md)
-*   [Relations](relations.md)
+- [`craft.users`](templating/craft.users.md)
+- [ElementCriteriaModel](templating/elementcriteriamodel.md)
+- [UserModel](templating/usermodel.md)
+- [Relations](relations.md)

@@ -8,13 +8,13 @@
 
 Assets fields have the following settings:
 
-*   **Restrict uploads to a single folder?** – Whether file uploads/selections should be constrained to a single folder
-*   **Sources** – Which asset sources the field should be able to select/upload files from
-*   **Default Upload Location** – The default location that files dragged directly onto the field should be saved in
-*   **Restrict allowed file types?** Whether the field should only be able to select/upload files of a certain type(s)
-*   **Target Locale** – Which locale assets should be related with (this setting only appears if you’re running Craft Pro with more than one site locale)
-*   **Limit** – The maximum number of assets that can be related with the field at once. (Default is no limit.)
-*   **Selection Label** – The label that should be used on the field’s selection button.
+- **Restrict uploads to a single folder?** – Whether file uploads/selections should be constrained to a single folder
+- **Sources** – Which asset sources the field should be able to select/upload files from
+- **Default Upload Location** – The default location that files dragged directly onto the field should be saved in
+- **Restrict allowed file types?** Whether the field should only be able to select/upload files of a certain type(s)
+- **Target Locale** – Which locale assets should be related with (this setting only appears if you’re running Craft Pro with more than one site locale)
+- **Limit** – The maximum number of assets that can be related with the field at once. (Default is no limit.)
+- **Selection Label** – The label that should be used on the field’s selection button.
 
 ### Restricting Uploads to a Single Folder
 
@@ -151,7 +151,7 @@ If you want your form to allow multiple files being uploaded at once, just add t
 
 ## See Also
 
-*   [`craft.assets`](templating/craft.assets.md)
-*   [ElementCriteriaModel](templating/elementcriteriamodel.md)
-*   [AssetFileModel](templating/assetfilemodel.md)
-*   [Relations](relations.md)
+- [`craft.assets`](templating/craft.assets.md)
+- [ElementCriteriaModel](templating/elementcriteriamodel.md)
+- [AssetFileModel](templating/assetfilemodel.md)
+- [Relations](relations.md)

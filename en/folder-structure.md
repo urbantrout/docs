@@ -36,11 +36,11 @@ Some of the folders you might find in there include:
 
   For the curious, here are the types of things you will find in craft/storage/runtime (though this is not a comprehensive list):
 
-  * *assets/* – Stores image thumbnails, resized file icons, and copies of images stored on remote asset sources, to save Craft an HTTP request when it needs the images to generate new thumbnails or transforms.
-  * *cache/* – Stores file caches for things like available update info, whether your server is set up to support URLs without “index.php”, and fetched RSS/Atom feeds.
-  * *compiled_templates/* – This is where Twig saves your compiled templates as PHP files.
-  * *logs/* – Stores Craft’s request logs as well as a PHP error log.
-  * *sessions/* – Stores PHP’s HTTP session data for Craft requests.
+  - *assets/* – Stores image thumbnails, resized file icons, and copies of images stored on remote asset sources, to save Craft an HTTP request when it needs the images to generate new thumbnails or transforms.
+  - *cache/* – Stores file caches for things like available update info, whether your server is set up to support URLs without “index.php”, and fetched RSS/Atom feeds.
+  - *compiled_templates/* – This is where Twig saves your compiled templates as PHP files.
+  - *logs/* – Stores Craft’s request logs as well as a PHP error log.
+  - *sessions/* – Stores PHP’s HTTP session data for Craft requests.
 
 * **userphotos/** – Stores your users’ photos, as well as the resized versions used for thumbnails.
 

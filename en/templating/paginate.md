@@ -38,15 +38,15 @@ The first thing you pass into the `{% paginate %}` tag is an [ElementCriteriaMod
 
 Next up you need to type “`as`”, followed by one or two variable names:
 
-*   `as pageInfo, pageEntries`
-*   `as pageEntries`
+- `as pageInfo, pageEntries`
+- `as pageEntries`
 
 The actual variable name(s) are up to you, however if you only specify one variable name here, the `pageInfo` variable will be called “`paginate`” by default.
 
 Here’s what they get set to:
 
-*   `pageInfo` gets set to a [PaginateVariable](https://docs.craftcms.com/api/v2/variables/PaginateVariable.html) object, which provides info about the current page, and some helper methods for creating links to other pages ( [more details](#the-pageInfo-variable) below).
-*   `pageEntries` gets set to an array of the elements that belong to the current page.
+- `pageInfo` gets set to a [PaginateVariable](https://docs.craftcms.com/api/v2/variables/PaginateVariable.html) object, which provides info about the current page, and some helper methods for creating links to other pages ( [more details](#the-pageInfo-variable) below).
+- `pageEntries` gets set to an array of the elements that belong to the current page.
 
 ## Showing the elements
 
@@ -69,19 +69,19 @@ Following your `{% paginate %}` tag, you will need to loop through this page’s
 
 The `pageInfo` variable (or whatever you’ve called it, or `paginate` by default) provides the following properties and methods:
 
-*   **`pageInfo.first`** – The offset of the first element on the current page.
-*   **`pageInfo.last`** – The offset of the last element on the current page.
-*   **`pageInfo.total`** – The total number of elements across all pages
-*   **`pageInfo.currentPage`** – The current page number.
-*   **`pageInfo.totalPages`** – The total number of pages.
-*   **`pageInfo.prevUrl`** – The URL to the previous page, or `null` if you’re on the first page.
-*   **`pageInfo.nextUrl`** – The URL to the next page, or `null` if you’re on the last page.
-*   **`pageInfo.firstUrl`** – The URL to the first page.
-*   **`pageInfo.lastUrl`** – The URL to the last page.
-*   **`pageInfo.getPageUrl( page )`** – Returns the URL to a given page number, or `null` if the page doesn’t exist.
-*   **`pageInfo.getPrevUrls( [dist] )`** – Returns an array of URLs to the previous pages, with keys set to the page numbers. The URLs are returned in ascending order. You can optionally pass in the maximum distance away from the current page the function should go.
-*   **`pageInfo.getNextUrls( [dist] )`** – Returns an array of URLs to the next pages, with keys set to the page numbers. The URLs are returned in ascending order. You can optionally pass in the maximum distance away from the current page the function should go.
-*   **`pageInfo.getRangeUrls( start, end )`** – Returns an array of URLs to pages in a given range of page numbers, with keys set to the page numbers.
+- **`pageInfo.first`** – The offset of the first element on the current page.
+- **`pageInfo.last`** – The offset of the last element on the current page.
+- **`pageInfo.total`** – The total number of elements across all pages
+- **`pageInfo.currentPage`** – The current page number.
+- **`pageInfo.totalPages`** – The total number of pages.
+- **`pageInfo.prevUrl`** – The URL to the previous page, or `null` if you’re on the first page.
+- **`pageInfo.nextUrl`** – The URL to the next page, or `null` if you’re on the last page.
+- **`pageInfo.firstUrl`** – The URL to the first page.
+- **`pageInfo.lastUrl`** – The URL to the last page.
+- **`pageInfo.getPageUrl( page )`** – Returns the URL to a given page number, or `null` if the page doesn’t exist.
+- **`pageInfo.getPrevUrls( [dist] )`** – Returns an array of URLs to the previous pages, with keys set to the page numbers. The URLs are returned in ascending order. You can optionally pass in the maximum distance away from the current page the function should go.
+- **`pageInfo.getNextUrls( [dist] )`** – Returns an array of URLs to the next pages, with keys set to the page numbers. The URLs are returned in ascending order. You can optionally pass in the maximum distance away from the current page the function should go.
+- **`pageInfo.getRangeUrls( start, end )`** – Returns an array of URLs to pages in a given range of page numbers, with keys set to the page numbers.
 
 ## Navigation examples
 

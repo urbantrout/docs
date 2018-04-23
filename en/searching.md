@@ -38,31 +38,31 @@ Assets, categories, entries, users, and tags each support their own set of addit
 
 * **Assets**
 
-  * filename
-  * extension
-  * kind
+  - filename
+  - extension
+  - kind
 
 * **Categories**
 
-  * title
-  * slug
+  - title
+  - slug
 
 * **Entries**
 
-  * title
-  * slug
+  - title
+  - slug
 
 * **Users**
 
-  * username
-  * firstName
-  * lastName
-  * fullName (firstName + lastName)
-  * email
+  - username
+  - firstName
+  - lastName
+  - fullName (firstName + lastName)
+  - email
 
 * **Tags**
 
-  * title
+  - title
 
 
 ## Templating

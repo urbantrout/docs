@@ -8,9 +8,9 @@
 
 Rich Text fields have the following settings:
 
-*   **Config** – The config file for Redactor to use (see below). To use the default Redactor settings, just choose “Default”.
-*   **Clean up HTML?** – Whether Craft should run through some HTML cleanup routines when the field is saved, including removing all `<span>` tags, empty tags, and most `style` attributes.
-*   **Purify HTML?** – Whether the field should run submitted data through [HTML Purifier](http://htmlpurifier.org/) before getting saved to the database, removing any potentially malicious code. Note that this is meant to be be used when accepting input in a Rich Text field from un-trusted sources.
+- **Config** – The config file for Redactor to use (see below). To use the default Redactor settings, just choose “Default”.
+- **Clean up HTML?** – Whether Craft should run through some HTML cleanup routines when the field is saved, including removing all `<span>` tags, empty tags, and most `style` attributes.
+- **Purify HTML?** – Whether the field should run submitted data through [HTML Purifier](http://htmlpurifier.org/) before getting saved to the database, removing any potentially malicious code. Note that this is meant to be be used when accepting input in a Rich Text field from un-trusted sources.
 
 ## Redactor Configs
 

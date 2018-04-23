@@ -8,7 +8,7 @@
 
 Checkboxes fields have the following settings:
 
-*   **Checkbox Options** – Define the checkboxes that will be available in the field. You even get to set the option values and labels separately, and choose which ones should be checked by default.
+- **Checkbox Options** – Define the checkboxes that will be available in the field. You even get to set the option values and labels separately, and choose which ones should be checked by default.
 
 ## The Field
 

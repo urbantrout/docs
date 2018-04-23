@@ -8,10 +8,10 @@
 
 Entries fields have the following settings:
 
-*   **Sources** – The sections you want to relate entries from. (Default is “All”.)
-*   **Target Locale** – Which locale entries should be related with (this setting only appears if you’re running Craft Pro with more than one site locale)
-*   **Limit** – The maximum number of entries that can be related with the field at once. (Default is no limit.)
-*   **Selection Label** – The label that should be used on the field’s selection button.
+- **Sources** – The sections you want to relate entries from. (Default is “All”.)
+- **Target Locale** – Which locale entries should be related with (this setting only appears if you’re running Craft Pro with more than one site locale)
+- **Limit** – The maximum number of entries that can be related with the field at once. (Default is no limit.)
+- **Selection Label** – The label that should be used on the field’s selection button.
 
 ## The Field
 
@@ -100,7 +100,7 @@ If your Entries field is only meant to have a single entry selected, remember th
 
 ### See Also
 
-*   [`craft.entries`](templating/craft.entries.md)
-*   [ElementCriteriaModel](templating/elementcriteriamodel.md)
-*   [EntryModel](templating/entrymodel.md)
-*   [Relations](relations.md)
+- [`craft.entries`](templating/craft.entries.md)
+- [ElementCriteriaModel](templating/elementcriteriamodel.md)
+- [EntryModel](templating/entrymodel.md)
+- [Relations](relations.md)

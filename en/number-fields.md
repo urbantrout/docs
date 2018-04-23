@@ -8,9 +8,9 @@
 
 Number fields have the following settings:
 
-*   **Min Value** – The lowest number that may be entered in the field
-*   **Max Value** – The highest number that may be entered in the field.
-*   **Decimal Points** – The maximum number of decimal points that may be entered in the field
+- **Min Value** – The lowest number that may be entered in the field
+- **Max Value** – The highest number that may be entered in the field.
+- **Decimal Points** – The maximum number of decimal points that may be entered in the field
 
 ## The Field
 

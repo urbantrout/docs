@@ -8,10 +8,10 @@
 
 Categories fields have the following settings:
 
-*   **Source** – The category group you want to relate categories from.
-*   **Target Locale** – Which locale categories should be related with (this setting only appears if you’re running Craft Pro with more than one site locale)
-*   **Limit** – The maximum number of categories that can be related with the field at once. (Default is no limit.) Note that this does include parent categories, if your category group has multiple levels.
-*   **Selection Label** – The label that should be used on the field’s selection button.
+- **Source** – The category group you want to relate categories from.
+- **Target Locale** – Which locale categories should be related with (this setting only appears if you’re running Craft Pro with more than one site locale)
+- **Limit** – The maximum number of categories that can be related with the field at once. (Default is no limit.) Note that this does include parent categories, if your category group has multiple levels.
+- **Selection Label** – The label that should be used on the field’s selection button.
 
 ## The Field
 
@@ -95,7 +95,7 @@ If your Categories field is only meant to have a single category selected, remem
 
 ### See Also
 
-*   [`craft.categories`](templating/craft.categories.md)
-*   [ElementCriteriaModel](templating/elementcriteriamodel.md)
-*   [CategoryModel](templating/categorymodel.md)
-*   [Relations](relations.md)
+- [`craft.categories`](templating/craft.categories.md)
+- [ElementCriteriaModel](templating/elementcriteriamodel.md)
+- [CategoryModel](templating/categorymodel.md)
+- [Relations](relations.md)
