@@ -4,9 +4,12 @@
   - [Downloading with Composer](#downloading-with-composer)
   - [Downloading an Archive File Manually](#downloading-an-archive-file-manually)
 - [Step 2: Set the File Permissions](#step-2-set-the-file-permissions)
-- [Step 3: Create a Database](#step-3-create-a-database)
-- [Step 4: Set up the Web Server](#step-4-set-up-the-web-server)
-- [Step 5: Run the Setup Wizard](#step-5-run-the-setup-wizard)
+- [Step 3: Set a Security Key](#step-3-set-a-security-key)
+  - [Set the Key Manually](#set-the-key-manually)
+  - [Set the Key from Your Terminal](#set-the-key-from-your-terminal)
+- [Step 4: Create a Database](#step-4-create-a-database)
+- [Step 5: Set up the Web Server](#step-5-set-up-the-web-server)
+- [Step 6: Run the Setup Wizard](#step-6-run-the-setup-wizard)
   - [Terminal Setup](#terminal-setup)
   - [Web Browser Setup](#web-browser-setup)
 
@@ -64,6 +67,7 @@ See [Directory Structure](directory-structure.md) for information on these direc
 
 For Craft to run properly, PHP needs to be able to write to the following places:
 
+- `.env`
 - `config/license.key`
 - `storage/*`
 - `vendor/*`
@@ -76,7 +80,31 @@ The exact permissions you should be setting depends on the relationship between 
 
 > {note} **IIS fans:** Make sure your site’s AppPool account has write permissions to these folders/files as well.
 
-## Step 3: Create a Database
+## Step 3: Set a Security Key
+
+> {tip} If you used Composer to download Craft, you can probably safely skip this step. 
+
+Each Craft project should have a unique security key, which is shared between each of the environments that the project in installed on.
+
+You can generate and assign the key [manually](#set-the-key-manually), or have Craft do it for you with a [terminal command](#set-the-key-from-your-terminal).
+
+### Set the Key Manually
+
+First generate a cryptographically secure key, preferably using a password generator like [1Password](https://1password.com). (There’s no length limit.)
+
+Then open up your `.env` file (you may need to use an app like [Transmit](https://panic.com/transmit/) to do this if you’re running macOS), and find this line:
+
+    SECURITY_KEY=""
+
+Paste your security key inside the quotes and save the file.
+
+### Set the Key from Your Terminal 
+
+In your terminal, go to your project’s root directory and run the following command:
+
+    ./craft setup/security-key 
+
+## Step 4: Create a Database
 
 Next up, you need to create a database for your Craft project. Craft 3 supports both MySQL 5.5+ and PostgreSQL 9.5+.
 
@@ -89,7 +117,7 @@ If you’re given a choice, we recommend the following database settings in most
 - **PostgreSQL**
   - Character Set: `UTF8`
 
-## 4. Set up the Web Server
+## Step 5: Set up the Web Server
 
 Create a new web server to host your Craft project. Its document root should point to your `web/` directory (or whatever you’ve renamed it to).
 
@@ -100,7 +128,7 @@ If you’re not using [MAMP](https://mamp.info) or another localhosting tool, yo
 
 You can test whether you set everything up correctly by pointing your web browser to `http://<HOSTNAME>/index.php?p=admin` (substituting `<HOSTNAME>` with your web server’s host name). If Craft’s Setup Wizard is shown, the host name is correctly resolving to your Craft installation.
 
-## 5. Run the Setup Wizard
+## Step 6: Run the Setup Wizard
 
 Finally, it’s time to run Craft’s Setup Wizard. You can either run that from your [terminal](#terminal-setup) or your [web browser](#web-browser-setup).
 
