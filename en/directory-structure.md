@@ -63,6 +63,16 @@ Readme for the `craftcms/craft` repo. Feel free to delete this file.
 
 The starting point `composer.json` file that should be used for all Craft projects.
 
+By default, there will be some settings in here that can safely be changed or removed, including:
+
+- `name`
+- `description`
+- `keywords`
+- `license`
+- `homepage`
+- `type`
+- `support`
+
 #### `composer.lock`
 
 This is a Composer file that tells Composer exactly which dependencies and versions should be currently installed in `vendor/`.
