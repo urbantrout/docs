@@ -1,6 +1,6 @@
 # Directory Structure
 
-When a Craft project is initiated using the [`craftcms/craft`](https://github.com/craftcms/craft) Composer project, it will have the following files and directories:
+When you download a fresh copy of Craft 3, your project will have the following files and directories:
 
 #### `config/`
 
@@ -37,7 +37,7 @@ This is where all of your Composer dependencies go, including Craft itself, and 
 
 #### `web/`
 
-This directory represents your web root.
+This directory represents your web root. (This can be renamed if needed.)
 
 #### `.env`
 
