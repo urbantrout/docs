@@ -57,7 +57,7 @@ Standard MIT license, which covers all the code in the `craftcms/craft` repo, bu
 
 #### `README.md`
 
-Readme for the `craftcms/craft` repo. Feel free to delete this file.
+Readme for the [craftcms/craft](https://github.com/craftcms/craft) repo. Feel free to delete this file.
 
 #### `composer.json`
 
