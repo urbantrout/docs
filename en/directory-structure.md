@@ -63,6 +63,10 @@ Readme for the `craftcms/craft` repo. Feel free to delete this file.
 
 The starting point `composer.json` file that should be used for all Craft projects.
 
+#### `composer.lock`
+
+This is a Composer file that tells Composer exactly which dependencies and versions should be currently installed in `vendor/`.
+
 #### `craft`
 
 This is a command line executable that will bootstrap a Craft console application.
