@@ -18,6 +18,12 @@ Once you've completed everything listed above you can continue with the upgrade 
 
 There are two ways you can go about updating Craft, depending on whether you want to [keep your current directory structure](#if-you-want-to-keep-your-current-directory-structure), or [switch things up](#if-you-want-your-directory-structure-to-resemble-a-new-craft-3-project) to be more like a new Craft 3 installation.
 
+Moving to the new structure is generally recommended, for a couple reasons:
+
+- The documentation will generally assume the new structure.
+- It’s more secure, as sensitive information like database credentials are stored in `.env` files that aren’t committed to Git (utilizing [PHP dotenv](https://github.com/vlucas/phpdotenv)).
+- It comes with the `craft` executable file, enabling various CLI features in your terminal. 
+
 ### If you want to keep your current directory structure…
 
 To update Craft without making any major changes to your site’s directory structure, follow these instructions.
