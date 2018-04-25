@@ -2,30 +2,6 @@
 
 Every single template is going to get loaded with the following variables:
 
-## `now`
-
-A [DateTime](http://php.net/manual/en/class.datetime.php) object set to the current date and time.
-
-```twig
-Today is {{ now|date('M j, Y') }}.
-```
-
-## `siteName`
-
-The name of your site, as defined in Settings → Sites.
-
-```twig
-<h1>{{ siteName }}</h1>
-```
-
-## `siteUrl`
-
-The URL of your site
-
-```twig
-<link rel="home" href="{{ siteUrl }}">
-```
-
 ## `currentUser`
 
 A [UserModel](https://craftcms.com/docs/templating/usermodel) object set to the currently logged-in user (if there is one).
@@ -54,6 +30,30 @@ The URL Craft uses to log users out, based on the [logoutPath](https://docs.craf
 {% if currentUser %}
     <a href="{{ logoutUrl }}">Logout</a>
 {% endif %}
+```
+
+## `now`
+
+A [DateTime](http://php.net/manual/en/class.datetime.php) object set to the current date and time.
+
+```twig
+Today is {{ now|date('M j, Y') }}.
+```
+
+## `siteName`
+
+The name of your site, as defined in Settings → Sites.
+
+```twig
+<h1>{{ siteName }}</h1>
+```
+
+## `siteUrl`
+
+The URL of your site
+
+```twig
+<link rel="home" href="{{ siteUrl }}">
 ```
 
 ## Global Set Variables
