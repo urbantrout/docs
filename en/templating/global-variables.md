@@ -4,7 +4,7 @@ Every single template is going to get loaded with the following variables:
 
 ## `currentUser`
 
-A [UserModel](https://craftcms.com/docs/templating/usermodel) object set to the currently logged-in user (if there is one).
+The currently-logged-in user, represented by a [craft\elements\User](https://docs.craftcms.com/api/v3/craft-elements-user.html) object, or `null` if no one is logged in.
 
 ```twig
 {% if currentUser %}
@@ -58,7 +58,9 @@ The URL of your site
 
 ## Global Set Variables
 
-Each of your site’s [global sets](globals.md) get [GlobalSetModel](https://craftcms.com/docs/templating/globalsetmodel) object to represent them.
+Each of your site’s [global sets](../globals.md) will be available to your template as global variables, named after their handle.
+
+They will be represented as [craft\elements\GlobalSet](https://docs.craftcms.com/api/v3/craft-elements-globalset.html) objects.
 
 ```twig
 <p>{{ companyInfo.companyName }} was established in {{ companyInfo.yearEstablished }}.</p>
