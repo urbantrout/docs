@@ -2,7 +2,7 @@
 
 Craft calls all member accounts of the system “users”.
 
-The first user account is created during [installation](installing.md). If you stick with Craft Personal, this is the only account you will be able to create. If you need more, you will need to [upgrade](/pricing) to either Craft Client or Craft Pro, which offer additional user accounts.
+The first user account is created during [installation](installing.md). If you stick with the Solo edition, this is the only account you will be able to create. If you need more you can [upgrade](/pricing) to Craft Pro, which offers additional user accounts.
 
 ## Admin Accounts
 
