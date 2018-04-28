@@ -107,7 +107,7 @@ You can perform the following actions from the Edit Entry page:
 * Edit the entry’s title
 * Edit the entry’s slug
 * Edit the entry’s custom field content
-* Choose the entry’s author (Users required)
+* Choose the entry’s author (Pro edition only)
 * Choose the entry’s parent (if it’s within a Structure section)
 * Choose the entry’s Post Date
 * Choose the entry’s Expiration Date (optional)
