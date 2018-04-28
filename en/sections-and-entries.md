@@ -148,14 +148,14 @@ You can perform the following actions from the Edit Entry page:
 * Edit the entry’s title
 * Edit the entry’s slug
 * Edit the entry’s custom field content
-* Choose the entry’s author (Users required)
+* Choose the entry’s author (Pro edition only)
 * Choose the entry’s parent (if it’s within a Structure section)
 * Choose the entry’s Post Date
 * Choose the entry’s Expiration Date (optional)
 * Choose whether the entry is enabled or not
 * Save changes to the entry
-* Save a new draft of the entry (Craft Client or Craft Pro required)
-* Publish a draft (Craft Client or Craft Pro required)
-* View past versions of the entry (Craft Client or Craft Pro required)
+* Save a new draft of the entry
+* Publish a draft
+* View past versions of the entry
 
 If you leave the Post Date blank, Craft will automatically set it the first time an entry is saved as enabled.
