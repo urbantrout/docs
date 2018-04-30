@@ -38,7 +38,7 @@ Download the archive format you prefer to work with:
 
 Extract the archive wherever you want your new Craft project to live.
 
-> {note} If you’re on macOS, be careful not to lose the hidden files in there (`.env`, `.env.example`, `.gitignore`, and `web/.htaccess`).
+> {note} If you’re on macOS, be careful not to lose the hidden files in there (`.env`, `.env.example`, `.gitignore`, and `web/.htaccess`). Press `CMD + SHIFT + .` (command + shift + period) to see them before moving them to another folder.
 
 ### Directory Structure
 
