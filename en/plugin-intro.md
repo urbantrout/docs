@@ -65,7 +65,7 @@ Use this template as a starting point for your `composer.json` file:
   "type": "craft-plugin",
   "minimum-stability": "dev",
   "require": {
-    "craftcms/cms": "^3.0.0-RC1"
+    "craftcms/cms": "^3.0.0"
   },
   "autoload": {
     "psr-4": {

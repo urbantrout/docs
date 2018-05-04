@@ -36,7 +36,7 @@ Note that at the end of this, your “project root” (as referenced in other ar
 
 2. Run the following command to load Craft 3 (this will take a few minutes):
 
-        composer require craftcms/cms:^3.0.0-RC1
+        composer require craftcms/cms:^3.0.0
 
     Note: If Composer complains that your system doesn’t have PHP 7 installed, but you know it’s not an issue because Craft will run with a different PHP install (e.g. through MAMP or Vagrant), use the `--ignore-platform-reqs` flag.
 
