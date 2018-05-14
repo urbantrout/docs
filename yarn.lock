@@ -658,12 +658,12 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000839"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000839.tgz#55a86e402c74ae17149707bea3ea399522233497"
+  version "1.0.30000840"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000840.tgz#68d5a0f0694c92180b0d82e720d70f8e61366604"
 
 caniuse-lite@^1.0.30000835, caniuse-lite@^1.0.30000839:
-  version "1.0.30000839"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000839.tgz#41fcc036cf1cb77a0e0be041210f77f1ced44a7b"
+  version "1.0.30000840"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000840.tgz#344513f8f843536cf99694964c09811277eee395"
 
 capture-stack-trace@^1.0.0:
   version "1.0.0"
@@ -4810,8 +4810,8 @@ vuepress-html-webpack-plugin@^3.2.0:
     util.promisify "1.0.0"
 
 vuepress-theme-craftdocs@^1.0.0:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/vuepress-theme-craftdocs/-/vuepress-theme-craftdocs-1.0.3.tgz#a50f7e2305f46184e49f7f19b13d26f087850359"
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/vuepress-theme-craftdocs/-/vuepress-theme-craftdocs-1.0.4.tgz#999cce7d21797b2dd76d4028bcb0fb8fa1ef0fa7"
 
 vuepress@^0.8.4:
   version "0.8.4"
