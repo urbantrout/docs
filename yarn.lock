@@ -4814,8 +4814,8 @@ vuepress-html-webpack-plugin@^3.2.0:
     util.promisify "1.0.0"
 
 vuepress-theme-craftdocs@^1.0.0:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/vuepress-theme-craftdocs/-/vuepress-theme-craftdocs-1.0.4.tgz#999cce7d21797b2dd76d4028bcb0fb8fa1ef0fa7"
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/vuepress-theme-craftdocs/-/vuepress-theme-craftdocs-1.0.5.tgz#98a934207d4ac585f2f16ee9bca4a340b08f25ec"
 
 vuepress@^0.8.4:
   version "0.8.4"
