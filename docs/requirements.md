@@ -33,6 +33,7 @@ Craft requires the following PHP extensions:
 * [Reflection](http://php.net/manual/en/class.reflectionextension.php)
 * [SPL](http://php.net/manual/en/book.spl.php)
 * [Zip](https://secure.php.net/manual/en/book.zip.php)
+* [Mcrypt](http://php.net/manual/de/book.mcrypt.php)
 
 ## Optional PHP Extensions
 
